@@ -20,7 +20,8 @@ ${D.kind==="bd"?'<div class="bdteam" id="bdTeam" hidden></div>':''}
     <div class="call" id="call"></div>
     <div class="callsub" id="callsub"></div>
     <div class="state" id="state"></div>
-    ${D.kind==="bd"?'<button class="go op" id="bdReveal" type="button" hidden>오더 공개</button><div class="bdtip" id="bdTip" hidden aria-live="polite"><span class="c"></span><p></p></div>':''}
+    ${D.kind==="bd"?'<button class="go op" id="bdReveal" type="button" hidden>오더 공개</button>':''}
+    ${D.tips?K.tipBox("bdTip").replace('class="bdtip"','class="bdtip" style="--tipc:'+D.color+'"'):''}
     <div class="btnrow op">
       <button class="small" id="srvBtn" type="button">서브 바꾸기</button>
       <button class="small" id="flipBtn" type="button">좌우 바꾸기</button>
@@ -46,7 +47,7 @@ ${D.kind==="bd"?'<div class="bdteam" id="bdTeam" hidden></div>':''}
         <label>게임 점수 <select id="cfgPts">${D.ptsOpts.map(p=>'<option value="'+p+'">'+p+'점</option>').join("")}</select></label>
         <label>게임 수 <select id="cfgGames">${D.gameOpts.map(g=>'<option value="'+g+'">'+(g===1?"단판":g+"게임("+Math.ceil(g/2)+"선승)")+'</option>').join("")}</select></label>
         <label><input id="cfgFx" type="checkbox"> 득점 효과</label>
-        ${D.kind==="bd"?'<label><input id="cfgTips" type="checkbox"> 득점할 때 배드민턴 한마디(기술·전술·규칙·역사)</label>':''}
+        ${D.tips?'<label><input id="cfgTips" type="checkbox"> 득점할 때 '+D.name+' 한마디(기술·전술·규칙·역사·문화)</label>':''}
         ${D.kind==="pb"?'<label><input id="cfgDbl" type="checkbox"> 복식</label><label><input id="cfgRally" type="checkbox"> 랠리 스코어링</label>':''}
       </div>
       <div class="keys">${D.help}<br><kbd>←</kbd> 왼쪽 득점 · <kbd>→</kbd> 오른쪽 득점 · <kbd>S</kbd> 서브 바꾸기 · <kbd>Z</kbd> 되돌리기<br>
@@ -76,10 +77,11 @@ const sideOut=()=>D.kind==="pb"&&!S.cfg.rally;
 const switchAt=()=>D.kind==="tt"?5:D.kind==="bd"?Math.ceil(S.cfg.pts/2):Math.ceil(S.cfg.pts/2);
 /* ---------- 배드민턴: 한마디 · 단체전 · 비공개 오더 ---------- */
 const BD=D.kind==="bd";
+const HASTIP=!!D.tips;
 function showTip(){
-  if(!BD||!K.BD_TIPS)return;const box=$("bdTip");
+  if(!HASTIP||!K[D.tips])return;const box=$("bdTip");
   if(S.cfg.tips===false){box.hidden=true;return;}
-  K.tipShow(box,"bd",K.BD_TIPS);
+  K.tipShow(box,D.id,K[D.tips]);
 }
 function teamNew(){return{on:true,slots:["S","D","S"],rule:"decide",blind:false,reveal:"all",ros:[K.EX10[0].slice(0,6),K.EX10[1].slice(0,6)],ord:[[],[]],sub:[false,false],shown:-1,cur:0,res:[],over:null,rid:null};}
 const TM=()=>S.team&&S.team.on?S.team:null;
@@ -219,7 +221,7 @@ function point(t){
   save();draw();
   {const to=$("score"+t);K.bump(to);K.snd.chime();
    K.fx.play(D.kind==="tt"?"tt":D.kind==="bd"?"shuttle":"pickle",to,{from:$("score"+(1-t))});}
-  if(BD)showTip();
+  if(HASTIP)showTip();
   checkGame();
 }
 function checkGame(){
@@ -306,7 +308,8 @@ function draw(){
   $("cfgPts").value=String(C.pts);$("cfgGames").value=String(C.games);
   if(D.kind==="pb"){$("cfgDbl").checked=C.dbl;$("cfgRally").checked=C.rally;}
   $("cfgFx").checked=K.fx.on();
-  if(BD){$("cfgTips").checked=C.tips!==false;if(C.tips===false)$("bdTip").hidden=true;drawTeam();}
+  if(HASTIP){$("cfgTips").checked=C.tips!==false;if(C.tips===false)$("bdTip").hidden=true;}
+  if(BD)drawTeam();
 }
 function swapServe(){
   snap();
@@ -360,7 +363,7 @@ function teamChange(e){
   return false;
 }
 draw();
-if(BD&&S.cfg.tips!==false)showTip();
+if(HASTIP&&S.cfg.tips!==false)showTip();
 if(S.gameOver||S.over)showModal();
 return{
   record:makeRec,
@@ -376,10 +379,10 @@ return{
 };
 }};
 }
-MODS.tt=makeNet({id:"tt",kind:"tt",name:"탁구",sub:"11점 · 2점 차 · 서브 2개씩 교대",color:"var(--c-tt)",
+MODS.tt=makeNet({id:"tt",kind:"tt",tips:"TT_TIPS",name:"탁구",sub:"11점 · 2점 차 · 서브 2개씩 교대",color:"var(--c-tt)",
   ptsOpts:[11,21],gameOpts:[1,3,5,7],defGames:3,defNames:["홍팀","청팀"],
   help:"서브는 2개씩 번갈아 넣고, 10:10 듀스부터는 1개씩 번갈아 넣습니다. 게임마다 첫 서브가 바뀌고, 마지막 게임은 한쪽이 5점에 도달하면 코트를 바꿉니다."});
-MODS.bd=makeNet({id:"bd",kind:"bd",name:"배드민턴",sub:"21점 랠리포인트 · 서비스 코트 표시",color:"var(--c-bd)",
+MODS.bd=makeNet({id:"bd",kind:"bd",tips:"BD_TIPS",name:"배드민턴",sub:"21점 랠리포인트 · 서비스 코트 표시",color:"var(--c-bd)",
   ptsOpts:[21,15,11],gameOpts:[1,3],defGames:3,defNames:["홍팀","청팀"],
   help:"랠리를 이긴 쪽이 점수와 서브를 가져갑니다. 서버 점수가 짝수면 오른쪽, 홀수면 왼쪽 서비스 코트에서 서브합니다. 20:20부터는 2점 차, 29:29면 30점을 먼저 낸 쪽이 이깁니다(21점 기준). 마지막 게임은 11점에서 코트를 바꿉니다."});
 MODS.pb=makeNet({id:"pb",kind:"pb",name:"피클볼",sub:"11점 · 사이드아웃 스코어링 · 점수 콜",color:"var(--c-pb)",
