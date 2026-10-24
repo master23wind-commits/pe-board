@@ -20,7 +20,7 @@ ${D.kind==="bd"?'<div class="bdteam" id="bdTeam" hidden></div>':''}
     <div class="call" id="call"></div>
     <div class="callsub" id="callsub"></div>
     <div class="state" id="state"></div>
-    ${D.kind==="bd"?'<button class="go op" id="bdReveal" type="button" hidden>오더 공개</button><div class="bdtip" id="bdTip" hidden aria-live="polite"><span class="c" id="bdTipC"></span><p id="bdTipT"></p></div>':''}
+    ${D.kind==="bd"?'<button class="go op" id="bdReveal" type="button" hidden>오더 공개</button><div class="bdtip" id="bdTip" hidden aria-live="polite"><span class="c"></span><p></p></div>':''}
     <div class="btnrow op">
       <button class="small" id="srvBtn" type="button">서브 바꾸기</button>
       <button class="small" id="flipBtn" type="button">좌우 바꾸기</button>
@@ -76,14 +76,10 @@ const sideOut=()=>D.kind==="pb"&&!S.cfg.rally;
 const switchAt=()=>D.kind==="tt"?5:D.kind==="bd"?Math.ceil(S.cfg.pts/2):Math.ceil(S.cfg.pts/2);
 /* ---------- 배드민턴: 한마디 · 단체전 · 비공개 오더 ---------- */
 const BD=D.kind==="bd";
-const TIPQ="pe-bd-tipq";
 function showTip(){
   if(!BD||!K.BD_TIPS)return;const box=$("bdTip");
   if(S.cfg.tips===false){box.hidden=true;return;}
-  let q=K.load(TIPQ);if(!Array.isArray(q)||!q.length)q=K.shuf(K.BD_TIPS.map((_,i)=>i));
-  const i=q.shift();K.save(TIPQ,q);const tp=K.BD_TIPS[i];if(!tp)return;
-  $("bdTipC").textContent=K.BD_TIPCAT[tp[0]]||"";$("bdTipC").dataset.c=tp[0];$("bdTipT").textContent=tp[1];
-  box.hidden=false;box.classList.remove("on");void box.offsetWidth;box.classList.add("on");
+  K.tipShow(box,"bd",K.BD_TIPS);
 }
 function teamNew(){return{on:true,slots:["S","D","S"],rule:"decide",blind:false,reveal:"all",ros:[K.EX10[0].slice(0,6),K.EX10[1].slice(0,6)],ord:[[],[]],sub:[false,false],shown:-1,cur:0,res:[],over:null,rid:null};}
 const TM=()=>S.team&&S.team.on?S.team:null;

@@ -885,12 +885,13 @@ body.view .fixn{cursor:default;text-decoration:none;background:none}
 .fixv{font-family:var(--f-num);font-size:2.2rem;min-width:2.2ch;text-align:center;font-variant-numeric:tabular-nums}
 .fixh{font-size:.75rem;color:var(--muted)}
 /* 배드민턴 한마디 · 단체전 */
-.bdtip{margin-top:6px;max-width:30rem;width:100%;border:1px solid color-mix(in srgb,var(--c-bd) 55%,var(--line));background:color-mix(in srgb,var(--c-bd) 9%,transparent);border-radius:12px;padding:8px 12px;text-align:center;display:flex;flex-direction:column;gap:3px;align-items:center}
+.bdtip{--tipc:var(--c-bd);margin-top:6px;max-width:30rem;width:100%;border:1px solid color-mix(in srgb,var(--tipc) 55%,var(--line));background:color-mix(in srgb,var(--tipc) 9%,transparent);border-radius:12px;padding:8px 12px;text-align:center;display:flex;flex-direction:column;gap:3px;align-items:center}
 .bdtip[hidden]{display:none}
 .bdtip.on{animation:bdtipIn .5s ease-out}
 @keyframes bdtipIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.bdtip .c{font-size:.7rem;font-weight:700;letter-spacing:.05em;padding:1px 8px;border-radius:99px;background:var(--c-bd);color:#1a0610}
-.bdtip .c[data-c="r"]{background:var(--amber)}.bdtip .c[data-c="h"]{background:#a78bfa}.bdtip .c[data-c="s"]{background:#38bdf8}.bdtip .c[data-c="v"]{background:#4ade80}
+.bdtip .c{font-size:.7rem;font-weight:700;letter-spacing:.05em;padding:1px 8px;border-radius:99px;background:var(--tipc);color:#1a0610}
+.bdtip .c[data-c="r"]{background:var(--amber)}.bdtip .c[data-c="h"]{background:#a78bfa}.bdtip .c[data-c="s"]{background:#38bdf8}.bdtip .c[data-c="v"]{background:#4ade80}.bdtip .c[data-c="c"]{background:#f472b6}
+#vbTip{--tipc:var(--c-vb)}
 .bdtip p{margin:0;font-size:clamp(.88rem,1.6vw,1.05rem);line-height:1.45;color:var(--fg);word-break:keep-all}
 .view .bdtip p{font-size:clamp(1rem,2.2vw,1.4rem)}
 @media (prefers-reduced-motion:reduce){.bdtip.on{animation:none}}
@@ -1673,10 +1674,24 @@ K.fx=(()=>{
   };
 })();
 
+/* ================= 득점 한마디 공용 (게임 로딩 화면 팁처럼 득점마다 바뀌는 문구) =================
+   은행 형식 [영역, 문구]. 영역: t 기술 · s 전술 · r 규칙 · h 역사 · c 문화 · v 한마디(가치) */
+K.TIPCAT={t:"기술",s:"전술",r:"규칙",h:"역사",c:"문화",v:"한마디"};
+K.tipBox=id=>'<div class="bdtip" id="'+id+'" hidden aria-live="polite"><span class="c"></span><p></p></div>';
+/* 다 돌 때까지 겹치지 않게 섞은 순서를 기기에 저장해 두고 하나씩 꺼낸다 */
+K.tipShow=(box,key,bank)=>{
+  if(!box||!bank||!bank.length)return;
+  const QK="pe-tipq-"+key;let q=K.load(QK);
+  if(!Array.isArray(q)||!q.length||q.some(i=>i>=bank.length))q=K.shuf(bank.map((_,i)=>i));
+  const tp=bank[q.shift()];K.save(QK,q);if(!tp)return;
+  const c=box.querySelector(".c"),p=box.querySelector("p");
+  c.textContent=K.TIPCAT[tp[0]]||"";c.dataset.c=tp[0];p.textContent=tp[1];
+  box.hidden=false;box.classList.remove("on");void box.offsetWidth;box.classList.add("on");
+};
+
 /* ================= 배드민턴 한마디 (득점할 때마다 화면 가운데에 바뀌어 보이는 문구) =================
    [영역, 문구]  영역: t 기술 · s 전술 · r 규칙 · h 역사 · v 가치
    기술은 수행 방법을 핵심 단어로 짧게 적었어요. 실존 인물의 말을 지어 붙이지 않았어요. */
-K.BD_TIPCAT={t:"기술",s:"전술",r:"규칙",h:"역사",v:"한마디"};
 K.BD_TIPS=[
 /* 기술 */
 ["t","하이 클리어 — 옆으로 서기 · 팔꿈치 높이 · 가장 높은 점에서 · 손목 채찍"],
@@ -1761,6 +1776,92 @@ K.BD_TIPS=[
 ["v","상대의 좋은 샷에는 박수를 — 그것도 스포츠맨십이에요"],
 ["v","한 점 한 점에 집중 — 지난 점수는 이미 지나갔어요"],
 ["v","잘 쉬는 것도 실력이에요 — 쉬는 시간엔 숨을 고르고 물 한 모금"],
+];
+
+/* ================= 배구 한마디 (득점할 때마다 화면 가운데에 바뀌어 보이는 문구) =================
+   [영역, 문구]  t 기술 · s 전술 · r 규칙 · h 역사 · c 문화 · v 한마디(가치)
+   규칙은 국제배구연맹(FIVB) 6인제 기준. 학교 9인제는 학교·대회 규칙을 따르세요. */
+K.VB_TIPS=[
+/* 기술 — 수행 방법을 핵심 단어로 */
+["t","언더핸드 패스 — 두 손 모으기 · 팔꿈치 펴기 · 팔뚝 넓은 면으로 · 무릎으로 받쳐 올리기"],
+["t","언더핸드 패스 — 팔을 휘두르지 말고 판(플랫폼) 각도로 방향 만들기"],
+["t","오버핸드 토스 — 이마 앞 손 삼각형 · 손가락으로 받아 · 무릎과 팔을 함께 펴기"],
+["t","오버핸드 토스 — 공 밑으로 먼저 들어가기 · 손바닥이 아니라 손가락 끝으로"],
+["t","스파이크 — 도움닫기 3~4걸음 · 마지막 두 걸음 크게 · 양팔 뒤로 크게 흔들어 도약"],
+["t","스파이크 — 가장 높은 점에서 · 공의 위쪽을 · 손목을 덮듯이 채기"],
+["t","블로킹 — 네트 가까이 · 손바닥을 네트 위로 밀어 넣기 · 손가락은 넓게 · 두 발로 착지"],
+["t","블로킹 — 공이 아니라 공격수의 어깨와 팔을 보고 뛰기"],
+["t","플로터 서브 — 토스는 낮고 앞으로 · 손바닥 단단히 · 공 가운데를 짧게 끊어 치기"],
+["t","언더핸드 서브 — 공은 허리 앞 · 손목 고정 · 아래에서 앞으로 밀어 올리기"],
+["t","디그 — 낮은 자세 · 공 밑으로 팔 넣기 · 힘을 빼서 공의 속도 줄이기"],
+["t","준비 자세 — 발은 어깨너비 · 무릎 굽히기 · 몸무게는 발 앞쪽 · 팔은 몸 앞"],
+["t","리시브 — 공이 오는 쪽으로 발 먼저 · 몸 정면에서 받기"],
+["t","콜 — 내 공이면 크게 '마이!' · 말하지 않으면 둘 다 멈추거나 부딪쳐요"],
+["t","네트 앞 공 — 손으로 밀어 넣지 말고 손가락으로 툭 넘기거나 높게 띄우기"],
+["t","점프 서브 — 앞으로 높이 던진 공을 스파이크처럼 도약해 치기(충분히 익힌 뒤에)"],
+/* 전술 */
+["s","기본 공격 흐름 — 1구 리시브는 세터에게, 2구 토스, 3구 공격"],
+["s","리시브는 세터가 서 있는 곳보다 조금 높고 네트 가까이에"],
+["s","서브는 사람과 사람 사이, 코트 끝, 리시브가 약한 자리를 노려요"],
+["s","블로커 손을 맞고 나가게 때리는 것도 기술 — 블록 아웃(터치 아웃)"],
+["s","상대가 뒤로 물러나 있으면 강타 대신 빈 곳에 살짝 — 페인트"],
+["s","우리 공격수가 때릴 때 나머지는 주변을 둘러싸 블로킹에 막힌 공을 받아요 — 커버"],
+["s","상대 블로커가 낮은 쪽, 블로킹이 한 명뿐인 쪽으로 공격을 보내요"],
+["s","실점이 이어지면 작전 타임 — 흐름을 끊는 것도 작전이에요"],
+["s","서브는 강하게보다 먼저 정확하게 — 서브 실수는 상대에게 주는 점수예요"],
+["s","공을 넘길 때 높고 깊게 넘기면 수비가 다시 자리 잡을 시간을 벌어요"],
+["s","세터는 공격수의 컨디션과 상대 블로킹 위치를 보고 토스를 나눠요"],
+["s","뒷줄 선수도 공격선(3m) 뒤에서 뛰어오르면 공격할 수 있어요 — 백어택"],
+["s","빠른 속공과 시간차로 상대 블로커의 타이밍을 흔들어요"],
+["s","랠리가 길어지면 무리한 강타보다 실수 없는 연결이 먼저"],
+/* 규칙 (FIVB 6인제) */
+["r","1~4세트는 25점, 5세트는 15점 · 24:24부터는 2점 앞서야 이겨요"],
+["r","공을 넘기기 전 한 팀이 칠 수 있는 횟수는 3번 — 블로킹 접촉은 세지 않아요"],
+["r","한 선수가 연속으로 두 번 치면 반칙(블로킹 다음은 예외)"],
+["r","공을 잡거나 던지듯 넘기면 반칙 — 캐치볼"],
+["r","플레이 중 네트를 건드리면 반칙 — 네트 터치"],
+["r","발이 센터 라인을 완전히 넘어 상대 코트를 밟으면 반칙"],
+["r","안테나 바깥으로 넘어가거나 안테나에 맞은 공은 아웃"],
+["r","라인에 떨어진 공은 인 — 라인도 코트예요"],
+["r","서브는 휘슬이 울린 뒤 8초 안에"],
+["r","서브권을 가져온 팀은 시계 방향으로 한 칸씩 자리를 돌아요 — 로테이션"],
+["r","서브 순서(로테이션)가 틀리면 상대에게 점수를 줘요"],
+["r","뒷줄 선수는 공격선 앞에서 네트보다 높은 공을 상대 쪽으로 때릴 수 없어요"],
+["r","리베로는 블로킹과 네트 위 공격을 할 수 없어요"],
+["r","작전 타임은 세트마다 팀당 2번, 30초씩"],
+["r","선수 교체는 세트마다 팀당 6번까지(리베로 교대는 따로)"],
+["r","랠리 포인트 — 서브권과 관계없이 랠리를 이긴 팀이 1점"],
+/* 역사 */
+["h","배구는 1895년 미국 홀리오크 YMCA의 윌리엄 G. 모건이 만들었어요"],
+["h","처음 이름은 '민토네트' — 공을 주고받는 모습을 보고 '발리볼'이 됐어요"],
+["h","배구는 1964년 도쿄 올림픽에서 정식 종목이 됐어요"],
+["h","1976년 몬트리올 올림픽 여자 배구 동메달 — 우리나라 구기 종목 첫 올림픽 메달"],
+["h","비치발리볼은 1996년 애틀랜타 올림픽에서 정식 종목이 됐어요"],
+["h","서브권이 있을 때만 점수를 얻던 방식에서 1999년 무렵 랠리 포인트로 바뀌었어요"],
+["h","수비 전문 선수 리베로는 1990년대 말 국제 경기에 도입됐어요"],
+["h","국제배구연맹(FIVB)은 1947년 프랑스 파리에서 만들어졌어요"],
+["h","한국 프로배구 V-리그는 2005년에 시작했어요"],
+["h","9인제 배구는 동아시아에서 널리 퍼져 지금도 학교와 생활체육에서 많이 해요"],
+/* 문화 */
+["c","점수가 나면 이겨도 져도 코트 가운데 모여 손을 마주쳐요 — 배구의 대표 문화"],
+["c","리베로는 다른 색 유니폼을 입어요 — 심판이 한눈에 알아보도록"],
+["c","블로커는 등 뒤로 손가락 신호를 보내 동료에게 블로킹 작전을 알려요"],
+["c","서브 하나만을 위해 들어가는 선수가 있어요 — 원 포인트 서버"],
+["c","세터는 '코트의 사령관' — 누구에게 공을 줄지 정하는 자리예요"],
+["c","배구는 몸싸움 없이 네트를 사이에 두고 겨루는 대표적인 네트형 종목이에요"],
+["c","경기 전후 네트를 사이에 두고 상대와 악수해요"],
+["c","판정이 애매할 때는 영상으로 다시 보는 비디오 판독을 요청하기도 해요"],
+/* 한마디(가치) */
+["v","배구는 혼자서 점수를 낼 수 없어요 — 세 번의 연결이 한 팀을 만들어요"],
+["v","실수한 친구에게 먼저 다가가 손을 마주쳐 주세요"],
+["v","공이 바닥에 닿기 전까지는 포기하지 않아요"],
+["v","리시브 하나가 스파이크 열 개만큼 소중해요"],
+["v","점수를 내준 순간이 팀이 하나 되는 순간이에요"],
+["v","네트 너머 상대 덕분에 우리가 더 잘하게 돼요 — 상대를 존중해요"],
+["v","크게 외치는 '마이!'가 팀을 지켜요 — 소통은 실력이에요"],
+["v","잘한 플레이는 모두 함께 기뻐하고, 실수는 모두 함께 책임져요"],
+["v","강한 스파이크보다 끝까지 따라간 한 걸음이 더 멋져요"],
+["v","판정은 존중하고, 다음 랠리에 집중해요"],
 ];
 
 /* ================= 농구 3대3 ================= */
@@ -2578,6 +2679,7 @@ html:`
       <div class="btnrow op"><button class="small" id="netMinus" type="button">−1</button><button class="small" id="netReset" type="button">랠리 0으로</button></div>
     </div>
     <div class="btnrow op"><button class="small" id="serveBtn" type="button">서브 바꾸기</button><button class="small" id="undoBtn" type="button">되돌리기</button></div>
+    ${K.tipBox("vbTip")}
   </section>
   <section class="team" data-t="1">
     <input class="tname" id="tname1" aria-label="팀 이름">
@@ -2631,6 +2733,7 @@ html:`
         <label><input id="cfgDeuce" type="checkbox"> 듀스(2점 차 승리)</label>
         <label>빙고 1줄 보너스 <input id="cfgBonus" type="number" min="0" max="20">점</label>
         <label><input id="cfgReset" type="checkbox"> 세트마다 빙고 새로 시작</label>
+        <label><input id="cfgTips" type="checkbox"> 득점할 때 배구 한마디(기술·전술·규칙·역사·문화)</label>
       </div>
       <div class="names">
         <div><div class="nh"><span id="nl0">홍팀 명단</span><button class="small" type="button" data-shuf="0">빙고 칸 섞기</button></div><textarea id="nm0" aria-label="홍팀 명단"></textarea></div>
@@ -2689,7 +2792,7 @@ function award(t,cell){
   S.serve=t;S.rally=0;
   S.log.unshift({t,pts,bonus,lines:newLines.length,rally:S.cfg.bomb?rally:null,who:(S.cfg.bingo&&cell>=0)?nm(T,who):null,rot:six()&&sideOut?server(t):null,set:S.setNo});
   if(S.log.length>60)S.log.pop();
-  save();freshCell={t,i:cell};draw();K.bump($("score"+t));K.fx.play("spike",$("score"+t),{text:"+"+(pts+bonus)});
+  save();freshCell={t,i:cell};draw();K.bump($("score"+t));K.fx.play("spike",$("score"+t),{text:"+"+(pts+bonus)});if(S.cfg.tips!==false)K.tipShow($("vbTip"),"vb",K.VB_TIPS);
   if(newLines.length){K.snd.fanfare();K.toast(T.name+" 빙고 "+newLines.length+"줄 완성! 보너스 +"+bonus+"점","bingo",3600);}
   else if(S.cfg.bomb&&pts>=3){K.snd.boom();const bp=$("bombp");bp.classList.remove("boom");void bp.offsetWidth;bp.classList.add("boom");K.toast("펑! "+T.name+" 랠리 "+rally+"회로 "+pts+"점","bad",2600);}
   else if(six()&&sideOut){K.snd.bonus();K.toast(T.name+" 서브권! 시계 방향으로 한 칸 이동 · 서브: "+server(t),"",3000);}
@@ -2766,7 +2869,7 @@ function draw(){
   const C=S.cfg;
   R.querySelectorAll("[data-fmt]").forEach(b=>b.setAttribute("aria-pressed",String(+b.dataset.fmt===C.fmt)));
   $("bombp").hidden=!C.bomb;$("bingos").hidden=!C.bingo;$("rotwrap").hidden=!six();
-  $("modeBomb").checked=C.bomb;$("modeBingo").checked=C.bingo;
+  $("modeBomb").checked=C.bomb;$("modeBingo").checked=C.bingo;$("cfgTips").checked=C.tips!==false;if(C.tips===false)$("vbTip").hidden=true;
   $("ruleLine").textContent=C.fmt+"인제 · 랠리포인트 · "+C.target+"점"+(C.sets>1?" · "+C.sets+"세트("+need()+"선승) · 마지막 "+C.final+"점":" · 단판")+(C.deuce?" · 듀스":"");
   $("setno").innerHTML=(C.sets>1?S.setNo+"세트":"단판")+"<small>"+tgt()+"점"+(isFinal()?" · 마지막 세트":"")+"</small>";
   $("hist").innerHTML=S.hist.map((h,i)=>"<span>"+(i+1)+"세트 <b class=\"w"+h.w+"\">"+h.s[0]+":"+h.s[1]+"</b></span>").join("");
@@ -2859,6 +2962,7 @@ R.addEventListener("change",e=>{
     while(list.length<min)list.push("선수 "+(list.length+1));
     snap();setNames(t,list);sel=null;save();draw();return;
   }
+  if(el.id==="cfgTips"){S.cfg.tips=el.checked;save();if(el.checked)K.tipShow($("vbTip"),"vb",K.VB_TIPS);else $("vbTip").hidden=true;return;}
   if(!["cfgTarget","cfgFinal","cfgSets","cfgDeuce","cfgBonus","cfgReset"].includes(el.id))return;
   const C=S.cfg;
   C.target=Math.max(5,Math.min(99,+$("cfgTarget").value||25));C.final=Math.max(5,Math.min(99,+$("cfgFinal").value||15));
@@ -2866,6 +2970,7 @@ R.addEventListener("change",e=>{
   save();draw();
 });
 draw();
+if(S.cfg.tips!==false)K.tipShow($("vbTip"),"vb",K.VB_TIPS);
 if(S.setOver||S.over)showModal();
 return{
   record:makeRec,
@@ -2900,7 +3005,7 @@ ${D.kind==="bd"?'<div class="bdteam" id="bdTeam" hidden></div>':''}
     <div class="call" id="call"></div>
     <div class="callsub" id="callsub"></div>
     <div class="state" id="state"></div>
-    ${D.kind==="bd"?'<button class="go op" id="bdReveal" type="button" hidden>오더 공개</button><div class="bdtip" id="bdTip" hidden aria-live="polite"><span class="c" id="bdTipC"></span><p id="bdTipT"></p></div>':''}
+    ${D.kind==="bd"?'<button class="go op" id="bdReveal" type="button" hidden>오더 공개</button><div class="bdtip" id="bdTip" hidden aria-live="polite"><span class="c"></span><p></p></div>':''}
     <div class="btnrow op">
       <button class="small" id="srvBtn" type="button">서브 바꾸기</button>
       <button class="small" id="flipBtn" type="button">좌우 바꾸기</button>
@@ -2956,14 +3061,10 @@ const sideOut=()=>D.kind==="pb"&&!S.cfg.rally;
 const switchAt=()=>D.kind==="tt"?5:D.kind==="bd"?Math.ceil(S.cfg.pts/2):Math.ceil(S.cfg.pts/2);
 /* ---------- 배드민턴: 한마디 · 단체전 · 비공개 오더 ---------- */
 const BD=D.kind==="bd";
-const TIPQ="pe-bd-tipq";
 function showTip(){
   if(!BD||!K.BD_TIPS)return;const box=$("bdTip");
   if(S.cfg.tips===false){box.hidden=true;return;}
-  let q=K.load(TIPQ);if(!Array.isArray(q)||!q.length)q=K.shuf(K.BD_TIPS.map((_,i)=>i));
-  const i=q.shift();K.save(TIPQ,q);const tp=K.BD_TIPS[i];if(!tp)return;
-  $("bdTipC").textContent=K.BD_TIPCAT[tp[0]]||"";$("bdTipC").dataset.c=tp[0];$("bdTipT").textContent=tp[1];
-  box.hidden=false;box.classList.remove("on");void box.offsetWidth;box.classList.add("on");
+  K.tipShow(box,"bd",K.BD_TIPS);
 }
 function teamNew(){return{on:true,slots:["S","D","S"],rule:"decide",blind:false,reveal:"all",ros:[K.EX10[0].slice(0,6),K.EX10[1].slice(0,6)],ord:[[],[]],sub:[false,false],shown:-1,cur:0,res:[],over:null,rid:null};}
 const TM=()=>S.team&&S.team.on?S.team:null;

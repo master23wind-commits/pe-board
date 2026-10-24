@@ -872,12 +872,13 @@ body.view .fixn{cursor:default;text-decoration:none;background:none}
 .fixv{font-family:var(--f-num);font-size:2.2rem;min-width:2.2ch;text-align:center;font-variant-numeric:tabular-nums}
 .fixh{font-size:.75rem;color:var(--muted)}
 /* 배드민턴 한마디 · 단체전 */
-.bdtip{margin-top:6px;max-width:30rem;width:100%;border:1px solid color-mix(in srgb,var(--c-bd) 55%,var(--line));background:color-mix(in srgb,var(--c-bd) 9%,transparent);border-radius:12px;padding:8px 12px;text-align:center;display:flex;flex-direction:column;gap:3px;align-items:center}
+.bdtip{--tipc:var(--c-bd);margin-top:6px;max-width:30rem;width:100%;border:1px solid color-mix(in srgb,var(--tipc) 55%,var(--line));background:color-mix(in srgb,var(--tipc) 9%,transparent);border-radius:12px;padding:8px 12px;text-align:center;display:flex;flex-direction:column;gap:3px;align-items:center}
 .bdtip[hidden]{display:none}
 .bdtip.on{animation:bdtipIn .5s ease-out}
 @keyframes bdtipIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.bdtip .c{font-size:.7rem;font-weight:700;letter-spacing:.05em;padding:1px 8px;border-radius:99px;background:var(--c-bd);color:#1a0610}
-.bdtip .c[data-c="r"]{background:var(--amber)}.bdtip .c[data-c="h"]{background:#a78bfa}.bdtip .c[data-c="s"]{background:#38bdf8}.bdtip .c[data-c="v"]{background:#4ade80}
+.bdtip .c{font-size:.7rem;font-weight:700;letter-spacing:.05em;padding:1px 8px;border-radius:99px;background:var(--tipc);color:#1a0610}
+.bdtip .c[data-c="r"]{background:var(--amber)}.bdtip .c[data-c="h"]{background:#a78bfa}.bdtip .c[data-c="s"]{background:#38bdf8}.bdtip .c[data-c="v"]{background:#4ade80}.bdtip .c[data-c="c"]{background:#f472b6}
+#vbTip{--tipc:var(--c-vb)}
 .bdtip p{margin:0;font-size:clamp(.88rem,1.6vw,1.05rem);line-height:1.45;color:var(--fg);word-break:keep-all}
 .view .bdtip p{font-size:clamp(1rem,2.2vw,1.4rem)}
 @media (prefers-reduced-motion:reduce){.bdtip.on{animation:none}}

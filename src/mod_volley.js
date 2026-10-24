@@ -42,6 +42,7 @@ html:`
       <div class="btnrow op"><button class="small" id="netMinus" type="button">−1</button><button class="small" id="netReset" type="button">랠리 0으로</button></div>
     </div>
     <div class="btnrow op"><button class="small" id="serveBtn" type="button">서브 바꾸기</button><button class="small" id="undoBtn" type="button">되돌리기</button></div>
+    ${K.tipBox("vbTip")}
   </section>
   <section class="team" data-t="1">
     <input class="tname" id="tname1" aria-label="팀 이름">
@@ -95,6 +96,7 @@ html:`
         <label><input id="cfgDeuce" type="checkbox"> 듀스(2점 차 승리)</label>
         <label>빙고 1줄 보너스 <input id="cfgBonus" type="number" min="0" max="20">점</label>
         <label><input id="cfgReset" type="checkbox"> 세트마다 빙고 새로 시작</label>
+        <label><input id="cfgTips" type="checkbox"> 득점할 때 배구 한마디(기술·전술·규칙·역사·문화)</label>
       </div>
       <div class="names">
         <div><div class="nh"><span id="nl0">홍팀 명단</span><button class="small" type="button" data-shuf="0">빙고 칸 섞기</button></div><textarea id="nm0" aria-label="홍팀 명단"></textarea></div>
@@ -153,7 +155,7 @@ function award(t,cell){
   S.serve=t;S.rally=0;
   S.log.unshift({t,pts,bonus,lines:newLines.length,rally:S.cfg.bomb?rally:null,who:(S.cfg.bingo&&cell>=0)?nm(T,who):null,rot:six()&&sideOut?server(t):null,set:S.setNo});
   if(S.log.length>60)S.log.pop();
-  save();freshCell={t,i:cell};draw();K.bump($("score"+t));K.fx.play("spike",$("score"+t),{text:"+"+(pts+bonus)});
+  save();freshCell={t,i:cell};draw();K.bump($("score"+t));K.fx.play("spike",$("score"+t),{text:"+"+(pts+bonus)});if(S.cfg.tips!==false)K.tipShow($("vbTip"),"vb",K.VB_TIPS);
   if(newLines.length){K.snd.fanfare();K.toast(T.name+" 빙고 "+newLines.length+"줄 완성! 보너스 +"+bonus+"점","bingo",3600);}
   else if(S.cfg.bomb&&pts>=3){K.snd.boom();const bp=$("bombp");bp.classList.remove("boom");void bp.offsetWidth;bp.classList.add("boom");K.toast("펑! "+T.name+" 랠리 "+rally+"회로 "+pts+"점","bad",2600);}
   else if(six()&&sideOut){K.snd.bonus();K.toast(T.name+" 서브권! 시계 방향으로 한 칸 이동 · 서브: "+server(t),"",3000);}
@@ -230,7 +232,7 @@ function draw(){
   const C=S.cfg;
   R.querySelectorAll("[data-fmt]").forEach(b=>b.setAttribute("aria-pressed",String(+b.dataset.fmt===C.fmt)));
   $("bombp").hidden=!C.bomb;$("bingos").hidden=!C.bingo;$("rotwrap").hidden=!six();
-  $("modeBomb").checked=C.bomb;$("modeBingo").checked=C.bingo;
+  $("modeBomb").checked=C.bomb;$("modeBingo").checked=C.bingo;$("cfgTips").checked=C.tips!==false;if(C.tips===false)$("vbTip").hidden=true;
   $("ruleLine").textContent=C.fmt+"인제 · 랠리포인트 · "+C.target+"점"+(C.sets>1?" · "+C.sets+"세트("+need()+"선승) · 마지막 "+C.final+"점":" · 단판")+(C.deuce?" · 듀스":"");
   $("setno").innerHTML=(C.sets>1?S.setNo+"세트":"단판")+"<small>"+tgt()+"점"+(isFinal()?" · 마지막 세트":"")+"</small>";
   $("hist").innerHTML=S.hist.map((h,i)=>"<span>"+(i+1)+"세트 <b class=\"w"+h.w+"\">"+h.s[0]+":"+h.s[1]+"</b></span>").join("");
@@ -323,6 +325,7 @@ R.addEventListener("change",e=>{
     while(list.length<min)list.push("선수 "+(list.length+1));
     snap();setNames(t,list);sel=null;save();draw();return;
   }
+  if(el.id==="cfgTips"){S.cfg.tips=el.checked;save();if(el.checked)K.tipShow($("vbTip"),"vb",K.VB_TIPS);else $("vbTip").hidden=true;return;}
   if(!["cfgTarget","cfgFinal","cfgSets","cfgDeuce","cfgBonus","cfgReset"].includes(el.id))return;
   const C=S.cfg;
   C.target=Math.max(5,Math.min(99,+$("cfgTarget").value||25));C.final=Math.max(5,Math.min(99,+$("cfgFinal").value||15));
@@ -330,6 +333,7 @@ R.addEventListener("change",e=>{
   save();draw();
 });
 draw();
+if(S.cfg.tips!==false)K.tipShow($("vbTip"),"vb",K.VB_TIPS);
 if(S.setOver||S.over)showModal();
 return{
   record:makeRec,
