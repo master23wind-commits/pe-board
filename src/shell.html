@@ -871,6 +871,47 @@ body.view .fixn{cursor:default;text-decoration:none;background:none}
 .fixrow .fixm{background:color-mix(in srgb,var(--alert) 22%,transparent);border-color:var(--alert)}
 .fixv{font-family:var(--f-num);font-size:2.2rem;min-width:2.2ch;text-align:center;font-variant-numeric:tabular-nums}
 .fixh{font-size:.75rem;color:var(--muted)}
+/* 배드민턴 한마디 · 단체전 */
+.bdtip{margin-top:6px;max-width:30rem;width:100%;border:1px solid color-mix(in srgb,var(--c-bd) 55%,var(--line));background:color-mix(in srgb,var(--c-bd) 9%,transparent);border-radius:12px;padding:8px 12px;text-align:center;display:flex;flex-direction:column;gap:3px;align-items:center}
+.bdtip[hidden]{display:none}
+.bdtip.on{animation:bdtipIn .5s ease-out}
+@keyframes bdtipIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.bdtip .c{font-size:.7rem;font-weight:700;letter-spacing:.05em;padding:1px 8px;border-radius:99px;background:var(--c-bd);color:#1a0610}
+.bdtip .c[data-c="r"]{background:var(--amber)}.bdtip .c[data-c="h"]{background:#a78bfa}.bdtip .c[data-c="s"]{background:#38bdf8}.bdtip .c[data-c="v"]{background:#4ade80}
+.bdtip p{margin:0;font-size:clamp(.88rem,1.6vw,1.05rem);line-height:1.45;color:var(--fg);word-break:keep-all}
+.view .bdtip p{font-size:clamp(1rem,2.2vw,1.4rem)}
+@media (prefers-reduced-motion:reduce){.bdtip.on{animation:none}}
+.bdteam{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:8px 12px;margin-bottom:10px;display:flex;flex-direction:column;gap:6px}
+.bdteam[hidden]{display:none}
+.bdt-top{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.bdt-top .lbl{font-size:.8rem;color:var(--muted)}
+.bdt-top .r{color:var(--red)}.bdt-top .b{color:var(--blue)}
+.bdt-top .sc{font-family:var(--f-num);font-size:1.9rem;line-height:1;color:var(--amber)}
+.bdt-pills{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.bdt-pills .pill.now{border-color:var(--amber);color:var(--amber)}
+.bdt-pills .pill.w0{border-color:var(--red)}.bdt-pills .pill.w1{border-color:var(--blue)}
+.tpl{font-size:.9rem;color:var(--muted);text-align:center;min-height:1.3em}
+.tpl[hidden]{display:none}
+.tpl b{color:var(--fg);font-size:1.05rem}
+.tpl .hid,.bdo .hid{color:var(--muted);font-style:italic}
+.tpl.pop{animation:bdtipIn .6s ease-out}
+.bdtm{margin-top:12px;display:flex;flex-direction:column;gap:10px;overflow-x:auto}
+.bdh-row{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.bdh-row h4{margin:0}
+.bdh{font-size:.82rem;color:var(--muted);margin:0}
+.bdslots{display:flex;gap:6px;flex-wrap:wrap}
+.bdo{width:100%;border-collapse:collapse;font-size:.9rem}
+.bdo th,.bdo td{border-bottom:1px solid var(--line);padding:5px 6px;text-align:left;vertical-align:middle}
+.bdo tr.now td{background:color-mix(in srgb,var(--amber) 10%,transparent)}
+.bdo select,.bdor select{max-width:9em;margin:1px 2px}
+.bdsub{display:flex;gap:10px;flex-wrap:wrap}
+.bdsubc{flex:1;min-width:12rem;border:1px dashed var(--line);border-radius:10px;padding:8px 10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bdsubc.done{border-style:solid;border-color:var(--ok)}
+.bdwarn{color:var(--amber);font-size:.85rem;margin:0}
+.bdom .card{text-align:left;max-width:520px}
+.bdog{display:flex;flex-direction:column;gap:8px}
+.bdor{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.bdor span{min-width:4em;font-weight:700}
 .fixcards{display:flex;gap:4px;justify-content:center;align-items:center}
 .fixc{display:inline-flex;align-items:center;gap:2px;font-size:.85rem;padding:0 3px}
 .fixc.zero{opacity:.35}
