@@ -3069,11 +3069,11 @@ return{
 function makeNet(D){
 return {name:D.name,sub:D.sub,color:D.color,
 html:`
-${D.kind==="bd"?'<div class="bdteam" id="bdTeam" hidden></div>':''}
+${D.team?'<div class="bdteam" id="bdTeam" hidden></div>':''}
 <div class="board" id="nboard">
   <section class="team" data-t="0">
     <input class="tname" id="tname0" aria-label="선수 또는 팀 이름">
-    ${D.kind==="bd"?'<div class="tpl" id="tpl0" hidden></div>':''}
+    ${D.team?'<div class="tpl" id="tpl0" hidden></div>':''}
     <div class="serve" id="serve0">${K.SERVE_SVG}<span id="servet0">서브</span></div>
     <div class="score" id="score0">0</div>
     <div class="tmeta"><div class="stat"><div class="dots" id="gm0"></div><span>이긴 게임</span></div></div>
@@ -3087,7 +3087,7 @@ ${D.kind==="bd"?'<div class="bdteam" id="bdTeam" hidden></div>':''}
     <div class="call" id="call"></div>
     <div class="callsub" id="callsub"></div>
     <div class="state" id="state"></div>
-    ${D.kind==="bd"?'<button class="go op" id="bdReveal" type="button" hidden>오더 공개</button>':''}
+    ${D.team?'<button class="go op" id="bdReveal" type="button" hidden>오더 공개</button>':''}
     ${D.tips?K.tipBox("bdTip").replace('class="bdtip"','class="bdtip" style="--tipc:'+D.color+'"'):''}
     <div class="btnrow op">
       <button class="small" id="srvBtn" type="button">서브 바꾸기</button>
@@ -3097,7 +3097,7 @@ ${D.kind==="bd"?'<div class="bdteam" id="bdTeam" hidden></div>':''}
   </section>
   <section class="team" data-t="1">
     <input class="tname" id="tname1" aria-label="선수 또는 팀 이름">
-    ${D.kind==="bd"?'<div class="tpl" id="tpl1" hidden></div>':''}
+    ${D.team?'<div class="tpl" id="tpl1" hidden></div>':''}
     <div class="serve" id="serve1">${K.SERVE_SVG}<span id="servet1">서브</span></div>
     <div class="score" id="score1">0</div>
     <div class="tmeta"><div class="stat"><div class="dots" id="gm1"></div><span>이긴 게임</span></div></div>
@@ -3123,7 +3123,7 @@ ${D.kind==="bd"?'<div class="bdteam" id="bdTeam" hidden></div>':''}
     </div>
   </div>
 </div>
-${D.kind==="bd"?'<div class="box op bdtm" id="bdTm"></div><div class="modal bdom" id="bdOrd" hidden role="dialog" aria-modal="true"><div class="card" id="bdOrdCard"></div></div>':''}`,
+${D.team?'<div class="box op bdtm" id="bdTm"></div><div class="modal bdom" id="bdOrd" hidden role="dialog" aria-modal="true"><div class="card" id="bdOrdCard"></div></div>':''}`,
 init(ctx){
 const $=K.$,R=ctx.root,KEY="pe-"+D.id,esc=K.esc;
 function fresh(cfg,names){
@@ -3142,15 +3142,15 @@ const isFinal=()=>S.gameNo===S.cfg.games;
 const cap=()=>D.kind==="bd"?S.cfg.pts+9:null;
 const sideOut=()=>D.kind==="pb"&&!S.cfg.rally;
 const switchAt=()=>D.kind==="tt"?5:D.kind==="bd"?Math.ceil(S.cfg.pts/2):Math.ceil(S.cfg.pts/2);
-/* ---------- 배드민턴: 한마디 · 단체전 · 비공개 오더 ---------- */
-const BD=D.kind==="bd";
+/* ---------- 득점 한마디 · 단체전 · 비공개 오더 (D.team이 있는 종목: 배드민턴·탁구) ---------- */
+const BD=!!D.team;
 const HASTIP=!!D.tips;
 function showTip(){
   if(!HASTIP||!K[D.tips])return;const box=$("bdTip");
   if(S.cfg.tips===false){box.hidden=true;return;}
   K.tipShow(box,D.id,K[D.tips]);
 }
-function teamNew(){return{on:true,slots:["S","D","S"],rule:"decide",blind:false,reveal:"all",ros:[K.EX10[0].slice(0,6),K.EX10[1].slice(0,6)],ord:[[],[]],sub:[false,false],shown:-1,cur:0,res:[],over:null,rid:null};}
+function teamNew(){return{on:true,slots:D.team.slots.slice(),rule:"decide",blind:false,reveal:"all",ros:[K.EX10[0].slice(0,6),K.EX10[1].slice(0,6)],ord:[[],[]],sub:[false,false],shown:-1,cur:0,res:[],over:null,rid:null};}
 const TM=()=>S.team&&S.team.on?S.team:null;
 const tNeed=T=>Math.floor(T.slots.length/2)+1;
 const tWins=T=>[0,1].map(t=>T.res.filter(r=>r.w===t).length);
@@ -3163,11 +3163,12 @@ function pnames(T,t,i){return ordOf(T,t,i).filter(Boolean).join(" · ");}
 function teamReady(){const T=TM();if(!T)return true;if(T.over)return false;
   if(!filled(T,0,T.cur)||!filled(T,1,T.cur))return T.blind?"두 팀 모두 비공개 오더를 제출해 주세요":"단체전 오더에서 이번 경기 선수를 정해 주세요";
   if(!isShown(T,T.cur))return "오더를 공개해 주세요";return true;}
+const MAXS=(D.team&&D.team.maxS)||1;
 function ordWarn(T,t){
-  const w=[],seen={S:{},D:{}};
+  const w=[],cnt={S:{},D:{}},lim={S:MAXS,D:1};
   T.slots.forEach((k,i)=>{const o=ordOf(T,t,i).filter(Boolean);
     if(k==="D"&&o.length===2&&o[0]===o[1])w.push(slotName(T,i)+"에 같은 선수가 두 번 들어갔어요");
-    o.forEach(n=>{if(seen[k][n])w.push(n+" 선수가 "+(k==="D"?"복식":"단식")+"에 두 번 나와요");seen[k][n]=1;});});
+    o.forEach(n=>{cnt[k][n]=(cnt[k][n]||0)+1;if(cnt[k][n]===lim[k]+1)w.push(n+" 선수가 "+(k==="D"?"복식":"단식")+"에 "+(lim[k]+1)+"번 나와요");});});
   return [...new Set(w)];
 }
 function ordSelects(T,t,i,src,attr){
@@ -3208,7 +3209,7 @@ function drawTeam(){
   }
   const warns=T.blind&&T.shown<0?[]:[0,1].flatMap(t=>ordWarn(T,t).map(w=>S.names[t]+": "+w));
   if(warns.length)h+="<p class=\"bdwarn\">⚠ "+warns.map(esc).join("<br>⚠ ")+"</p>";
-  h+="<p class=\"bdh\">같은 선수가 단식에 두 번, 복식에 두 번 나오면 경고만 보여 줘요(대회 규정에 맞게 조절하세요). 한 경기가 끝나면 결과 창의 '다음 경기'로 넘어가요.</p>";
+  h+="<p class=\"bdh\">같은 선수가 단식에 "+(MAXS+1)+"번 이상, 복식에 2번 이상 나오면 경고만 보여 줘요(대회 규정에 맞게 조절하세요). 한 경기가 끝나면 결과 창의 '다음 경기'로 넘어가요.</p>";
   box.innerHTML=h;
 }
 let draft=null,draftT=0;
@@ -3233,7 +3234,7 @@ function revealCur(){const T=TM();if(!T)return;snap();T.shown=T.reveal==="all"?T
   [0,1].forEach(t=>{const el=$("tpl"+t);if(el){el.classList.remove("pop");void el.offsetWidth;el.classList.add("pop");}});}
 function teamRec(){
   const T=TM();if(!T)return null;if(!T.rid)T.rid=K.newId();const W=tWins(T);
-  return{id:T.rid,sport:"bd",sportName:"배드민턴 단체전",at:Date.now(),done:!!T.over,teams:S.names.map((n,i)=>({name:n,score:W[i]})),
+  return{id:T.rid,sport:D.id,sportName:D.name+" 단체전",at:Date.now(),done:!!T.over,teams:S.names.map((n,i)=>({name:n,score:W[i]})),
     winner:T.over?S.names[T.over.w]:null,summary:W[0]+" : "+W[1],
     details:[T.slots.length+"경기("+T.slots.map((k,i)=>slotName(T,i)).join("·")+")"+(T.blind?" · 비공개 오더":"")].concat(T.res.map((r,i)=>slotName(T,i)+" "+pnames(T,0,i)+" vs "+pnames(T,1,i)+" → "+S.names[r.w]+" 승 ("+r.sc+")")),
     players:[]};
@@ -3446,10 +3447,10 @@ return{
 };
 }};
 }
-MODS.tt=makeNet({id:"tt",kind:"tt",tips:"TT_TIPS",name:"탁구",sub:"11점 · 2점 차 · 서브 2개씩 교대",color:"var(--c-tt)",
+MODS.tt=makeNet({id:"tt",kind:"tt",tips:"TT_TIPS",team:{slots:["S","S","D","S","S"],maxS:2},name:"탁구",sub:"11점 · 2점 차 · 서브 2개씩 교대",color:"var(--c-tt)",
   ptsOpts:[11,21],gameOpts:[1,3,5,7],defGames:3,defNames:["홍팀","청팀"],
   help:"서브는 2개씩 번갈아 넣고, 10:10 듀스부터는 1개씩 번갈아 넣습니다. 게임마다 첫 서브가 바뀌고, 마지막 게임은 한쪽이 5점에 도달하면 코트를 바꿉니다."});
-MODS.bd=makeNet({id:"bd",kind:"bd",tips:"BD_TIPS",name:"배드민턴",sub:"21점 랠리포인트 · 서비스 코트 표시",color:"var(--c-bd)",
+MODS.bd=makeNet({id:"bd",kind:"bd",tips:"BD_TIPS",team:{slots:["S","D","S"],maxS:1},name:"배드민턴",sub:"21점 랠리포인트 · 서비스 코트 표시",color:"var(--c-bd)",
   ptsOpts:[21,15,11],gameOpts:[1,3],defGames:3,defNames:["홍팀","청팀"],
   help:"랠리를 이긴 쪽이 점수와 서브를 가져갑니다. 서버 점수가 짝수면 오른쪽, 홀수면 왼쪽 서비스 코트에서 서브합니다. 20:20부터는 2점 차, 29:29면 30점을 먼저 낸 쪽이 이깁니다(21점 기준). 마지막 게임은 11점에서 코트를 바꿉니다."});
 MODS.pb=makeNet({id:"pb",kind:"pb",name:"피클볼",sub:"11점 · 사이드아웃 스코어링 · 점수 콜",color:"var(--c-pb)",
