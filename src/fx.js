@@ -1,7 +1,7 @@
 /* ================= 득점 효과 (종목마다 짧고 가볍게) =================
    K.fx.play(종류, 점수 요소, {from, color, big, text})
    종류: fire(농구) spike(배구) tt(탁구) shuttle(배드민턴) pickle(피클볼) goal(축구·풋살)
-         kin(킨볼) baseball(야구) disc(얼티밋) tchouk(츄크볼) netball(넷볼) football(플래그)
+         kin(킨볼) baseball(야구) disc(얼티밋) tchouk(츄크볼) netball(넷볼) football(플래그) handball(핸드볼)
          boccia(보치아) run(달리기) quiz(퀴즈) out/revive(피구) */
 K.fx=(()=>{
   const reduce=()=>{try{return matchMedia("(prefers-reduced-motion: reduce)").matches;}catch(e){return false;}};
@@ -102,6 +102,13 @@ K.fx=(()=>{
       const b=mk("fx-ball nb",c.x,c.y-c.h*.45-90);
       run(b,[{transform:T(0,0,1),opacity:1},{transform:T(0,90,.95),opacity:1,offset:.55},{transform:T(0,170,.8),opacity:0}],{duration:620,easing:"cubic-bezier(.5,0,.8,1)"});
       setTimeout(()=>{K.tone([1500,1900],0,.08,.12,"sine");text(el,o.text||"골!",o.color);glow(el,o.color);},360);
+    },
+    handball(el,o){ // 핸드볼: 점프 슛이 낮게 빠르게 날아와 그물이 출렁
+      const c=C(el),sz=Math.max(c.w,c.h)*1.05;
+      const n=mk("fx-net",c.x,c.y,{width:sz+"px",height:sz*.66+"px"});
+      run(n,[{transform:T(0,0,.7),opacity:0},{transform:T(0,0,.7),opacity:0,offset:.35},{transform:T(0,0,1.08)+" skewY(-3deg)",opacity:.9,offset:.55},{transform:T(0,0,1),opacity:0}],{duration:900,easing:"ease-out"});
+      fly("fx-ball hb",fromEl(o.from)||fromOff(el,-280,-110),el,{bounce:false,arc:20,dur:360,spin:720,s0:1.3,s2:.7,cb:()=>{
+        K.tone([160],0,.07,.3,"square");dots(el,o.color,10,70);text(el,o.text||"골!",o.color,true);glow(el,o.color);}});
     },
     football(el,o){
       fly("fx-football",fromEl(o.from)||fromOff(el,-340,-20),el,{bounce:false,arc:110,dur:720,spin:1080,s2:.8,cb:()=>{

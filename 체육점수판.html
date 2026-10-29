@@ -6,7 +6,7 @@
 </head>
 <body>
 <!--
-  태성쌤의 체육수업 점수판 (농구·배구·탁구·배드민턴·피클볼·축구·풋살·넷볼·플래그 풋볼·피구·킨볼·야구·티볼·얼티밋·달리기·츄크볼·보치아·스포츠 상식 퀴즈 + 팀 나누기·PAPS 측정·대진표)
+  태성쌤의 체육수업 점수판 (농구·배구·탁구·배드민턴·피클볼·축구·풋살·핸드볼·넷볼·플래그 풋볼·피구·킨볼·야구·티볼·얼티밋·달리기·츄크볼·보치아·스포츠 상식 퀴즈 + 팀 나누기·PAPS 측정·대진표)
   만든 사람: 체육교사 이태성 (인스타그램 @taesung23)
   사용법: 이 파일을 크롬이나 엣지로 열면 바로 쓸 수 있습니다.
   고쳐 쓰기: 이 파일을 AI에게 첨부하고 바꾸고 싶은 규칙을 말해 주세요.
@@ -21,7 +21,7 @@
   --fg:#eef2f8; --muted:#8a99b3;
   --red:#ff5a3c; --blue:#38aefc; --t3:#ffcf3a; --t4:#4ade80; --t5:#b98cff;
   --amber:#ffb627; --alert:#ff3b5c; --ok:#4ade80; --bomb:#ffd23a; --hot:#ff4438;
-  --c-bb:#ff8a3d; --c-vb:#ffd23a; --c-tt:#ff5a7a; --c-bd:#7fe0ff; --c-pb:#b7f04a; --c-sc:#4ade80; --c-dg:#c78bff; --c-kb:#ff6fae; --c-bs:#ff9f5a; --c-ut:#5eead4; --c-rn:#f97362; --c-tb:#a3e635;--c-qz:#f0abfc;--c-bc:#f87171;--c-fs:#22d3ee;--c-nb:#fb7185;--c-ff:#facc15;--c-tm:#fbbf24;--c-pp:#34d399;--c-br:#60a5fa; --grass:#16382a; --dirt:#4d3726;
+  --c-bb:#ff8a3d; --c-vb:#ffd23a; --c-tt:#ff5a7a; --c-bd:#7fe0ff; --c-pb:#b7f04a; --c-sc:#4ade80; --c-dg:#c78bff; --c-kb:#ff6fae; --c-bs:#ff9f5a; --c-ut:#5eead4; --c-rn:#f97362; --c-tb:#a3e635;--c-qz:#f0abfc;--c-bc:#f87171;--c-fs:#22d3ee;--c-nb:#fb7185;--c-ff:#facc15;--c-hb:#818cf8;--c-tm:#fbbf24;--c-pp:#34d399;--c-br:#60a5fa; --grass:#16382a; --dirt:#4d3726;
   --f-num:"Teko","Oswald",ui-monospace,monospace;
   --f-disp:"Black Han Sans","Noto Sans KR",sans-serif;
   --f-body:"Noto Sans KR",system-ui,sans-serif;
@@ -509,6 +509,33 @@ tr.now td{background:color-mix(in srgb,var(--c) 10%,transparent)}
 .pkrow{display:grid;grid-template-columns:5.5rem minmax(0,1fr) 2.4rem;gap:8px;align-items:center}
 .pkrow .nm{font-weight:700;color:var(--tc);overflow-wrap:anywhere}
 .pkrow .sum{font-family:var(--f-num);font-size:2rem;text-align:right;line-height:1}
+
+/* 핸드볼 */
+.prow.hb{grid-template-columns:minmax(4.5rem,1fr) 3.8rem 7.4rem auto}
+.prow.hb .fixcards .fixc{font-family:var(--f-body);font-size:.85rem;line-height:1.4;font-weight:700}
+.prow.hb .btns button{min-width:34px;padding:.2em .35em}
+@media (max-width:560px){.prow.hb{grid-template-columns:minmax(0,1fr) 3.4rem 6.8rem}.prow.hb .btns{grid-column:1/-1;justify-content:flex-start}}
+.prow.hb .num small{font-size:.9rem;color:var(--muted)}
+.prow.hb .hb-7{display:block;font-family:var(--f-body);font-size:.65rem;color:var(--muted);letter-spacing:0;margin-top:2px}
+.prow.hb.out .pn{opacity:.55;text-decoration:line-through}
+.prow.hb .pn em.hb-sb{background:var(--amber);color:#1c1200;font-variant-numeric:tabular-nums}
+.prow.hb .pn em.hb-sb[hidden]{display:none}
+.b2m{color:var(--amber);border-color:var(--amber)!important}
+[data-seven].on{background:var(--amber);color:#1c1200;border-color:var(--amber)}
+.hb-susp{width:100%;border:2px solid var(--alert);border-radius:14px;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.hb-susp .lbl{color:var(--alert);text-align:center}
+.hb-sr{display:grid;grid-template-columns:minmax(0,1fr) auto 3.4rem auto;gap:8px;align-items:center}
+.hb-sr .nm{font-weight:700;color:var(--tc);overflow-wrap:anywhere}
+.hb-sr .k{font-size:.75rem;color:var(--muted)}
+.hb-sr .tm{font-family:var(--f-num);font-size:1.6rem;text-align:right;font-variant-numeric:tabular-nums;line-height:1}
+.hb-sr .tm.low{color:var(--alert)}
+.hb-sr button{min-width:34px;min-height:32px;padding:0}
+.hb-tout,.hb-seven{width:100%;border:2px solid var(--amber);border-radius:14px;padding:10px 12px;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;justify-content:center;text-align:center}
+.hb-tout span{font-family:var(--f-num);font-size:2.2rem;font-variant-numeric:tabular-nums;line-height:1}
+.hb-tout span.low{color:var(--alert)}
+.hb-seven span{font-size:.85rem;color:var(--muted)}
+.view .hb-sr button{display:none}
+.fx-ball.hb{width:30px;height:30px;background:radial-gradient(circle at 35% 30%,#fff 0 20%,#c7d2fe 45%,#6366f1 100%);box-shadow:inset 0 0 0 2px rgba(255,255,255,.5),0 0 12px rgba(255,255,255,.6)}
 .kicks{display:flex;gap:5px;flex-wrap:wrap}
 .kicks i{width:20px;height:20px;border-radius:50%;border:2px solid var(--line);display:inline-flex;align-items:center;justify-content:center;font-style:normal;font-size:.8rem;font-weight:700}
 .kicks i.g{background:var(--ok);border-color:var(--ok)}
@@ -1553,7 +1580,7 @@ K.bingoKit=o=>{
 /* ================= 득점 효과 (종목마다 짧고 가볍게) =================
    K.fx.play(종류, 점수 요소, {from, color, big, text})
    종류: fire(농구) spike(배구) tt(탁구) shuttle(배드민턴) pickle(피클볼) goal(축구·풋살)
-         kin(킨볼) baseball(야구) disc(얼티밋) tchouk(츄크볼) netball(넷볼) football(플래그)
+         kin(킨볼) baseball(야구) disc(얼티밋) tchouk(츄크볼) netball(넷볼) football(플래그) handball(핸드볼)
          boccia(보치아) run(달리기) quiz(퀴즈) out/revive(피구) */
 K.fx=(()=>{
   const reduce=()=>{try{return matchMedia("(prefers-reduced-motion: reduce)").matches;}catch(e){return false;}};
@@ -1654,6 +1681,13 @@ K.fx=(()=>{
       const b=mk("fx-ball nb",c.x,c.y-c.h*.45-90);
       run(b,[{transform:T(0,0,1),opacity:1},{transform:T(0,90,.95),opacity:1,offset:.55},{transform:T(0,170,.8),opacity:0}],{duration:620,easing:"cubic-bezier(.5,0,.8,1)"});
       setTimeout(()=>{K.tone([1500,1900],0,.08,.12,"sine");text(el,o.text||"골!",o.color);glow(el,o.color);},360);
+    },
+    handball(el,o){ // 핸드볼: 점프 슛이 낮게 빠르게 날아와 그물이 출렁
+      const c=C(el),sz=Math.max(c.w,c.h)*1.05;
+      const n=mk("fx-net",c.x,c.y,{width:sz+"px",height:sz*.66+"px"});
+      run(n,[{transform:T(0,0,.7),opacity:0},{transform:T(0,0,.7),opacity:0,offset:.35},{transform:T(0,0,1.08)+" skewY(-3deg)",opacity:.9,offset:.55},{transform:T(0,0,1),opacity:0}],{duration:900,easing:"ease-out"});
+      fly("fx-ball hb",fromEl(o.from)||fromOff(el,-280,-110),el,{bounce:false,arc:20,dur:360,spin:720,s0:1.3,s2:.7,cb:()=>{
+        K.tone([160],0,.07,.3,"square");dots(el,o.color,10,70);text(el,o.text||"골!",o.color,true);glow(el,o.color);}});
     },
     football(el,o){
       fly("fx-football",fromEl(o.from)||fromOff(el,-340,-20),el,{bounce:false,arc:110,dur:720,spin:1080,s2:.8,cb:()=>{
@@ -5589,6 +5623,461 @@ return{
 };
 }};
 
+/* ================= 핸드볼 =================
+   IHF 규칙 기준: 7명(골키퍼 포함), 전·후반, 단계별 징계(경고 → 2분 퇴장 → 실격),
+   2분 퇴장 타이머(경기 시계와 함께 흐름), 7m 던지기, 팀 타임아웃(경기당 3번·하프당 2번·마지막 5분 1번),
+   동점이면 연장(5분×2) 또는 7m 승부던지기. */
+MODS.handball={name:"핸드볼",sub:"전·후반 · 2분 퇴장 타이머 · 7m 던지기 · 타임아웃 · 빙고",color:"var(--c-hb)",
+html:`
+<div class="board">
+  <section class="team" data-t="0">
+    <input class="tname" id="tname0" aria-label="팀 이름">
+    <div class="score" id="score0">0</div>
+    <div class="pills"><span class="pill" id="court0"></span><span class="pill" id="cards0"></span><span class="pill" id="tout0"></span><span class="pill" id="save0"></span></div>
+    <div class="btnrow op"><button class="small" type="button" data-og="0">득점 (이름 없이)</button><button class="small" type="button" data-minus="0">점수 −1</button></div>
+    <div class="btnrow op"><button class="small" type="button" data-seven="0">7m 던지기</button><button class="small" type="button" data-sv="0">GK 선방</button><button class="small" type="button" data-tout="0">타임아웃</button></div>
+  </section>
+  <section class="center">
+    <div class="qtr" id="per">전반</div>
+    <div class="clock" id="clock">0:00</div>
+    ${K.timeCtl("st")}
+    <div class="state" id="state">대기 중</div>
+    <div class="hb-tout" id="toBox" hidden><b id="toT"></b><span id="toC">1:00</span><button class="small op" type="button" id="toEnd">타임아웃 끝</button></div>
+    <div class="btnrow op">
+      <button class="go" id="goBtn" type="button">시작</button>
+      <button class="small" id="endBtn" type="button">이번 하프 종료</button>
+    </div>
+    <button class="nextq op" id="nextBtn" type="button" hidden>후반 시작</button>
+    <div class="hb-seven" id="sevenBox" hidden><b id="sevenT"></b><span>던진 선수의 <b>골</b> 또는 <b>실패</b>를 누르세요</span><button class="small op" type="button" id="sevenX">취소</button></div>
+    <div class="hb-susp" id="suspBox" hidden></div>
+    <div class="pk" id="pkBox" hidden>
+      <div class="lbl" style="text-align:center">7m 승부던지기</div>
+      <div class="pkrow" data-t="0"><span class="nm" id="pkn0"></span><span class="kicks" id="pkk0"></span><span class="sum" id="pks0">0</span></div>
+      <div class="pkrow" data-t="1"><span class="nm" id="pkn1"></span><span class="kicks" id="pkk1"></span><span class="sum" id="pks1">0</span></div>
+      <div class="pkturn" id="pkTurn"></div>
+      <div class="btnrow op"><button class="go" id="pkGoal" type="button">골</button><button class="small danger" id="pkMiss" type="button">실패 · 선방</button></div>
+    </div>
+    <div class="btnrow op">
+      <button class="small" id="undoBtn" type="button">되돌리기</button>
+    </div>
+  </section>
+  <section class="team" data-t="1">
+    <input class="tname" id="tname1" aria-label="팀 이름">
+    <div class="score" id="score1">0</div>
+    <div class="pills"><span class="pill" id="court1"></span><span class="pill" id="cards1"></span><span class="pill" id="tout1"></span><span class="pill" id="save1"></span></div>
+    <div class="btnrow op"><button class="small" type="button" data-og="1">득점 (이름 없이)</button><button class="small" type="button" data-minus="1">점수 −1</button></div>
+    <div class="btnrow op"><button class="small" type="button" data-seven="1">7m 던지기</button><button class="small" type="button" data-sv="1">GK 선방</button><button class="small" type="button" data-tout="1">타임아웃</button></div>
+  </section>
+</div>
+<div class="rosters">
+  <div class="roster" data-t="0"><h3 id="rh0">홍팀 선수</h3><div id="r0"></div></div>
+  <div class="roster" data-t="1"><h3 id="rh1">청팀 선수</h3><div id="r1"></div></div>
+</div>
+<div class="bgk" id="sBingo"></div>
+<div class="lower">
+  <div class="box"><h4>경기 기록</h4><ul class="log" id="log"></ul></div>
+  <div class="box op">
+    <h4>경기 설정</h4>
+    <div class="cfg">
+      <div class="cfgrow">
+        <label>하프 시간(분) <input id="cfgHalf" type="number" min="1" max="30"></label>
+        <label>경기 방식 <select id="cfgHalves"><option value="2">전·후반</option><option value="1">단판</option></select></label>
+        <label>코트 인원 <select id="cfgCourt"><option value="7">7명 (정식)</option><option value="6">6명</option><option value="5">5명</option><option value="4">4명</option></select></label>
+      </div>
+      <div class="cfgrow">
+        <label>동점이면 <select id="cfgTie"><option value="seven">7m 승부던지기</option><option value="ot">연장 후 7m 승부던지기</option><option value="draw">무승부</option></select></label>
+        <label>연장 하프(분) <input id="cfgOt" type="number" min="1" max="10"></label>
+        <label>퇴장 시간(초) <input id="cfgSusp" type="number" min="30" max="300" step="10"></label>
+      </div>
+      <div class="names">
+        <div><div class="nh"><span id="nl0">홍팀 명단</span></div><textarea id="ros0" aria-label="홍팀 명단"></textarea></div>
+        <div><div class="nh"><span id="nl1">청팀 명단</span></div><textarea id="ros1" aria-label="청팀 명단"></textarea></div>
+      </div>
+      <div class="keys">명단은 한 줄에 한 명, 팀당 최대 20명이에요. 처음 들어 있는 이름은 예시예요. 시계는 0분부터 올라가고 하프 시간이 되면 멈춥니다.<br>
+        <b>징계</b>: 경고(옐로카드)는 한 선수 1번, 한 팀 3번까지예요. 그다음 반칙은 2분 퇴장으로 이어져요. 2분 퇴장을 누르면 그 선수 타이머가 경기 시계와 함께 흐르고, 그동안 팀은 한 명 적게 뛰어요. 같은 선수가 세 번째 2분 퇴장을 받으면 자동으로 실격이에요. 실격된 선수는 다시 못 들어오고, 팀은 2분 동안 한 명 적게 뛴 뒤 다른 선수를 넣을 수 있어요. 타이머 옆 ✕로 일찍 끝낼 수도 있어요.<br>
+        <b>7m 던지기</b>: 반칙으로 확실한 득점 기회를 막으면 줘요. '7m 던지기'를 누른 뒤 던진 선수의 골·실패를 누르면 7m 기록으로 따로 세요.<br>
+        <b>타임아웃</b>: 공을 가진 팀만 부를 수 있어요. 경기당 3번, 한 하프에 2번까지, 후반 마지막 5분에는 1번만. 연장에는 없어요. 1분 타이머가 흘러요.<br>
+        <b>동점</b>: 정식 규칙은 5분씩 연장 두 하프(최대 두 번) 뒤 7m 승부던지기예요. 여기서는 연장 한 번 뒤 승부던지기로 정했어요. 승부던지기는 5명씩 번갈아 던지고, 같으면 한 명씩 이어 가요.<br>
+        <kbd>Space</kbd> 시작/정지 · <kbd>Z</kbd> 되돌리기</div>
+      <div><button class="danger" id="newBtn" type="button">새 경기</button></div>
+    </div>
+  </div>
+</div>`,
+init(ctx){
+const $=K.$,R=ctx.root,KEY="pe-handball",esc=K.esc;
+const z=n=>Array(n).fill(0);
+const MAXP=20;
+function mkTeam(name,roster){return{name,roster:roster.slice(0,MAXP),g:z(MAXP),a:z(MAXP),sg:z(MAXP),sa:z(MAXP),y:z(MAXP),s:z(MAXP),dq:z(MAXP),og:0,bg:0,sv:0,tu:[0,0,0,0,0],tl5:0};}
+function fresh(cfg,keep){
+  cfg=cfg||{half:15,halves:2,court:7,tie:"seven",ot:5,susp:120};
+  const k=keep||[{name:"홍팀",roster:K.EX10[0]},{name:"청팀",roster:K.EX10[1]}];
+  return{cfg,teams:k.map(x=>mkTeam(x.name,x.roster)),period:1,clock:0,gt:0,running:false,periodEnd:false,ot:false,over:null,pk:null,seven:-1,susp:[],tout:null,log:[]};
+}
+let S=K.load(KEY);if(!S||!S.teams)S=fresh();S.running=false;
+let undoStack=[],lastSave=0,lastSec=-1;
+const save=()=>K.save(KEY,S);
+const COL=t=>t?"var(--blue)":"var(--red)";
+const BG=K.bingoKit({el:$("sBingo"),key:"handball",get:()=>S,teams:()=>S.teams.map((T,t)=>({name:T.name,color:COL(t),roster:T.roster})),
+  missions:["점프 슛 골","7m 골","골키퍼 선방","속공 골","윙에서 넣은 골","어시스트 골","수비로 공 빼앗기","바운드 슛 골"],bonusDef:1,unit:"골",hint:"선수가 골을 넣으면 그 칸이 채워지고",
+  apply:(t,p)=>{S.teams[t].bg=(S.teams[t].bg||0)+p;},snap:()=>snap(),after:()=>{save();draw();}});
+function snap(){undoStack.push(JSON.stringify(Object.assign({},S,{running:false})));if(undoStack.length>150)undoStack.shift();}
+function undo(){
+  if(!undoStack.length)return;
+  /* 시계·누적 시간·타임아웃 타이머는 지금 값을 그대로 두고 기록만 되돌린다 (퇴장 타이머는 누적 시간 기준이라 자연스럽게 맞음) */
+  const keep={clock:S.clock,gt:S.gt,running:S.running,tout:S.tout};
+  S=Object.assign(JSON.parse(undoStack.pop()),keep);K.closeModal();save();draw();K.toast("되돌렸습니다","",1200);
+}
+const score=t=>S.teams[t].g.reduce((a,b)=>a+b,0)+S.teams[t].og+(S.teams[t].bg||0);
+const H=()=>S.cfg.halves;
+const isOt=p=>p>H();
+const perName=p=>isOt(p)?(p===H()+1?"연장 전반":"연장 후반"):H()===1?"경기":p===1?"전반":"후반";
+const limOf=p=>(isOt(p)?S.cfg.ot:S.cfg.half)*60000;
+const lim=()=>limOf(S.period);
+const minute=()=>{let m=0;for(let p=1;p<S.period;p++)m+=limOf(p)/60000;return Math.floor(S.clock/60000)+1+m;};
+const suspMs=()=>(S.cfg.susp||120)*1000;
+const fmtS=ms=>{const s=Math.max(0,Math.ceil(ms/1000));return Math.floor(s/60)+":"+String(s%60).padStart(2,"0");};
+const active=t=>S.susp.filter(x=>x.t===t);
+const onCourt=t=>Math.max(1,S.cfg.court-active(t).length);
+
+function addLog(o){o.min=minute();o.per=S.period;S.log.unshift(o);if(S.log.length>100)S.log.pop();}
+function fx(t,txt){K.fx.play("handball",$("score"+t),{text:txt});}
+
+/* ---------- 득점·슛 ---------- */
+function goal(t,i){
+  if(S.over||S.pk)return;snap();
+  const T=S.teams[t],sev=S.seven===t;
+  if(i>=0){T.g[i]++;T.a[i]++;if(sev){T.sg[i]++;T.sa[i]++;}}else T.og++;
+  addLog({t,k:"g",who:i>=0?T.roster[i]:null,sev});
+  if(sev)S.seven=-1;
+  BG.hit(t,i);
+  save();draw();K.bump($("score"+t));fx(t,sev?"7m 골!":"골!");K.snd.fanfare();
+  K.toast((sev?"7m ":"")+"골! "+T.name+(i>=0?" · "+T.roster[i]:""),"bingo",2400);
+}
+function miss(t,i){
+  if(S.over||S.pk)return;snap();
+  const T=S.teams[t],sev=S.seven===t;
+  T.a[i]++;if(sev){T.sa[i]++;S.seven=-1;}
+  addLog({t,k:"x",who:T.roster[i],sev});
+  save();draw();K.snd.stop();K.toast(T.roster[i]+(sev?" 7m 실패":" 슛 실패"),"",1500);
+}
+function gkSave(t){
+  if(S.over||S.pk)return;snap();
+  const T=S.teams[t];T.sv=(T.sv||0)+1;addLog({t,k:"sv"});
+  if(S.seven===1-t){S.seven=-1;}
+  save();draw();K.fx.play("kin",$("save"+t),{text:"선방!"});K.snd.chime();
+}
+
+/* ---------- 징계 ---------- */
+function warn(t,i){
+  if(S.over)return;
+  const T=S.teams[t],n=T.roster[i],ty=T.y.reduce((a,b)=>a+b,0);
+  if(T.dq[i]){K.toast(n+" 선수는 실격되었어요","bad",2200);return;}
+  if(T.y[i]){K.toast(n+" 선수는 이미 경고를 받았어요 · 다음 반칙은 2분 퇴장","bad",3000);return;}
+  if(T.s[i]){K.toast(n+" 선수는 2분 퇴장을 받은 적이 있어 경고 대신 2분 퇴장을 줘요","bad",3200);return;}
+  if(ty>=3){K.toast(T.name+"은(는) 경고 3번을 다 받았어요 · 다음 반칙은 2분 퇴장","bad",3000);return;}
+  snap();T.y[i]=1;addLog({t,k:"y",who:n});save();draw();K.snd.whistle(1);K.toast(n+" 경고","",1800);
+}
+function suspend(t,i){
+  if(S.over)return;
+  const T=S.teams[t],n=T.roster[i];
+  if(T.dq[i]){K.toast(n+" 선수는 실격되었어요","bad",2200);return;}
+  if(S.susp.some(x=>x.t===t&&x.i===i&&x.k==="2")){K.toast(n+" 선수는 이미 2분 퇴장 중이에요","bad",2200);return;}
+  snap();T.s[i]++;
+  if(T.s[i]>=3){
+    T.dq[i]=1;S.susp.push({t,i,k:"dq",until:S.gt+suspMs()});
+    addLog({t,k:"s",who:n,n:T.s[i]});addLog({t,k:"r",who:n,three:true});
+    K.toast(n+" 세 번째 2분 퇴장 · 실격","bad",3400);K.fx.play("out",$("score"+t));
+  }else{
+    S.susp.push({t,i,k:"2",until:S.gt+suspMs()});
+    addLog({t,k:"s",who:n,n:T.s[i]});
+    K.toast(n+" 2분 퇴장 · "+T.name+" "+onCourt(t)+"명으로 경기","bad",2800);
+  }
+  K.snd.whistle(2);save();draw();
+}
+function disq(t,i){
+  if(S.over)return;
+  const T=S.teams[t],n=T.roster[i];
+  if(T.dq[i]){K.toast(n+" 선수는 이미 실격되었어요","bad",2200);return;}
+  snap();T.dq[i]=1;
+  S.susp=S.susp.filter(x=>!(x.t===t&&x.i===i));
+  S.susp.push({t,i,k:"dq",until:S.gt+suspMs()});
+  addLog({t,k:"r",who:n});K.snd.whistle(3);save();draw();K.fx.play("out",$("score"+t));
+  K.toast(n+" 실격 (레드카드) · "+T.name+" 2분 동안 "+onCourt(t)+"명","bad",3200);
+}
+function suspTick(){
+  const done=S.susp.filter(x=>x.until<=S.gt);
+  if(!done.length)return;
+  S.susp=S.susp.filter(x=>x.until>S.gt);
+  done.forEach(x=>{const T=S.teams[x.t],n=T.roster[x.i]||"선수";
+    K.toast(x.k==="dq"?T.name+" 실격 2분 끝 · 다른 선수가 들어갈 수 있어요":n+" 2분 퇴장 끝 · 코트로 돌아올 수 있어요","bingo",3000);});
+  K.snd.bonus();save();draw();
+}
+
+/* ---------- 타임아웃 ---------- */
+function timeout(t){
+  if(S.over||S.pk)return;
+  const T=S.teams[t];T.tu=T.tu||[0,0,0,0,0];
+  if(isOt(S.period)){K.toast("연장전에는 팀 타임아웃이 없어요","bad",2400);return;}
+  const used=T.tu.reduce((a,b)=>a+b,0);
+  if(used>=3){K.toast(T.name+"은(는) 타임아웃 3번을 다 썼어요","bad",2400);return;}
+  if(T.tu[S.period]>=2){K.toast("한 하프에는 타임아웃을 2번까지 부를 수 있어요","bad",2600);return;}
+  const last5=S.period===H()&&lim()-S.clock<=300000&&S.cfg.half>=10;
+  if(last5&&(T.tl5||0)>=1){K.toast("마지막 5분에는 타임아웃을 1번만 부를 수 있어요","bad",2600);return;}
+  snap();T.tu[S.period]++;if(last5)T.tl5=(T.tl5||0)+1;
+  S.running=false;K.wake(false);S.tout={t,left:60000};
+  addLog({t,k:"to",n:used+1});K.snd.whistle(1);save();draw();K.toast(T.name+" 타임아웃 (1분)","",2400);
+}
+
+/* ---------- 경기 흐름 ---------- */
+function start(){if(S.over||S.periodEnd||S.pk)return;if(S.tout){S.tout=null;}S.running=true;K.wake(true);draw();if(S.clock===0)K.snd.whistle(1);}
+function stop(){S.running=false;K.wake(false);save();draw();}
+function endPeriod(){
+  S.running=false;S.periodEnd=true;S.seven=-1;K.wake(false);
+  const a=score(0),b=score(1),regEnd=S.period===H(),otEnd=S.period===H()+2;
+  K.snd.whistle(regEnd||otEnd?3:2);
+  if(regEnd||otEnd){
+    if(a!==b||S.cfg.tie==="draw"){finish();return;}
+    if(regEnd&&S.cfg.tie==="ot"&&!S.ot){S.ot=true;K.toast("동점! 연장전을 준비합니다 ("+S.cfg.ot+"분 × 2)","",3600);}
+    else{S.pk={k:[[],[]],first:0};K.toast("동점! 7m 승부던지기로 승부를 가립니다","",3600);}
+  }else K.toast(perName(S.period)+" 종료","",2600);
+  save();draw();
+}
+function nextPeriod(){
+  if(!S.periodEnd||S.over||S.pk)return;
+  const max=S.ot?H()+2:H();if(S.period>=max)return;
+  S.period++;S.clock=0;S.periodEnd=false;undoStack=[];save();draw();K.toast(perName(S.period)+" 준비 · 시작을 누르세요","",2000);
+}
+function pkTurn(){const p=S.pk;return p.k[0].length===p.k[1].length?p.first:1-p.first;}
+function pkSum(t){return S.pk.k[t].reduce((a,b)=>a+b,0);}
+function pkDecided(){
+  const p=S.pk,a=pkSum(0),b=pkSum(1),n0=p.k[0].length,n1=p.k[1].length;
+  if(n0<=5&&n1<=5){if(a+(5-n0)<b)return 1;if(b+(5-n1)<a)return 0;}
+  if(n0>=5&&n0===n1&&a!==b)return a>b?0:1;
+  return -1;
+}
+function pkKick(res){
+  if(!S.pk||S.over)return;snap();
+  const t=pkTurn();S.pk.k[t].push(res);
+  addLog({t,k:res?"pkg":"pkx"});
+  if(res){K.snd.chime();fx(t,"골!");}else K.snd.stop();
+  const d=pkDecided();save();draw();
+  if(d>=0)setTimeout(()=>finish(d),400);
+}
+function finish(wPk){
+  const a=score(0),b=score(1);
+  let w=a>b?0:b>a?1:(wPk!==undefined?wPk:-1);
+  S.over={w};S.running=false;S.tout=null;S.susp=[];S.seven=-1;S.periodEnd=true;save();draw();K.snd.fanfare();
+  const T=S.teams;let st="";
+  [0,1].forEach(t=>{const tt=T[t],sc=tt.roster.map((n,i)=>tt.g[i]?n+(tt.g[i]>1?" "+tt.g[i]+"골":""):null).filter(Boolean);
+    if(sc.length)st+="<div>"+esc(tt.name)+" 득점: <b>"+esc(sc.join(", "))+"</b></div>";});
+  const best=topScorer();if(best)st+="<div>최다 득점: <b>"+esc(best)+"</b></div>";
+  [0,1].forEach(t=>{if(T[t].sv)st+="<div style=\"color:var(--muted)\">"+esc(T[t].name)+" 골키퍼 선방 "+T[t].sv+"번 ("+savePct(t)+"%)</div>";});
+  if(S.pk)st+="<div style=\"color:var(--muted)\">7m 승부던지기 "+pkSum(0)+" : "+pkSum(1)+"</div>";
+  K.modal({sub:"경기 종료",title:w<0?"무승부":T[w].name+" 승리",color:w<0?"var(--fg)":COL(w),score:a+" : "+b,stats:st,
+    buttons:[{label:"되돌리기",fn:undo},{label:"닫기"}]});
+  ctx.store(makeRec());
+}
+function topScorer(){
+  let best=0,who=[];
+  S.teams.forEach(T=>T.roster.forEach((n,i)=>{if(T.g[i]>best){best=T.g[i];who=[n];}else if(best&&T.g[i]===best)who.push(n);}));
+  return best?who.join(", ")+" "+best+"골":"";
+}
+function savePct(t){const sv=S.teams[t].sv||0,ga=score(1-t)-(S.teams[1-t].bg||0);return sv+ga?Math.round(sv*100/(sv+ga)):0;}
+function makeRec(){
+  if(!S.mid)S.mid=K.newId();
+  const T=S.teams,a=score(0),b=score(1),d=[];
+  S.log.slice().reverse().forEach(l=>{
+    const tn=T[l.t].name;
+    if(l.k==="g")d.push(l.min+"' "+(l.sev?"7m 골":"골")+" · "+tn+(l.who?" "+l.who:""));
+    else if(l.k==="y")d.push(l.min+"' 경고 · "+tn+" "+l.who);
+    else if(l.k==="s")d.push(l.min+"' 2분 퇴장 · "+tn+" "+l.who+(l.n>1?" ("+l.n+"번째)":""));
+    else if(l.k==="r")d.push(l.min+"' 실격 · "+tn+" "+l.who);
+    else if(l.k==="to")d.push(l.min+"' 타임아웃 · "+tn);
+  });
+  [0,1].forEach(t=>{if(T[t].sv)d.push(T[t].name+" 골키퍼 선방 "+T[t].sv+" ("+savePct(t)+"%)");});
+  if(S.pk)d.push("7m 승부던지기 "+pkSum(0)+" : "+pkSum(1));
+  if(BG.summary())d.push(BG.summary());
+  const w=S.over?S.over.w:null;
+  return{id:S.mid,sport:"handball",sportName:"핸드볼",at:Date.now(),done:!!S.over,
+    teams:T.map((t,i)=>({name:t.name,score:score(i)})),winner:S.over?(w<0?"무승부":T[w].name):null,
+    summary:a+" : "+b+(S.ot?" (연장)":"")+(S.pk?" (7m "+pkSum(0)+":"+pkSum(1)+")":""),details:d,
+    players:T.flatMap(t=>t.roster.map((n,i)=>({team:t.name,name:n,pts:t.g[i],
+      note:[t.a[i]?"슛 "+t.g[i]+"/"+t.a[i]:"",t.sa[i]?"7m "+t.sg[i]+"/"+t.sa[i]:"",t.y[i]?"경고":"",t.s[i]?"2분 "+t.s[i]:"",t.dq[i]?"실격":""].filter(Boolean).join(" ")})))};
+}
+function newGame(){BG.reset();S=fresh(S.cfg,S.teams.map(T=>({name:T.name,roster:T.roster})));undoStack=[];K.closeModal();save();draw();K.toast("새 경기 준비 완료 (팀 이름·명단 유지)","",1800);}
+
+/* ---------- 그리기 ---------- */
+function drawClock(){
+  $("per").textContent=perName(S.period);
+  if(!S.running)K.fillTime("st",S.clock,true);
+  const c=$("clock");c.textContent=K.fmtUp(S.clock);c.className="clock"+(lim()-S.clock<60000&&!S.periodEnd?" low":"");
+  const g=$("goBtn");g.textContent=S.running?"정지":(S.clock===0?"시작":"재개");g.classList.toggle("run",S.running);
+  const st=$("state");
+  st.textContent=S.over?"경기 종료":S.pk?"7m 승부던지기 진행 중":S.periodEnd?perName(S.period)+" 종료":S.tout?"타임아웃":S.running?perName(S.period)+" 진행 중 · "+(lim()/60000)+"분":"정지 · "+(lim()/60000)+"분";
+  st.classList.toggle("live",S.running);
+  const tb=$("toBox");tb.hidden=!S.tout;
+  if(S.tout){$("toT").textContent=S.teams[S.tout.t].name+" 타임아웃";$("toT").style.color=COL(S.tout.t);$("toC").textContent=fmtS(S.tout.left);$("toC").classList.toggle("low",S.tout.left<=10000);}
+  drawSusp();
+}
+function drawSusp(){
+  const box=$("suspBox"),list=S.susp.slice().sort((a,b)=>a.until-b.until);
+  box.hidden=!list.length;
+  /* 목록이 바뀔 때만 다시 만들고, 평소에는 남은 시간 숫자만 고친다 (✕ 버튼이 눌리도록) */
+  const sig=list.map(x=>x.t+":"+x.i+":"+x.k+":"+x.until+":"+S.susp.indexOf(x)+":"+(S.teams[x.t].roster[x.i]||"")).join("|");
+  if(box._sig!==sig){
+    box._sig=sig;
+    box.innerHTML=list.length?'<div class="lbl">퇴장 중</div>'+list.map(x=>{const T=S.teams[x.t];
+      return '<div class="hb-sr" style="--tc:'+COL(x.t)+'"><span class="nm">'+esc(T.roster[x.i]||"선수")+'</span><span class="k">'+(x.k==="dq"?"실격 · 팀 −1명":"2분 퇴장")+'</span><span class="tm"></span><button class="small op" type="button" data-unsusp="'+S.susp.indexOf(x)+'" aria-label="퇴장 일찍 끝내기">✕</button></div>';}).join(""):"";
+  }
+  box.querySelectorAll(".tm").forEach((el,j)=>{const left=list[j].until-S.gt;el.textContent=fmtS(left);el.classList.toggle("low",left<=10000);});
+  [0,1].forEach(t=>{
+    const n=onCourt(t),cp=$("court"+t);cp.textContent="코트 "+n+"명";cp.className="pill"+(n<S.cfg.court?" bad":"");
+    S.teams[t].roster.forEach((_,i)=>{const el=R.querySelector('[data-sb="'+t+':'+i+'"]');if(!el)return;
+      const x=S.susp.find(s=>s.t===t&&s.i===i&&s.k==="2");el.textContent=x?"2분 "+fmtS(x.until-S.gt):"";el.hidden=!x;});
+  });
+}
+function draw(){
+  [0,1].forEach(t=>{
+    const T=S.teams[t],n=T.roster.length;
+    K.setVal("tname"+t,T.name);
+    $("score"+t).innerHTML=score(t)+(S.pk?"<small>("+pkSum(t)+")</small>":"");
+    const ys=T.y.reduce((a,b)=>a+b,0),ss=T.s.reduce((a,b)=>a+b,0),ds=T.dq.reduce((a,b)=>a+b,0);
+    const cp=$("cards"+t);cp.innerHTML="<span class=\"ycard\"></span> "+ys+"/3 &nbsp; 2분 "+ss+(ds?" &nbsp; <span class=\"rcard\"></span> "+ds:"")+(T.bg?" &nbsp; 빙고 +"+T.bg:"");cp.className="pill"+(ys>=3?" warn":"");
+    const used=(T.tu||[]).reduce((a,b)=>a+b,0),left=isOt(S.period)?0:3-used;
+    $("tout"+t).textContent="타임아웃 "+left;$("tout"+t).className="pill"+(left?"":" dash");
+    $("save"+t).textContent="GK 선방 "+(T.sv||0)+(T.sv?" · "+savePct(t)+"%":"");
+    $("rh"+t).textContent=T.name+" 선수";$("nl"+t).textContent=T.name+" 명단 ("+n+"명)";
+    let h="<div class=\"prow hb head\"><span>이름</span><span style=\"text-align:center\">골/슛</span><span style=\"text-align:center\">징계</span><span class=\"op\"></span></div>";
+    for(let i=0;i<n;i++){
+      const nm=T.roster[i];
+      const pen=K.fixN("<span class=\"ycard\"></span>"+T.y[i],"teams."+t+".y."+i,nm+" · 경고","fixc"+(T.y[i]?"":" zero"),1)+
+        K.fixN("2′"+T.s[i],"teams."+t+".s."+i,nm+" · 2분 퇴장 횟수","fixc"+(T.s[i]?"":" zero"),3)+
+        K.fixN("<span class=\"rcard\"></span>"+T.dq[i],"teams."+t+".dq."+i,nm+" · 실격","fixc"+(T.dq[i]?"":" zero"),1);
+      const sev=T.sa[i]?"<small class=\"hb-7\">7m "+T.sg[i]+"/"+T.sa[i]+"</small>":"";
+      h+="<div class=\"prow hb"+(T.dq[i]?" out":"")+"\"><span class=\"pn\">"+esc(nm)+(T.dq[i]?"<em>실격</em>":"")+"<em class=\"hb-sb\" data-sb=\""+t+":"+i+"\" hidden></em></span>"+
+        "<span class=\"num\">"+K.fixN(T.g[i],"teams."+t+".g."+i+"|teams."+t+".a."+i,nm+" · 골(슛도 함께)","in")+"<small>/"+K.fixN(T.a[i],"teams."+t+".a."+i,nm+" · 슛 시도","in")+"</small>"+sev+"</span>"+
+        "<span class=\"fixcards\">"+pen+"</span>"+
+        "<span class=\"btns op\"><button class=\"b2\" type=\"button\" data-goal=\""+i+"\" data-t=\""+t+"\">골</button><button type=\"button\" data-miss=\""+i+"\" data-t=\""+t+"\">실패</button><button class=\"by\" type=\"button\" data-warn=\""+i+"\" data-t=\""+t+"\">경고</button><button class=\"b2m\" type=\"button\" data-susp=\""+i+"\" data-t=\""+t+"\">2분</button><button class=\"br\" type=\"button\" data-dq=\""+i+"\" data-t=\""+t+"\">실격</button></span></div>";
+    }
+    $("r"+t).innerHTML=h;
+    K.setVal("ros"+t,T.roster.join("\n"));
+  });
+  const max=S.ot?H()+2:H();
+  $("nextBtn").hidden=!(S.periodEnd&&S.period<max&&!S.over&&!S.pk);
+  $("nextBtn").textContent=perName(S.period+1)+" 시작";
+  $("endBtn").hidden=S.periodEnd||!!S.over;
+  const sb=$("sevenBox");sb.hidden=S.seven<0;
+  if(S.seven>=0){$("sevenT").textContent=S.teams[S.seven].name+" 7m 던지기";$("sevenT").style.color=COL(S.seven);}
+  R.querySelectorAll("[data-seven]").forEach(b=>b.classList.toggle("on",+b.dataset.seven===S.seven));
+  const pb=$("pkBox");pb.hidden=!S.pk;
+  if(S.pk){
+    [0,1].forEach(t=>{
+      $("pkn"+t).textContent=S.teams[t].name;
+      const k=S.pk.k[t],n=Math.max(5,S.pk.k[0].length,S.pk.k[1].length);
+      let h="";for(let i=0;i<n;i++)h+=i<k.length?(k[i]?"<i class=\"g\"></i>":"<i class=\"x\"></i>"):"<i></i>";
+      $("pkk"+t).innerHTML=h;$("pks"+t).textContent=pkSum(t);
+    });
+    const tt=pkTurn(),n=S.pk.k[tt].length+1;
+    $("pkTurn").innerHTML=S.over?"승부던지기 종료":"<span style=\"color:"+COL(tt)+"\">"+esc(S.teams[tt].name)+"</span> "+n+"번째 던지는 선수"+(n>5?" · 서든데스":"");
+  }
+  $("log").innerHTML=S.log.length?S.log.slice(0,14).map(l=>{
+    const T=S.teams[l.t],col=COL(l.t),m="<span class=\"p\" style=\"--c:"+col+"\">"+l.min+"'</span>";
+    if(l.k==="g")return "<li>"+m+"<span><b>"+(l.sev?"7m 골":"골")+"</b> · "+esc(T.name)+(l.who?" "+esc(l.who):"")+"</span></li>";
+    if(l.k==="x")return "<li>"+m+"<span>"+(l.sev?"7m 실패":"슛 실패")+" · "+esc(T.name)+" "+esc(l.who)+"</span></li>";
+    if(l.k==="sv")return "<li>"+m+"<span>골키퍼 선방 · "+esc(T.name)+"</span></li>";
+    if(l.k==="y")return "<li>"+m+"<span><span class=\"ycard\"></span> 경고 · "+esc(T.name)+" "+esc(l.who)+"</span></li>";
+    if(l.k==="s")return "<li>"+m+"<span><b>2분 퇴장</b> · "+esc(T.name)+" "+esc(l.who)+(l.n>1?" <span class=\"x\">("+l.n+"번째)</span>":"")+"</span></li>";
+    if(l.k==="r")return "<li>"+m+"<span><span class=\"rcard\"></span> 실격 · "+esc(T.name)+" "+esc(l.who)+(l.three?" <span class=\"x\">(2분 퇴장 3번)</span>":"")+"</span></li>";
+    if(l.k==="to")return "<li>"+m+"<span>타임아웃 · "+esc(T.name)+" <span class=\"x\">("+l.n+"번째)</span></span></li>";
+    if(l.k==="m")return "<li><span class=\"p\" style=\"--c:"+col+"\">−1</span><span>"+esc(T.name)+" <span class=\"x\">점수 정정</span></span></li>";
+    return "<li><span class=\"p\" style=\"--c:"+col+"\">7m</span><span>승부던지기 · "+esc(T.name)+" "+(l.k==="pkg"?"<b>성공</b>":"<span class=\"x\">실패</span>")+"</span></li>";
+  }).join(""):"<li class=\"empty\">아직 기록이 없습니다. 선수 옆 골, 실패, 경고, 2분, 실격 버튼으로 기록하세요.</li>";
+  $("undoBtn").disabled=!undoStack.length;
+  BG.draw();
+  K.setVal("cfgHalf",S.cfg.half);$("cfgHalves").value=String(S.cfg.halves);$("cfgCourt").value=String(S.cfg.court);
+  $("cfgTie").value=S.cfg.tie;K.setVal("cfgOt",S.cfg.ot);K.setVal("cfgSusp",S.cfg.susp);
+  drawClock();
+}
+
+/* ---------- 이벤트 ---------- */
+K.fixKit(R,{get:()=>S,snap,after:()=>{save();draw();}});
+$("goBtn").onclick=()=>{S.running?stop():start();};
+K.bindTime(R,()=>S.clock,(k,v)=>{
+  v=Math.max(0,Math.min(lim(),v));S.gt=Math.max(0,S.gt+(v-S.clock));S.clock=v;
+  if(S.periodEnd&&!S.pk&&!S.over&&v<lim())S.periodEnd=false;
+  save();draw();
+},{full:()=>0,stop:()=>stop()});
+$("endBtn").onclick=()=>{if(S.over||S.periodEnd)return;snap();endPeriod();};
+$("nextBtn").onclick=nextPeriod;
+$("pkGoal").onclick=()=>pkKick(1);
+$("pkMiss").onclick=()=>pkKick(0);
+$("undoBtn").onclick=undo;
+$("toEnd").onclick=()=>{S.tout=null;save();draw();};
+$("sevenX").onclick=()=>{S.seven=-1;save();draw();};
+K.arm($("newBtn"),"새 경기",newGame);
+R.addEventListener("click",e=>{
+  let b;
+  if(b=e.target.closest("[data-goal]")){goal(+b.dataset.t,+b.dataset.goal);return;}
+  if(b=e.target.closest("[data-miss]")){miss(+b.dataset.t,+b.dataset.miss);return;}
+  if(b=e.target.closest("[data-warn]")){warn(+b.dataset.t,+b.dataset.warn);return;}
+  if(b=e.target.closest("[data-susp]")){suspend(+b.dataset.t,+b.dataset.susp);return;}
+  if(b=e.target.closest("[data-dq]")){disq(+b.dataset.t,+b.dataset.dq);return;}
+  if(b=e.target.closest("[data-og]")){goal(+b.dataset.og,-1);return;}
+  if(b=e.target.closest("[data-sv]")){gkSave(+b.dataset.sv);return;}
+  if(b=e.target.closest("[data-tout]")){timeout(+b.dataset.tout);return;}
+  if(b=e.target.closest("[data-seven]")){const t=+b.dataset.seven;if(S.over||S.pk)return;S.seven=S.seven===t?-1:t;
+    if(S.seven>=0){if(S.running)stop();K.snd.whistle(1);K.toast(S.teams[t].name+" 7m 던지기 · 던진 선수의 골/실패를 누르세요","",2600);}save();draw();return;}
+  if(b=e.target.closest("[data-unsusp]")){const x=S.susp[+b.dataset.unsusp];if(!x)return;snap();S.susp.splice(+b.dataset.unsusp,1);save();draw();
+    K.toast((S.teams[x.t].roster[x.i]||"선수")+" 퇴장 시간을 끝냈어요","",1600);return;}
+  if(b=e.target.closest("[data-minus]")){const t=+b.dataset.minus,T=S.teams[t];if(score(t)<=0||S.over)return;snap();
+    if(T.og>0)T.og--;else{const i=T.g.findIndex(x=>x>0);if(i>=0){T.g[i]--;T.a[i]=Math.max(0,T.a[i]-1);}else if(T.bg)T.bg--;}
+    addLog({t,k:"m"});save();draw();return;}
+});
+R.addEventListener("input",e=>{const el=e.target;if(el.id==="tname0"||el.id==="tname1"){const t=+el.id.slice(-1);S.teams[t].name=el.value;$("rh"+t).textContent=el.value+" 선수";save();}});
+R.addEventListener("change",e=>{
+  const el=e.target;
+  if(el.id==="ros0"||el.id==="ros1"){
+    const t=+el.id.slice(-1),list=K.parseList(el.value,MAXP);if(!list.length){draw();return;}
+    snap();
+    /* 이름이 남아 있는 선수는 기록을 그대로 따라가게 한다 */
+    const T=S.teams[t],old=T.roster,keys=["g","a","sg","sa","y","s","dq"],nw={};
+    keys.forEach(k=>nw[k]=z(MAXP));
+    const map={};list.forEach((n,j)=>{const i=old.indexOf(n);if(i>=0){keys.forEach(k=>nw[k][j]=T[k][i]);map[i]=j;}});
+    keys.forEach(k=>T[k]=nw[k]);T.roster=list;
+    S.susp=S.susp.filter(x=>x.t!==t||map[x.i]!=null).map(x=>x.t===t?Object.assign(x,{i:map[x.i]}):x);
+    save();draw();
+  }
+  else if(["cfgHalf","cfgHalves","cfgCourt","cfgTie","cfgOt","cfgSusp"].includes(el.id)){
+    const C=S.cfg;
+    C.half=Math.max(1,Math.min(30,+$("cfgHalf").value||15));C.halves=+$("cfgHalves").value||2;C.court=+$("cfgCourt").value||7;
+    C.tie=$("cfgTie").value;C.ot=Math.max(1,Math.min(10,+$("cfgOt").value||5));C.susp=Math.max(30,Math.min(300,+$("cfgSusp").value||120));
+    if(S.period>H()&&!S.ot)S.period=H();
+    save();draw();
+  }
+});
+draw();
+return{
+  record:makeRec,
+  tick(dt,now){
+    if(S.tout){S.tout.left-=dt;
+      if(S.tout.left<=0){S.tout=null;K.snd.buzzer();K.toast("타임아웃 끝 · 재개를 누르세요","",3000);save();draw();}
+      else{const s=Math.ceil(S.tout.left/1000);if(s!==lastSec){lastSec=s;if(s<=5)K.snd.tick(6-s);drawClock();}}}
+    if(!S.running)return;
+    const d=Math.min(dt,lim()-S.clock);
+    S.clock+=d;S.gt+=d;
+    if(S.susp.length)suspTick();
+    if(S.clock>=lim()){endPeriod();return;}
+    if(now-lastSave>1000){save();lastSave=now;}
+    drawClock();
+  },
+  key(e){
+    if(e.code==="Space"){e.preventDefault();S.running?stop():start();}
+    else if(e.key==="z"||e.key==="Z")undo();
+  },
+  destroy(){if(S.running){S.running=false;save();}}
+};
+}};
+
 /* ================= 플래그 풋볼 ================= */
 MODS.flag={name:"플래그 풋볼",sub:"터치다운 6 · 추가 득점 1/2 · 다운 4번 · 하프라인 · 빙고",color:"var(--c-ff)",
 html:`
@@ -6029,7 +6518,7 @@ return{
 /* ================= 스포츠 상식 퀴즈 문제 은행 =================
    [종목, 영역(r 규칙 · h 역사 · t 기술 · v 가치), 난이도(1~3), 문제, 정답, 오답1, 오답2, 오답3, 해설]
    규칙 문제는 2026년 기준 국제 규칙(FIBA, FIVB, ITTF, BWF, IFAB 등)을 따랐습니다. */
-K.QSPORT={bb:"농구",vb:"배구",tt:"탁구",bd:"배드민턴",pb:"피클볼",sc:"축구",dg:"피구",kb:"킨볼",bs:"야구·티볼",ut:"얼티밋",rn:"육상·달리기",tb:"츄크볼",ol:"올림픽·스포츠 일반",fs:"풋살",nb:"넷볼",ff:"플래그 풋볼",hf:"건강·체력",bc:"보치아",my:"기타"};
+K.QSPORT={bb:"농구",vb:"배구",tt:"탁구",bd:"배드민턴",pb:"피클볼",sc:"축구",dg:"피구",kb:"킨볼",bs:"야구·티볼",ut:"얼티밋",rn:"육상·달리기",tb:"츄크볼",ol:"올림픽·스포츠 일반",fs:"풋살",nb:"넷볼",ff:"플래그 풋볼",hf:"건강·체력",bc:"보치아",hb:"핸드볼",my:"기타"};
 K.QCAT={r:"규칙",h:"역사",t:"기술",v:"가치",f:"건강·체력"};
 K.QB=[
 /* ---------- 농구 ---------- */
@@ -6553,6 +7042,30 @@ K.QB.push(
 ["bs", "h", 3, "티볼에서 투수가 공을 던지지 않는 가장 큰 교육적 이유는?", "누구나 공을 쉽게 쳐서 경기에 참여할 수 있도록", "시간을 줄이려고", "투수가 다칠까 봐", "공이 비싸서", "타격에 성공하는 경험이 많아져 모두 즐길 수 있어요."]
 );
 
+/* 핸드볼 (2026-10-29 추가, IHF 규칙 기준) */
+K.QB.push(
+["hb", "r", 1, "핸드볼 경기에서 한 팀은 코트에 몇 명이 뛸까요?", "7명(골키퍼 포함)", "6명(골키퍼 포함)", "9명(골키퍼 포함)", "5명(골키퍼 포함)", "골키퍼 1명과 필드 선수 6명이 뛰고, 교체는 경기 중에 자유롭게 할 수 있어요."],
+["hb", "r", 1, "핸드볼에서 공을 들고 걸을 수 있는 걸음 수는 최대 몇 걸음일까요?", "3걸음", "2걸음", "4걸음", "5걸음", "3걸음보다 많이 걸으면 오버스텝 반칙이에요. 드리블을 하면 더 이동할 수 있어요."],
+["hb", "r", 1, "핸드볼에서 공을 손에 들고 있을 수 있는 시간은 최대 몇 초일까요?", "3초", "5초", "8초", "10초", "3초 안에 패스·슛·드리블을 해야 해요. 걸음 3번, 시간 3초를 함께 기억해요."],
+["hb", "r", 1, "골키퍼만 들어갈 수 있는 골 에어리어는 골라인에서 몇 m 떨어진 선으로 표시할까요?", "6m", "4m", "7m", "9m", "필드 선수는 골 에어리어 바닥을 밟을 수 없지만, 밖에서 뛰어올라 공중에서 공을 놓는 점프 슛은 괜찮아요."],
+["hb", "r", 2, "핸드볼 골대의 크기는 얼마일까요?", "높이 2m, 너비 3m", "높이 2.44m, 너비 7.32m", "높이 2m, 너비 5m", "높이 1.5m, 너비 3m", "축구 골대(2.44m×7.32m)보다 훨씬 작아요. 풋살 골대와 같은 크기예요."],
+["hb", "r", 2, "반칙으로 확실한 득점 기회를 막았을 때 주는 벌은?", "7m 던지기", "9m 자유던지기", "코너 던지기", "골키퍼 던지기", "골키퍼와 1대1로 7m 선에서 던져요. 이때 골키퍼는 4m 선 앞으로 나올 수 없어요."],
+["hb", "r", 2, "골 에어리어 밖 9m 지점에 그려진 점선은 무엇을 할 때 쓰는 선일까요?", "자유던지기 선", "7m 던지기 선", "골키퍼 제한선", "교체선", "6m와 9m 선 사이에서 반칙이 나면 공격 팀은 9m 점선 밖에서 자유던지기를 해요."],
+["hb", "r", 2, "핸드볼에서 2분 퇴장을 받으면 어떻게 될까요?", "그 선수가 2분 동안 나가고 팀은 한 명 적게 뛴다", "다른 선수로 바로 바꿔 넣는다", "상대에게 7m 던지기를 준다", "그 선수만 2분 동안 공격을 못 한다", "2분이 지나야 그 선수(또는 다른 선수)가 코트로 돌아올 수 있어요."],
+["hb", "r", 2, "같은 선수가 2분 퇴장을 세 번째 받으면 어떻게 될까요?", "실격(레드카드)", "경고(옐로카드)", "아무 일도 없음", "4분 퇴장", "실격된 선수는 경기에 다시 나올 수 없고, 팀은 2분 동안 한 명 적게 뛰어요."],
+["hb", "r", 3, "핸드볼에서 경고(옐로카드)는 한 팀 전체에 몇 번까지 줄 수 있을까요?", "3번", "1번", "5번", "제한 없음", "한 선수는 1번, 한 팀은 3번까지예요. 그다음부터는 2분 퇴장으로 벌해요."],
+["hb", "r", 3, "핸드볼 팀 타임아웃(1분)에 대한 설명으로 옳은 것은?", "정규 시간에 팀당 3번까지, 한 하프에 2번까지", "한 경기에 팀당 1번만", "하프마다 3번씩", "심판만 부를 수 있다", "후반 마지막 5분에는 1번만 부를 수 있고, 공을 가진 팀만 부를 수 있어요."],
+["hb", "r", 3, "심판이 패시브 플레이(공격하지 않고 시간 끌기) 경고 신호를 보낸 뒤 공격 팀은 몇 번의 패스 안에 슛해야 할까요?", "4번", "2번", "6번", "10번", "패스 수가 넘었는데도 슛하지 않으면 상대에게 공격권이 넘어가요."],
+["hb", "r", 2, "골을 넣은 뒤 경기는 어떻게 다시 시작할까요?", "골을 먹은 팀이 코트 가운데에서 스로오프", "골을 넣은 팀이 가운데에서 다시 시작", "골키퍼 던지기", "심판이 공을 위로 던진다", "골을 먹은 팀이 가운데 구역에서 빠르게 다시 시작할 수 있어 경기 흐름이 빨라요."],
+["hb", "h", 2, "실내 7인제 남자 핸드볼이 올림픽 정식 종목이 된 대회는?", "1972년 뮌헨 올림픽", "1936년 베를린 올림픽", "1988년 서울 올림픽", "1996년 애틀랜타 올림픽", "1936년 베를린 올림픽에는 야외 11인제 핸드볼이 열렸고, 여자 실내 핸드볼은 1976년 몬트리올부터예요."],
+["hb", "h", 2, "한국 여자 핸드볼 대표팀이 처음으로 올림픽 금메달을 딴 대회는?", "1988년 서울 올림픽", "2004년 아테네 올림픽", "1976년 몬트리올 올림픽", "2008년 베이징 올림픽", "1992년 바르셀로나에서도 금메달을 따 2연속 우승했어요. 2004년 아테네 은메달 이야기는 영화로도 만들어졌어요."],
+["hb", "t", 2, "수비수 머리 위로 뛰어올라 공중에서 던지는 핸드볼의 대표 슛은?", "점프 슛", "스카이 슛", "바운드 슛", "백 슛", "도움닫기 3걸음으로 힘껏 뛰어올라 가장 높은 곳에서 공을 놓아요."],
+["hb", "t", 3, "골키퍼 앞 바닥에 공을 튕겨 골키퍼 타이밍을 빼앗는 슛은?", "바운드 슛", "점프 슛", "윙 슛", "롱 슛", "골키퍼가 손을 들어 막으려 할 때 낮게 튕겨 들어가서 막기 어려워요."],
+["hb", "r", 2, "핸드볼에서 필드 선수가 하면 반칙이고, 골키퍼는 골 에어리어 안에서 막을 때 해도 되는 것은?", "무릎 아래(발)로 공 막기", "공을 두 손으로 잡기", "드리블하기", "패스하기", "필드 선수는 무릎 아래로 공을 건드리면 안 돼요. 골키퍼는 골 에어리어 안에서 몸 어디로든 막을 수 있어요."],
+["hb", "v", 1, "핸드볼에서 상대의 공을 빼앗는 올바른 방법은?", "펼친 손으로 공만 쳐서 빼앗기", "상대의 팔을 잡아당기기", "상대를 뒤에서 밀기", "상대의 공을 두 손으로 낚아채기", "공만 펼친 손으로 쳐야 해요. 팔을 잡거나 밀면 반칙이고, 위험하면 2분 퇴장이에요."],
+["hb", "v", 1, "점프 슛을 하다 넘어진 상대 골키퍼에게 가장 알맞은 행동은?", "다가가 손을 내밀어 일으켜 준다", "그냥 지나간다", "골을 넣었다고 놀린다", "심판에게 반칙을 주장한다", "몸이 부딪히기 쉬운 경기일수록 서로를 지키는 마음이 먼저예요."]
+);
+
 /* ================= 스포츠 상식 퀴즈 (팀 대항 스피드 퀴즈) ================= */
 MODS.quiz={name:"스포츠 퀴즈",sub:"팀 대항 스피드 퀴즈 · 규칙·역사·기술·가치",color:"var(--c-qz)",
 html:`
@@ -6648,6 +7161,7 @@ function fresh(cfg){
 let S=K.load(KEY);if(!S||!S.cfg)S=fresh();S.run=false;
 // 새로 생긴 종목·영역은 처음 한 번 자동으로 켜 준다
 if(!S.cfg.v3){S.cfg.v3=true;["fs","nb","ff","hf","bc"].forEach(k=>{if(!S.cfg.sports.includes(k))S.cfg.sports.push(k);});if(!S.cfg.cats.includes("f"))S.cfg.cats.push("f");}
+if(!S.cfg.v4){S.cfg.v4=true;if(!S.cfg.sports.includes("hb"))S.cfg.sports.push("hb");}
 let undoStack=[],lastSave=0,lastTick=-1;
 const save=()=>K.save(KEY,S);
 function snap(){undoStack.push(JSON.stringify(Object.assign({},S,{run:false})));if(undoStack.length>200)undoStack.shift();}
@@ -7924,6 +8438,7 @@ const ICON={
   nb:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4v32" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><ellipse cx="20" cy="8" rx="8" ry="2.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 8l3 9h10l3-9" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="30" cy="27" r="6" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>',
   ff:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><ellipse cx="18" cy="20" rx="13" ry="8" transform="rotate(-30 18 20)" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M14 22l8-5M15 19l2 2M18 17l2 2M20 15l2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M31 24v12M31 24l6 3-6 3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>',
   bc:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="26" r="4" fill="currentColor"/><circle cx="10" cy="20" r="6" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="30" cy="16" r="6" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="31" r="5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>',
+  hb:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 34V10h20v24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M8 14h12M8 19h12M8 24h12M8 29h12M10 10v24M14 10v24M18 10v24" stroke="currentColor" stroke-width="1" opacity=".55"/><circle cx="30" cy="15" r="7" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M24.5 11.5c3 2 8 2 11 0M24 18c3.5-1.5 8.5-1.5 12 0M30 8v14" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>',
   dg:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><circle cx="24" cy="18" r="12" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M4 26h8M2 32h10M6 20h6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>'
 };
 const CARDS=[
@@ -7935,6 +8450,7 @@ const CARDS=[
   {k:"pb",col:"var(--c-pb)",open:"pb",name:"피클볼",rule:"11점 사이드아웃 스코어링 · 복식 1번/2번 서버. '4-2-1' 점수 콜을 크게 띄워요.",chips:["점수 콜","랠리 스코어링 선택"]},
   {k:"sc",col:"var(--c-sc)",open:"soccer",name:"축구",rule:"전·후반 경기 시간 · 득점자와 분 기록 · 경고/퇴장 카드 · 동점이면 승부차기.",chips:["득점자 기록","승부차기","빙고"]},
   {k:"fs",col:"var(--c-fs)",open:"futsal",name:"풋살",rule:"5대5 · 전·후반 20분(조절 가능). 득점자 기록, 하프마다 팀 반칙 누적(6번째부터 10m 프리킥 알림), 팀당 타임아웃 1번, 승부차기, 빙고 모드.",chips:["팀 반칙 누적","타임아웃","빙고"]},
+  {k:"hb",col:"var(--c-hb)",open:"handball",name:"핸드볼",rule:"7명 · 전·후반(시간 조절). 득점자와 슛 성공률, 7m 던지기, 골키퍼 선방률. 경고→2분 퇴장→실격 단계 징계와 퇴장 선수별 2분 타이머, 타임아웃 규칙, 연장·7m 승부던지기, 빙고 모드.",chips:["2분 퇴장 타이머","7m 던지기","빙고"]},
   {k:"nb",col:"var(--c-nb)",open:"netball",name:"넷볼",rule:"7포지션(GS·GA·WA·C·WD·GD·GK) · 4쿼터. 골은 GS·GA만, 센터 패스는 골마다 자동 교대. 슈팅 성공률, 쿼터마다 포지션 돌리기, 빙고 모드.",chips:["포지션 지정","센터 패스 교대","슈팅 성공률"]},
   {k:"ff",col:"var(--c-ff)",open:"flag",name:"플래그 풋볼",rule:"터치다운 6점 · 추가 득점 1/2점 · 세이프티 2점. 4번의 다운 안에 하프라인을 넘고 다시 4번 안에 터치다운! 다운 표시와 공격권이 자동으로 넘어가요.",chips:["다운 표시","추가 득점","빙고"]},
   {k:"bc",col:"var(--c-bc)",open:"boccia",name:"보치아",rule:"빨강·파랑 공을 하얀 표적구에 가깝게! 표적구 차례, 다음에 던질 편(표적구에서 먼 편), 남은 공을 알려 주고 엔드별 점수와 승부 엔드까지 처리해요.",chips:["다음 투구 안내","엔드 점수","빙고"]},
@@ -7983,6 +8499,7 @@ const MOTTO={
   run:["어제의 나보다 한 바퀴 더","끝까지 달린 모두가 승자"],
   tchouk:["몸싸움 없는 경기, 존중으로 겨룬다","상대를 막지 않고, 함께 빛나게 한다"],
   futsal:["작은 공간, 빠른 생각","모두가 공격수, 모두가 수비수"],
+  handball:["몸을 던지는 용기, 손을 내미는 배려","일곱 명이 하나로 뛰는 경기"],
   netball:["내 자리에서 최선을, 우리 함께 골까지","패스 하나에 믿음 하나"],
   flag:["태클 대신 깃발, 힘 대신 작전","한 번의 다운, 모두의 약속"],
   boccia:["누구나 함께, 공 하나에 담는 집중","힘보다 정확함, 경쟁보다 존중"],
@@ -8029,7 +8546,7 @@ function open(id,fromHash){
   window.scrollTo(0,0);
 }
 /* ----- 기록 보관 ----- */
-const SPORTCOL={boccia:"var(--c-bc)",futsal:"var(--c-fs)",netball:"var(--c-nb)",flag:"var(--c-ff)",quiz:"var(--c-qz)",bracket:"var(--c-br)",bb3:"var(--c-bb)",bb5:"var(--c-bb)",bbrot:"var(--c-bb)",volley:"var(--c-vb)",tt:"var(--c-tt)",bd:"var(--c-bd)",pb:"var(--c-pb)",soccer:"var(--c-sc)",dodge:"var(--c-dg)",kin:"var(--c-kb)",base:"var(--c-bs)",ult:"var(--c-ut)",run:"var(--c-rn)",tchouk:"var(--c-tb)"};
+const SPORTCOL={handball:"var(--c-hb)",boccia:"var(--c-bc)",futsal:"var(--c-fs)",netball:"var(--c-nb)",flag:"var(--c-ff)",quiz:"var(--c-qz)",bracket:"var(--c-br)",bb3:"var(--c-bb)",bb5:"var(--c-bb)",bbrot:"var(--c-bb)",volley:"var(--c-vb)",tt:"var(--c-tt)",bd:"var(--c-bd)",pb:"var(--c-pb)",soccer:"var(--c-sc)",dodge:"var(--c-dg)",kin:"var(--c-kb)",base:"var(--c-bs)",ult:"var(--c-ut)",run:"var(--c-rn)",tchouk:"var(--c-tb)"};
 async function storeRec(rec,silent){
   if(!rec)return;
   const old=K.rec.get(rec.id);if(old&&old.memo)rec.memo=old.memo;

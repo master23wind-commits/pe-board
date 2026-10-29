@@ -21,6 +21,7 @@ const ICON={
   nb:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4v32" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><ellipse cx="20" cy="8" rx="8" ry="2.5" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 8l3 9h10l3-9" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="30" cy="27" r="6" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>',
   ff:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><ellipse cx="18" cy="20" rx="13" ry="8" transform="rotate(-30 18 20)" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M14 22l8-5M15 19l2 2M18 17l2 2M20 15l2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M31 24v12M31 24l6 3-6 3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>',
   bc:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="26" r="4" fill="currentColor"/><circle cx="10" cy="20" r="6" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="30" cy="16" r="6" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="31" r="5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>',
+  hb:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 34V10h20v24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M8 14h12M8 19h12M8 24h12M8 29h12M10 10v24M14 10v24M18 10v24" stroke="currentColor" stroke-width="1" opacity=".55"/><circle cx="30" cy="15" r="7" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M24.5 11.5c3 2 8 2 11 0M24 18c3.5-1.5 8.5-1.5 12 0M30 8v14" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>',
   dg:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><circle cx="24" cy="18" r="12" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M4 26h8M2 32h10M6 20h6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>'
 };
 const CARDS=[
@@ -32,6 +33,7 @@ const CARDS=[
   {k:"pb",col:"var(--c-pb)",open:"pb",name:"피클볼",rule:"11점 사이드아웃 스코어링 · 복식 1번/2번 서버. '4-2-1' 점수 콜을 크게 띄워요.",chips:["점수 콜","랠리 스코어링 선택"]},
   {k:"sc",col:"var(--c-sc)",open:"soccer",name:"축구",rule:"전·후반 경기 시간 · 득점자와 분 기록 · 경고/퇴장 카드 · 동점이면 승부차기.",chips:["득점자 기록","승부차기","빙고"]},
   {k:"fs",col:"var(--c-fs)",open:"futsal",name:"풋살",rule:"5대5 · 전·후반 20분(조절 가능). 득점자 기록, 하프마다 팀 반칙 누적(6번째부터 10m 프리킥 알림), 팀당 타임아웃 1번, 승부차기, 빙고 모드.",chips:["팀 반칙 누적","타임아웃","빙고"]},
+  {k:"hb",col:"var(--c-hb)",open:"handball",name:"핸드볼",rule:"7명 · 전·후반(시간 조절). 득점자와 슛 성공률, 7m 던지기, 골키퍼 선방률. 경고→2분 퇴장→실격 단계 징계와 퇴장 선수별 2분 타이머, 타임아웃 규칙, 연장·7m 승부던지기, 빙고 모드.",chips:["2분 퇴장 타이머","7m 던지기","빙고"]},
   {k:"nb",col:"var(--c-nb)",open:"netball",name:"넷볼",rule:"7포지션(GS·GA·WA·C·WD·GD·GK) · 4쿼터. 골은 GS·GA만, 센터 패스는 골마다 자동 교대. 슈팅 성공률, 쿼터마다 포지션 돌리기, 빙고 모드.",chips:["포지션 지정","센터 패스 교대","슈팅 성공률"]},
   {k:"ff",col:"var(--c-ff)",open:"flag",name:"플래그 풋볼",rule:"터치다운 6점 · 추가 득점 1/2점 · 세이프티 2점. 4번의 다운 안에 하프라인을 넘고 다시 4번 안에 터치다운! 다운 표시와 공격권이 자동으로 넘어가요.",chips:["다운 표시","추가 득점","빙고"]},
   {k:"bc",col:"var(--c-bc)",open:"boccia",name:"보치아",rule:"빨강·파랑 공을 하얀 표적구에 가깝게! 표적구 차례, 다음에 던질 편(표적구에서 먼 편), 남은 공을 알려 주고 엔드별 점수와 승부 엔드까지 처리해요.",chips:["다음 투구 안내","엔드 점수","빙고"]},
@@ -80,6 +82,7 @@ const MOTTO={
   run:["어제의 나보다 한 바퀴 더","끝까지 달린 모두가 승자"],
   tchouk:["몸싸움 없는 경기, 존중으로 겨룬다","상대를 막지 않고, 함께 빛나게 한다"],
   futsal:["작은 공간, 빠른 생각","모두가 공격수, 모두가 수비수"],
+  handball:["몸을 던지는 용기, 손을 내미는 배려","일곱 명이 하나로 뛰는 경기"],
   netball:["내 자리에서 최선을, 우리 함께 골까지","패스 하나에 믿음 하나"],
   flag:["태클 대신 깃발, 힘 대신 작전","한 번의 다운, 모두의 약속"],
   boccia:["누구나 함께, 공 하나에 담는 집중","힘보다 정확함, 경쟁보다 존중"],
@@ -126,7 +129,7 @@ function open(id,fromHash){
   window.scrollTo(0,0);
 }
 /* ----- 기록 보관 ----- */
-const SPORTCOL={boccia:"var(--c-bc)",futsal:"var(--c-fs)",netball:"var(--c-nb)",flag:"var(--c-ff)",quiz:"var(--c-qz)",bracket:"var(--c-br)",bb3:"var(--c-bb)",bb5:"var(--c-bb)",bbrot:"var(--c-bb)",volley:"var(--c-vb)",tt:"var(--c-tt)",bd:"var(--c-bd)",pb:"var(--c-pb)",soccer:"var(--c-sc)",dodge:"var(--c-dg)",kin:"var(--c-kb)",base:"var(--c-bs)",ult:"var(--c-ut)",run:"var(--c-rn)",tchouk:"var(--c-tb)"};
+const SPORTCOL={handball:"var(--c-hb)",boccia:"var(--c-bc)",futsal:"var(--c-fs)",netball:"var(--c-nb)",flag:"var(--c-ff)",quiz:"var(--c-qz)",bracket:"var(--c-br)",bb3:"var(--c-bb)",bb5:"var(--c-bb)",bbrot:"var(--c-bb)",volley:"var(--c-vb)",tt:"var(--c-tt)",bd:"var(--c-bd)",pb:"var(--c-pb)",soccer:"var(--c-sc)",dodge:"var(--c-dg)",kin:"var(--c-kb)",base:"var(--c-bs)",ult:"var(--c-ut)",run:"var(--c-rn)",tchouk:"var(--c-tb)"};
 async function storeRec(rec,silent){
   if(!rec)return;
   const old=K.rec.get(rec.id);if(old&&old.memo)rec.memo=old.memo;

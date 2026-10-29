@@ -93,6 +93,7 @@ function fresh(cfg){
 let S=K.load(KEY);if(!S||!S.cfg)S=fresh();S.run=false;
 // 새로 생긴 종목·영역은 처음 한 번 자동으로 켜 준다
 if(!S.cfg.v3){S.cfg.v3=true;["fs","nb","ff","hf","bc"].forEach(k=>{if(!S.cfg.sports.includes(k))S.cfg.sports.push(k);});if(!S.cfg.cats.includes("f"))S.cfg.cats.push("f");}
+if(!S.cfg.v4){S.cfg.v4=true;if(!S.cfg.sports.includes("hb"))S.cfg.sports.push("hb");}
 let undoStack=[],lastSave=0,lastTick=-1;
 const save=()=>K.save(KEY,S);
 function snap(){undoStack.push(JSON.stringify(Object.assign({},S,{run:false})));if(undoStack.length>200)undoStack.shift();}
