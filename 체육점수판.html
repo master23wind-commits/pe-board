@@ -21,7 +21,7 @@
   --fg:#eef2f8; --muted:#8a99b3;
   --red:#ff5a3c; --blue:#38aefc; --t3:#ffcf3a; --t4:#4ade80; --t5:#b98cff;
   --amber:#ffb627; --alert:#ff3b5c; --ok:#4ade80; --bomb:#ffd23a; --hot:#ff4438;
-  --c-bb:#ff8a3d; --c-vb:#ffd23a; --c-tt:#ff5a7a; --c-bd:#7fe0ff; --c-pb:#b7f04a; --c-sc:#4ade80; --c-dg:#c78bff; --c-kb:#ff6fae; --c-bs:#ff9f5a; --c-ut:#5eead4; --c-rn:#f97362; --c-tb:#a3e635;--c-qz:#f0abfc;--c-bc:#f87171;--c-fs:#22d3ee;--c-nb:#fb7185;--c-ff:#facc15;--c-hb:#818cf8;--c-tm:#fbbf24;--c-pp:#34d399;--c-br:#60a5fa; --grass:#16382a; --dirt:#4d3726;
+  --c-bb:#ff8a3d; --c-vb:#ffd23a; --c-tt:#ff5a7a; --c-bd:#7fe0ff; --c-pb:#b7f04a; --c-sc:#4ade80; --c-dg:#c78bff; --c-kb:#ff6fae; --c-bs:#ff9f5a; --c-ut:#5eead4; --c-rn:#f97362; --c-tb:#a3e635;--c-qz:#f0abfc;--c-bc:#f87171;--c-fs:#22d3ee;--c-nb:#fb7185;--c-ff:#facc15;--c-hb:#818cf8;--c-pl:#f4c38b;--c-tm:#fbbf24;--c-pp:#34d399;--c-br:#60a5fa; --grass:#16382a; --dirt:#4d3726;
   --f-num:"Teko","Oswald",ui-monospace,monospace;
   --f-disp:"Black Han Sans","Noto Sans KR",sans-serif;
   --f-body:"Noto Sans KR",system-ui,sans-serif;
@@ -510,6 +510,144 @@ tr.now td{background:color-mix(in srgb,var(--c) 10%,transparent)}
 .pkrow .nm{font-weight:700;color:var(--tc);overflow-wrap:anywhere}
 .pkrow .sum{font-family:var(--f-num);font-size:2rem;text-align:right;line-height:1}
 
+/* ---- 수업 작전판 ---- */
+.sport.plancard{grid-column:1/-1;background:linear-gradient(120deg,color-mix(in srgb,var(--c-pl) 20%,var(--panel)),var(--panel) 65%);border-color:color-mix(in srgb,var(--c-pl) 55%,var(--line))}
+.plancard .pl-flow{display:flex;gap:4px;flex-wrap:wrap;align-items:center;font-size:.78rem;font-weight:700}
+.plancard .pl-flow i{font-style:normal;border-radius:6px;padding:.15em .55em;color:#0a0f1a;background:var(--pc)}
+.plancard .pl-flow s{text-decoration:none;color:var(--muted)}
+.plancard .pl-livehome{font-size:.85rem;font-weight:700;color:var(--ok)}
+.planchip{display:inline-flex;align-items:center;gap:6px;border-color:var(--pc);font-weight:700;font-size:.85rem;min-height:36px}
+.planchip i{width:9px;height:9px;border-radius:50%;background:var(--pc);animation:pulse 1.4s ease-in-out infinite}
+.planchip b{font-family:var(--f-num);font-size:1.25rem;font-weight:600;line-height:1}
+.planchip b.over{color:var(--alert)}
+.pl-tabs{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.pl-tabhint{font-size:.85rem;color:var(--muted)}
+.pl-live{color:var(--ok);font-weight:700}
+.pl-wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:12px;align-items:start}
+.pl-left{display:flex;flex-direction:column;gap:12px;min-width:0}
+.pl-head{display:flex;flex-direction:column;gap:10px}
+.pl-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.pl-title{flex:1;font-family:var(--f-disp);font-size:1.4rem;min-width:0;width:100%}
+.pl-axes{display:flex;flex-direction:column;gap:6px}
+.pl-axes label{display:grid;grid-template-columns:3.4rem 1fr;gap:8px;align-items:center}
+.pl-ax{display:inline-block;font-style:normal;font-size:.72rem;font-weight:700;border-radius:4px;padding:.1em .45em;text-align:center;color:#0a0f1a;margin-right:6px}
+.pl-ax.k{background:#fb923c}.pl-ax.n{background:#60a5fa}.pl-ax.v{background:#4ade80}
+.pl-axes .pl-ax{margin:0}
+.pl-saved select{flex:1;min-width:180px;min-height:34px}
+.pl-io{display:flex;flex-direction:column;gap:8px;border-top:1px dashed var(--line);padding-top:10px}
+.pl-io textarea{width:100%;font-size:.8rem;font-family:ui-monospace,monospace}
+.pl-io input[type=file]{font-size:.8rem;max-width:100%}
+.pl-tbar{display:flex;height:34px;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:var(--panel2)}
+.pl-tbar span{background:var(--pc);color:#0a0f1a;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;overflow:hidden;white-space:nowrap;border-right:2px solid var(--panel);cursor:pointer;min-width:4px}
+.pl-tbar span.sel{box-shadow:inset 0 0 0 3px var(--fg)}
+.pl-tbar span.rest{background:repeating-linear-gradient(45deg,transparent 0 6px,var(--line) 6px 8px);cursor:default}
+.pl-tsum{font-size:.85rem;color:var(--muted);margin:6px 0 10px}
+.pl-tsum b{color:var(--fg);font-family:var(--f-num);font-size:1.3rem}
+.pl-tsum .ok{color:var(--ok);font-weight:700}.pl-tsum .bad{color:var(--alert);font-weight:700}
+.pl-blocks{display:flex;flex-direction:column;gap:6px}
+.pl-blk{display:grid;grid-template-columns:4.2rem minmax(0,1fr) auto auto;gap:8px;align-items:center;border:1px solid var(--line);border-left:6px solid var(--pc);border-radius:10px;padding:8px 8px 8px 10px;background:var(--panel2);cursor:pointer}
+.pl-blk.sel{border-color:var(--pc);box-shadow:0 0 0 2px color-mix(in srgb,var(--pc) 40%,transparent)}
+.pl-lab{font-weight:700;color:var(--pc);font-size:.9rem}
+.pl-bm{display:flex;flex-direction:column;min-width:0}
+.pl-bm b{overflow-wrap:anywhere}
+.pl-bm small{font-size:.75rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pl-none{color:var(--muted);font-weight:500}
+.pl-min{display:flex;align-items:center;gap:4px;font-size:.8rem;color:var(--muted)}
+.pl-min input{width:3.6em;text-align:center;font-family:var(--f-num);font-size:1.3rem;padding:.05em .2em}
+.pl-bb{display:flex;gap:3px}
+.pl-bb button{min-height:32px;min-width:32px;padding:0;font-size:.8rem}
+.pl-bx{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;align-items:flex-end;font-size:.8rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;cursor:default}
+.pl-bx label{display:flex;flex-direction:column;gap:3px}
+.pl-bx .grow{flex:1;min-width:160px}
+.pl-bx .full{flex-basis:100%}
+.pl-bx textarea,.pl-bx input{width:100%}
+.pl-add{justify-content:flex-start;margin-top:10px}
+.pl-start{width:100%;margin-top:10px;min-height:52px;font-size:1.1rem;background:var(--c-pl);border-color:var(--c-pl);color:#1b1206}
+.pl-lib{display:flex;flex-direction:column;gap:8px;min-width:0;position:sticky;top:8px;max-height:calc(100vh - 16px);overflow:auto}
+.pl-lib h4{margin:0}
+.pl-target{font-size:.82rem;color:var(--muted);background:var(--panel2);border-radius:8px;padding:6px 10px}
+.pl-target span{color:var(--pc)}
+.pl-fr{display:flex;flex-wrap:wrap;gap:4px}
+.pl-fr .qchip{font-size:.78rem;min-height:30px;padding:.1em .6em;border:1px solid var(--line);background:var(--panel2);border-radius:99px;color:var(--muted);font-weight:700}
+.pl-fr .qchip[aria-pressed="true"]{background:var(--c-pl);color:#1b1206;border-color:var(--c-pl)}
+.pl-catd{font-size:.78rem;color:var(--c-pl)}
+.pl-q{width:100%}
+.pl-cards{display:flex;flex-direction:column;gap:6px}
+.pl-card{border:1px solid var(--line);border-left:5px solid var(--pc);border-radius:10px;background:var(--panel2)}
+.pl-card.open{border-color:var(--pc)}
+.pl-ch{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:1fr auto;gap:2px 8px;width:100%;padding:8px 10px}
+.pl-ch:focus-visible{outline:2px solid var(--amber)}
+.pl-ch b{font-weight:700;overflow-wrap:anywhere}
+.pl-cm{font-family:var(--f-num);font-size:1.15rem;color:var(--muted)}
+.pl-cs{grid-column:1/-1;font-size:.8rem;color:var(--muted)}
+.pl-chips{grid-column:1/-1;display:flex;gap:4px;flex-wrap:wrap}
+.pl-chip{font-size:.68rem;font-weight:700;border-radius:4px;padding:.05em .45em;background:var(--pc,var(--line));color:#0a0f1a}
+.pl-chip.cat{background:transparent;border:1px solid #fb923c;color:#fb923c}
+.pl-chip.sp{background:transparent;border:1px solid var(--line);color:var(--muted)}
+.pl-chip.mine{background:var(--c-pl);color:#1b1206}
+.pl-chip.u{background:transparent;border:1px solid var(--c-pl);color:var(--c-pl)}
+.pl-chip.tool{background:transparent;border:1px solid var(--ok);color:var(--ok)}
+.pl-cd{padding:0 10px 10px;display:flex;flex-direction:column;gap:8px}
+.pl-guide{display:grid;grid-template-columns:1fr;gap:8px;font-size:.86rem;line-height:1.55}
+.pl-g h5{margin:0 0 2px;font-size:.72rem;letter-spacing:.1em;color:var(--muted)}
+.pl-g p,.pl-g ol,.pl-g ul{margin:0}
+.pl-g ol,.pl-g ul{padding-left:1.2em}
+.pl-say li{color:var(--c-pl)}
+.pl-mod b{font-size:.75rem;border:1px solid var(--line);border-radius:4px;padding:0 .3em;margin-right:4px}
+.pl-safe{color:#fca5a5}
+.pl-axl{list-style:none;padding:0!important;display:flex;flex-direction:column;gap:3px}
+.pl-form{border-top:1px dashed var(--line);padding-top:10px;display:flex;flex-direction:column;gap:8px}
+.pl-form h5{margin:0;font-size:.9rem}
+.pl-fgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:.8rem;color:var(--muted)}
+.pl-fgrid label{display:flex;flex-direction:column;gap:3px}
+.pl-fgrid .full{grid-column:1/-1}
+.pl-fgrid input,.pl-fgrid select,.pl-fgrid textarea{width:100%}
+/* 진행 */
+.pl-runempty{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:30px 16px}
+.pl-runempty p{color:var(--muted);max-width:60ch;line-height:1.7;margin:0}
+.pl-strip{display:flex;gap:4px;overflow-x:auto}
+.pl-strip button{display:flex;flex-direction:column;align-items:flex-start;gap:1px;min-width:72px;text-align:left;border:1px solid var(--line);border-top:5px solid var(--pc);background:var(--panel);padding:.35em .55em;min-height:48px}
+.pl-strip button b{font-size:.78rem;color:var(--pc)}
+.pl-strip button span{font-size:.7rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.pl-strip button.now{background:color-mix(in srgb,var(--pc) 22%,var(--panel));border-color:var(--pc)}
+.pl-strip button.now span{color:var(--fg)}
+.pl-strip button.done{opacity:.45}
+.pl-run{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:12px;align-items:start;margin-top:12px}
+.pl-now{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;border-top:6px solid var(--pc)}
+.pl-nowh{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:center}
+.pl-nowh .pl-chip{font-size:.85rem;padding:.1em .6em}
+.pl-of{font-size:.8rem;color:var(--muted)}
+.pl-nown{font-family:var(--f-disp);font-weight:400;font-size:clamp(1.6rem,4vw,2.6rem);margin:0;line-height:1.15;color:var(--pc);text-wrap:balance}
+.pl-nows{color:var(--muted);font-size:.9rem;max-width:44ch}
+.pl-clock{font-family:var(--f-num);font-weight:600;font-size:clamp(5rem,15vw,11rem);line-height:.85;color:var(--fg);font-variant-numeric:tabular-nums;padding-top:.08em}
+.pl-clock.low{color:var(--amber)}
+.pl-clock.over{color:var(--alert)}
+.pl-clock.pause{opacity:.55}
+.pl-cbar{width:100%;height:10px;border-radius:99px;background:var(--panel2);overflow:hidden;border:1px solid var(--line)}
+.pl-cbar i{display:block;height:100%;background:var(--pc);transition:width .25s linear}
+.pl-cbar i.over{background:var(--alert)}
+.pl-tot{font-size:.82rem;color:var(--muted)}
+.pl-tot b{color:var(--fg)}.pl-tot .bad{color:var(--alert)}
+.pl-tool{width:100%;background:var(--ok);border-color:var(--ok);color:#06210f;font-weight:700;min-height:52px;font-size:1.05rem}
+.pl-tool small{display:block;font-size:.72rem;font-weight:500}
+.pl-memo{width:100%;text-align:left;font-size:.88rem;background:var(--panel2);border-radius:8px;padding:8px 10px}
+.pl-memo b{color:var(--c-pl);margin-right:4px}
+.pl-next{font-size:.9rem;color:var(--muted)}
+.pl-next b{color:var(--fg)}
+.pl-gbox{display:flex;flex-direction:column;gap:12px}
+.pl-goal{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:.86rem;border-bottom:1px solid var(--line);padding-bottom:10px}
+.pl-goal>span{font-size:.72rem;letter-spacing:.12em;color:var(--muted);font-weight:700}
+.pl-goal em{font-style:normal}
+.pl-guide.big{font-size:clamp(.95rem,1.5vw,1.1rem);gap:12px}
+.pl-guide.big .pl-g h5{font-size:.78rem}
+.pl-sumt{min-width:0;font-size:.85rem}
+.pl-sumt td.bad{color:var(--alert);font-weight:700}
+.pl-sumt td.x{color:var(--muted)}
+.pl-sumt small{color:var(--muted);font-weight:500}
+.view .pl-guide.big{font-size:clamp(1.1rem,2vw,1.5rem)}
+.view .pl-clock{font-size:clamp(6rem,20vw,15rem)}
+@media (max-width:900px){.pl-wrap,.pl-run{grid-template-columns:1fr}.pl-lib{position:static;max-height:none}}
+@media (max-width:560px){.pl-blk{grid-template-columns:3.6rem minmax(0,1fr) auto}.pl-bb{grid-column:1/-1;justify-content:flex-end}.pl-fgrid{grid-template-columns:1fr}}
 /* 핸드볼 */
 .prow.hb{grid-template-columns:minmax(4.5rem,1fr) 3.8rem 7.4rem auto}
 .prow.hb .fixcards .fixc{font-family:var(--f-body);font-size:.85rem;line-height:1.4;font-weight:700}
@@ -1056,6 +1194,8 @@ body.view .fixn{cursor:default;text-decoration:none;background:none}
       <div class="home-ask">오늘은 어떤 종목을 할까요?</div>
       <p>종목을 고르면 그 종목의 규칙에 맞춘 점수판이 열립니다. 점수와 명단은 이 기기에 종목별로 저장돼서, 다른 종목을 다녀와도 그대로 남아 있어요.</p>
     </div>
+    <h2 class="home-sec">수업 작전판</h2>
+    <div class="sports tools" id="planHome"></div>
     <h2 class="home-sec">수업 도구</h2>
     <div class="sports tools" id="tools"></div>
     <h2 class="home-sec">종목 점수판</h2>
@@ -8415,6 +8555,640 @@ return{
 };
 }};
 
+/* ================= 수업 작전판: 활동 카드와 레시피 =================
+   ph 단계: wu 웜업 · act 활동 · exp 설명 · end 종료
+   cat (웜업 분류): 구조 · 개념 · 상호작용 · 촉진
+   sp 종목: all 공통 · bb 농구 · vb 배구 · sc 축구·풋살 · hb 핸드볼 · dg 피구 · bd 배드민턴 · tt 탁구 · bs 야구·티볼
+            ut 얼티밋 · nb 넷볼 · ff 플래그 풋볼 · kb 킨볼 · tb 츄크볼 · bc 보치아 · rn 달리기·체력
+   필드: n 이름, m 추천 분, s 한 줄 소개, how 진행 방법, g 준비물·대형, say 교사의 말, e 쉽게, h 어렵게,
+         safe 안전, ax [기능, 지식, 가치], tool 바로 여는 점수판·도구, mine 태성쌤 아이디어 */
+K.PLAN_PH={wu:{n:"웜업",c:"#fb923c"},act:{n:"활동",c:"#4ade80"},exp:{n:"설명",c:"#60a5fa"},end:{n:"종료",c:"#c084fc"}};
+K.PLAN_CAT={
+  "구조":"모둠·대형·신호 약속처럼 오늘 수업의 틀을 몸으로 익혀요",
+  "개념":"오늘 배울 핵심 원리를 놀이로 먼저 맛봐요",
+  "상호작용":"짝·모둠과 말하고 협력하며 관계를 열어요",
+  "촉진":"심박수와 흥미를 끌어올려 몸과 마음을 깨워요"
+};
+K.PLAN_SP=[["all","공통"],["bb","농구"],["vb","배구"],["sc","축구·풋살"],["hb","핸드볼"],["dg","피구"],["bd","배드민턴"],["tt","탁구"],["bs","야구·티볼"],["ut","얼티밋"],["nb","넷볼"],["ff","플래그 풋볼"],["kb","킨볼"],["tb","츄크볼"],["bc","보치아"],["rn","달리기·체력"]];
+K.PLAN_TOOL={bb3:"농구 3대3",bb5:"농구 5대5",bbrot:"로테이션 농구",volley:"배구",tt:"탁구",bd:"배드민턴",pb:"피클볼",soccer:"축구",futsal:"풋살",handball:"핸드볼",netball:"넷볼",flag:"플래그 풋볼",boccia:"보치아",dodge:"피구",base:"야구·티볼",ult:"얼티밋",run:"달리기",tchouk:"츄크볼",kin:"킨볼",quiz:"스포츠 상식 퀴즈",teams:"팀 나누기",paps:"PAPS 측정",bracket:"대진표"};
+K.PLAN_LIB=[
+/* ---------- 웜업 · 공통 ---------- */
+{id:"w-signal",ph:"wu",sp:"all",cat:"구조",n:"신호 약속 게임",m:4,s:"호루라기 신호에 맞춰 멈추고 모이는 약속을 놀이로 익혀요",
+ how:["자유롭게 걷거나 뛰게 해요","짧게 한 번 = 그 자리 멈춤, 두 번 = 교사 앞 모이기, 길게 = 모둠 자리로","신호를 섞어 가며 점점 빠르게 불어요","마지막에 '오늘은 이 신호로 진행해요'라고 약속해요"],
+ g:"호루라기 · 넓은 공간",say:["오늘 수업은 이 신호 세 개로 움직여요","가장 먼저 멈춘 모둠이 어디였을까?"],e:"걷기로만 해요",h:"신호에 동작(앉기·점프)을 더해요",safe:"멈출 때 옆 친구와 부딪히지 않게 간격을 두어요",ax:["반응·정지","수업 신호의 뜻","약속 지키기"]},
+{id:"w-teams",ph:"wu",sp:"all",cat:"구조",n:"재미있는 팀 나누기",m:3,s:"전화번호 끝자리·이름 비슷한 친구처럼 재미있게 팀을 나눠요",mine:1,tool:"teams",
+ how:["팀 나누기 도구를 열어 방법을 골라요(무작위·남녀 고르게·실력 고르게·재미 방법)","결과를 화면에 띄우고 팀별 자리로 이동해요","팀 이름을 스스로 정하게 해요"],
+ g:"팀 조끼 · 화면",say:["오늘 팀은 운에 맡겨 볼까요?","새 친구와 같은 팀이 된 사람 손!"],e:"교사가 미리 나눠 둔 팀을 써요",h:"팀장이 1분 안에 팀 구호를 만들어요",safe:"조끼를 입을 때 서두르지 않아요",ax:["","팀 구성 방법","누구와도 한 팀"]},
+{id:"w-lines",ph:"wu",sp:"all",cat:"구조",n:"코트 지도 술래",m:4,s:"교사가 외친 코트 선 위로 달려가며 경기장 구조를 익혀요",
+ how:["코트 선 이름을 먼저 짚어 줘요(사이드라인·엔드라인·센터라인 등)","교사가 선 이름을 외치면 그 선 위에 서요","가장 늦게 도착한 세 명은 다음 술래(외치는 사람)가 돼요"],
+ g:"코트 선",say:["이 선을 넘으면 경기에서는 어떻게 될까요?"],e:"교사가 손으로 가리키며 외쳐요",h:"선 + 자세(수비 자세·한 발 서기)를 함께 외쳐요",safe:"코트 밖 벽·기둥 쪽으로 달려가지 않게 해요",ax:["방향 전환","경기장 구조와 규칙","끝까지 참여"]},
+{id:"w-space",ph:"wu",sp:"all",cat:"개념",n:"빈 공간 찾기 패스",m:6,s:"5명이 패스하고 2명이 가로채며 '빈 공간'의 뜻을 몸으로 느껴요",
+ how:["콘으로 작은 사각형을 만들고 공격 5명, 수비 2명을 넣어요","공격은 패스만, 공을 들고 움직이지 않아요","5번 이어 패스하면 1점, 가로채면 수비와 공격을 바꿔요","끝나고 '패스가 잘 된 순간 받는 사람은 어디에 있었나?' 물어요"],
+ g:"공 1개(모둠당) · 콘 4개",say:["공을 가진 친구를 도와주는 자리는 어디일까?","수비 두 명 사이 빈 곳을 찾아봐!"],e:"수비를 1명으로",h:"패스 후 반드시 자리를 옮겨요",safe:"가로챌 때 몸을 밀지 않아요",ax:["패스·받기","공간과 지원","함께 움직이기"]},
+{id:"w-freeze",ph:"wu",sp:"all",cat:"개념",n:"멈춤 균형 놀이",m:4,s:"달리다 신호에 멈춰 균형을 잡으며 기본 자세와 무게중심을 익혀요",
+ how:["음악이나 박수에 맞춰 자유롭게 뛰어요","신호에 멈춰 교사가 말한 자세로 3초 버텨요(한 발·낮은 자세·수비 자세)","흔들린 친구에게 '무릎을 더 굽혀 볼까?'처럼 말해 줘요"],
+ g:"음악(선택)",say:["무릎을 굽히면 왜 덜 흔들릴까?"],e:"두 발로 멈춰요",h:"눈을 감고 3초",safe:"넘어질 때 손을 짚을 공간을 두어요",ax:["균형·정지","무게중심","서로 도와주기"]},
+{id:"w-hifive",ph:"wu",sp:"all",cat:"상호작용",n:"하이파이브 얼음땡",m:5,s:"얼음이 된 친구는 두 명에게 하이파이브를 받아야 풀려나요",
+ how:["술래 2~3명을 정해요(조끼)","잡히면 얼음, 다른 친구 두 명이 하이파이브하면 풀려요","1분마다 술래를 바꿔요"],
+ g:"술래 조끼 2~3개",say:["누가 친구를 가장 많이 풀어 줬을까?"],e:"하이파이브 한 번으로 풀려요",h:"풀어 줄 때 친구 이름을 불러야 해요",safe:"하이파이브는 손바닥끼리만, 세게 치지 않아요",ax:["민첩성","","친구 돕기"]},
+{id:"w-namepass",ph:"wu",sp:"all",cat:"상호작용",n:"이름 부르며 패스",m:4,s:"패스할 때마다 받을 친구 이름을 부르고, 받으면 '고마워'로 답해요",
+ how:["5~6명이 원을 만들어요","이름을 부르고 패스, 받으면 '고마워'","공을 하나씩 늘려 두세 개를 동시에 돌려요"],
+ g:"공 2~3개(모둠당)",say:["이름을 부르니 패스가 어떻게 달라졌나요?"],e:"공 하나로만",h:"원을 걷거나 뛰면서",safe:"받을 준비가 안 된 친구에게 세게 던지지 않아요",ax:["패스·받기","의사소통","서로 부르기"]},
+{id:"w-rps",ph:"wu",sp:"all",cat:"촉진",n:"진화 가위바위보",m:4,s:"알 → 병아리 → 닭 → 사람으로 진화하는 가위바위보로 분위기를 띄워요",
+ how:["모두 쪼그려 앉은 '알'에서 시작해요","같은 단계끼리 가위바위보, 이기면 한 단계 위로, 지면 한 단계 아래로","사람이 되면 교사에게 와서 하이파이브"],
+ g:"없음",say:["졌을 때 표정이 제일 밝은 사람이 진짜 승자!"],e:"단계를 셋으로",h:"단계마다 동작을 더 크게",safe:"쪼그려 걷기는 짧게, 무릎이 아프면 걸어요",ax:["다리 근력","","지는 것도 즐기기"]},
+{id:"w-numgroup",ph:"wu",sp:"all",cat:"촉진",n:"숫자 모이기",m:3,s:"교사가 외친 숫자만큼 모여 앉아요. 모둠 만들기로 바로 이어져요",
+ how:["자유롭게 뛰다가 숫자를 외쳐요","그 인원으로 모여 손을 잡고 앉아요","마지막 숫자를 오늘 모둠 인원으로 해서 그대로 모둠이 돼요"],
+ g:"없음",say:["남은 친구를 먼저 불러 준 모둠은?"],e:"숫자를 미리 알려 줘요",h:"'남3 여2'처럼 조건을 붙여요",safe:"모일 때 뛰어들지 않아요",ax:["민첩성","","남은 친구 챙기기"]},
+{id:"w-dynamic",ph:"wu",sp:"all",cat:"촉진",n:"동적 스트레칭 루틴",m:5,s:"무릎 들어 걷기·런지·팔 돌리기 등 움직이며 하는 준비운동",
+ how:["두 줄로 서서 코트 끝까지 가며 동작 하나씩","무릎 들어 걷기 → 엉덩이 차기 → 런지 → 사이드 스텝 → 팔 돌리기","돌아올 때는 가볍게 뛰어요"],
+ g:"코트 길이",say:["오늘 많이 쓸 근육은 어디일까요?"],e:"제자리에서",h:"마지막에 짧은 전력 질주",safe:"반동을 크게 주지 않아요",ax:["유연성·준비","준비운동의 원리","몸 아끼기"]},
+/* ---------- 웜업 · 종목 ---------- */
+{id:"w-bb-light",ph:"wu",sp:"bb",cat:"촉진",n:"드리블 신호등",m:5,s:"초록은 달리며, 노랑은 제자리, 빨강은 멈춤 드리블",
+ how:["한 사람에 공 하나, 코트 안을 자유롭게","교사가 색을 외치면 그 드리블로 바꿔요","'파랑' = 반대 손, '보라' = 다리 사이처럼 색을 늘려요"],
+ g:"농구공(1인 1개)",say:["공을 안 보고 교사 손가락 몇 개인지 말해 볼까?"],e:"걸으며 드리블",h:"색 신호 대신 숫자 손가락으로",safe:"공이 굴러가면 '공!'이라고 외쳐요",ax:["드리블·시선","","공간 나눠 쓰기"]},
+{id:"w-bb-tag",ph:"wu",sp:"bb",cat:"개념",n:"드리블 술래(공 지키기)",m:5,s:"드리블하며 친구 공은 쳐내고 내 공은 지켜요. 공 보호를 몸으로 배워요",
+ how:["센터 서클이나 하프코트 안에서 모두 드리블","다른 친구의 공을 쳐서 밖으로 내보내요","공을 잃으면 밖에서 10번 드리블하고 다시 들어와요"],
+ g:"농구공(1인 1개)",say:["공을 지킬 때 몸은 어디에 두었나요?","잘 지킨 친구의 비밀은?"],e:"공간을 넓게",h:"약한 손으로만",safe:"공만 치고 몸·팔을 치지 않아요",ax:["공 보호 드리블","몸으로 공 지키기","공정한 경쟁"]},
+{id:"w-bb-names",ph:"wu",sp:"bb",cat:"상호작용",n:"3인 패스 이름 부르기",m:5,s:"세 명이 체스트·바운드 패스를 주고받으며 코트를 오가요",
+ how:["3명이 나란히 서서 가운데가 공을 들어요","받을 사람 이름을 부르고 패스, 패스한 사람은 받은 사람 뒤로 돌아요","끝까지 가면 레이업으로 마무리"],
+ g:"농구공(3인 1개)",say:["이름을 먼저 부른 패스가 더 잘 들어갔나요?"],e:"제자리 패스",h:"드리블 없이 패스로만",safe:"앞 모둠이 끝까지 간 뒤 출발",ax:["패스·받기","패스 뒤 움직임","부르고 답하기"]},
+{id:"w-vb-balloon",ph:"wu",sp:"vb",cat:"개념",n:"풍선·비치볼 랠리",m:5,s:"모둠이 공을 떨어뜨리지 않고 몇 번 이어 가는지 세며 '세 번 안에 넘기기'를 맛봐요",
+ how:["4~6명이 원을 만들어 비치볼(풍선)을 띄워요","한 사람이 두 번 연속 치지 않아요","10번 이어 가면 다음은 '세 번째 사람은 원 밖으로 보내기'"],
+ g:"비치볼 또는 풍선(모둠당)",say:["공이 높이 뜨면 왜 받기 쉬울까?"],e:"풍선으로",h:"배구공으로, 언더만",safe:"공만 보다 친구와 부딪히지 않게 '내 공!' 외치기",ax:["토스·언더","3번 안에 넘기는 규칙","내 공! 외치기"]},
+{id:"w-vb-circle",ph:"wu",sp:"vb",cat:"상호작용",n:"원형 언더 이어가기",m:5,s:"원으로 서서 언더핸드 패스를 이어 가며 모둠 최고 기록을 세워요",
+ how:["5명 원, 가운데 1명이 리더","리더 → 친구 → 리더 순서로 언더 패스","기록을 화면에 적고 다음 시도에서 깨기"],
+ g:"배구공(모둠당)",say:["팔을 흔들지 않고 무릎으로 보내 보자"],e:"한 번 잡고 다시 던져도 돼요",h:"리더 없이 원으로만",safe:"손목·손가락을 펴지 않게, 팔을 붙여요",ax:["언더핸드 패스","팔 모양과 무릎","기록 함께 깨기"]},
+{id:"w-hb-33",ph:"wu",sp:"hb",cat:"개념",n:"3걸음 3초 놀이",m:5,s:"공을 들고 3걸음, 3초 안에 패스하는 규칙을 몸으로 익혀요",
+ how:["짝과 공 하나, 받은 사람은 최대 3걸음까지 이동","3초 안에 다시 패스, 걸음 수를 소리 내어 세요","익숙해지면 드리블 한 번 → 다시 3걸음"],
+ g:"핸드볼공(2인 1개)",say:["걸음 수를 세면서 하니 어땠나요?"],e:"걸음 제한 없이",h:"3걸음 끝에 점프 패스",safe:"공을 받을 때 손가락을 펴서 받아요",ax:["스텝·패스","3걸음 3초 규칙","규칙을 함께 지키기"]},
+{id:"w-sc-ball",ph:"wu",sp:"sc",cat:"촉진",n:"콘 사이 드리블 술래",m:5,s:"드리블하며 콘을 지나가고, 술래는 공을 빼앗아요",
+ how:["코트에 콘을 흩어 두고 모두 드리블","술래 2명이 공을 빼앗으면 역할 바꾸기","콘 사이를 지날 때마다 1점씩 세요"],
+ g:"축구공(1인 1개) · 콘 10개",say:["공을 발에서 멀리 보내지 않으려면?"],e:"술래 없이",h:"약한 발로만",safe:"태클·발 걸기 없이 발로 공만",ax:["드리블","공 지키기","공정한 경쟁"]},
+/* ---------- 설명 ---------- */
+{id:"x-exp-first",ph:"exp",sp:"all",n:"경험 먼저, 설명은 짧게",m:4,s:"방금 해 본 것을 묻고 핵심 하나만 시범으로. 설명보다 경험이 먼저예요",mine:1,
+ how:["바로 앞 활동을 떠올리게 해요: '무엇이 잘 됐고 무엇이 어려웠나요?'","학생 대답에서 오늘의 핵심 한 가지를 고르세요","핵심을 시범 한 번, 핵심 단어 하나로 정리해요","곧바로 다시 해 보러 가요(설명은 3분 안에)"],
+ g:"모여 앉기",say:["해 보니까 어땠어요?","어려웠던 순간, 그 순간을 바꾸는 한 가지는?"],e:"교사가 핵심을 바로 말해 줘요",h:"학생이 시범과 핵심 단어를 직접 말해요",safe:"",ax:["","경험에서 원리 찾기","질문하고 생각하기"]},
+{id:"x-keyword",ph:"exp",sp:"all",n:"핵심 단어 하나 시범",m:3,s:"기술을 한 단어 구호로 줄여 시범해요(예: 레이업 '오른-왼-점프')",
+ how:["오늘 기술의 핵심을 한 단어(구호)로 정해요","교사 시범 → 학생이 구호를 따라 외치며 빈손 연습","잘하는 학생 한 명이 다시 시범"],
+ g:"공 1개",say:["다 같이 구호! (예: 오른-왼-점프)"],e:"동작을 나눠서 천천히",h:"구호를 학생이 만들어요",safe:"",ax:["오늘의 기술","기술의 핵심 원리",""]},
+{id:"x-slogan",ph:"exp",sp:"all",n:"슬로건 이야기: Just Do It · You Got This",m:4,s:"'잘하려고 하는 게 아니라, 잘하려는 그 과정이 우리를 자라게 한다'",mine:1,
+ how:["나이키 'Just Do It(일단 해 봐)', 아디다스 'You Got This(넌 할 수 있어)'를 보여 줘요","두 문장이 스포츠를 대하는 같은 마음이라는 것을 이야기해요","'잘하려고 하는 게 아니라, 잘하려는 그 과정이 우리를 자라게 하기에 한다'로 맺어요","오늘 도전할 것 하나씩 마음속으로 정하게 해요"],
+ g:"화면(슬로건)",say:["못 해도 괜찮아. 해 보는 게 먼저야","오늘 내가 해 볼 것 하나는?"],e:"",h:"학생이 우리 반 슬로건을 만들어요",safe:"",ax:["","스포츠와 태도","도전하는 마음"]},
+{id:"x-mistake",ph:"exp",sp:"all",n:"전력을 다해 실수하라",m:3,s:"실수는 도전했다는 증거. 오늘은 실수에 박수를 쳐 주는 약속을 해요",mine:1,
+ how:["'실수하지 않으려고 아무것도 안 하는 것과, 전력을 다해 해 보고 실수하는 것 중 무엇이 더 자랄까?' 물어요","오늘 약속: 친구가 실수하면 '괜찮아!' 또는 박수","수업 끝에 '가장 멋지게 실수한 친구'를 뽑는다고 미리 알려요"],
+ g:"",say:["실수는 도전했다는 증거예요","전력을 다해 실수해 보자!"],e:"",h:"내가 오늘 할 '용감한 실수' 하나 정하기",safe:"",ax:["","성장 마음가짐","실수를 응원하기"]},
+{id:"x-quiz3",ph:"exp",sp:"all",n:"규칙 퀴즈 3문제",m:4,s:"오늘 종목 규칙을 팀 대항 퀴즈로 짧게 짚어요",mine:1,tool:"quiz",
+ how:["퀴즈 도구에서 오늘 종목·규칙 영역만 켜요","3~5문제를 팀 대항으로 풀어요","틀린 문제는 경기에서 바로 확인해 보자고 연결해요"],
+ g:"화면",say:["경기 중에 이 규칙이 나오면 누가 먼저 알아챌까?"],e:"난이도 ★ 문제만",h:"학생이 문제를 내요",safe:"",ax:["","경기 규칙","함께 배우기"]},
+{id:"x-huddle",ph:"exp",sp:"all",n:"작전 타임(팀 회의)",m:3,s:"팀별로 1~2분 모여 역할과 작전 하나를 정해요",
+ how:["팀별로 원을 만들어 앉아요","질문 하나를 줘요: '우리 팀은 무엇을 바꾸면 한 골 더 넣을까?'","작전 하나와 각자 역할을 정하고 구호로 마무리"],
+ g:"작전판(화이트보드) 선택",say:["가장 조용했던 친구의 생각도 들어 봤나요?"],e:"교사가 작전 두 가지 중 고르게 해요",h:"작전을 그림으로 그려요",safe:"",ax:["","전술 이해","모두의 의견 듣기"]},
+{id:"x-safety",ph:"exp",sp:"all",n:"안전 약속 세 가지",m:2,s:"시작 전 오늘 활동에서 다칠 수 있는 순간과 약속 세 가지를 정해요",
+ how:["오늘 활동에서 다칠 수 있는 순간을 학생에게 물어요","약속 세 가지로 정리해 화면에 띄워요","약속을 어기면 어떻게 할지도 함께 정해요"],
+ g:"화면",say:["어떤 순간에 다칠 수 있을까요?"],e:"",h:"",safe:"신발 끈·장신구·안경을 확인해요",ax:["","안전 수칙","나와 친구 지키기"]},
+/* ---------- 활동 · 농구 ---------- */
+{id:"a-bb3",ph:"act",sp:"bb",n:"3대3 경기 · 전원 득점 보너스",m:12,s:"FIBA 3x3 규칙에 팀원 모두가 득점하면 보너스. 모두가 주인공이 되는 경기",mine:1,tool:"bb3",
+ how:["4명 한 팀(3명 경기 + 교체 1명), 하프코트","3대3 점수판에서 선수 이름을 넣고 시작","팀원 모두가 한 번씩 득점하면 보너스 점수","경기마다 상대를 바꿔요"],
+ g:"농구공 · 하프코트 · 팀 조끼",say:["아직 득점 못 한 친구에게 기회를 만들어 줄 사람?","패스 하나가 보너스를 만든다!"],e:"드리블 횟수 제한 없음, 2점 대신 모두 1점",h:"득점 전 3명 모두 공을 만져야 해요",safe:"리바운드 때 밀지 않아요",ax:["슛·패스","3x3 규칙","모두를 살리는 플레이"]},
+{id:"a-bb5",ph:"act",sp:"bb",n:"5대5 빙고 미션 경기",m:15,s:"선수 이름과 미션이 섞인 빙고판. 득점하거나 미션을 해내면 칸이 채워져요",mine:1,tool:"bb5",
+ how:["5대5 점수판에서 빙고 모드를 켜요","미션(어시스트 골, 리바운드 후 득점 등)을 학생 수준에 맞게 고쳐요","한 줄 완성마다 보너스, 경기 뒤 빙고판을 함께 봐요"],
+ g:"농구공 · 전체 코트 · 조끼",say:["우리 빙고판에 아직 비어 있는 칸은?"],e:"3×3 빙고판",h:"미션만으로 빙고판",safe:"전체 코트는 체력 소모가 커요, 교체를 자주",ax:["경기 운영","빙고 미션의 기술","역할 나누기"]},
+{id:"a-bbrot",ph:"act",sp:"bb",n:"로테이션 농구",m:15,s:"3~5팀이 공격·수비·대기를 돌아가며 누적 점수로 겨뤄요. 쉬는 사람이 적어요",mine:1,tool:"bbrot",
+ how:["로테이션 점수판에서 팀 수를 정해요","공격 팀이 득점하거나 실패하면 다음 팀이 공격으로 들어와요","공격 제한 시간을 짧게 두면 순환이 빨라요"],
+ g:"농구공 · 코트 · 팀 조끼",say:["다음 공격 준비, 대기 팀은 작전 정하기!"],e:"공격 제한 시간 넉넉하게",h:"수비 성공도 점수로",safe:"대기 팀은 코트 밖 정해진 자리에서",ax:["공격 전환","순환 규칙","기다림과 응원"]},
+{id:"a-bb-2v1",ph:"act",sp:"bb",n:"2대1 속공 연습",m:10,s:"수비 한 명을 두고 두 명이 패스로 속공을 마무리해요",
+ how:["하프라인에서 공격 2명, 골밑에 수비 1명","공격은 3번 패스 안에 슛, 수비는 막으면 다음 공격으로","역할을 돌아가며 바꿔요"],
+ g:"농구공 · 하프코트",say:["수비가 나에게 오면 누구에게 줄까?"],e:"수비는 손만 들고 서 있기",h:"3대2로 늘려요",safe:"레이업 착지 공간을 비워 두어요",ax:["패스·레이업","수적 우위 활용","함께 마무리"]},
+{id:"a-bb-relay",ph:"act",sp:"bb",n:"레이업 릴레이",m:8,s:"팀별로 돌아가며 레이업, 정해진 시간 안에 넣은 개수를 겨뤄요",
+ how:["팀별로 한 줄, 한 명씩 레이업 후 리바운드해 다음 사람에게","2분 동안 넣은 개수를 세요","두 번째 판에서는 반대 손 레이업"],
+ g:"농구공(팀당 1~2개) · 골대",say:["오른-왼-점프! 구호 기억나지?"],e:"골밑 슛도 인정",h:"반대 손만 인정",safe:"앞사람이 착지한 뒤 출발",ax:["레이업","스텝 순서","팀 응원"]},
+/* ---------- 활동 · 배구 ---------- */
+{id:"a-vb-bomb",ph:"act",sp:"vb",n:"폭탄 랠리",m:12,s:"랠리가 길어질수록 폭탄이 달아올라요. 오래 이어 간 팀에게 큰 점수",mine:1,tool:"volley",
+ how:["배구 점수판에서 '폭탄 랠리'를 켜요","네트를 넘길 때마다 랠리 수가 올라가고 폭탄이 뜨거워져요","폭탄이 터지면(랠리 끝) 랠리 수만큼 보너스"],
+ g:"배구공 · 네트",say:["우리 편이 아니라 '공'을 살리는 게임이에요"],e:"한 번 잡았다 던져도 돼요",h:"언더·토스만 허용",safe:"네트 가까이에서 손을 뻗을 때 부딪힘 주의",ax:["랠리 이어가기","3번 안에 넘기기","함께 오래 하기"]},
+{id:"a-vb-bingo",ph:"act",sp:"vb",n:"빙고 배구",m:12,s:"득점한 선수와 미션 칸을 채우는 빙고판으로 모두가 참여해요",mine:1,tool:"volley",
+ how:["배구 점수판에서 빙고 모드를 켜요","미션(3번 터치로 넘기기, 서브 성공 등)을 정해요","한 줄 완성마다 보너스"],
+ g:"배구공 · 네트",say:["아직 칸이 빈 친구에게 공을 보내 보자"],e:"미션 위주",h:"선수 이름 칸만",safe:"",ax:["서브·패스","배구 기본 규칙","모두의 참여"]},
+{id:"a-vb-catch",ph:"act",sp:"vb",n:"캐치 배구",m:10,s:"두 번째 터치는 잡았다가 토스해도 되는 입문용 배구",
+ how:["첫 터치는 언더, 두 번째 사람은 공을 잡고 위로 던져 토스","세 번째 사람이 넘겨요","익숙해지면 잡기를 빼요"],
+ g:"배구공 · 낮은 네트",say:["세 번에 넘기니 공격이 쉬워졌나요?"],e:"모든 터치 잡기 허용",h:"잡기 없이",safe:"",ax:["언더·토스","3번의 역할(리시브·토스·공격)","역할 나누기"]},
+/* ---------- 활동 · 침투형 공통 ---------- */
+{id:"a-pass10",ph:"act",sp:"all",n:"패스 10번 게임",m:8,s:"골대 없이 패스 10번을 이으면 1점. 침투형 경기의 '지원'을 배워요",
+ how:["5대5, 공을 든 사람은 움직이지 않아요(3걸음까지)","같은 팀 10번 연속 패스 = 1점, 가로채면 공격권 이동","다시 패스한 사람에게 바로 돌려주기 금지"],
+ g:"공 1개 · 조끼 · 콘",say:["공 없는 사람이 할 일은?"],e:"5번이면 1점",h:"패스 후 반드시 3m 이동",safe:"공만 가로채고 몸싸움은 없어요",ax:["패스·움직임","지원과 공간","모두에게 패스"]},
+{id:"a-hb",ph:"act",sp:"hb",n:"핸드볼 경기 · 2분 퇴장 체험",m:14,s:"핸드볼 점수판으로 7m 던지기와 2분 퇴장까지 실제처럼 경기해요",tool:"handball",
+ how:["핸드볼 점수판에 명단을 넣고 코트 인원을 정해요(수업은 5~6명도 좋아요)","반칙이 나오면 경고 → 2분 퇴장 순서로 기록해 보여 줘요","경기 뒤 '한 명 적을 때 어떻게 버텼나?' 물어요"],
+ g:"핸드볼공 · 골대 · 조끼",say:["2분 동안 한 명이 적다면 우리 팀은 무엇을 바꿔야 할까?"],e:"골 에어리어 규칙만",h:"패시브 플레이도 적용",safe:"점프 슛 착지 공간, 골키퍼 얼굴 쪽 슛 금지",ax:["점프 슛·패스","단계별 징계 규칙","몸싸움 속 배려"]},
+{id:"a-futsal",ph:"act",sp:"sc",n:"풋살 경기",m:14,s:"5대5 풋살. 팀 반칙 누적과 타임아웃을 점수판이 챙겨요",tool:"futsal",
+ how:["풋살 점수판에 명단을 넣어요","하프 시간은 수업에 맞게 5~7분","타임아웃 때 작전 타임 질문을 하나 줘요"],
+ g:"풋살공 · 골대 · 조끼",say:["공 없는 3명은 지금 어디에 있어야 할까?"],e:"골키퍼 없이 작은 골대",h:"2터치 제한",safe:"태클 금지, 높이 찬 공 주의",ax:["드리블·패스","팀 반칙 규칙","정정당당"]},
+{id:"a-4goal",ph:"act",sp:"sc",n:"4골대 축구",m:10,s:"골대 4개(팀당 2개)를 두어 빈 쪽으로 방향을 바꾸는 판단을 배워요",
+ how:["코트 네 모서리 근처에 콘 골대 4개","각 팀은 상대 쪽 두 골대 어디에 넣어도 1점","수비가 몰린 쪽 반대로 전환하면 칭찬"],
+ g:"공 · 콘 8개 · 조끼",say:["수비가 한쪽에 몰렸어! 어디로?"],e:"골대를 넓게",h:"패스 3번 뒤에만 슛",safe:"",ax:["방향 전환 패스","공격 방향 바꾸기","판단 나누기"]},
+/* ---------- 활동 · 기타 종목 ---------- */
+{id:"a-dodge-king",ph:"act",sp:"dg",n:"왕 피구",m:10,s:"각 팀이 몰래 왕을 정하고, 왕이 맞으면 끝나는 피구",mine:1,tool:"dodge",
+ how:["피구 점수판에서 왕 피구를 켜고 팀별로 왕을 몰래 정해요","관람 모드에서는 왕이 숨겨져요","왕을 지키는 작전을 팀별로 세워요"],
+ g:"부드러운 공 · 조끼",say:["우리 왕을 지키려면 어떻게 서야 할까?"],e:"공 1개",h:"공 2개",safe:"얼굴 맞히기는 아웃이 아니라 반칙, 부드러운 공",ax:["던지기·피하기","작전 세우기","친구 지키기"]},
+{id:"a-bd-team",ph:"act",sp:"bd",n:"배드민턴 단체전(오더 경기)",m:15,s:"팀이 단식·복식 오더를 몰래 제출하고 단체전으로 겨뤄요",mine:1,tool:"bd",
+ how:["배드민턴 점수판에서 단체전 모드를 켜요","팀별로 오더를 비공개 제출","경기마다 결과가 쌓여 팀 승리를 가려요"],
+ g:"라켓 · 셔틀콕 · 코트",say:["우리 팀 오더, 누구를 어디에 둘까?"],e:"11점 경기",h:"21점 경기",safe:"라켓 휘두를 때 뒤 친구 확인",ax:["클리어·서비스","단체전 오더 전략","팀을 위한 선택"]},
+{id:"a-tt-king",ph:"act",sp:"tt",n:"탁구 왕의 자리",m:10,s:"이긴 사람은 왕 자리에 남고 진 사람은 한 칸 아래로. 짧은 5점 경기",
+ how:["탁구대마다 1~N번 자리, 1번이 왕의 자리","5점 경기, 이기면 한 자리 위로, 지면 아래로","탁구 점수판으로 서브 순서를 확인해요"],
+ g:"탁구대 · 라켓 · 공",say:["서브 순서는 점수판이 알려 줘요"],e:"3점 경기",h:"서브는 백핸드만",safe:"라켓 던지지 않기",ax:["서브·랠리","서브 순서 규칙","이겨도 져도 인사"]},
+{id:"a-base",ph:"act",sp:"bs",n:"티볼 경기 · 전원 타격",m:15,s:"투수 없이 티에 놓고 치는 티볼, 모두가 한 번씩 치면 공수 교대",tool:"base",
+ how:["야구·티볼 점수판에서 티볼과 '전원 타격 후 교대'를 켜요","수비 위치를 정하고 타순을 넣어요","공을 처리한 수비수를 눌러 수비 기록도 남겨요"],
+ g:"티 · 배트 · 공 · 베이스",say:["아웃을 만든 수비는 누구의 도움이 있었나?"],e:"아웃 없이 모두 진루",h:"3아웃 교대",safe:"배트 휘두를 때 주변 확인, 배트는 놓고 뛰기",ax:["치기·받기","진루와 아웃 규칙","모두 치는 즐거움"]},
+{id:"a-ult",ph:"act",sp:"ut",n:"얼티밋 경기 · 스피릿 점수",m:14,s:"심판 없이 스스로 판정하고, 끝나면 서로 스피릿 점수를 매겨요",tool:"ult",
+ how:["얼티밋 점수판에 명단을 넣어요","득점마다 받은 사람·던진 사람(어시스트)을 기록","경기 뒤 상대 팀 스피릿 점수를 매겨요"],
+ g:"디스크 · 콘 · 조끼",say:["오늘 상대 팀의 가장 멋진 장면은?"],e:"디스크 대신 부드러운 공",h:"10초 스톨 카운트",safe:"디스크를 잡으려다 부딪히지 않게",ax:["던지기·받기","자율 판정 규칙","스피릿 오브 더 게임"]},
+{id:"a-nb",ph:"act",sp:"nb",n:"넷볼 포지션 경기",m:14,s:"포지션마다 다니는 구역이 정해진 넷볼. 쿼터마다 포지션을 돌려요",tool:"netball",
+ how:["넷볼 점수판에서 학생별 포지션(GS·GA·WA·C·WD·GD·GK)을 정해요","쿼터마다 포지션 한 칸씩 돌리기","골은 GS·GA만 넣을 수 있어요"],
+ g:"공 · 골대 · 포지션 조끼",say:["내 구역에서 팀을 돕는 방법은?"],e:"구역 규칙만",h:"3초 규칙까지",safe:"",ax:["패스·자리 잡기","포지션 구역 규칙","내 역할 다하기"]},
+{id:"a-ff",ph:"act",sp:"ff",n:"플래그 풋볼 경기",m:14,s:"태클 대신 깃발. 4번의 다운 안에 작전으로 전진해요",tool:"flag",
+ how:["플래그 풋볼 점수판에 명단을 넣어요","공격 전 허들에서 작전을 정해요","다운 표시와 공격권은 점수판이 챙겨요"],
+ g:"공 · 플래그 벨트 · 콘",say:["이번 다운 작전은?"],e:"다운 제한 없이",h:"플레이 클락 25초",safe:"깃발만 뽑고 밀거나 잡지 않기",ax:["던지기·달리기","다운과 전진 규칙","약속한 작전 지키기"]},
+{id:"a-kin",ph:"act",sp:"kb",n:"킨볼 경기",m:12,s:"세 팀이 함께 겨루는 킨볼. 모두가 공에 손을 얹어야 칠 수 있어요",tool:"kin",
+ how:["킨볼 점수판에서 세 팀 색을 정해요","공격 팀은 '옴니킨 + 색'을 외치고 쳐요","불린 팀은 공이 땅에 닿기 전에 잡아요"],
+ g:"킨볼 · 넓은 공간",say:["네 명이 동시에 손을 얹는 비결은?"],e:"공 크기 작게",h:"반칙 규칙 모두 적용",safe:"공 아래로 뛰어들지 않아요",ax:["치기·받기","3팀 경기 규칙","함께여야 가능한 경기"]},
+{id:"a-tchouk",ph:"act",sp:"tb",n:"츄크볼 경기",m:12,s:"몸싸움·가로막기 없는 경기. 프레임에 튕긴 공을 상대가 못 잡으면 득점",tool:"tchouk",
+ how:["츄크볼 점수판에 명단을 넣어요","같은 프레임 연속 슛 3회 제한을 점수판이 챙겨요","수비는 몸으로 막지 않고 잡기로만"],
+ g:"츄크볼 프레임 · 공",say:["막지 않고도 이길 수 있을까?"],e:"패스 수 제한 없이",h:"3패스 안에 슛",safe:"",ax:["던지기·받기","가로막기 없는 규칙","존중"]},
+{id:"a-boccia",ph:"act",sp:"bc",n:"보치아(함께하는 체육)",m:12,s:"표적구에 가깝게 굴리는 경기. 힘보다 정확함, 누구나 함께해요",tool:"boccia",
+ how:["보치아 점수판에서 경기 방식(개인·2인조·3인조)을 골라요","다음에 던질 편을 점수판이 알려 줘요","엔드마다 가장 가까운 공을 던진 학생을 기록"],
+ g:"보치아 공 세트",say:["힘보다 무엇이 중요했나요?"],e:"거리를 짧게",h:"표적구를 멀리",safe:"",ax:["굴리기 정확성","엔드와 점수","누구나 함께"]},
+{id:"a-paps",ph:"act",sp:"rn",n:"왕복오래달리기 연습",m:12,s:"신호음을 틀고 끝난 학생 이름만 누르면 횟수가 기록돼요",tool:"paps",
+ how:["PAPS 도구에서 학급을 고르고 왕복오래달리기 신호음을 틀어요","끝난 학생 이름을 누르면 횟수가 기록돼요","지난 기록과 비교해 내 목표를 정해요"],
+ g:"20m 코스 · 콘 · 스피커",say:["어제의 나와 겨뤄요"],e:"연습 단계만",h:"짝이 세어 주기",safe:"어지럽거나 가슴이 아프면 바로 멈춰요",ax:["심폐지구력","페이스 조절","어제의 나와 겨루기"]},
+{id:"a-run",ph:"act",sp:"rn",n:"랩 기록 달리기",m:12,s:"출발선을 지날 때마다 이름을 누르면 바퀴·페이스가 쌓여요",tool:"run",
+ how:["달리기 도구에 이름과 거리를 넣어요","스톱워치를 켜고, 지날 때마다 이름을 눌러요","완주 순위보다 페이스 고르기를 칭찬해요"],
+ g:"트랙 또는 운동장 · 콘",say:["처음과 끝 바퀴 시간이 비슷한 사람?"],e:"걷기와 달리기 섞기",h:"목표 페이스 정하기",safe:"",ax:["지구력 달리기","페이스","끝까지"]},
+{id:"a-league",ph:"act",sp:"all",n:"리그전 대진표 경기",m:20,s:"대진표 도구로 리그·토너먼트를 짜고 점수를 넣으면 순위가 정해져요",mine:1,tool:"bracket",
+ how:["대진표 도구에 팀 이름을 넣고 방식을 골라요","경기마다 점수판으로 경기, 결과를 대진표에 입력","다음 경기와 순위가 자동으로 정해져요"],
+ g:"팀 조끼 · 경기장 여러 곳",say:["다음 경기 팀은 준비, 쉬는 팀은 응원과 기록!"],e:"리그전만",h:"순위 결정전까지",safe:"쉬는 팀은 정해진 자리에서",ax:["경기 운영","대회 방식","결과 받아들이기"]},
+/* ---------- 종료 ---------- */
+{id:"e-3q",ph:"end",sp:"all",n:"돌아보기 세 질문",m:5,s:"잘된 것 하나, 어려웠던 것 하나, 다음에 해 볼 것 하나",mine:1,
+ how:["모여 앉아 세 가지를 짝과 먼저 이야기해요","두세 명에게 발표를 부탁해요","'다음에 해 볼 것'을 다음 시간 첫 활동으로 연결해요"],
+ g:"모여 앉기",say:["오늘 어려웠던 순간이 다음 시간에는 어떻게 바뀔까?"],e:"하나만 말하기",h:"한 줄 기록지에 적기",safe:"",ax:["","배운 것 정리","스스로 돌아보기"]},
+{id:"e-mvp",ph:"end",sp:"all",n:"실수 MVP 뽑기",m:3,s:"가장 용감하게 도전하다 실수한 친구를 뽑아 박수 쳐 줘요",mine:1,
+ how:["'오늘 전력을 다해 실수한 친구는 누구일까?' 물어요","추천 이유를 함께 들어요","뽑힌 친구에게 다 같이 박수"],
+ g:"",say:["실수는 도전했다는 증거!","실수 덕분에 무엇을 알게 됐나요?"],e:"교사가 직접 뽑아 칭찬",h:"학생이 칭찬 문장을 써 주기",safe:"",ax:["","","실수를 응원하는 문화"]},
+{id:"e-cool",ph:"end",sp:"all",n:"정리운동 + 한 줄 소감",m:5,s:"천천히 걷고 스트레칭하며 오늘의 한 줄을 말해요",
+ how:["가볍게 걷기 1분","정적 스트레칭(종아리·허벅지·어깨) 15초씩","원으로 서서 한 사람씩 한 줄 소감"],
+ g:"",say:["오늘 가장 많이 쓴 근육을 풀어 줘요"],e:"",h:"",safe:"반동 없이 천천히",ax:["유연성","정리운동의 이유","서로의 말 듣기"]},
+{id:"e-quiz",ph:"end",sp:"all",n:"마무리 퀴즈",m:5,s:"오늘 배운 규칙·기술을 팀 대항 스피드 퀴즈로 확인해요",mine:1,tool:"quiz",
+ how:["퀴즈 도구에서 오늘 종목만 켜요","5문제를 팀 대항으로","가장 많이 틀린 문제를 다음 시간에 다시 다뤄요"],
+ g:"화면",say:["오늘 경기에서 이 장면 있었죠?"],e:"",h:"학생이 만든 문제 섞기",safe:"",ax:["","오늘의 규칙·기술","함께 배우기"]},
+{id:"e-spirit",ph:"end",sp:"all",n:"서로 스피릿 점수",m:4,s:"상대 팀의 규칙 지키기·태도·배려에 점수를 주고 이유를 말해요",
+ how:["상대 팀에 0~4점: 규칙 알기, 몸싸움 없이, 공정한 마음, 긍정적인 말","점수와 이유 하나를 말해 줘요","가장 높은 팀에 박수"],
+ g:"",say:["오늘 상대 팀에게 고마웠던 장면은?"],e:"한 항목만",h:"얼티밋 점수판의 스피릿 점수 사용",safe:"",ax:["","스포츠맨십","상대 존중"]},
+{id:"e-clean",ph:"end",sp:"all",n:"함께 정리",m:3,s:"모둠별 정리 구역을 정해 기구를 정리하고 인사로 마쳐요",
+ how:["모둠마다 정리할 기구를 맡겨요(공·콘·조끼)","정리가 끝난 모둠부터 모여 앉아요","인사로 마무리"],
+ g:"",say:["정리까지가 수업이에요"],e:"",h:"",safe:"무거운 기구는 둘이 함께",ax:["","","공동체"]}
+];
+/* 레시피(미리 만든 1차시 작전) */
+K.PLAN_RECIPES=[
+ {id:"r-bb1",title:"농구 · 3대3 첫 만남",sp:"bb",target:45,ax:["드리블과 패스로 득점 기회 만들기","3x3 규칙과 패스 뒤 움직임","모두가 주인공이 되는 플레이"],
+  blocks:[["wu","w-bb-light",5],["wu","w-bb-tag",5],["exp","x-exp-first",4],["act","a-bb-2v1",10],["exp","x-huddle",3],["act","a-bb3",13],["end","e-3q",5]]},
+ {id:"r-vb1",title:"배구 · 폭탄 랠리로 여는 배구",sp:"vb",target:45,ax:["언더·토스로 랠리 이어가기","3번 안에 넘기는 역할","공을 살리는 함께하기"],
+  blocks:[["wu","w-signal",3],["wu","w-vb-balloon",6],["exp","x-keyword",4],["act","w-vb-circle",7],["act","a-vb-catch",8],["act","a-vb-bomb",12],["end","e-mvp",5]]},
+ {id:"r-hb1",title:"핸드볼 · 3걸음 3초에서 경기까지",sp:"hb",target:45,ax:["3걸음 점프 슛","2분 퇴장이 팀에 주는 영향","몸이 부딪힌 친구에게 먼저 손 내밀기"],
+  blocks:[["wu","w-dynamic",5],["wu","w-hb-33",5],["act","a-pass10",8],["exp","x-exp-first",4],["act","a-hb",15],["end","e-spirit",4],["end","e-clean",4]]},
+ {id:"r-mind",title:"공통 · 전력을 다해 실수하라",sp:"all",target:45,ax:["오늘 종목의 기본 기술 하나","실수에서 배우는 과정","실수를 응원하는 문화"],
+  blocks:[["wu","w-rps",4],["exp","x-mistake",3],["wu","w-space",6],["exp","x-slogan",4],["act","a-pass10",10],["act","a-league",12],["end","e-mvp",3],["end","e-3q",3]]}
+];
+
+/* ================= 수업 작전판 =================
+   점수판이 '경기'를 돕는다면 작전판은 체육 수업 1차시 전체를 설계하고 진행한다.
+   - 설계: 웜업·활동·설명·종료 블록을 놓고 시간을 정하고, 활동 카드(태성쌤 아이디어 포함)를 골라 넣는다.
+   - 진행: 블록마다 타이머가 흐르고 지금 활동의 방법·준비물·교사의 말·변형·안전을 안내한다.
+     타이머는 다른 점수판을 열어도 계속 흐른다(K.planRun, 위쪽 막대의 작은 표시).
+   저장: pe-plan-cur(설계 중), pe-plan-saved(저장한 작전), pe-plan-cards(내 카드), pe-plan-run(진행 중), pe-plan-f(필터) */
+K.planCards=()=>{const a=K.load("pe-plan-cards");return Array.isArray(a)?a:[];};
+K.planCard=id=>id?(K.PLAN_LIB.find(c=>c.id===id)||K.planCards().find(c=>c.id===id)||null):null;
+K.planLabels=blocks=>{
+  const tot={},seen={};blocks.forEach(b=>tot[b.ph]=(tot[b.ph]||0)+1);
+  return blocks.map(b=>{seen[b.ph]=(seen[b.ph]||0)+1;const ph=K.PLAN_PH[b.ph]||K.PLAN_PH.act;
+    return ph.n+((b.ph==="act"||b.ph==="exp"||tot[b.ph]>1)?seen[b.ph]:"");});
+};
+K.fmtMS=ms=>{const neg=ms<0,a=Math.abs(ms),s=neg?Math.floor(a/1000):Math.ceil(a/1000);return (neg?"+":"")+Math.floor(s/60)+":"+String(s%60).padStart(2,"0");};
+
+/* ---------- 진행 엔진 (화면과 상관없이 흐른다) ---------- */
+K.planRun=(()=>{
+  const KEY="pe-plan-run";let R=K.load(KEY);if(R&&(!R.plan||!R.plan.blocks))R=null;
+  const subs=[];const emit=()=>subs.forEach(f=>{try{f();}catch(e){}});
+  const save=()=>K.save(KEY,R);
+  const now=()=>Date.now();
+  const blk=()=>R.plan.blocks[R.i];
+  const el=i=>{i=i==null?R.i:i;return (R.el[i]||0)+(i===R.i&&R.since?now()-R.since:0);};
+  const left=()=>blk().min*60000-el();
+  const commit=()=>{if(R.since){R.el[R.i]=(R.el[R.i]||0)+now()-R.since;R.since=now();}};
+  function start(plan){
+    R={plan:JSON.parse(JSON.stringify(plan)),i:0,el:{},since:now(),auto:!!(K.load("pe-plan-auto")),startAt:now(),w1:{},w0:{}};
+    save();K.wake(true);K.snd.whistle(1);emit();
+  }
+  function toggle(){if(!R)return;if(R.since){commit();R.since=null;K.wake(false);}else{R.since=now();K.wake(true);}save();emit();}
+  function go(d){if(!R)return;const j=R.i+d;if(j<0||j>=R.plan.blocks.length)return;commit();const run=!!R.since;R.i=j;R.since=run?now():null;save();K.snd.chime();emit();}
+  function adj(min){if(!R)return;const b=blk();b.min=Math.max(.5,Math.round((b.min+min)*2)/2);if(left()>60000)R.w1[R.i]=0;if(left()>0)R.w0[R.i]=0;save();emit();}
+  function finish(){if(!R)return null;commit();R.since=null;const out=R;R=null;save();K.wake(false);emit();return out;}
+  function setAuto(v){if(!R)return;R.auto=!!v;K.save("pe-plan-auto",!!v);save();emit();}
+  function status(){
+    if(!R)return null;const labs=K.planLabels(R.plan.blocks);
+    return{i:R.i,n:R.plan.blocks.length,label:labs[R.i],name:R.plan.blocks[R.i].name,ph:R.plan.blocks[R.i].ph,left:left(),running:!!R.since,title:R.plan.title};
+  }
+  /* 위쪽 막대 표시 */
+  let chip=null;
+  function chipDraw(){
+    if(!chip){const acts=document.querySelector(".bar .acts");if(!acts)return;
+      chip=document.createElement("button");chip.type="button";chip.className="planchip op";chip.hidden=true;
+      chip.onclick=()=>{try{location.hash="plan";}catch(e){}};acts.prepend(chip);}
+    const st=status(),here=location.hash==="#plan";
+    chip.hidden=!st||here;if(!st||here)return;
+    chip.style.setProperty("--pc",(K.PLAN_PH[st.ph]||K.PLAN_PH.act).c);
+    chip.innerHTML="<i></i>작전판 · "+K.esc(st.label)+" <b"+(st.left<0?" class=\"over\"":"")+">"+(st.running?"":"⏸ ")+K.fmtMS(st.left)+"</b>";
+  }
+  let lastSave=0;
+  setInterval(()=>{
+    if(R&&R.since){
+      const l=left(),b=blk(),labs=K.planLabels(R.plan.blocks),nx=R.plan.blocks[R.i+1];
+      if(l<=60000&&l>0&&!R.w1[R.i]&&b.min>=3){R.w1[R.i]=1;save();K.snd.chime();K.toast(labs[R.i]+" · 1분 남았어요","",2200);}
+      if(l<=0&&!R.w0[R.i]){R.w0[R.i]=1;save();K.snd.whistle(2);
+        K.toast(labs[R.i]+" 시간 끝"+(nx?" · 다음: "+labs[R.i+1]+" "+(nx.name||"")+" ("+nx.min+"분)":" · 수업을 마무리해요"),"bingo",4000);
+        if(R.auto&&nx)go(1);}
+      if(Date.now()-lastSave>5000){lastSave=Date.now();save();}
+    }
+    chipDraw();emit();
+  },250);
+  window.addEventListener("hashchange",chipDraw);
+  return{get:()=>R,start,toggle,go,adj,finish,setAuto,status,el,left,on(f){subs.push(f);return()=>{const k=subs.indexOf(f);if(k>=0)subs.splice(k,1);};}};
+})();
+
+MODS.plan={name:"수업 작전판",sub:"1차시 설계 · 블록 타이머 · 활동 가이드",color:"var(--c-pl)",
+html:`
+<div class="pl-tabs"><div class="seg" role="tablist"><button type="button" data-ptab="edit">① 작전 짜기</button><button type="button" data-ptab="run">② 수업 진행</button></div><span class="pl-tabhint" id="plHint"></span></div>
+<div id="plEdit">
+  <div class="pl-wrap">
+    <div class="pl-left">
+      <section class="box pl-head">
+        <div class="pl-row"><input class="pl-title" id="plTitle" placeholder="수업 이름 (예: 농구 · 3대3 첫 만남)" aria-label="수업 이름"></div>
+        <div class="pl-row cfgrow">
+          <label>종목 <select id="plSp"></select></label>
+          <label>수업 시간 <input id="plTarget" type="number" min="10" max="120"> 분</label>
+        </div>
+        <div class="pl-axes">
+          <label><span class="pl-ax k">기능</span><input id="plAx0" placeholder="오늘 할 수 있게 될 움직임"></label>
+          <label><span class="pl-ax n">지식</span><input id="plAx1" placeholder="오늘 알게 될 원리·규칙"></label>
+          <label><span class="pl-ax v">가치</span><input id="plAx2" placeholder="오늘 기를 태도·마음"></label>
+        </div>
+        <div class="pl-row pl-saved">
+          <select id="plLoadSel" aria-label="불러올 작전"></select>
+          <button class="small" type="button" id="plLoad">불러오기</button>
+          <button class="small" type="button" id="plSave">저장</button>
+          <button class="small danger" type="button" id="plNew">새 작전</button>
+          <button class="small" type="button" id="plIoBtn">공유 · 지도안</button>
+        </div>
+        <div class="pl-io" id="plIo" hidden>
+          <div class="btnrow" style="justify-content:flex-start">
+            <button class="small" type="button" id="plExport">작전 파일 저장</button>
+            <button class="small" type="button" id="plCopyCode">공유 코드 복사</button>
+            <button class="small" type="button" id="plCopyText">지도안 글로 복사</button>
+          </div>
+          <textarea id="plIoText" rows="5" placeholder="다른 선생님에게 받은 공유 코드를 여기에 붙여 넣거나, 작전 파일을 골라 주세요"></textarea>
+          <div class="btnrow" style="justify-content:flex-start"><input type="file" id="plFile" accept=".json,application/json"><button class="small" type="button" id="plImport">붙여 넣은 작전 가져오기</button></div>
+        </div>
+      </section>
+      <section class="box">
+        <div class="pl-tbar" id="plBar"></div>
+        <div class="pl-tsum" id="plSum"></div>
+        <div class="pl-blocks" id="plBlocks"></div>
+        <div class="btnrow pl-add">
+          <button class="small" type="button" data-padd="wu">+ 웜업</button><button class="small" type="button" data-padd="act">+ 활동</button><button class="small" type="button" data-padd="exp">+ 설명</button><button class="small" type="button" data-padd="end">+ 종료</button>
+        </div>
+        <button class="go pl-start" type="button" id="plStart">▶ 이 작전으로 수업 시작</button>
+      </section>
+    </div>
+    <section class="box pl-lib">
+      <h4>활동 카드</h4>
+      <div class="pl-target" id="plTarget2"></div>
+      <div class="pl-filt" id="plFilt"></div>
+      <input class="pl-q" id="plQ" type="search" placeholder="카드 찾기 (예: 패스, 술래, 퀴즈)" aria-label="카드 찾기">
+      <div class="pl-cards" id="plCards"></div>
+      <button class="small" type="button" id="plMineBtn">+ 내 활동 카드 만들기</button>
+      <div class="pl-form" id="plForm" hidden></div>
+    </section>
+  </div>
+</div>
+<div id="plRun" hidden></div>`,
+init(ctx){
+const $=K.$,R=ctx.root,esc=K.esc,PH=K.PLAN_PH,RUN=K.planRun;
+const uid=()=>"k"+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+const spName=k=>(K.PLAN_SP.find(x=>x[0]===k)||["","공통"])[1];
+function blank(){return{id:"p"+uid(),title:"",sp:"bb",target:45,ax:["","",""],blocks:[]};}
+function fromRecipe(r){return{id:"p"+uid(),title:r.title,sp:r.sp,target:r.target,ax:r.ax.slice(),blocks:r.blocks.map(([ph,c,m])=>({k:uid(),ph,card:c,min:m,memo:""}))};}
+let P=K.load("pe-plan-cur");if(!P||!Array.isArray(P.blocks))P=fromRecipe(K.PLAN_RECIPES[0]);
+let F=Object.assign({ph:"",cat:"",all:false,mine:false,q:""},K.load("pe-plan-f")||{});F.q="";
+let sel=-1,openCard=null,editCard=null,tab=RUN.get()?"run":"edit",undoStack=[];
+const save=()=>K.save("pe-plan-cur",P);
+const saveF=()=>K.save("pe-plan-f",F);
+const saved=()=>{const a=K.load("pe-plan-saved");return Array.isArray(a)?a:[];};
+const bname=b=>{const c=K.planCard(b.card);return c?c.n:(b.name||"");};
+const total=()=>P.blocks.reduce((a,b)=>a+(+b.min||0),0);
+
+/* ---------- 카드 안내 HTML (설계·진행 공용) ---------- */
+function guideHtml(c,big){
+  if(!c)return "";
+  const sec=(t,body,op)=>body?'<div class="pl-g'+(op?" op":"")+'"><h5>'+t+'</h5>'+body+'</div>':"";
+  const ax=c.ax||[],axh=["기능","지식","가치"].map((t,j)=>ax[j]?'<li><span class="pl-ax '+"knv"[j]+'">'+t+'</span>'+esc(ax[j])+'</li>':"").join("");
+  return '<div class="pl-guide'+(big?" big":"")+'">'+
+    sec("진행 방법",c.how&&c.how.length?'<ol>'+c.how.map(x=>"<li>"+esc(x)+"</li>").join("")+'</ol>':"")+
+    sec("준비물 · 대형",c.g?'<p>'+esc(c.g)+'</p>':"")+
+    sec("교사의 말",c.say&&c.say.length?'<ul class="pl-say">'+c.say.map(x=>"<li>“"+esc(x)+"”</li>").join("")+'</ul>':"",true)+
+    sec("변형",(c.e||c.h)?'<ul class="pl-mod">'+(c.e?'<li><b>쉽게</b> '+esc(c.e)+'</li>':"")+(c.h?'<li><b>어렵게</b> '+esc(c.h)+'</li>':"")+'</ul>':"",true)+
+    sec("안전",c.safe?'<p class="pl-safe">'+esc(c.safe)+'</p>':"")+
+    sec("세 축",axh?'<ul class="pl-axl">'+axh+'</ul>':"")+
+  '</div>';
+}
+function chips(c){
+  return '<span class="pl-chip" style="--pc:'+(PH[c.ph]||PH.act).c+'">'+(PH[c.ph]||PH.act).n+'</span>'+(c.cat?'<span class="pl-chip cat">'+esc(c.cat)+'</span>':"")+
+    '<span class="pl-chip sp">'+esc(spName(c.sp))+'</span>'+(c.mine?'<span class="pl-chip mine">★ 태성쌤 아이디어</span>':"")+(c.u?'<span class="pl-chip u">내 카드</span>':"")+(c.tool?'<span class="pl-chip tool">'+esc(K.PLAN_TOOL[c.tool]||"")+' 연결</span>':"");
+}
+
+/* ---------- 설계 화면 ---------- */
+function drawHead(){
+  $("plSp").innerHTML=K.PLAN_SP.map(([k,n])=>'<option value="'+k+'">'+esc(n)+'</option>').join("");$("plSp").value=P.sp;
+  K.setVal("plTitle",P.title);K.setVal("plTarget",P.target);[0,1,2].forEach(j=>K.setVal("plAx"+j,P.ax[j]||""));
+  const sv=saved();
+  $("plLoadSel").innerHTML='<optgroup label="태성쌤 레시피">'+K.PLAN_RECIPES.map(r=>'<option value="'+r.id+'">'+esc(r.title)+' ('+r.target+'분)</option>').join("")+'</optgroup>'+
+    (sv.length?'<optgroup label="내가 저장한 작전">'+sv.map(s=>'<option value="'+esc(s.id)+'">'+esc(s.title||"이름 없는 작전")+' ('+s.blocks.reduce((a,b)=>a+(+b.min||0),0)+'분)</option>').join("")+'</optgroup>':"");
+}
+function drawBlocks(){
+  const labs=K.planLabels(P.blocks),T=total(),tg=+P.target||45,W=Math.max(T,tg);
+  $("plBar").innerHTML=P.blocks.map((b,i)=>'<span style="--pc:'+(PH[b.ph]||PH.act).c+';flex:'+(+b.min||0)+'" class="'+(i===sel?"sel":"")+'" title="'+esc(labs[i]+" "+bname(b)+" "+b.min+"분")+'" data-bi="'+i+'">'+(b.min>=3?esc(labs[i]):"")+'</span>').join("")+(T<tg?'<span class="rest" style="flex:'+(tg-T)+'"></span>':"");
+  $("plBar").style.setProperty("--over",T>tg?"1":"0");
+  $("plSum").innerHTML='합계 <b>'+T+'분</b> / '+tg+'분 '+(T===tg?'<span class="ok">딱 맞아요</span>':T<tg?'<span class="x">'+(tg-T)+'분 남아요</span>':'<span class="bad">'+(T-tg)+'분 넘쳐요</span>');
+  if(!P.blocks.length){$("plBlocks").innerHTML='<div class="empty">아래 버튼으로 블록을 더하거나, 위에서 태성쌤 레시피를 불러와 보세요.</div>';return;}
+  $("plBlocks").innerHTML=P.blocks.map((b,i)=>{
+    const c=K.planCard(b.card),ph=PH[b.ph]||PH.act;
+    const main=c?'<b>'+esc(c.n)+'</b><small>'+esc(c.s||"")+'</small>':(b.name?'<b>'+esc(b.name)+'</b><small>직접 쓴 활동</small>':'<b class="pl-none">카드를 골라 주세요</b><small>오른쪽 활동 카드에서 골라 넣어요</small>');
+    let x="";
+    if(i===sel)x='<div class="pl-bx">'+
+      '<label>단계 <select data-bph="'+i+'">'+Object.keys(PH).map(k=>'<option value="'+k+'"'+(k===b.ph?" selected":"")+'>'+PH[k].n+'</option>').join("")+'</select></label>'+
+      '<label class="grow">카드 없이 직접 쓰기 <input data-bname="'+i+'" value="'+esc(b.name||"")+'" placeholder="예: 자유 슛 연습"></label>'+
+      (c?'<button class="small" type="button" data-bclear="'+i+'">카드 빼기</button>':"")+
+      '<label class="full">이 블록 메모 (진행 화면에 보여요) <textarea data-bmemo="'+i+'" rows="2" placeholder="예: 2반은 공 4개 더 준비">'+esc(b.memo||"")+'</textarea></label></div>';
+    return '<div class="pl-blk'+(i===sel?" sel":"")+'" data-bi="'+i+'" style="--pc:'+ph.c+'">'+
+      '<span class="pl-lab">'+esc(labs[i])+'</span><div class="pl-bm">'+main+'</div>'+
+      '<label class="pl-min"><input type="number" min="0.5" max="90" step="0.5" data-bmin="'+i+'" value="'+b.min+'" aria-label="'+esc(labs[i])+' 시간(분)"><span>분</span></label>'+
+      '<span class="pl-bb"><button type="button" data-bmv="-1" data-i="'+i+'" aria-label="위로"'+(i?"":" disabled")+'>▲</button><button type="button" data-bmv="1" data-i="'+i+'" aria-label="아래로"'+(i<P.blocks.length-1?"":" disabled")+'>▼</button><button type="button" data-bdup="'+i+'" aria-label="복제">⧉</button><button type="button" data-bdel="'+i+'" aria-label="지우기" class="danger">✕</button></span>'+x+'</div>';
+  }).join("");
+}
+function libList(){
+  const q=F.q.trim().toLowerCase();
+  return K.PLAN_LIB.concat(K.planCards().map(c=>Object.assign({u:1},c))).filter(c=>{
+    if(F.ph&&c.ph!==F.ph)return false;
+    if(F.cat&&c.cat!==F.cat)return false;
+    if(!F.all&&!(c.sp==="all"||c.sp===P.sp||P.sp==="all"))return false;
+    if(F.mine&&!c.mine)return false;
+    if(q&&!(c.n+" "+(c.s||"")+" "+(c.how||[]).join(" ")+" "+(c.cat||"")).toLowerCase().includes(q))return false;
+    return true;
+  });
+}
+function drawLib(){
+  const labs=K.planLabels(P.blocks);
+  $("plTarget2").innerHTML=sel>=0&&P.blocks[sel]?'<span style="--pc:'+(PH[P.blocks[sel].ph]||PH.act).c+'">선택한 블록: <b>'+esc(labs[sel])+'</b></span> 카드를 펼쳐 <b>이 블록에 넣기</b>를 누르세요':'왼쪽 블록을 누르면 그 블록에 카드를 넣을 수 있어요. 아니면 <b>새 블록으로 추가</b>';
+  const ch=(attr,v,label,on)=>'<button type="button" class="qchip" '+attr+'="'+v+'" aria-pressed="'+(!!on)+'">'+label+'</button>';
+  let h='<div class="pl-fr">'+ch("data-fph","","전체",!F.ph)+Object.keys(PH).map(k=>ch("data-fph",k,PH[k].n,F.ph===k)).join("")+'</div>';
+  if(F.ph==="wu"||F.cat)h+='<div class="pl-fr">'+ch("data-fcat","","모든 분류",!F.cat)+Object.keys(K.PLAN_CAT).map(k=>ch("data-fcat",k,k,F.cat===k)).join("")+'</div>'+(F.cat?'<div class="pl-catd">'+esc(K.PLAN_CAT[F.cat])+'</div>':"");
+  h+='<div class="pl-fr">'+ch("data-fall","0",esc(spName(P.sp))+(P.sp==="all"?"":" + 공통"),!F.all)+ch("data-fall","1","모든 종목",F.all)+ch("data-fmine","1","★ 태성쌤 아이디어만",F.mine)+'</div>';
+  $("plFilt").innerHTML=h;
+  const list=libList();
+  $("plCards").innerHTML=list.length?list.map(c=>{
+    const op=openCard===c.id;
+    return '<div class="pl-card'+(op?" open":"")+'" style="--pc:'+(PH[c.ph]||PH.act).c+'"><button type="button" class="pl-ch" data-copen="'+esc(c.id)+'" aria-expanded="'+op+'"><b>'+esc(c.n)+'</b><span class="pl-cm">'+c.m+'분</span><span class="pl-cs">'+esc(c.s||"")+'</span><span class="pl-chips">'+chips(c)+'</span></button>'+
+      (op?'<div class="pl-cd">'+guideHtml(c)+'<div class="btnrow" style="justify-content:flex-start">'+
+        (sel>=0&&P.blocks[sel]?'<button type="button" class="small go" data-cput="'+esc(c.id)+'">'+esc(labs[sel])+'에 넣기</button>':"")+
+        '<button type="button" class="small" data-cadd="'+esc(c.id)+'">새 블록으로 추가</button>'+
+        (c.u?'<button type="button" class="small" data-cedit="'+esc(c.id)+'">고치기</button><button type="button" class="small danger" data-cdel="'+esc(c.id)+'">지우기</button>':'<button type="button" class="small" data-ccopy="'+esc(c.id)+'">복사해서 내 카드로</button>')+
+      '</div></div>':"")+'</div>';
+  }).join(""):'<div class="empty">맞는 카드가 없어요. 필터를 바꾸거나 내 카드를 만들어 보세요.</div>';
+}
+function drawForm(){
+  const f=$("plForm");f.hidden=!editCard;if(!editCard){$("plMineBtn").hidden=false;return;}
+  $("plMineBtn").hidden=true;const c=editCard;
+  const inp=(id,label,v,ph)=>'<label>'+label+'<input data-ff="'+id+'" value="'+esc(v||"")+'" placeholder="'+esc(ph||"")+'"></label>';
+  const ta=(id,label,v,ph)=>'<label class="full">'+label+'<textarea data-ff="'+id+'" rows="3" placeholder="'+esc(ph||"")+'">'+esc(v||"")+'</textarea></label>';
+  f.innerHTML='<h5>'+(K.planCards().some(x=>x.id===c.id)?"내 카드 고치기":"내 활동 카드 만들기")+'</h5><div class="pl-fgrid">'+
+    inp("n","이름",c.n,"예: 콘 뒤집기 술래")+
+    '<label>단계<select data-ff="ph">'+Object.keys(PH).map(k=>'<option value="'+k+'"'+(c.ph===k?" selected":"")+'>'+PH[k].n+'</option>').join("")+'</select></label>'+
+    '<label>웜업 분류<select data-ff="cat"><option value="">없음</option>'+Object.keys(K.PLAN_CAT).map(k=>'<option'+(c.cat===k?" selected":"")+'>'+k+'</option>').join("")+'</select></label>'+
+    '<label>종목<select data-ff="sp">'+K.PLAN_SP.map(([k,n])=>'<option value="'+k+'"'+(c.sp===k?" selected":"")+'>'+esc(n)+'</option>').join("")+'</select></label>'+
+    '<label>추천 시간(분)<input data-ff="m" type="number" min="1" max="90" value="'+(c.m||5)+'"></label>'+
+    '<label>연결할 점수판·도구<select data-ff="tool"><option value="">없음</option>'+Object.keys(K.PLAN_TOOL).map(k=>'<option value="'+k+'"'+(c.tool===k?" selected":"")+'>'+esc(K.PLAN_TOOL[k])+'</option>').join("")+'</select></label>'+
+    '<label class="full">한 줄 소개<input data-ff="s" value="'+esc(c.s||"")+'" placeholder="이 활동을 한 줄로"></label>'+
+    ta("how","진행 방법 (한 줄에 하나씩)",(c.how||[]).join("\n"),"1. 모둠별로 원을 만들어요")+
+    inp("g","준비물 · 대형",c.g,"공 4개, 콘 8개")+inp("safe","안전",c.safe,"부딪힘 주의")+
+    ta("say","교사의 말 (한 줄에 하나씩)",(c.say||[]).join("\n"),"오늘 어려웠던 순간은?")+
+    inp("e","변형 · 쉽게",c.e)+inp("h","변형 · 어렵게",c.h)+
+    inp("ax0","세 축 · 기능",(c.ax||[])[0])+inp("ax1","세 축 · 지식",(c.ax||[])[1])+inp("ax2","세 축 · 가치",(c.ax||[])[2])+
+    '</div><div class="btnrow" style="justify-content:flex-start"><button class="small go" type="button" id="plFormSave">카드 저장</button><button class="small" type="button" id="plFormX">취소</button></div>';
+}
+function readForm(){
+  const v=k=>{const el=R.querySelector('[data-ff="'+k+'"]');return el?el.value.trim():"";};
+  const lines=k=>v(k).split("\n").map(s=>s.replace(/^\s*\d+[.)]\s*/,"").trim()).filter(Boolean);
+  return{id:editCard.id,ph:v("ph")||"act",sp:v("sp")||"all",cat:v("cat"),n:v("n"),m:Math.max(1,Math.min(90,+v("m")||5)),s:v("s"),how:lines("how"),g:v("g"),say:lines("say"),e:v("e"),h:v("h"),safe:v("safe"),ax:[v("ax0"),v("ax1"),v("ax2")],tool:v("tool")};
+}
+function drawEdit(){drawHead();drawBlocks();drawLib();drawForm();}
+
+/* ---------- 진행 화면 ---------- */
+function drawRun(){
+  const box=$("plRun"),st=RUN.get();
+  if(!st){
+    box.innerHTML='<div class="box pl-runempty"><div class="qbig">아직 시작한 수업이 없어요</div><p>① 작전 짜기에서 블록과 시간을 정하고 <b>▶ 이 작전으로 수업 시작</b>을 누르세요. 타이머는 점수판을 열어도 계속 흐르고, 위쪽 막대에 남은 시간이 보여요.</p>'+
+      '<div class="btnrow"><button class="go" type="button" id="plStart2">▶ 지금 작전('+total()+'분)으로 시작</button></div></div>';
+    return;
+  }
+  const B=st.plan.blocks,labs=K.planLabels(B),b=B[st.i],c=b.c,ph=PH[b.ph]||PH.act,nx=B[st.i+1];
+  const done=i=>i<st.i;
+  box.innerHTML=
+    '<div class="pl-strip">'+B.map((x,i)=>'<button type="button" class="'+(i===st.i?"now":done(i)?"done":"")+'" style="--pc:'+(PH[x.ph]||PH.act).c+';flex:'+Math.max(.6,x.min)+'" data-rgo="'+i+'"><b>'+esc(labs[i])+'</b><span>'+esc(x.name||"")+'</span></button>').join("")+'</div>'+
+    '<div class="pl-run">'+
+      '<section class="box pl-now" style="--pc:'+ph.c+'">'+
+        '<div class="pl-nowh"><span class="pl-chip" style="--pc:'+ph.c+'">'+esc(labs[st.i])+'</span>'+(c&&c.cat?'<span class="pl-chip cat">'+esc(c.cat)+'</span>':"")+'<span class="pl-of">'+(st.i+1)+' / '+B.length+'</span></div>'+
+        '<h2 class="pl-nown">'+esc(b.name||"이름 없는 활동")+'</h2>'+(c&&c.s?'<div class="pl-nows">'+esc(c.s)+'</div>':"")+
+        '<div class="pl-clock" id="plClock">0:00</div>'+
+        '<div class="pl-cbar"><i id="plCbar"></i></div>'+
+        '<div class="pl-tot" id="plTot"></div>'+
+        '<div class="btnrow op"><button class="small" type="button" data-rgo="'+(st.i-1)+'"'+(st.i?"":" disabled")+'>◀ 이전</button><button class="go" type="button" id="plToggle"></button><button class="small" type="button" data-rgo="'+(st.i+1)+'"'+(nx?"":" disabled")+'>다음 ▶</button></div>'+
+        '<div class="btnrow op"><button class="small" type="button" data-radj="-1">−1분</button><button class="small" type="button" data-radj="1">+1분</button>'+
+          '<label class="sw" style="--sc:var(--c-pl)"><input type="checkbox" id="plAuto"'+(st.auto?" checked":"")+'><span class="knob"></span>시간 끝나면 자동 넘김</label></div>'+
+        (c&&c.tool?'<button class="pl-tool op" type="button" data-rtool="'+esc(c.tool)+'">'+esc(K.PLAN_TOOL[c.tool]||"")+' 열기 <small>타이머는 계속 흘러요</small></button>':"")+
+        (b.memo?'<div class="pl-memo op"><b>메모</b> '+esc(b.memo)+'</div>':"")+
+        (nx?'<div class="pl-next">다음 · <b>'+esc(labs[st.i+1])+'</b> '+esc(nx.name||"")+' ('+nx.min+'분)</div>':'<div class="pl-next">마지막 블록이에요</div>')+
+        '<button class="small danger op" type="button" id="plFinish">수업 끝내기</button>'+
+      '</section>'+
+      '<section class="box pl-gbox">'+
+        (st.plan.ax&&st.plan.ax.some(Boolean)?'<div class="pl-goal"><span>오늘의 목표</span>'+["기능","지식","가치"].map((t,j)=>st.plan.ax[j]?'<em><i class="pl-ax '+"knv"[j]+'">'+t+'</i>'+esc(st.plan.ax[j])+'</em>':"").join("")+'</div>':"")+
+        (c?guideHtml(c,true):'<div class="empty">이 블록에는 활동 카드가 없어요. 메모와 시간만 안내해요.</div>')+
+      '</section>'+
+    '</div>';
+  K.arm($("plFinish"),"수업 끝내기",finishLesson);
+  drawClock();
+}
+function drawClock(){
+  const st=RUN.status();if(!st||tab!=="run"||!$("plClock"))return;
+  const r=RUN.get(),b=r.plan.blocks[r.i],l=st.left,tot=b.min*60000;
+  const ck=$("plClock");ck.textContent=K.fmtMS(l);ck.className="pl-clock"+(l<0?" over":l<=60000?" low":"")+(st.running?"":" pause");
+  $("plCbar").style.width=Math.max(0,Math.min(100,(1-l/tot)*100))+"%";$("plCbar").classList.toggle("over",l<0);
+  const T=r.plan.blocks.reduce((a,x)=>a+x.min,0)*60000;let E=0;r.plan.blocks.forEach((x,i)=>E+=RUN.el(i));
+  $("plTot").innerHTML="수업 경과 <b>"+K.fmtUp(E)+"</b> · 계획 "+Math.round(T/60000)+"분 · "+(T-E>=0?"남은 계획 "+K.fmtMS(T-E):"<span class=\"bad\">계획보다 "+K.fmtUp(E-T)+" 더 진행</span>");
+  const tg=$("plToggle");if(tg){tg.textContent=st.running?"일시 정지":"▶ 계속";tg.classList.toggle("run",st.running);}
+}
+let lastI=-1,lastN=-1;
+const off=RUN.on(()=>{const st=RUN.status();
+  if(tab==="run"){if(!st&&lastI!==-1){lastI=-1;drawRun();return;}
+    if(st&&(st.i!==lastI||st.n!==lastN)){lastI=st.i;lastN=st.n;drawRun();return;}drawClock();}
+  drawHint();});
+function drawHint(){const st=RUN.status();$("plHint").innerHTML=st?'<span class="pl-live">'+(st.running?"진행 중":"일시 정지")+' · '+esc(st.label)+' '+K.fmtMS(st.left)+'</span>':"";}
+function setTab(t){
+  tab=t;R.querySelectorAll("[data-ptab]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.ptab===t)));
+  $("plEdit").hidden=t!=="edit";$("plRun").hidden=t!=="run";
+  if(t==="run"){const st=RUN.status();lastI=st?st.i:-1;lastN=st?st.n:-1;drawRun();}else drawEdit();
+  drawHint();
+}
+
+/* ---------- 동작 ---------- */
+function snap(){undoStack.push(JSON.stringify(P));if(undoStack.length>60)undoStack.shift();}
+function addBlock(ph,cardId,at){
+  snap();const c=K.planCard(cardId);
+  const b={k:uid(),ph:c?c.ph:ph,card:cardId||null,min:c?c.m:(ph==="exp"?3:ph==="end"?5:ph==="wu"?5:10),memo:""};
+  if(c&&c.ph!==ph&&ph)b.ph=c.ph;
+  if(at==null){P.blocks.push(b);sel=P.blocks.length-1;}else{P.blocks.splice(at,0,b);sel=at;}
+  save();drawBlocks();drawLib();
+  K.toast((K.planLabels(P.blocks)[sel])+" 블록을 더했어요"+(c?" · "+c.n:""),"",1400);
+}
+function snapshotPlan(){
+  return{title:P.title||"이름 없는 작전",sp:P.sp,target:P.target,ax:P.ax.slice(),
+    blocks:P.blocks.map(b=>{const c=K.planCard(b.card);return{ph:b.ph,min:+b.min||1,memo:b.memo||"",name:c?c.n:(b.name||K.PLAN_PH[b.ph].n),c:c?JSON.parse(JSON.stringify(c)):null};})};
+}
+function startLesson(){
+  if(!P.blocks.length){K.toast("블록을 하나 이상 넣어 주세요","bad",2000);return;}
+  const go=()=>{RUN.start(snapshotPlan());setTab("run");K.toast("수업 시작! "+(P.title||""),"bingo",2000);};
+  if(RUN.get())K.modal({sub:"수업 작전판",title:"진행 중인 수업이 있어요",stats:"<div>지금 진행 중인 수업을 끝내고 새로 시작할까요?</div>",buttons:[{label:"새로 시작",fn:()=>{RUN.finish();go();}},{label:"취소"}]});
+  else go();
+}
+function finishLesson(){
+  const r=RUN.finish();if(!r)return;
+  const B=r.plan.blocks,labs=K.planLabels(B);
+  const rows=B.map((b,i)=>{const a=r.el[i]||0,d=a-b.min*60000;return{l:labs[i],n:b.name,p:b.min,a,d};});
+  const P0=B.reduce((s,b)=>s+b.min,0),A=rows.reduce((s,x)=>s+x.a,0);
+  const tbl='<table class="pl-sumt"><tr><th>블록</th><th>계획</th><th>실제</th></tr>'+rows.map(x=>'<tr><td class="tn">'+esc(x.l)+' <small>'+esc(x.n)+'</small></td><td>'+x.p+'분</td><td class="'+(Math.abs(x.d)>=60000?(x.d>0?"bad":"x"):"")+'">'+K.fmtUp(x.a)+'</td></tr>').join("")+'</table>';
+  K.modal({sub:"수업 끝",title:r.plan.title,color:"var(--c-pl)",score:"계획 "+P0+"분 · 실제 "+K.fmtUp(A),stats:tbl+'<div style="color:var(--muted)">기록 보관함에 저장했어요. 오래 걸린 블록은 다음 작전에서 시간을 고쳐 보세요.</div>',buttons:[{label:"닫기"}]});
+  ctx.store({id:K.newId(),sport:"plan",sportName:"수업 작전판",at:Date.now(),done:true,teams:[{name:r.plan.title+" · 실제",score:Math.round(A/60000)+"분"}],winner:null,
+    summary:"계획 "+P0+"분 · 실제 "+K.fmtUp(A),details:rows.map(x=>x.l+" "+x.n+" · 계획 "+x.p+"분 · 실제 "+K.fmtUp(x.a)),players:[]});
+  setTab("run");
+}
+function exportObj(){
+  const ids=new Set(P.blocks.map(b=>b.card).filter(Boolean));
+  return{app:"pe-plan",v:1,plan:P,cards:K.planCards().filter(c=>ids.has(c.id))};
+}
+function planText(){
+  const labs=K.planLabels(P.blocks);
+  let t="■ "+(P.title||"이름 없는 작전")+" ("+spName(P.sp)+" · "+total()+"분)\n";
+  ["기능","지식","가치"].forEach((n,j)=>{if(P.ax[j])t+="  "+n+": "+P.ax[j]+"\n";});
+  P.blocks.forEach((b,i)=>{const c=K.planCard(b.card);
+    t+="\n"+(i+1)+". "+labs[i]+" ("+b.min+"분) "+(c?c.n:(b.name||""))+"\n";
+    if(c){(c.how||[]).forEach((x,j)=>t+="   - "+x+"\n");if(c.g)t+="   준비물: "+c.g+"\n";if(c.safe)t+="   안전: "+c.safe+"\n";}
+    if(b.memo)t+="   메모: "+b.memo+"\n";});
+  return t+"\n— 태성쌤의 체육수업 점수판 · 수업 작전판";
+}
+function importText(text){
+  let o=null;try{o=JSON.parse(text);}catch(e){}
+  if(!o||o.app!=="pe-plan"||!o.plan||!Array.isArray(o.plan.blocks)){K.toast("작전판 공유 코드가 아니에요","bad",2200);return;}
+  const mine=K.planCards();(o.cards||[]).forEach(c=>{if(c&&c.id&&c.n){const k=mine.findIndex(x=>x.id===c.id);if(k>=0)mine[k]=c;else mine.push(c);}});
+  K.save("pe-plan-cards",mine);
+  snap();P=o.plan;P.id="p"+uid();P.ax=P.ax||["","",""];P.blocks.forEach(b=>{b.k=b.k||uid();b.min=+b.min||5;});sel=-1;save();
+  $("plIoText").value="";$("plIo").hidden=true;drawEdit();K.toast("작전을 가져왔어요 · "+(P.title||""),"bingo",2200);
+}
+
+R.addEventListener("click",e=>{
+  let b;
+  if(b=e.target.closest("[data-ptab]")){setTab(b.dataset.ptab);return;}
+  /* 진행 */
+  if(b=e.target.closest("[data-rgo]")){const j=+b.dataset.rgo,st=RUN.status();if(st&&j>=0&&j<st.n)RUN.go(j-st.i);return;}
+  if(b=e.target.closest("[data-radj]")){RUN.adj(+b.dataset.radj);drawRun();return;}
+  if(b=e.target.closest("[data-rtool]")){try{location.hash=b.dataset.rtool;}catch(err){}return;}
+  if(e.target.id==="plToggle"){RUN.toggle();drawClock();return;}
+  if(e.target.id==="plStart2"){setTab("edit");startLesson();return;}
+  /* 블록 */
+  if(b=e.target.closest("[data-padd]")){addBlock(b.dataset.padd,null);return;}
+  if(b=e.target.closest("[data-bmv]")){const i=+b.dataset.i,j=i+ +b.dataset.bmv;if(j<0||j>=P.blocks.length)return;snap();const t=P.blocks[i];P.blocks[i]=P.blocks[j];P.blocks[j]=t;sel=j;save();drawBlocks();drawLib();return;}
+  if(b=e.target.closest("[data-bdup]")){const i=+b.dataset.bdup;snap();P.blocks.splice(i+1,0,Object.assign({},P.blocks[i],{k:uid()}));sel=i+1;save();drawBlocks();drawLib();return;}
+  if(b=e.target.closest("[data-bdel]")){const i=+b.dataset.bdel;snap();P.blocks.splice(i,1);sel=-1;save();drawBlocks();drawLib();K.toast("블록을 지웠어요 · 되돌리려면 Z","",1600);return;}
+  if(b=e.target.closest("[data-bclear]")){const i=+b.dataset.bclear;snap();P.blocks[i].card=null;save();drawBlocks();return;}
+  if(b=e.target.closest(".pl-blk")){if(e.target.closest("input,select,textarea,label,button"))return;const i=+b.dataset.bi;sel=sel===i?-1:i;
+    if(sel>=0){F.ph=P.blocks[sel].ph;F.cat="";saveF();}drawBlocks();drawLib();return;}
+  if(b=e.target.closest("#plBar [data-bi]")){sel=+b.dataset.bi;drawBlocks();drawLib();return;}
+  /* 카드 */
+  if(b=e.target.closest("[data-copen]")){openCard=openCard===b.dataset.copen?null:b.dataset.copen;drawLib();return;}
+  if(b=e.target.closest("[data-cput]")){const c=K.planCard(b.dataset.cput);if(!c||sel<0)return;snap();const bl=P.blocks[sel];bl.card=c.id;bl.min=c.m;bl.name="";
+    save();drawBlocks();drawLib();K.toast(K.planLabels(P.blocks)[sel]+" ← "+c.n,"",1400);return;}
+  if(b=e.target.closest("[data-cadd]")){const c=K.planCard(b.dataset.cadd);if(!c)return;addBlock(c.ph,c.id,sel>=0?sel+1:null);return;}
+  if(b=e.target.closest("[data-ccopy]")){const c=K.planCard(b.dataset.ccopy);editCard=Object.assign(JSON.parse(JSON.stringify(c)),{id:"u"+uid(),n:c.n+" (내 버전)",mine:0});drawForm();$("plForm").scrollIntoView({block:"nearest"});return;}
+  if(b=e.target.closest("[data-cedit]")){editCard=JSON.parse(JSON.stringify(K.planCard(b.dataset.cedit)));drawForm();$("plForm").scrollIntoView({block:"nearest"});return;}
+  if(b=e.target.closest("[data-cdel]")){const id=b.dataset.cdel;if(!b.classList.contains("arm")){b.classList.add("arm");b.textContent="한 번 더 누르면 지워요";return;}
+    K.save("pe-plan-cards",K.planCards().filter(c=>c.id!==id));openCard=null;drawLib();K.toast("내 카드를 지웠어요","",1400);return;}
+  if(b=e.target.closest("[data-fph]")){F.ph=b.dataset.fph;if(F.ph!=="wu")F.cat="";saveF();drawLib();return;}
+  if(b=e.target.closest("[data-fcat]")){F.cat=b.dataset.fcat;if(F.cat)F.ph="wu";saveF();drawLib();return;}
+  if(b=e.target.closest("[data-fall]")){F.all=b.dataset.fall==="1";saveF();drawLib();return;}
+  if(b=e.target.closest("[data-fmine]")){F.mine=!F.mine;saveF();drawLib();return;}
+  if(e.target.id==="plMineBtn"){editCard={id:"u"+uid(),ph:sel>=0?P.blocks[sel].ph:"act",sp:P.sp,m:5,how:[],say:[],ax:["","",""]};drawForm();return;}
+  if(e.target.id==="plFormX"){editCard=null;drawForm();return;}
+  if(e.target.id==="plFormSave"){const c=readForm();if(!c.n){K.toast("카드 이름을 넣어 주세요","bad",1800);return;}
+    const mine=K.planCards(),k=mine.findIndex(x=>x.id===c.id);if(k>=0)mine[k]=c;else mine.push(c);K.save("pe-plan-cards",mine);
+    editCard=null;openCard=c.id;F.ph=c.ph;F.cat="";F.mine=false;F.all=true;saveF();drawForm();drawLib();drawBlocks();K.toast("내 카드를 저장했어요 · "+c.n,"bingo",1800);return;}
+  /* 작전 저장·불러오기 */
+  if(e.target.id==="plStart"){startLesson();return;}
+  if(e.target.id==="plSave"){const sv=saved().filter(s=>s.id!==P.id);sv.unshift(JSON.parse(JSON.stringify(P)));K.save("pe-plan-saved",sv.slice(0,40));drawHead();K.toast("작전을 저장했어요 · "+(P.title||"이름 없는 작전"),"bingo",1800);return;}
+  if(e.target.id==="plLoad"){const v=$("plLoadSel").value,r=K.PLAN_RECIPES.find(x=>x.id===v),s=saved().find(x=>x.id===v);
+    if(!r&&!s)return;snap();P=r?fromRecipe(r):JSON.parse(JSON.stringify(s));sel=-1;openCard=null;save();drawEdit();K.toast("불러왔어요 · "+(P.title||""),"",1600);return;}
+  if(e.target.id==="plIoBtn"){$("plIo").hidden=!$("plIo").hidden;return;}
+  if(e.target.id==="plExport"){K.download("수업작전_"+(P.title||"작전").replace(/[\\/:*?"<>|\s]+/g,"_")+".json",JSON.stringify(exportObj()),"application/json").then(r=>{
+    if(r==="saved")K.toast("작전 파일을 저장했어요. 다른 선생님에게 보내 주세요","",2400);else if(r!=="declined"){$("plIoText").value=JSON.stringify(exportObj());K.toast("저장이 막혀서 아래 칸에 공유 코드를 띄웠어요","",2600);}});return;}
+  if(e.target.id==="plCopyCode"){const t=JSON.stringify(exportObj());$("plIoText").value=t;K.copyText(t).then(ok=>K.toast(ok?"공유 코드를 복사했어요. 카카오톡 등에 붙여 넣어 보내세요":"아래 칸을 길게 눌러 복사해 주세요","",2400));return;}
+  if(e.target.id==="plCopyText"){const t=planText();$("plIoText").value=t;K.copyText(t).then(ok=>K.toast(ok?"지도안 글을 복사했어요":"아래 칸을 길게 눌러 복사해 주세요","",2200));return;}
+  if(e.target.id==="plImport"){importText($("plIoText").value);return;}
+});
+K.arm($("plNew"),"새 작전",()=>{snap();P=blank();sel=-1;save();drawEdit();K.toast("빈 작전을 만들었어요","",1400);});
+R.addEventListener("input",e=>{
+  const el=e.target;
+  if(el.id==="plTitle"){P.title=el.value;save();return;}
+  if(/^plAx[012]$/.test(el.id)){P.ax[+el.id.slice(-1)]=el.value;save();return;}
+  if(el.id==="plQ"){F.q=el.value;drawLib();return;}
+  if(el.dataset.bmemo!=null){P.blocks[+el.dataset.bmemo].memo=el.value;save();return;}
+  if(el.dataset.bname!=null){P.blocks[+el.dataset.bname].name=el.value;save();return;}
+});
+R.addEventListener("change",e=>{
+  const el=e.target;
+  if(el.id==="plSp"){P.sp=el.value;save();drawLib();return;}
+  if(el.id==="plTarget"){P.target=Math.max(10,Math.min(120,+el.value||45));save();drawBlocks();return;}
+  if(el.dataset.bmin!=null){const i=+el.dataset.bmin;snap();P.blocks[i].min=Math.max(.5,Math.min(90,Math.round((+el.value||1)*2)/2));save();drawBlocks();return;}
+  if(el.dataset.bph!=null){const i=+el.dataset.bph;snap();P.blocks[i].ph=el.value;save();drawBlocks();drawLib();return;}
+  if(el.dataset.bname!=null){drawBlocks();return;}
+  if(el.id==="plAuto"){RUN.setAuto(el.checked);return;}
+  if(el.id==="plFile"){const f=el.files&&el.files[0];if(!f)return;const rd=new FileReader();rd.onload=()=>{importText(String(rd.result||""));el.value="";};rd.readAsText(f);return;}
+});
+setTab(tab);
+return{
+  key(e){
+    if(tab==="run"&&RUN.get()){
+      if(e.code==="Space"){e.preventDefault();RUN.toggle();drawClock();}
+      else if(e.key==="ArrowRight")RUN.go(1);else if(e.key==="ArrowLeft")RUN.go(-1);
+    }else if(tab==="edit"&&(e.key==="z"||e.key==="Z")&&undoStack.length){P=JSON.parse(undoStack.pop());sel=-1;save();drawEdit();K.toast("되돌렸습니다","",1200);}
+  },
+  destroy(){off();}
+};
+}};
+
 /* ================= 종목 선택과 화면 전환 ================= */
 (function(){
 const $=K.$;
@@ -8439,6 +9213,7 @@ const ICON={
   ff:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><ellipse cx="18" cy="20" rx="13" ry="8" transform="rotate(-30 18 20)" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M14 22l8-5M15 19l2 2M18 17l2 2M20 15l2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M31 24v12M31 24l6 3-6 3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>',
   bc:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="26" r="4" fill="currentColor"/><circle cx="10" cy="20" r="6" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="30" cy="16" r="6" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="31" r="5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>',
   hb:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 34V10h20v24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M8 14h12M8 19h12M8 24h12M8 29h12M10 10v24M14 10v24M18 10v24" stroke="currentColor" stroke-width="1" opacity=".55"/><circle cx="30" cy="15" r="7" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M24.5 11.5c3 2 8 2 11 0M24 18c3.5-1.5 8.5-1.5 12 0M30 8v14" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>',
+  pl:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><rect x="3" y="6" width="34" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M20 6v28" stroke="currentColor" stroke-width="1.2" opacity=".5"/><circle cx="20" cy="20" r="4" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".5"/><path d="M8 12l4 4M12 12l-4 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="29" cy="26" r="3" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 22c4 6 9 7 13 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 2"/><path d="M23.5 25.5l2 1.6-.6-2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
   dg:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><circle cx="24" cy="18" r="12" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M4 26h8M2 32h10M6 20h6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>'
 };
 const CARDS=[
@@ -8477,7 +9252,13 @@ function renderHome(){
     const hd='<div class="hd">'+ICON[c.k]+'<h2>'+c.name+'</h2>'+(isLast?'<span class="last">최근</span>':'')+'</div><div class="rule">'+c.rule+'</div>';
     if(c.subs)return '<div class="sport" style="--sc:'+c.col+'">'+hd+'<div class="subs">'+c.subs.map(s=>'<button type="button" data-open="'+s[0]+'">'+s[1]+'<span>'+s[2]+'</span></button>').join("")+'</div></div>';
     return '<button type="button" class="sport" data-open="'+c.open+'" style="--sc:'+c.col+'">'+hd+'<div class="chips">'+c.chips.map(x=>'<span class="chip">'+x+'</span>').join("")+'</div></button>';
-  }).join("");  $("tools").innerHTML=TOOLS.map(c=>'<button type="button" class="sport tool" data-open="'+c.open+'" style="--sc:'+c.col+'"><div class="hd">'+ICON[c.k]+'<h2>'+c.name+'</h2>'+(c.open===last?'<span class="last">최근</span>':'')+'</div><div class="rule">'+c.rule+'</div><div class="chips">'+c.chips.map(x=>'<span class="chip">'+x+'</span>').join("")+'</div></button>').join("");
+  }).join("");
+  const pst=K.planRun.status(),PH=K.PLAN_PH;
+  $("planHome").innerHTML='<button type="button" class="sport tool plancard" data-open="plan" style="--sc:var(--c-pl)"><div class="hd">'+ICON.pl+'<h2>수업 작전판</h2>'+(last==="plan"?'<span class="last">최근</span>':'')+'</div>'+
+    '<div class="rule">점수판이 경기를 돕는다면, 작전판은 체육 수업 1차시 전체를 설계해요. 웜업·활동·설명·종료 블록에 시간을 정하고, 활동 카드(태성쌤 아이디어 포함 '+K.PLAN_LIB.length+'장)를 골라 넣으면 수업 중에 타이머와 함께 진행 방법·교사의 말·변형·안전을 안내해요.</div>'+
+    '<div class="pl-flow"><i style="--pc:'+PH.wu.c+'">웜업</i><s>→</s><i style="--pc:'+PH.act.c+'">활동</i><s>→</s><i style="--pc:'+PH.exp.c+'">설명</i><s>→</s><i style="--pc:'+PH.act.c+'">활동</i><s>→</s><i style="--pc:'+PH.end.c+'">종료</i></div>'+
+    (pst?'<div class="pl-livehome">● 수업 진행 중 · '+K.esc(pst.label)+' '+K.esc(pst.name||"")+' · '+K.fmtMS(pst.left)+'</div>':'<div class="chips"><span class="chip">블록 타이머</span><span class="chip">활동 카드 '+K.PLAN_LIB.length+'장</span><span class="chip">레시피 '+K.PLAN_RECIPES.length+'개</span><span class="chip">공유 · 지도안</span></div>')+'</button>';
+  $("tools").innerHTML=TOOLS.map(c=>'<button type="button" class="sport tool" data-open="'+c.open+'" style="--sc:'+c.col+'"><div class="hd">'+ICON[c.k]+'<h2>'+c.name+'</h2>'+(c.open===last?'<span class="last">최근</span>':'')+'</div><div class="rule">'+c.rule+'</div><div class="chips">'+c.chips.map(x=>'<span class="chip">'+x+'</span>').join("")+'</div></button>').join("");
 }
 function close(){
   if(cur&&cur.destroy){try{cur.destroy();}catch(e){}}
@@ -8504,6 +9285,7 @@ const MOTTO={
   flag:["태클 대신 깃발, 힘 대신 작전","한 번의 다운, 모두의 약속"],
   boccia:["누구나 함께, 공 하나에 담는 집중","힘보다 정확함, 경쟁보다 존중"],
   quiz:["아는 만큼 보이고, 보이는 만큼 즐긴다","틀려도 괜찮아, 함께 배우는 시간"],
+  plan:["경험이 먼저, 설명은 짧게","전력을 다해 실수하는 45분"],
   teams:["누구와 함께여도 우리는 한 팀","새로운 친구와 만나는 시간"],
   paps:["어제의 나와 겨루는 시간","기록보다 소중한 건 꾸준함"],
   bracket:["이기는 법보다 함께 즐기는 법","모든 경기에는 배움이 있다"]
@@ -8546,7 +9328,7 @@ function open(id,fromHash){
   window.scrollTo(0,0);
 }
 /* ----- 기록 보관 ----- */
-const SPORTCOL={handball:"var(--c-hb)",boccia:"var(--c-bc)",futsal:"var(--c-fs)",netball:"var(--c-nb)",flag:"var(--c-ff)",quiz:"var(--c-qz)",bracket:"var(--c-br)",bb3:"var(--c-bb)",bb5:"var(--c-bb)",bbrot:"var(--c-bb)",volley:"var(--c-vb)",tt:"var(--c-tt)",bd:"var(--c-bd)",pb:"var(--c-pb)",soccer:"var(--c-sc)",dodge:"var(--c-dg)",kin:"var(--c-kb)",base:"var(--c-bs)",ult:"var(--c-ut)",run:"var(--c-rn)",tchouk:"var(--c-tb)"};
+const SPORTCOL={plan:"var(--c-pl)",handball:"var(--c-hb)",boccia:"var(--c-bc)",futsal:"var(--c-fs)",netball:"var(--c-nb)",flag:"var(--c-ff)",quiz:"var(--c-qz)",bracket:"var(--c-br)",bb3:"var(--c-bb)",bb5:"var(--c-bb)",bbrot:"var(--c-bb)",volley:"var(--c-vb)",tt:"var(--c-tt)",bd:"var(--c-bd)",pb:"var(--c-pb)",soccer:"var(--c-sc)",dodge:"var(--c-dg)",kin:"var(--c-kb)",base:"var(--c-bs)",ult:"var(--c-ut)",run:"var(--c-rn)",tchouk:"var(--c-tb)"};
 async function storeRec(rec,silent){
   if(!rec)return;
   const old=K.rec.get(rec.id);if(old&&old.memo)rec.memo=old.memo;
@@ -8640,6 +9422,7 @@ function home(){
 }
 
 $("sports").addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(b)open(b.dataset.open);});
+$("planHome").addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(b)open(b.dataset.open);});
 $("tools").addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(b)open(b.dataset.open);});
 $("homeBtn").onclick=home;
 window.addEventListener("hashchange",()=>{const id=location.hash.slice(1);if(id&&id!==curId&&(MODS[id]||ALIAS[id]))open(id,true);else if(!id&&curId)home();});

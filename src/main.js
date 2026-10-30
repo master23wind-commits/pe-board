@@ -22,6 +22,7 @@ const ICON={
   ff:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><ellipse cx="18" cy="20" rx="13" ry="8" transform="rotate(-30 18 20)" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M14 22l8-5M15 19l2 2M18 17l2 2M20 15l2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M31 24v12M31 24l6 3-6 3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>',
   bc:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="26" r="4" fill="currentColor"/><circle cx="10" cy="20" r="6" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="30" cy="16" r="6" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="26" cy="31" r="5" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>',
   hb:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 34V10h20v24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M8 14h12M8 19h12M8 24h12M8 29h12M10 10v24M14 10v24M18 10v24" stroke="currentColor" stroke-width="1" opacity=".55"/><circle cx="30" cy="15" r="7" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M24.5 11.5c3 2 8 2 11 0M24 18c3.5-1.5 8.5-1.5 12 0M30 8v14" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>',
+  pl:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><rect x="3" y="6" width="34" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M20 6v28" stroke="currentColor" stroke-width="1.2" opacity=".5"/><circle cx="20" cy="20" r="4" fill="none" stroke="currentColor" stroke-width="1.2" opacity=".5"/><path d="M8 12l4 4M12 12l-4 4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="29" cy="26" r="3" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M12 22c4 6 9 7 13 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="3 2"/><path d="M23.5 25.5l2 1.6-.6-2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>',
   dg:'<svg class="ico" viewBox="0 0 40 40" aria-hidden="true"><circle cx="24" cy="18" r="12" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M4 26h8M2 32h10M6 20h6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>'
 };
 const CARDS=[
@@ -60,7 +61,13 @@ function renderHome(){
     const hd='<div class="hd">'+ICON[c.k]+'<h2>'+c.name+'</h2>'+(isLast?'<span class="last">최근</span>':'')+'</div><div class="rule">'+c.rule+'</div>';
     if(c.subs)return '<div class="sport" style="--sc:'+c.col+'">'+hd+'<div class="subs">'+c.subs.map(s=>'<button type="button" data-open="'+s[0]+'">'+s[1]+'<span>'+s[2]+'</span></button>').join("")+'</div></div>';
     return '<button type="button" class="sport" data-open="'+c.open+'" style="--sc:'+c.col+'">'+hd+'<div class="chips">'+c.chips.map(x=>'<span class="chip">'+x+'</span>').join("")+'</div></button>';
-  }).join("");  $("tools").innerHTML=TOOLS.map(c=>'<button type="button" class="sport tool" data-open="'+c.open+'" style="--sc:'+c.col+'"><div class="hd">'+ICON[c.k]+'<h2>'+c.name+'</h2>'+(c.open===last?'<span class="last">최근</span>':'')+'</div><div class="rule">'+c.rule+'</div><div class="chips">'+c.chips.map(x=>'<span class="chip">'+x+'</span>').join("")+'</div></button>').join("");
+  }).join("");
+  const pst=K.planRun.status(),PH=K.PLAN_PH;
+  $("planHome").innerHTML='<button type="button" class="sport tool plancard" data-open="plan" style="--sc:var(--c-pl)"><div class="hd">'+ICON.pl+'<h2>수업 작전판</h2>'+(last==="plan"?'<span class="last">최근</span>':'')+'</div>'+
+    '<div class="rule">점수판이 경기를 돕는다면, 작전판은 체육 수업 1차시 전체를 설계해요. 웜업·활동·설명·종료 블록에 시간을 정하고, 활동 카드(태성쌤 아이디어 포함 '+K.PLAN_LIB.length+'장)를 골라 넣으면 수업 중에 타이머와 함께 진행 방법·교사의 말·변형·안전을 안내해요.</div>'+
+    '<div class="pl-flow"><i style="--pc:'+PH.wu.c+'">웜업</i><s>→</s><i style="--pc:'+PH.act.c+'">활동</i><s>→</s><i style="--pc:'+PH.exp.c+'">설명</i><s>→</s><i style="--pc:'+PH.act.c+'">활동</i><s>→</s><i style="--pc:'+PH.end.c+'">종료</i></div>'+
+    (pst?'<div class="pl-livehome">● 수업 진행 중 · '+K.esc(pst.label)+' '+K.esc(pst.name||"")+' · '+K.fmtMS(pst.left)+'</div>':'<div class="chips"><span class="chip">블록 타이머</span><span class="chip">활동 카드 '+K.PLAN_LIB.length+'장</span><span class="chip">레시피 '+K.PLAN_RECIPES.length+'개</span><span class="chip">공유 · 지도안</span></div>')+'</button>';
+  $("tools").innerHTML=TOOLS.map(c=>'<button type="button" class="sport tool" data-open="'+c.open+'" style="--sc:'+c.col+'"><div class="hd">'+ICON[c.k]+'<h2>'+c.name+'</h2>'+(c.open===last?'<span class="last">최근</span>':'')+'</div><div class="rule">'+c.rule+'</div><div class="chips">'+c.chips.map(x=>'<span class="chip">'+x+'</span>').join("")+'</div></button>').join("");
 }
 function close(){
   if(cur&&cur.destroy){try{cur.destroy();}catch(e){}}
@@ -87,6 +94,7 @@ const MOTTO={
   flag:["태클 대신 깃발, 힘 대신 작전","한 번의 다운, 모두의 약속"],
   boccia:["누구나 함께, 공 하나에 담는 집중","힘보다 정확함, 경쟁보다 존중"],
   quiz:["아는 만큼 보이고, 보이는 만큼 즐긴다","틀려도 괜찮아, 함께 배우는 시간"],
+  plan:["경험이 먼저, 설명은 짧게","전력을 다해 실수하는 45분"],
   teams:["누구와 함께여도 우리는 한 팀","새로운 친구와 만나는 시간"],
   paps:["어제의 나와 겨루는 시간","기록보다 소중한 건 꾸준함"],
   bracket:["이기는 법보다 함께 즐기는 법","모든 경기에는 배움이 있다"]
@@ -129,7 +137,7 @@ function open(id,fromHash){
   window.scrollTo(0,0);
 }
 /* ----- 기록 보관 ----- */
-const SPORTCOL={handball:"var(--c-hb)",boccia:"var(--c-bc)",futsal:"var(--c-fs)",netball:"var(--c-nb)",flag:"var(--c-ff)",quiz:"var(--c-qz)",bracket:"var(--c-br)",bb3:"var(--c-bb)",bb5:"var(--c-bb)",bbrot:"var(--c-bb)",volley:"var(--c-vb)",tt:"var(--c-tt)",bd:"var(--c-bd)",pb:"var(--c-pb)",soccer:"var(--c-sc)",dodge:"var(--c-dg)",kin:"var(--c-kb)",base:"var(--c-bs)",ult:"var(--c-ut)",run:"var(--c-rn)",tchouk:"var(--c-tb)"};
+const SPORTCOL={plan:"var(--c-pl)",handball:"var(--c-hb)",boccia:"var(--c-bc)",futsal:"var(--c-fs)",netball:"var(--c-nb)",flag:"var(--c-ff)",quiz:"var(--c-qz)",bracket:"var(--c-br)",bb3:"var(--c-bb)",bb5:"var(--c-bb)",bbrot:"var(--c-bb)",volley:"var(--c-vb)",tt:"var(--c-tt)",bd:"var(--c-bd)",pb:"var(--c-pb)",soccer:"var(--c-sc)",dodge:"var(--c-dg)",kin:"var(--c-kb)",base:"var(--c-bs)",ult:"var(--c-ut)",run:"var(--c-rn)",tchouk:"var(--c-tb)"};
 async function storeRec(rec,silent){
   if(!rec)return;
   const old=K.rec.get(rec.id);if(old&&old.memo)rec.memo=old.memo;
@@ -223,6 +231,7 @@ function home(){
 }
 
 $("sports").addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(b)open(b.dataset.open);});
+$("planHome").addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(b)open(b.dataset.open);});
 $("tools").addEventListener("click",e=>{const b=e.target.closest("[data-open]");if(b)open(b.dataset.open);});
 $("homeBtn").onclick=home;
 window.addEventListener("hashchange",()=>{const id=location.hash.slice(1);if(id&&id!==curId&&(MODS[id]||ALIAS[id]))open(id,true);else if(!id&&curId)home();});
