@@ -916,6 +916,23 @@ kbd{font-family:var(--f-body);border:1px solid var(--line);border-radius:4px;pad
 .br-opts{display:flex;flex-direction:column;gap:8px;font-size:.85rem;color:var(--muted)}
 .br-opts input[type=number]{width:3.4em;text-align:center}
 .br-empty{color:var(--muted);text-align:center;padding:30px 10px}
+.br-list{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+.br-lh{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.br-lh b{font-family:var(--f-disp);font-weight:400;font-size:1.15rem;color:var(--c-br)}
+.br-lh span{font-size:.8rem;color:var(--muted);flex:1}
+.br-li{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:8px}
+.br-it{border:1px solid var(--line);border-left:5px solid var(--c-br);border-radius:10px;background:var(--panel2);display:flex;flex-direction:column}
+.br-it.cur{border-color:var(--c-br);box-shadow:0 0 0 2px color-mix(in srgb,var(--c-br) 35%,transparent)}
+.br-itm{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:2px;padding:9px 11px 6px}
+.br-itm:focus-visible{outline:2px solid var(--amber)}
+.br-itm b{overflow-wrap:anywhere}
+.br-itm span{font-size:.76rem;color:var(--muted)}
+.br-itm .st{color:var(--amber);font-weight:700}
+.br-itm .st.done{color:var(--ok)}
+.br-it.cur .br-itm .st{color:var(--c-br)}
+.br-itb{display:flex;gap:4px;flex-wrap:wrap;padding:0 8px 8px}
+.br-itb .small{min-height:30px;font-size:.74rem;padding:.15em .55em}
+.br-mkhint{text-align:center;font-size:.78rem;color:var(--muted)}
 .br-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
 .br-h h2{margin:0;font-family:var(--f-disp);font-weight:400;font-size:clamp(1.5rem,4vw,2.3rem);color:var(--c-br)}
 .br-h span{color:var(--muted);font-size:.9rem}
@@ -7895,6 +7912,7 @@ return{
                             2단계: 결선 토너먼트(상위 진출) 또는 순위별 결정전) ================= */
 MODS.bracket={name:"대진표",sub:"리그 · 조별 리그 · 크로스 · 토너먼트 · 패자부활 · 결선 조합",color:"var(--c-br)",
 html:`
+<div class="br-list op" id="brList"></div>
 <div class="box op br-setup" id="brSetup">
   <div class="cfgrow"><label class="br-title">대회 이름 <input id="brTitle" maxlength="40" placeholder="예) 2학년 반 대항 피구 대회"></label></div>
   <h4 class="br-stg">1단계 · 경기 방식</h4>
@@ -7909,11 +7927,11 @@ html:`
   </div>
   <div class="br-s2" id="brS2"></div>
   <div class="br-prev" id="brPrev"></div>
-  <div class="btnrow"><label><input type="checkbox" id="brRand"> 무작위로 편성</label><button class="go" type="button" id="brMake">대진표 만들기</button></div>
+  <div class="btnrow"><label><input type="checkbox" id="brRand"> 무작위로 편성</label><button class="go" type="button" id="brMake">대진표 만들기</button><button type="button" class="danger" id="brRemake" hidden>지금 대진표 다시 짜기</button></div><div class="x br-mkhint" id="brMkHint" hidden>새 대진표로 만들면 지금 대진표는 위 <b>내 대진표</b> 목록에 그대로 남아요. 다시 짜기는 지금 대진표의 결과를 지우고 새로 짜요.</div>
 </div>
 <div class="br-head" id="brHead"></div>
 <div id="brBoard"></div>
-<div class="btnrow op br-acts" id="brActs" hidden><button type="button" id="brCopy">결과 복사</button><button type="button" id="brEdit">설정 다시 열기</button><button type="button" class="danger" id="brReset">대진표 지우기</button></div>`,
+<div class="btnrow op br-acts" id="brActs" hidden><button type="button" id="brCopy">결과 복사</button><button type="button" id="brEdit">설정 다시 열기</button><button type="button" id="brAgain">같은 팀으로 다시 하기</button><button type="button" id="brNew2">+ 새 대진표</button><button type="button" class="danger" id="brReset">이 대진표 지우기</button></div>`,
 init(ctx){
 const $=K.$,R=ctx.root,KEY="pe-bracket",esc=K.esc;
 const FM=[
@@ -7929,7 +7947,59 @@ const DEFCFG={rand:true,twice:false,third:true,reset:true,crossFull:false,pw:3,p
 let S=K.load(KEY);
 if(!S||S.v!==2){if(S&&S.built)K.save("pe-bracket-old",S);S={v:2,fmt:"league",title:"",teams:[],cfg:Object.assign({},DEFCFG),m:[],kos:[],groups:null,built:false,stored:null,s2sig:null,s2stale:false};}
 S.cfg=Object.assign({},DEFCFG,S.cfg);
-const save=()=>K.save(KEY,S);
+/* 여러 대진표 보관: pe-bracket(지금 대진표) + pe-bracket-list(내 대진표 목록, 최근 순, 최대 30개) */
+const LKEY="pe-bracket-list";
+const listAll=()=>{const a=K.load(LKEY);return Array.isArray(a)?a:[];};
+function summ(){
+  try{
+    const fr=finalRank(),left=S.m.filter(m=>playable(m)&&winSide(m)==null&&!(isDraw(m)&&!m.ko&&!m.need)).length;
+    return{left,done:!!(fr&&fr.done),champ:fr&&fr.done?(fr.rank?nm(fr.rank[0]):fr.groups?fr.groups.map(g=>nm(g[0])).join(", "):""):"",fmt:(FM.find(x=>x.k===S.fmt)||FM[0]).t};
+  }catch(e){return{left:0,done:false,champ:"",fmt:""};}
+}
+function upsert(){
+  if(!S.built||!S.mid)return;
+  const a=listAll().filter(x=>x.mid!==S.mid);
+  a.unshift(Object.assign(JSON.parse(JSON.stringify(S)),{at:Date.now(),sum:summ()}));
+  K.save(LKEY,a.slice(0,30));
+}
+const save=()=>{K.save(KEY,S);upsert();};
+const blankS=(keep)=>({v:2,fmt:keep?keep.fmt:"league",title:"",teams:[],cfg:Object.assign({},DEFCFG,keep?keep.cfg:{}),m:[],kos:[],groups:null,built:false,stored:null,s2sig:null,s2stale:false});
+function loadInto(e){
+  S=JSON.parse(JSON.stringify(e));delete S.at;delete S.sum;S.cfg=Object.assign({},DEFCFG,S.cfg);
+  mid=S.m.reduce((x,m)=>Math.max(x,+m.id.slice(1)+1),0);
+  $("brNames").value=(S.teams||[]).join("\n");K.save(KEY,S);
+}
+function switchTo(id){
+  const e=listAll().find(x=>x.mid===id);if(!e){K.toast("목록에서 그 대진표를 찾지 못했어요","bad",2000);return;}
+  if(S.mid===id&&S.built)return;
+  upsert();loadInto(e);draw();$("brSetup").hidden=S.built;
+  K.toast("「"+(S.title||"우리 반 대회")+"」 대진표를 열었어요","",1800);
+}
+function newBracket(fromId){
+  upsert();
+  const src=fromId?listAll().find(x=>x.mid===fromId)||S:null;
+  const base=blankS(src||S);
+  if(src){const t=src.title||"우리 반 대회",mm=t.match(/^(.*?)\s*(\d+)차$/);base.title=mm?mm[1]+" "+(+mm[2]+1)+"차":t+" 2차";base.fmt=src.fmt;}
+  S=base;mid=0;$("brNames").value=src?(src.teams||[]).join("\n"):"";K.save(KEY,S);
+  draw();$("brSetup").hidden=false;
+  setTimeout(()=>$("brSetup").scrollIntoView({block:"start",behavior:"smooth"}),60);
+  K.toast(src?"같은 팀·같은 방식으로 새 대진표를 준비했어요. 대진표 만들기를 누르세요":"새 대진표를 준비했어요. 이전 대진표는 목록에 남아 있어요","",2600);
+}
+function dropFromList(id){
+  K.save(LKEY,listAll().filter(x=>x.mid!==id));
+  if(S.mid===id){S=blankS(S);mid=0;K.save(KEY,S);$("brNames").value="";$("brSetup").hidden=false;}
+  draw();K.toast("목록에서 지웠어요. 기록 보관함의 결과는 그대로예요","",2200);
+}
+function drawList(){
+  const a=listAll(),el=$("brList");
+  if(!a.length){el.hidden=true;return;}
+  el.hidden=false;
+  el.innerHTML='<div class="br-lh"><b>내 대진표</b><span>'+a.length+'개 · 이 기기에 저장 · 눌러서 이어 하기</span><button type="button" class="small" data-brnew="1">+ 새 대진표</button></div><div class="br-li">'+
+    a.map(e=>{const cur=S.built&&e.mid===S.mid,sm=e.sum||{};
+      return '<div class="br-it'+(cur?" cur":"")+'"><button type="button" class="br-itm" data-bro="'+esc(e.mid)+'"'+(cur?' aria-current="true"':'')+'><b>'+esc(e.title||"우리 반 대회")+'</b><span>'+esc(sm.fmt||"")+' · '+(e.teams||[]).length+'팀 · '+K.fmtDate(e.at||Date.now()).slice(5)+'</span>'+
+        '<span class="st'+(sm.done?" done":"")+'">'+(cur?"지금 보는 대진표 · ":"")+(sm.done?"🏆 "+esc(sm.champ||"")+" 우승":"남은 경기 "+(sm.left||0))+'</span></button>'+
+        '<span class="br-itb"><button type="button" class="small" data-bragain="'+esc(e.mid)+'">같은 팀으로 다시</button><button type="button" class="small danger" data-brdel="'+esc(e.mid)+'">목록에서 지우기</button></span></div>';}).join("")+'</div>';
+}
 const nm=i=>i===-1?"부전승":i==null?"":S.teams[i];
 const GL=g=>String.fromCharCode(65+g)+"조";
 /* ---------- 만들기 ---------- */
@@ -8000,12 +8070,13 @@ function addKO(seeds,kind,o,st,label,tier){
   S.kos.push({id,st,kind,label,tier:tier==null?null:tier,seeds:seeds.slice(),third:!!o.third});
   S.m.push(...buildKO(seeds,kind,o,{st,ko:id}));
 }
-function build(){
+function build(asNew){
   const names=$("brNames").value.split("\n").map(s=>s.trim()).filter(Boolean).slice(0,32);
   if(names.length<2){K.toast("팀을 2팀 이상 넣어 주세요","bad",1600);return false;}
   if(S.fmt==="double"&&names.length<3){K.toast("더블 엘리미네이션은 3팀 이상이 필요해요","bad",1800);return false;}
   if(S.fmt==="rep1"&&names.length<4){K.toast("1회전 패자부활 토너먼트는 4팀 이상이 필요해요","bad",1800);return false;}
   if(S.fmt==="groups"&&names.length<4){K.toast("조별 리그는 4팀 이상이 필요해요","bad",1800);return false;}
+  if(S.built&&!asNew&&S.mid)K.save(LKEY,listAll().filter(x=>x.mid!==S.mid));
   S.title=$("brTitle").value.trim();
   S.teams=S.cfg.rand?K.shuf(names.slice()):names;
   mid=0;S.m=[];S.kos=[];S.groups=null;S.s2sig=null;S.s2stale=false;
@@ -8267,7 +8338,8 @@ function preview(){
   return "<div class=\"x\">미리 보기: "+t+(FM.find(f=>f.k===S.fmt).s2&&c.s2?" → 결선":"")+"</div>";
 }
 function draw(){
-  drawSetup();
+  drawSetup();drawList();
+  $("brMake").textContent=S.built?"새 대진표로 만들기":"대진표 만들기";$("brRemake").hidden=!S.built;$("brMkHint").hidden=!S.built;
   if(!S.built){$("brHead").innerHTML="";$("brBoard").innerHTML="<div class=\"br-empty\">팀을 넣고 방식을 고른 뒤 <b>대진표 만들기</b>를 누르세요.</div>";$("brActs").hidden=true;$("brSetup").hidden=false;return;}
   $("brActs").hidden=false;
   const f=FM.find(x=>x.k===S.fmt),fr=finalRank();
@@ -8288,7 +8360,7 @@ function makeRec(){
   if(fr.rank)teams=fr.rank.map((i,r)=>({name:nm(i),score:r+1+"위"}));
   return{id:S.mid||K.newId(),sport:"bracket",sportName:"대진표 · "+(S.title||"대회"),at:Date.now(),done:!!fr.done,
     teams:teams.slice(0,4).map(t=>({name:t.name,score:t.score})),winner:fr.rank?nm(fr.rank[0]):fr.groups?fr.groups.map(g=>nm(g[0])).join(", "):null,
-    summary:fr.rank?fr.rank.slice(0,3).map((i,r)=>(r+1)+"위 "+nm(i)).join(" · "):(FM.find(x=>x.k===S.fmt)||FM[0]).t,details:d,players:[]};
+    summary:fr.rank?fr.rank.slice(0,3).map((i,r)=>(r+1)+"위 "+nm(i)).join(" · "):(FM.find(x=>x.k===S.fmt)||FM[0]).t,details:d,players:[],brSnap:JSON.stringify(Object.assign({},S,{at:undefined,sum:undefined}))};
 }
 function asText(){
   const fr=finalRank()||{};let t=(S.title||"대회")+" ("+(FM.find(x=>x.k===S.fmt)||FM[0]).t+(hasS2()?" → 결선":"")+")\n";
@@ -8302,6 +8374,10 @@ function after(){resolve();ensureStage2();resolve();save();draw();}
 /* ---------- 이벤트 ---------- */
 R.addEventListener("click",e=>{
   let b;
+  if(b=e.target.closest("[data-bro]")){switchTo(b.dataset.bro);return;}
+  if(e.target.closest("[data-brnew]")){newBracket();return;}
+  if(b=e.target.closest("[data-bragain]")){newBracket(b.dataset.bragain);return;}
+  if(b=e.target.closest("[data-brdel]")){if(!b.classList.contains("arm")){b.classList.add("arm");b.textContent="한 번 더 누르면 지워요";setTimeout(()=>{if(b.isConnected){b.classList.remove("arm");b.textContent="목록에서 지우기";}},3000);return;}dropFromList(b.dataset.brdel);return;}
   if(b=e.target.closest("[data-brf]")){S.fmt=b.dataset.brf;if(S.fmt==="cross"&&!S.cfg._crossSet){S.cfg.s2mode="tiers";S.cfg._crossSet=true;}save();drawSetup();return;}
   if(e.target.closest("#brS2Re")){rebuildStage2();K.toast("결선을 다시 만들었어요","",1600);return;}
   if(b=e.target.closest("[data-brp]")){
@@ -8332,13 +8408,18 @@ R.addEventListener("change",e=>{
 $("brNGo").onclick=()=>{const n=Math.max(2,Math.min(32,+$("brN").value||4));$("brNames").value=Array.from({length:n},(_,i)=>(i+1)+"팀").join("\n");drawSetup();};
 $("brImp").onclick=()=>{const imp=K.load("pe-bracket-import");if(!imp)return;$("brNames").value=imp.names.join("\n");K.setVal("brN",imp.names.length);drawSetup();K.toast(imp.names.length+"팀을 가져왔어요","",1500);};
 $("brNames").addEventListener("input",()=>{K.setVal("brN",$("brNames").value.split("\n").filter(s=>s.trim()).length);$("brPrev").innerHTML=preview();});
-$("brMake").onclick=()=>{if(S.built&&S.m.some(m=>m.key)&&!$("brMake").classList.contains("arm")){$("brMake").classList.add("arm");$("brMake").textContent="결과가 지워져요 · 한 번 더 누르기";setTimeout(()=>{$("brMake").classList.remove("arm");$("brMake").textContent="대진표 만들기";},3000);return;}$("brMake").classList.remove("arm");$("brMake").textContent="대진표 만들기";if(build()!==false){$("brSetup").hidden=true;draw();}};
+$("brMake").onclick=()=>{if(build(true)!==false){$("brSetup").hidden=true;draw();K.toast(listAll().length>1?"새 대진표를 만들었어요. 이전 대진표는 내 대진표 목록에 있어요":"대진표를 만들었어요","",2200);}};
+K.arm($("brRemake"),"지금 대진표 다시 짜기",()=>{if(build(false)!==false){$("brSetup").hidden=true;draw();}});
 $("brEdit").onclick=()=>{$("brSetup").hidden=!$("brSetup").hidden;if(!$("brSetup").hidden)$("brSetup").scrollIntoView({block:"start",behavior:"smooth"});};
-K.arm($("brReset"),"대진표 지우기",()=>{S.built=false;S.m=[];S.kos=[];save();draw();});
+K.arm($("brReset"),"이 대진표 지우기",()=>dropFromList(S.mid));
+$("brAgain").onclick=()=>newBracket(S.mid);
+$("brNew2").onclick=()=>newBracket();
 $("brCopy").onclick=async()=>{const ok=await K.copyText(asText());K.toast(ok?"대회 결과를 복사했어요":"복사가 안 되는 환경이에요","",1600);};
 const imp=K.load("pe-bracket-import");let fresh=false;
 if(imp&&imp.at&&Date.now()-imp.at<60000){fresh=true;$("brNames").value=imp.names.join("\n");K.save("pe-bracket-import",Object.assign({},imp,{at:0}));setTimeout(()=>K.toast(imp.names.length+"팀을 가져왔어요. 방식을 고르고 대진표를 만드세요","",2400),300);}
 mid=S.m.reduce((x,m)=>Math.max(x,+m.id.slice(1)+1),0);
+if(S.built&&S.mid&&!listAll().some(x=>x.mid===S.mid))upsert();
+const oq=K.load("pe-bracket-open");if(oq){K.save("pe-bracket-open",null);const e=listAll().find(x=>x.mid===oq);if(e&&e.mid!==S.mid)loadInto(e);}
 draw();
 $("brSetup").hidden=S.built&&!fresh;
 return{record:makeRec};
@@ -9359,7 +9440,7 @@ function renderArchive(){
     const more=det.length||pl.length?'<details><summary>세부 기록 · '+esc(r.summary||"")+'</summary><ul>'+det.map(x=>"<li>"+esc(x)+"</li>").join("")+(pl.length?"<li>득점: "+esc(pl.map(p=>p.name+" "+p.pts).join(", "))+"</li>":"")+'</ul></details>':"";
     return '<div class="rec" style="--sc:'+(SPORTCOL[r.sport]||"var(--amber)")+'"><span class="dt">'+K.fmtDate(r.at)+'</span><span class="sp">'+esc(r.sportName)+'</span>'+
       '<div class="mt"><div class="vs">'+vs+tag+'</div><input class="memo" data-memo="'+esc(r.id)+'" value="'+esc(r.memo||"")+'" placeholder="메모 (예: 2학년 3반 리그 1차전)" aria-label="메모"></div>'+
-      '<div class="rbt"><button class="small danger" type="button" data-del="'+esc(r.id)+'">삭제</button></div>'+more+'</div>';
+      '<div class="rbt">'+(r.sport==="bracket"&&r.brSnap?'<button class="small" type="button" data-bropen="'+esc(r.id)+'">대진표 열기</button>':'')+'<button class="small danger" type="button" data-del="'+esc(r.id)+'">삭제</button></div>'+more+'</div>';
   }).join("");
 }
 K.rec.onChange(()=>{
@@ -9374,6 +9455,12 @@ $("recList").addEventListener("change",e=>{
   K.rec.put(Object.assign({},r,{memo:el.value.trim()})).then(()=>K.toast("메모를 저장했습니다","",1200));
 });
 $("recList").addEventListener("click",e=>{
+  const o=e.target.closest("[data-bropen]");
+  if(o){const r=K.rec.get(o.dataset.bropen);let s=null;try{s=JSON.parse(r.brSnap);}catch(err){}
+    if(!s||!s.mid){K.toast("이 기록에는 다시 열 대진표가 없어요","bad",2200);return;}
+    const L=K.load("pe-bracket-list"),a=Array.isArray(L)?L:[];
+    if(!a.some(x=>x.mid===s.mid)){a.unshift(Object.assign(s,{at:r.at||Date.now()}));K.save("pe-bracket-list",a.slice(0,30));}
+    K.save("pe-bracket-open",s.mid);open("bracket");return;}
   const b=e.target.closest("[data-del]");if(!b)return;
   if(b.classList.contains("arm")){K.rec.del(b.dataset.del);K.toast("기록을 삭제했습니다","",1400);}
   else{b.classList.add("arm");b.textContent="한 번 더 누르면 삭제";setTimeout(()=>{if(b.isConnected){b.classList.remove("arm");b.textContent="삭제";}},3000);}

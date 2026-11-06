@@ -168,7 +168,7 @@ function renderArchive(){
     const more=det.length||pl.length?'<details><summary>세부 기록 · '+esc(r.summary||"")+'</summary><ul>'+det.map(x=>"<li>"+esc(x)+"</li>").join("")+(pl.length?"<li>득점: "+esc(pl.map(p=>p.name+" "+p.pts).join(", "))+"</li>":"")+'</ul></details>':"";
     return '<div class="rec" style="--sc:'+(SPORTCOL[r.sport]||"var(--amber)")+'"><span class="dt">'+K.fmtDate(r.at)+'</span><span class="sp">'+esc(r.sportName)+'</span>'+
       '<div class="mt"><div class="vs">'+vs+tag+'</div><input class="memo" data-memo="'+esc(r.id)+'" value="'+esc(r.memo||"")+'" placeholder="메모 (예: 2학년 3반 리그 1차전)" aria-label="메모"></div>'+
-      '<div class="rbt"><button class="small danger" type="button" data-del="'+esc(r.id)+'">삭제</button></div>'+more+'</div>';
+      '<div class="rbt">'+(r.sport==="bracket"&&r.brSnap?'<button class="small" type="button" data-bropen="'+esc(r.id)+'">대진표 열기</button>':'')+'<button class="small danger" type="button" data-del="'+esc(r.id)+'">삭제</button></div>'+more+'</div>';
   }).join("");
 }
 K.rec.onChange(()=>{
@@ -183,6 +183,12 @@ $("recList").addEventListener("change",e=>{
   K.rec.put(Object.assign({},r,{memo:el.value.trim()})).then(()=>K.toast("메모를 저장했습니다","",1200));
 });
 $("recList").addEventListener("click",e=>{
+  const o=e.target.closest("[data-bropen]");
+  if(o){const r=K.rec.get(o.dataset.bropen);let s=null;try{s=JSON.parse(r.brSnap);}catch(err){}
+    if(!s||!s.mid){K.toast("이 기록에는 다시 열 대진표가 없어요","bad",2200);return;}
+    const L=K.load("pe-bracket-list"),a=Array.isArray(L)?L:[];
+    if(!a.some(x=>x.mid===s.mid)){a.unshift(Object.assign(s,{at:r.at||Date.now()}));K.save("pe-bracket-list",a.slice(0,30));}
+    K.save("pe-bracket-open",s.mid);open("bracket");return;}
   const b=e.target.closest("[data-del]");if(!b)return;
   if(b.classList.contains("arm")){K.rec.del(b.dataset.del);K.toast("기록을 삭제했습니다","",1400);}
   else{b.classList.add("arm");b.textContent="한 번 더 누르면 삭제";setTimeout(()=>{if(b.isConnected){b.classList.remove("arm");b.textContent="삭제";}},3000);}
