@@ -1,0 +1,312 @@
+리그 · 조별 리그 · 크로스 · 토너먼트 · 패자부활 · 결선 조합	League · groups · cross · knockout · repechage · playoffs
+예) 2학년 반 대항 피구 대회	e.g. Grade 8 class dodgeball cup
+한 줄에 한 팀씩&#10;1반&#10;2반&#10;3반&#10;4반	One team per line&#10;Class 1&#10;Class 2&#10;Class 3&#10;Class 4
+대회 이름	Event name
+1단계 · 경기 방식	Stage 1 · format
+이름 자동으로	Auto names
+팀 나누기 결과 가져오기	Import from Team Maker
+무작위로 편성	Random draw
+대진표 만들기	Make bracket
+지금 대진표 다시 짜기	Redo this bracket
+새 대진표로 만들면 지금 대진표는 위	Making a new bracket keeps this one in the
+내 대진표	My brackets
+목록에 그대로 남아요. 다시 짜기는 지금 대진표의 결과를 지우고 새로 짜요.	list above. Redo erases this bracket's results and draws again.
+결과 복사	Copy results
+설정 다시 열기	Reopen settings
+같은 팀으로 다시 하기	Again with same teams
++ 새 대진표	+ New bracket
+이 대진표 지우기	Delete this bracket
+리그전	League
+모든 팀이 서로 한 번씩 겨뤄요. 승점(승 3 · 무 1 · 패 0) → 득실차 → 다득점 → 승자승 순으로 순위를 정해요. 끝나면 상위 팀끼리 결선 토너먼트를 이어 할 수 있어요.	Every team plays every other team once. Ranked by points (win 3 · draw 1 · loss 0) → goal difference → goals scored → head-to-head. Afterwards the top teams can play a knockout.
+조별 리그	Group stage
+팀을 여러 조로 나눠 조 안에서 리그전을 해요. 끝나면 각 조 상위 팀이 결선 토너먼트에 오르거나, 같은 순위끼리 순위 결정전을 해요.	Teams are split into groups that each play a league. Then the top teams advance to a knockout, or teams with the same rank play placement games.
+크로스 조별전	Cross groups
+4팀씩 조를 짜서 1경기 A–B, 2경기 C–D를 한 뒤 1경기 승자–2경기 패자, 1경기 패자–2경기 승자가 겨뤄요(크로스). 승수 → 득실차 → 다득점으로 조 순위를 정하고, 끝나면 순위에 따라 다시 토너먼트를 해요.	Groups of 4 play game 1 A–B and game 2 C–D, then winner 1 vs loser 2 and loser 1 vs winner 2 (cross). Groups are ranked by wins → goal difference → goals scored, then a knockout by rank.
+토너먼트	Knockout
+지면 바로 떨어지는 방식이에요. 팀 수가 2·4·8·16이 아니면 몇 팀은 1라운드를 쉬고(부전승) 올라가요.	Lose and you're out. If the number of teams isn't 2, 4, 8 or 16, some teams get a first-round bye.
+1회전 패자부활 토너먼트	First-round repechage
+1회전에서 진 팀들만 패자부활조에서 다시 겨뤄요. 본선 우승팀과 패자부활조 우승팀이 최종 결승에서 만나요. 2회전부터는 지면 탈락이에요.	Teams that lose in round 1 play again in a repechage bracket. The main bracket winner meets the repechage winner in the grand final. From round 2 on, a loss knocks you out.
+더블 엘리미네이션	Double elimination
+두 번 져야 떨어지는 패자부활전이에요. 한 번 진 팀은 패자조에서 계속 올라올 수 있고, 승자조 우승팀과 패자조 우승팀이 결승에서 만나요.	You're out after two losses. Teams that lose once keep going in the losers' bracket, and the winners' and losers' bracket champions meet in the final.
+목록에서 그 대진표를 찾지 못했어요	Couldn't find that bracket in the list
+우리 반 대회	Class tournament
+」 대진표를 열었어요	" opened
+차
+2차	2
+같은 팀·같은 방식으로 새 대진표를 준비했어요. 대진표 만들기를 누르세요	New bracket ready with the same teams and format. Press Make bracket
+새 대진표를 준비했어요. 이전 대진표는 목록에 남아 있어요	New bracket ready. The previous one stays in the list
+목록에서 지웠어요. 기록 보관함의 결과는 그대로예요	Removed from the list. Results in game records stay
+개 · 이 기기에 저장 · 눌러서 이어 하기	· saved on this device · tap to continue
+팀 ·	teams ·
+지금 보는 대진표 ·	Current bracket ·
+우승	champion
+남은 경기	Games left
+같은 팀으로 다시	Same teams again
+목록에서 지우기	Remove from list
+부전승	Bye
+조	Group
+결승	Final
+준결승	Semifinal
+강	Round of
+팀을 2팀 이상 넣어 주세요	Add at least 2 teams
+더블 엘리미네이션은 3팀 이상이 필요해요	Double elimination needs at least 3 teams
+1회전 패자부활 토너먼트는 4팀 이상이 필요해요	First-round repechage needs at least 4 teams
+조별 리그는 4팀 이상이 필요해요	Group stage needs at least 4 teams
+순위 결정전	Placement games
+결선	Playoffs
+위 그룹 순위 결정전	place group
+1단계 끝! 결선 토너먼트가 만들어졌어요	Stage 1 done! Playoff bracket created
+1단계 끝! 순위 결정전이 만들어졌어요	Stage 1 done! Placement games created
+(필요할 때만)	(only if needed)
+기다리는 중	Waiting
+무승부예요. 승부차기 등으로 이긴 팀 이름을 눌러 주세요	It's a draw. Tap the winner's name (e.g. after a shootout)
+경기	GP
+무	D
+패	L
+실점	GA
+득실	GD
+승점	Pts
+쉬는 팀:	Resting:
+(혼자라 경기 없이 그대로 순위가 정해져요)	(alone, so ranked without playing)
+참가 팀 없음	No teams
+3·4위전	3rd-place game
+본선	Main bracket
+본선 결승	Main final
+패자부활조	Repechage
+1회전에서 진 팀끼리, 우승팀은 최종 결승으로	First-round losers; the winner goes to the grand final
+부활조 결승	Repechage final
+부활조	Repechage
+라운드	Round
+1회전에서 진 팀이 바로 최종 결승에 올라요.	The first-round loser goes straight to the grand final.
+최종 결승	Grand final
+본선 우승 vs 패자부활조 우승	Main winner vs repechage winner
+재경기 (부활조 팀이 이기면 한 번 더)	Rematch (if the repechage team wins)
+승자조	Winners' bracket
+승자조 결승	Winners' final
+패자조	Losers' bracket
+한 번 진 팀이 다시 올라오는 길	The way back for teams with one loss
+승자조 우승 vs 패자조 우승	Winners' champion vs losers' champion
+재경기 (패자조 팀이 이기면 한 번 더)	Rematch (if the losers' bracket team wins)
+1라운드	Round 1
+2라운드 (크로스)	Round 2 (cross)
+3라운드 (남은 경기)	Round 3 (remaining)
+1경기 승자 vs 2경기 패자	Winner G1 vs loser G2
+1경기 패자 vs 2경기 승자	Loser G1 vs winner G2
+팀 조는 조 안 리그	-team groups play a league
+2단계 ·	Stage 2 ·
+1단계 결과가 바뀌어 진출 팀이 달라졌어요.	Stage 1 results changed, so the qualifiers are different.
+결선 다시 만들기	Rebuild playoffs
+(결선에 넣은 점수는 지워져요)	(playoff scores will be cleared)
+1단계 경기가 모두 끝나면 순위에 따라 자동으로 만들어져요.	Created automatically by rank once stage 1 is finished.
+각 조 1위끼리, 2위끼리, 3위끼리… 따로 토너먼트를 해서 전체 순위를 정해요.	Group winners play each other, runners-up each other, and so on, to decide the overall ranking.
+상위	Top
+각 조 상위	Top of each group:
+이	play a
+로 우승을 가려요. 1위가 다른 조 2위와 먼저 만나도록 엇갈려 배치해요.	to decide the champion. Seeded so group winners meet runners-up from other groups first.
+(결선 진출 팀이 4팀보다 적으면 일반 토너먼트로 해요)	(with fewer than 4 qualifiers it's a normal knockout)
+(3팀보다 적으면 일반 토너먼트)	(normal knockout with fewer than 3)
+두 번씩 겨루기 (2회전)	Play each other twice
+조 수	Groups
+조 안에서 두 번씩 겨루기	Play twice within groups
+3라운드까지 (승자끼리·패자끼리 남은 경기도 하기)	Up to round 3 (winners and losers also play)
+4팀씩 조를 짜요. 4로 나누어떨어지지 않으면 3팀 조를 만들어 조 안 리그(각 팀 2경기)로 해요.	Groups of 4. If the teams don't divide by 4, groups of 3 play a mini league (2 games each).
+3·4위전 하기	Play a 3rd-place game
+최종 결승에서	In the grand final, if the
+팀이 이기면 한 번 더 (재경기)	team wins, play again (rematch)
+위쪽 팀은 아직 한 번도 지지 않았으니, 아래쪽 팀이 결승에서 이기면 서로 1패씩이 되어 한 번 더 겨룰 수 있어요.	The top team hasn't lost yet, so if the bottom team wins the final, both have one loss and can play once more.
+2단계 · 결선	Stage 2 · playoffs
+1단계가 끝나면 순위에 따라 토너먼트 이어 하기	After stage 1, continue with a knockout by rank
+방식	Format
+상위 팀 결선 토너먼트	Top-team knockout
+같은 순위끼리 순위 결정전	Placement games by rank
+진출	Qualify
+각 조	Each group
+위까지	top
+결승 재경기	Final rematch
+2반	Class 2
+3반	Class 3
+4반	Class 4
+5반	Class 5
+6반	Class 6
+7반	Class 7
+8반	Class 8
+팀)	teams)
+리그	league
+개 조	groups
+팀) · 조별	teams) · per group
+미리 보기:	Preview:
+→ 결선	→ playoffs
+새 대진표로 만들기	Make as new bracket
+팀을 넣고 방식을 고른 뒤	Add teams, choose a format, then press
+2위	2nd
+3위	3rd
+공동 3위	Tied 3rd
+전체 순위 ·	Final standings ·
+모든 경기 끝	All games done
+점수를 넣으면 이긴 팀이 자동으로 올라가요. 점수 없이 이긴 팀 이름만 눌러도 돼요(다시 누르면 취소).	Enter scores and the winner advances automatically. You can also just tap the winner's name (tap again to undo).
+1단계 ·	Stage 1 ·
+[결선]	[Playoffs]
+대진표 ·	Bracket ·
+대회	Tournament
+경기 결과	Results
+(무)	(D)
+한 번 더 누르면 지워요	Tap again to delete
+결선을 다시 만들었어요	Playoffs rebuilt
+점수로 승패가 정해져 있어요. 점수를 고쳐 주세요	The scores already decide the winner. Edit the scores instead
+팀을 가져왔어요	Teams imported
+새 대진표를 만들었어요. 이전 대진표는 내 대진표 목록에 있어요	New bracket made. The previous one is in My brackets
+대진표를 만들었어요	Bracket made
+대회 결과를 복사했어요	Results copied
+복사가 안 되는 환경이에요	Copying isn't available here
+팀을 가져왔어요. 방식을 고르고 대진표를 만드세요	Teams imported. Choose a format and make the bracket
+작전판 ·	Planner ·
+1분 남았어요	1 minute left
+시간 끝	time's up
+분)	min)
+수업을 마무리해요	time to wrap up
+1차시 설계 · 블록 타이머 · 활동 가이드	Lesson design · block timer · activity guide
+수업 이름 (예: 농구 · 3대3 첫 만남)	Lesson name (e.g. Basketball · first 3x3)
+수업 이름	Lesson name
+오늘 할 수 있게 될 움직임	A movement students will be able to do today
+오늘 알게 될 원리·규칙	A principle or rule they'll learn today
+오늘 기를 태도·마음	An attitude or value to build today
+불러올 작전	Plan to load
+다른 선생님에게 받은 공유 코드를 여기에 붙여 넣거나, 작전 파일을 골라 주세요	Paste a share code from another teacher here, or choose a plan file
+카드 찾기 (예: 패스, 술래, 퀴즈)	Search cards (e.g. pass, tag, quiz)
+카드 찾기	Search cards
+① 작전 짜기	① Plan
+② 수업 진행	② Teach
+수업 시간	Lesson length
+기능	Skill
+지식	Knowledge
+가치	Value
+불러오기	Load
+새 작전	New plan
+작전 파일 저장	Save plan file
+공유 코드 복사	Copy share code
+지도안 글로 복사	Copy as lesson plan text
+붙여 넣은 작전 가져오기	Import pasted plan
++ 웜업	+ Warm-up
++ 활동	+ Activity
++ 설명	+ Talk
++ 종료	+ Wrap-up
+▶ 이 작전으로 수업 시작	▶ Start lesson with this plan
++ 내 활동 카드 만들기	+ Make my own card
+공통	All sports
+진행 방법	How to run it
+준비물 · 대형	Equipment · setup
+교사의 말	What to say
+변형	Variations
+쉽게	Easier
+어렵게	Harder
+안전	Safety
+세 축	Three goals
+★ 태성쌤 아이디어	★ Mr. Lee's idea
+내 카드	My card
+연결	linked
+이름 없는 작전	Untitled plan
+합계	Total
+딱 맞아요	right on time
+분 남아요	min to spare
+분 넘쳐요	min over
+아래 버튼으로 블록을 더하거나, 위에서 태성쌤 레시피를 불러와 보세요.	Add blocks with the buttons below, or load one of Mr. Lee's recipes above.
+직접 쓴 활동	Custom activity
+카드를 골라 주세요	Choose a card
+오른쪽 활동 카드에서 골라 넣어요	Pick from the activity cards on the right
+카드 없이 직접 쓰기	Write your own (no card)
+예: 자유 슛 연습	e.g. free shooting practice
+카드 빼기	Remove card
+이 블록 메모 (진행 화면에 보여요)	Note for this block (shown while teaching)
+예: 2반은 공 4개 더 준비	e.g. 4 extra balls for class 2
+시간(분)	time (min)
+위로	Move up
+아래로	Move down
+복제	Duplicate
+선택한 블록:	Selected block:
+카드를 펼쳐	Open a card and tap
+이 블록에 넣기	Put in this block
+왼쪽 블록을 누르면 그 블록에 카드를 넣을 수 있어요. 아니면	Tap a block on the left to put a card in it. Or use
+새 블록으로 추가	Add as new block
+모든 분류	All types
++ 공통	+ all sports
+★ 태성쌤 아이디어만	★ Mr. Lee's ideas only
+에 넣기	: put here
+고치기	Edit
+복사해서 내 카드로	Copy to my cards
+맞는 카드가 없어요. 필터를 바꾸거나 내 카드를 만들어 보세요.	No matching cards. Change the filters or make your own card.
+내 카드 고치기	Edit my card
+내 활동 카드 만들기	Make my own card
+예: 콘 뒤집기 술래	e.g. cone flip tag
+웜업 분류	Warm-up type
+추천 시간(분)	Suggested time (min)
+연결할 점수판·도구	Linked scoreboard or tool
+한 줄 소개	One-line summary
+이 활동을 한 줄로	This activity in one line
+진행 방법 (한 줄에 하나씩)	How to run it (one step per line)
+1. 모둠별로 원을 만들어요	1. Each group forms a circle
+공 4개, 콘 8개	4 balls, 8 cones
+부딪힘 주의	Watch for collisions
+교사의 말 (한 줄에 하나씩)	What to say (one per line)
+오늘 어려웠던 순간은?	What was hard today?
+변형 · 쉽게	Variation · easier
+변형 · 어렵게	Variation · harder
+세 축 · 기능	Goal · skill
+세 축 · 지식	Goal · knowledge
+세 축 · 가치	Goal · value
+카드 저장	Save card
+아직 시작한 수업이 없어요	No lesson started yet
+① 작전 짜기에서 블록과 시간을 정하고	Set blocks and times in ① Plan and press
+을 누르세요. 타이머는 점수판을 열어도 계속 흐르고, 위쪽 막대에 남은 시간이 보여요.	. The timer keeps running even when you open a scoreboard, with the time left shown in the top bar.
+▶ 지금 작전	▶ Start this plan (
+분)으로 시작	min)
+이름 없는 활동	Untitled activity
+◀ 이전	◀ Back
+다음 ▶	Next ▶
+시간 끝나면 자동 넘김	Auto-advance when time's up
+열기	Open
+타이머는 계속 흘러요	the timer keeps running
+다음 ·	Next ·
+마지막 블록이에요	This is the last block
+수업 끝내기	End lesson
+오늘의 목표	Today's goals
+이 블록에는 활동 카드가 없어요. 메모와 시간만 안내해요.	No activity card in this block. Only the note and time are shown.
+수업 경과	Elapsed
+계획	planned
+분 ·	min ·
+남은 계획	planned time left
+계획보다	ran
+더 진행	over plan
+일시 정지	Pause
+▶ 계속	▶ Resume
+블록을 더했어요	block added
+블록을 하나 이상 넣어 주세요	Add at least one block
+수업 시작!	Lesson started!
+진행 중인 수업이 있어요	A lesson is in progress
+지금 진행 중인 수업을 끝내고 새로 시작할까요?	End the current lesson and start a new one?
+새로 시작	Start new
+블록	Block
+실제	Actual
+수업 끝	Lesson over
+분 · 실제	min · actual
+기록 보관함에 저장했어요. 오래 걸린 블록은 다음 작전에서 시간을 고쳐 보세요.	Saved to game records. Adjust the time for blocks that ran long next time.
+준비물:	Equipment:
+안전:	Safety:
+메모:	Note:
+— 태성쌤의 체육수업 점수판 · 수업 작전판	— PE Class Scoreboard · Lesson Planner
+작전판 공유 코드가 아니에요	That's not a planner share code
+작전을 가져왔어요 ·	Plan imported ·
+블록을 지웠어요 · 되돌리려면 Z	Block deleted · press Z to undo
+(내 버전)	(my version)
+내 카드를 지웠어요	Card deleted
+카드 이름을 넣어 주세요	Please name the card
+내 카드를 저장했어요 ·	Card saved ·
+작전을 저장했어요 ·	Plan saved ·
+불러왔어요 ·	Loaded ·
+수업작전_	LessonPlan_
+작전	plan
+작전 파일을 저장했어요. 다른 선생님에게 보내 주세요	Plan file saved. Send it to other teachers
+저장이 막혀서 아래 칸에 공유 코드를 띄웠어요	Saving is blocked, so the share code is shown below
+공유 코드를 복사했어요. 카카오톡 등에 붙여 넣어 보내세요	Share code copied. Paste it into a message to send
+아래 칸을 길게 눌러 복사해 주세요	Press and hold the box below to copy
+지도안 글을 복사했어요	Lesson plan text copied
+빈 작전을 만들었어요	Blank plan created

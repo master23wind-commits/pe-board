@@ -272,7 +272,7 @@ function drawCard(){
   let msg="";
   if(ph==="ask"&&C.mode==="buzz")msg=S.buzz>=0?"<b style=\"color:"+QC[S.buzz]+"\">"+esc(tname(S.buzz))+"</b>의 답을 누르세요":"답을 아는 팀은 손을 들어요!";
   if(ph==="ask"&&C.mode==="all")msg="모든 팀이 답을 적어요 · 시간이 끝나면 정답 공개";
-  el.innerHTML=tag+"<div class=\"qq\">"+esc(q.q)+"</div><div class=\"qopts\">"+opts+"</div>"+
+  el.innerHTML=tag+"<div class=\"qq\" translate=\"no\">"+esc(q.q)+"</div><div class=\"qopts\" translate=\"no\">"+opts+"</div>"+
     (msg?"<div class=\"qmsg\">"+msg+"</div>":"")+
     (ph==="reveal"?"<div class=\"qex\"><b>정답: "+esc(q.a)+"</b>"+(q.ex?"<span>"+esc(q.ex)+"</span>":"")+(C.mode==="all"?"<em class=\"op\">맞힌 팀 칸을 누르면 +"+(isFire()?20:10)+"점</em>":"")+"</div>":"");
 }

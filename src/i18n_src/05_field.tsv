@@ -1,0 +1,354 @@
+이닝 점수판 · 볼카운트 · 경기장 수비 배치 · 공격·수비 기록	Line score · count · fielding diagram · batting & fielding stats
+기록 보기	View stats
+원정 팀 이름	Away team name
+원정 팀 타순	Away batting order
+홈 팀 이름	Home team name
+홈 팀 타순	Home batting order
+야구	Baseball
+티볼	T-ball
+투구	Pitch
+볼	Ball
+스트라이크	Strike
+파울	Foul
+안타 · 출루	Hits · on base
+1루타	Single
+2루타	Double
+3루타	Triple
+홈런	Home run
+볼넷	Walk
+몸에 맞는 공	Hit by pitch
+실책 출루	On by error
+아웃 (수비수를 경기장에서 고릅니다)	Outs (pick the fielder on the field)
+삼진	Strikeout
+땅볼 아웃	Ground out
+뜬공 아웃	Fly out
+직선타 아웃	Line out
+희생플라이	Sac fly
+주자 · 경기장의 베이스를 누르세요	Runners · tap a base on the field
+되돌리기	Undo
+공수 교대	Switch sides
+경기 종료	End game
+플레이 기록	Play log
+경기 설정	Game settings
+이닝 수	Innings
+이닝당 최대 득점	Max runs per inning
+(0 = 제한 없음)	(0 = no limit)
+티볼 타격 기회	T-ball swings
+번 실패하면 아웃	misses = out
+이닝마다 전원이 한 번씩 치면 공수 교대	Switch sides after everyone bats once
+3아웃이면 공수 교대 (티볼은 선택)	Switch sides after 3 outs (optional in T-ball)
+수비 기본 배치	Default fielding
+명단은 타순대로 한 줄에 한 명, 팀당 최대 15명입니다. 처음 이름은 예시예요. 위 팀(원정)이 초에 먼저 공격하고, 아래 팀(홈)이 말에 공격합니다.	One player per line in batting order, up to 15 per team. The first names are examples. The top team (away) bats first in the top of each inning, the bottom team (home) in the bottom.
+수비 위치는 경기장의 포지션 이름을 눌러 바꿉니다. 수비 위치는 타순과 따로예요. 타순을 바꾸거나 새 경기를 시작해도 학생마다 정한 수비 위치가 그대로 남아요. 새로 넣은 학생은 '비어 있음' 자리에 직접 넣어 주세요. '수비 기본 배치'를 누르면 타순 1~9번을 투수·포수·1루·2루·3루·유격·좌익·중견·우익 순서로 넣어요. 티볼은 10명이 수비해서 중견수 옆에	Tap a position name on the field to change fielders. Fielding positions are separate from the batting order and stay with each student even if you reorder or start a new game. Put newly added students into 'Empty' spots yourself. 'Default fielding' places batters 1–9 as P, C, 1B, 2B, 3B, SS, LF, CF, RF. T-ball fields 10, adding a
+제2중견수	second center fielder
+가 더해지고, 10번 타자까지 배치돼요(좌익·중견·제2중견·우익 순서).	next to CF, so batter 10 is placed too (LF, CF, CF2, RF).
+아웃을 누르면 경기장의 수비수가 깜빡입니다. 공을 처리한 수비수를 누르면 그 학생의 수비 기록이 올라가요. 땅볼 아웃은 고른 수비수에게 보살, 1루수에게 아웃 처리가 기록됩니다.	Tap an out and the fielders blink. Tap the fielder who made the play to add to their fielding stats. On a ground out, the chosen fielder gets an assist and the first baseman the putout.
+티볼은 기본으로 3아웃에 공수 교대를 하지 않고 아웃 수만 셉니다. '전원 타격 후 공수 교대'를 켜거나, '공수 교대' 버튼을 누르세요. 3아웃제를 쓰려면 설정에서 켜면 돼요.	By default T-ball just counts outs and doesn't switch at 3. Turn on 'switch after everyone bats' or press 'Switch sides'. Turn on the 3-out rule in settings if you want it.
+주자는 안타·볼넷 때 자동으로 진루합니다(안타는 모든 주자가 친 루만큼 진루). 다르게 움직였으면 베이스를 눌러 한 루 진루·홈인·아웃·도루로 고치세요.	Runners advance automatically on hits and walks (on a hit every runner moves as many bases as the batter). If they moved differently, tap a base to fix it: advance one, score, out or steal.
+새 경기	New game
+투수	P
+포수	C
+1루수	1B
+2루수	2B
+3루수	3B
+유격수	SS
+좌익수	LF
+중견수	CF
+우익수	RF
+홍팀	Red
+청팀	Blue
+삼진 잡기	Strikeout
+더블 플레이	Double play
+장타(2루타 이상)	Extra-base hit
+희생 플라이·번트	Sac fly or bunt
+도루 성공	Stolen base
+실책 없는 이닝	Error-free inning
+땅볼 아웃 3개	3 ground outs
+외야 플라이 잡기	Outfield catch
+타자가 안타를 치거나 홈에 들어오면 그 칸이 채워지고	A cell fills when the batter gets a hit or scores,
+되돌렸습니다	Undone
+회	times
+말	bottom
+홈런!	Home run!
+점 득점!	run(s) score!
+끝내기	Walk-off
+이닝 최대 득점	Max runs this inning
+3아웃	3 outs
+전원 타격 완료	Everyone has batted
+홈 팀 리드로 경기 종료	Home team leads · game over
+공수 교대!	Switch sides!
+공격	Batting
+안타	Hits
+타점)	RBI)
+없음	None
+승리	wins
+최다 안타:	Most hits:
+실책	Errors
+볼넷! 1루로	Walk! Take first
+타격 기회를 다 써서 아웃	Out of swings · out
+삼진 아웃!	Strikeout!
+홈 스틸!	Steal of home!
+홈인	Scores
+앞 베이스에 주자가 있어요. 앞 주자를 먼저 옮기세요	There's a runner ahead. Move the lead runner first
+루로	to base
+도루	Steal
+진루	Advance
+주루 아웃	Out on the bases
+베이스에서 지움	Clear base
+타석	PA
+타수	AB
+타점	RBI
+/ 수비 아웃처리	/ Putouts
+보살	Assists
+/ 투구수	/ Pitches
+탈삼진	K
+원정	Away
+홈	Home
+회 득점	runs in inning
+빙고+	Bingo+
+팀 안타	Team hits
+팀 실책	Team errors
+실패	Miss
+아웃	Out
+타자	Batter
+오늘	Today
+미정	TBD
+투구수	Pitches
+비어 있음	Empty
+루	B
+공을 처리한 수비수를 누르세요	Tap the fielder who made the play
+건너뛰기	Skip
+취소	Cancel
+를 아래에서 고르세요	— choose below
+수비	Fielding
+포지션을 눌러 수비수를 바꿀 수 있어요	Tap a position to change the fielder
+고르기	Choose
+헛스윙 · 타격 실패	Swing and miss
+타격 시도	Swings
+번 실패하면 아웃)	misses = out)
+루 주자	base runner
+한 루 진루	Advance one
+주자 · 경기장의 주자가 있는 베이스를 누르세요	Runners · tap an occupied base on the field
+타순	Order
+타율	AVG
+안타(팀 안타도 함께)	Hits (team hits too)
+지금 포지션	Current position
+아웃 처리	Putouts
+실책(팀 실책도 함께)	Errors (team errors too)
+점 ·	runs ·
+아직 기록이 없습니다. 투구나 타격 결과 버튼을 누르면 여기에 쌓입니다.	Nothing yet. Tap a pitch or batting result and it builds up here.
+이닝 점수판 · 경기장 수비 배치 · 공격·수비 기록	Line score · fielding diagram · batting & fielding stats
+티 위의 공을 칩니다. 볼넷 없이	Hit the ball off the tee. No walks;
+볼 4개 볼넷 · 스트라이크 3개 삼진 · 투수 투구수 기록	4 balls walk · 3 strikes out · pitch count
+홈 · 말 공격	Home · bats bottom
+원정 · 초 공격	Away · bats top
+교사 판단	Teacher's call
+교사가 경기를 마침	Teacher ended the game
+새 경기 준비 완료 (팀 이름·타순·수비 위치 유지)	New game ready (team names, batting order and positions kept)
+티볼 모드	T-ball mode
+야구 모드	Baseball mode
+수비를 타순대로 배치했습니다	Fielders set in batting order
+빨강 vs 파랑 · 표적구(잭) · 엔드별 점수 · 다음 투구 안내 · 빙고	Red vs blue · jack · end scores · next-throw guide · bingo
+빨강 이름	Red name
+파랑 이름	Blue name
+표적구	Jack
+공 던짐	Ball thrown
+빨강이 더 가까움	Red is closer
+공 하나 되돌리기	Undo one ball
+1엔드	End 1
+다음 엔드	Next end
+빨강 명단	Red roster
+파랑 명단	Blue roster
+파랑이 더 가까움	Blue is closer
+개인전 (1:1, 공 6개)	Individual (1 v 1, 6 balls)
+2인조 (한 명당 3개)	Pairs (3 each)
+3인조 (한 명당 2개)	Teams of 3 (2 each)
+수업용 (인원·공 자유)	Class (any players and balls)
+엔드 수	Ends
+한 편 공 수	Balls per side
+점수 낼 때 가장 가까운 공을 던진 학생 고르기	Pick the student with the closest ball when scoring
+보치아는 빨강 공과 파랑 공을 하얀 표적구(잭)에 가깝게 던지는 경기예요. 엔드마다 표적구를 던지는 편이 번갈아 바뀌고(1엔드는 빨강), 표적구를 던진 편이 첫 공을, 상대 편이 두 번째 공을 던져요.	In boccia, red and blue balls are thrown as close as possible to the white jack. Sides take turns throwing the jack each end (red in end 1); the side that threw the jack throws the first ball, then the other side throws the second.
+그다음부터는	After that,
+표적구에서 더 먼 편	the side farther from the jack
+이 계속 던져요. 공을 다 던진 편은 기다리고, 남은 편이 나머지 공을 던져요. 화면의 '○○이 더 가까움'을 눌러 두면 다음에 던질 편을 알려 줘요.	keeps throwing. A side with no balls left waits while the other throws the rest. Tap '○○ is closer' and the screen shows who throws next.
+엔드가 끝나면 표적구에 가장 가까운 공을 가진 편이, 상대의 가장 가까운 공보다 가까이 있는 자기 공 수만큼 점수를 얻어요. 두 편의 가장 가까운 공이 같은 거리면 서로 1점씩이에요. 정해진 엔드가 끝나 동점이면 승부 엔드(타이브레이크)를 해요.	At the end of an end, the side with the closest ball scores one point for each of its balls closer than the opponent's closest. If both closest balls are equally close, each side gets 1. If it's tied after all ends, play a tie-break end.
+빨강	Red
+파랑	Blue
+표적구에 딱 붙이기	Touch the jack
+상대 공 쳐내기	Knock out a ball
+표적구 옮겨 역전	Move the jack to take the lead
+한 엔드 2점 이상	2+ points in an end
+마지막 공으로 역전	Win with the last ball
+공 6개 모두 표적구 1m 안	All 6 balls within 1 m
+굴려서 맞히기	Roll and hit
+높이 던져 떨어뜨리기	Lob and drop
+엔드 점수를 낼 때 고른 학생 칸이 채워지고	A cell fills for the student chosen when scoring an end,
+첫 공	First ball
+둘째 공	Second ball
+남은 공	Balls left
+표적구에서 먼 편	side farther from the jack
+이번 엔드는	This end,
+이(가) 표적구를 먼저 던져요	throws the jack first
+표적구 던짐 · 이어서	Jack thrown · next,
+은(는) 공을 다 던졌어요	has thrown all balls
+모든 공을 던졌어요 · 점수를 매겨 주세요	All balls thrown · score the end
+같은 거리 · 서로 1점	Equal · 1 each
+점!	pt(s)!
+동점이라 승부 엔드를 해요	Tied, so play a tie-break end
+승부 엔드	Tie-break end
+엔드	End
+엔드별	By end
+가장 가까운 공을 던진 학생을 고르세요	Pick the student with the closest ball
+이름 없이	No name
+엔드 /	end /
+승리!	wins!
+동점! 승부 엔드를 준비하세요	Tie! Get ready for a tie-break end
+엔드 끝 · 다음 엔드를 누르세요	end over · press Next end
+모든 공을 던졌어요 · 아래에서 점수를 매기세요	All balls thrown · score below
+어느 편이 표적구에 더 가까운지 눌러 주세요	Tap which side is closer to the jack
+다음:	Next:
+던지기	throw
+합	Total
+엔드 점수 매기기	Score the end
+같은 거리 (서로 1점)	Equal (1 each)
+승부 엔드 시작	Start tie-break end
+잭	jack
+표적구 ·	Jack ·
+같은 거리, 서로 1점	equal, 1 each
+아직 기록이 없습니다. 표적구를 던지면 '공 던짐'을 눌러 시작하세요.	Nothing yet. Once the jack is thrown, tap 'Ball thrown' to start.
+새 경기 준비 완료	New game ready
+스톱워치 · 이름을 누르면 바퀴 기록 · 거리별 페이스	Stopwatch · tap names for laps · pace by distance
+거리 설정	Distance
+한 바퀴	One lap
+목표 거리	Target distance
+스톱워치	Stopwatch
+참가 명단	Runners
+출발	Go
+처음부터	Restart
+기록표 · 순위	Results · ranking
+통과 기록	Lap log
+설정	Settings
+분 (0 = 없음, 예: 12분 달리기)	min (0 = none, e.g. 12-minute run)
+같은 학생 다시 누르기 막기	Ignore repeat taps for the same student
+출발을 누르면 스톱워치가 흐릅니다. 학생이 출발선(측정 지점)을 지날 때마다 그 학생 이름을 누르면, 그때까지의 누적 시간이 한 바퀴씩 기록됩니다.	Press Go to start the stopwatch. Each time a student crosses the line, tap their name to log a lap with the total time so far.
+거리 설정을 켜면 한 바퀴 거리로 달린 거리, 1km 페이스, 속도를 자동으로 계산하고, 목표 거리에 도달한 학생은 완주로 표시됩니다.	Turn on distance to calculate distance run, pace per km and speed from the lap length; students who reach the target are marked finished.
+실수로 두 번 누르는 것을 막기 위해 같은 학생은 정한 초 안에 다시 눌러도 기록하지 않아요. 명단은 한 줄에 한 명, 최대 40명입니다. 처음 이름은 예시예요.	To avoid double taps, repeat taps on the same student within the set seconds are ignored. One runner per line, up to 40. The first names are examples.
+출발/정지 ·	go/stop ·
+스톱워치가 멈춰 있어요. 다시 출발을 누르세요	The stopwatch is stopped. Press Go again
+먼저 출발을 누르세요	Press Go first
+방금 기록했어요	just logged
+초 안에 다시 누름)	s, repeat tap)
+완주!	Finished!
+모두 완주했습니다! 스톱워치를 멈췄어요	Everyone finished! Stopwatch stopped
+분 종료! 지금까지 달린 거리로 기록합니다	min done! Recording the distance so far
+바퀴	Laps
+페이스	Pace
+완주	Finished
+목표	Target
+참가	Runners
+누적	Total
+기록 없음	No laps
+구간	Split
+계속	running
+남은 시간	Time left
+기록한 학생	Logged
+목표 거리 없이 거리와 페이스만 계산	Distance and pace only, no target
+바퀴 수와 누적 시간만 기록	Laps and total time only
+이번 바퀴	This lap
+거리	Distance
+누적 시간	Total time
+최근 바퀴	Last lap
+가장 빠른 바퀴	Fastest lap
+1km 페이스	Pace /km
+속도	Speed
+구간 기록	Splits
+바퀴째	lap
+아직 기록이 없습니다. 출발을 누른 뒤 학생이 측정 지점을 지날 때마다 이름을 누르세요.	Nothing yet. Press Go, then tap a name each time a student passes the line.
+기록을 지우고 처음부터 시작합니다 (명단 유지)	Clear laps and start over (roster kept)
+몸싸움 없는 경기 · 득점·수비 캐치 · 프레임 연속 슛 3회	No-contact game · points · defensive catches · 3 shots per frame
+수비 캐치	Defensive catch
+반칙 실점	Foul points
+3-3-3 위반	3-3-3 violation
+리바운드가 코트에 떨어짐	Rebound lands in court
+왼쪽 프레임	Left frame
+오른쪽 프레임	Right frame
+공격 팀 반칙 → 상대 팀 +1 (반칙한 팀을 먼저 고르세요)	Attacking team foul → other team +1 (pick the team that fouled)
+피리어드 수	Periods
+2피리어드	2 periods
+피리어드 시간	Period length
+목표 점수	Target score
+(0 = 시간으로만)	(0 = time only)
+득점·캐치할 때 선수 이름 고르기	Pick player names for points and catches
+공격 팀이 프레임에 공을 던져 튕겨 나온 공이 코트 안(D존 밖)에 떨어지면 공격 팀이 1점을 얻습니다. 수비 팀이 땅에 닿기 전에 잡으면 '수비 캐치'로 공격권만 넘어가요.	The attacking team scores 1 when the ball rebounds off the frame and lands in court (outside the D zone). If the defense catches it before it lands, it's a 'defensive catch' and only possession changes.
+슛이 프레임을 빗나가거나, D존 안·코트 밖에 떨어지거나, 튕긴 공이 슈터에게 맞으면 상대 팀이 1점을 얻습니다. 점수가 나면 실점한 팀이 공격을 시작합니다.	If a shot misses the frame, lands in the D zone or out of court, or rebounds onto the shooter, the other team scores 1. After a point, the team that conceded attacks.
+3패스·3걸음·3초를 넘기면 공격권만 넘어갑니다(점수 없음). 같은 프레임에는 (두 팀 슛을 합쳐) 연속 3번까지만 슛할 수 있고, 4번째는 반대쪽 프레임으로 던져야 합니다. 슛한 프레임을 눌러 두면 수비 캐치로 이어진 슛을 세어 주고, 점수나 반칙이 나오면 0부터 다시 셉니다.	Going over 3 passes, 3 steps or 3 seconds only changes possession (no point). Only 3 shots in a row (both teams combined) may go to the same frame; the 4th must go to the other frame. Tap the frame shot at to count shots linked by defensive catches; the count resets after a point or foul.
+프레임 빗나감	Missed the frame
+D존에 떨어짐	Landed in the D zone
+코트 밖에 떨어짐	Landed out of court
+튕긴 공이 슈터에게 맞음	Rebound hit the shooter
+D존을 밟고 슛	Shot while stepping in the D zone
+D존에서 수비가 잡음	Caught in the D zone
+수비 캐치 성공	Defensive catch
+점프 슛 득점	Jump shot point
+3패스 안에 득점	Point within 3 passes
+왼쪽·오른쪽 프레임 모두 득점	Points on both frames
+모두 한 번씩 패스	Everyone passes
+리바운드 각도 득점	Angle shot point
+3-3-3 없이 공격 5번	5 attacks without 3-3-3
+같은 프레임에 연속 3번 · 다음 슛은 반대쪽 프레임으로!	3 in a row on one frame · next shot to the other frame!
+상대	Opponent
+수비 캐치!	Defensive catch!
+수비 캐치왕:	Top catcher:
+피리어드 종료	Period over
+(상대	(opponent
+슛한 사람	Shooter
+잡은 사람	Catcher
+을 고르세요	— pick one
+이름 (누르면 득점 +1)	Name (tap for +1)
+캐치	Catches
+득점(팀 점수도 함께)	Points (team score too)
+공격 · 슛하는 프레임을 눌러 두세요	attacking · tap the frame they shoot at
+위반 · 공격권 넘김	violation · possession changes
+아직 기록이 없습니다. 득점, 수비 캐치, 반칙 버튼으로 기록하세요.	Nothing yet. Use the point, defensive catch and foul buttons.
+3-3-3 위반 ·	3-3-3 violation ·
+15점 · 득점자와 어시스트 기록 · 빙고 · 스피릿 점수	15 pts · goals and assists · bingo · spirit score
+다음 풀	Next pull
+풀 바꾸기	Switch pull
+스피릿 점수 · 경기가 끝나면 서로의 팀을 평가해요 (항목마다 0~4점)	Spirit score · rate each other's team after the game (0–4 per category)
+경기 시간 제한(타임 캡)	Time cap
+어시스트한 사람 칸도 체크	Check the assister's cell too
+득점을 누르면 엔드존에서 받은 사람(득점)과 던져 준 사람(어시스트)을 차례로 고릅니다. 득점한 팀이 다음 점수를 시작할 때 풀(수비 시작)을 합니다.	Tap a goal, then pick the catcher in the end zone (goal) and the thrower (assist). The team that scored pulls to start the next point (on defense).
+승리 점수의 절반에 먼저 도달하면 하프타임을 알려 줍니다. 명단은 한 줄에 한 명, 팀당 최대 15명이고 처음 이름은 예시예요.	Halftime is called when a team first reaches half the winning score. One player per line, up to 15 per team; the first names are examples.
+되돌리기 ·	undo ·
+득점 고르기 취소	cancel goal pick
+규칙 알고 지키기	Rules knowledge and use
+파울과 몸싸움 피하기	Fouls and body contact
+공정한 마음	Fair-mindedness
+긍정적인 태도와 자제력	Positive attitude and self-control
+소통	Communication
+득점!	Goal!
+하프타임! 엔드존을 바꾸세요 ·	Halftime! Switch end zones ·
+이(가) 풀	pulls
+최다 어시스트:	Most assists:
+이제 아래 스피릿 점수로 서로의 팀을 평가해 보세요.	Now rate each other's team with the spirit score below.
+타임 캡	Time cap
+지금 점수로 끝내거나, 다음 점수를 내는 팀이 이기는 '유니버스 포인트'로 이어갈 수 있어요.	End with the current score, or play 'universe point' where the next goal wins.
+지금 점수로 종료	End with current score
+유니버스 포인트	Universe point
+다음 점수를 내는 팀이 승리합니다	Next goal wins
+스피릿 점수(상대가 준 점수)	Spirit score (given by opponent)
+1단계: 엔드존에서 받은 사람(득점)	Step 1: catcher in the end zone (goal)
+2단계: 던져 준 사람(어시스트)	Step 2: thrower (assist)
+어시스트 없음	No assist
+뒤로	Back
+득점하거나 어시스트한 학생의 칸이 체크되고, 한 줄 완성마다 +	Cells check for goals and assists, +
+빙고판의 이름을 눌러도 칸을 체크하거나 해제할 수 있어요. 패스로 연결된 득점이 많을수록 빙고가 빨리 완성됩니다.	You can also tap names on the bingo board to check or uncheck. The more passing goals, the faster you get bingo.
+점 승리 ·	pts to win ·
+점 하프타임	pts halftime
+게임 포인트!	Game point!
+어시	Ast
+수비(D)	Blocks (D)
+상대 패스를 쳐내거나 가로챔	Knocked down or intercepted a pass
+평가 완료 · 평균	Rated · average
+아직 득점이 없습니다. 팀의 득점 버튼을 누르고 득점한 사람과 어시스트한 사람을 고르세요.	No goals yet. Tap a team's goal button and pick the scorer and assister.
+디펜스(D)!	D!

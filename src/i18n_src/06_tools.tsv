@@ -1,0 +1,275 @@
+학생건강체력평가 측정 · 기록 · 내보내기	Student fitness test (PAPS) · record · export
+예) 1학기 PAPS	e.g. Spring PAPS
+측정	Test
++ 새 측정	+ New test
+등급 기준	Grade cutoffs
+공식 등급 기준표(교육부 학생건강체력평가 누리집, 학교 PAPS 시스템)의 숫자를 한 번 넣어 두면 이 기기에 저장되고, 기록을 넣을 때마다 등급이 자동으로 나와요. 비워 두면 등급 없이 기록만 남아요.	Enter the official grade cutoffs once (from your fitness test standards) and they're saved on this device; grades then appear automatically for each result. Leave blank to record results without grades.
+내보내기	Export
+이번 측정 CSV 내려받기	Download this test as CSV
+표 복사	Copy table
+CSV는 엑셀에서 바로 열려요. 표 복사는 엑셀이나 한글 표에 붙여넣기 좋아요.	CSV opens directly in Excel. Copy table is handy for pasting into a spreadsheet or document.
+이번 측정 지우기	Delete this test
+왕복오래달리기	PACER
+심폐지구력	Cardio endurance
+20m 거리를 신호음에 맞춰 왕복해요. 신호음이 점점 빨라지고, 두 번째로 신호음 전에 선에 닿지 못하면 끝나요. 아래 '신호음 진행'을 켜고, 끝난 학생 이름을 누르면 횟수가 자동으로 기록돼요.	Run 20 m back and forth with the beeps. The beeps get faster; a student is done the second time they don't reach the line before the beep. Start the beeps below and tap a student's name when they finish to log their laps automatically.
+오래달리기-걷기	Distance run/walk
+분:초	min:sec
+정해진 거리를 달리거나 걸어서 걸린 시간을 재요. 기록은 4:35처럼 분:초로 넣어요. (점수판의 '달리기'에서 바퀴 기록을 재고 옮겨 적어도 돼요.)	Time how long it takes to run or walk a set distance. Enter it as min:sec, like 4:35. (You can also time laps in 'Running' and copy them here.)
+앉아윗몸앞으로굽히기	Sit and reach
+유연성	Flexibility
+무릎을 편 채 앉아 두 손을 겹쳐 천천히 앞으로 밀어요. 두 번 재서 좋은 기록을 0.1cm 단위로 넣어요. 발바닥보다 덜 가면 음수(−)로 넣어요.	Sit with knees straight, hands stacked, and slowly reach forward. Measure twice and enter the better result to 0.1 cm. If short of the soles, enter a negative number.
+팔굽혀펴기	Push-ups
+근력·근지구력	Strength & endurance
+남학생은 팔굽혀펴기, 여학생은 무릎 대고 팔굽혀펴기를 해요(학교 지침 확인). 박자에 맞춰 바른 자세로 한 횟수만 세요. 아래 '박자 소리'를 켜면 일정한 간격으로 신호음이 나요.	Push-ups (or knee push-ups, per your school's guidance). Count only reps done in good form to the beat. Turn on 'Cadence' below for a steady beep.
+윗몸말아올리기	Curl-ups
+무릎을 세우고 누워 박자에 맞춰 윗몸을 말아 올려요. 박자를 놓치거나 자세가 무너지면 끝나요. 아래 '박자 소리'를 켜 두세요.	Lie with knees bent and curl up to the beat. It ends when the student misses the beat or loses form. Turn on 'Cadence' below.
+악력	Grip strength
+악력계를 몸에서 살짝 떨어뜨려 힘껏 쥐어요. 좌우 두 번씩 재서 높은 기록을 0.1kg 단위로 넣어요.	Hold the dynamometer slightly away from the body and squeeze hard. Measure each hand twice and enter the best to 0.1 kg.
+50m 달리기	50 m sprint
+순발력	Power
+출발 신호와 함께 50m를 달린 시간을 재요. 0.01초 단위로 넣어요. (빠를수록 좋은 기록)	Time the 50 m from the start signal. Enter to 0.01 s. (Lower is better.)
+제자리멀리뛰기	Standing long jump
+두 발을 모으고 선 뒤 팔을 흔들어 앞으로 뛰어요. 몸이 닿은 가장 가까운 곳까지 재요. 두 번 뛰어 좋은 기록을 넣어요.	Stand with feet together, swing the arms and jump forward. Measure to the nearest point of contact. Jump twice and enter the better one.
+체질량지수(BMI)	Body mass index (BMI)
+체지방	Body composition
+키(cm)와 몸무게(kg)를 넣으면 BMI = 몸무게 ÷ (키m)² 가 자동으로 계산돼요. 몸에 관한 기록이니 학생들 앞 큰 화면에는 띄우지 마세요.	Enter height (cm) and weight (kg) and BMI = weight ÷ (height m)² is calculated. These are personal body measurements, so don't show them on the big screen.
+키(cm)	Height (cm)
+몸무게(kg)	Weight (kg)
+등급	Grade
+키	Height
+몸무게	Weight
+번 기록	result
+입력	Enter
+평균	Average
+BMI 판정은 학년·성별 백분위로 정해져 있어 여기서는 값만 계산해요.	BMI categories depend on age and gender percentiles, so only the value is calculated here.
+각 등급이 되는	Enter the
+최소	minimum
+기록(이상)을 넣어요. 4등급 기준보다 낮으면 5등급.	score for each grade (or above). Below the grade-4 cutoff is grade 5.
+최대	maximum
+기록(이하)을 넣어요. 4등급 기준보다 느리면 5등급.	time for each grade (or below). Slower than the grade-4 cutoff is grade 5.
+단계	Level
+이 단계	this level
+완료한 횟수	Laps done
+남은 학생	Still running
+신호음 멈추기	Stop beeps
+처음부터 다시	Restart
+신호음 시작 (5초 뒤)	Start beeps (in 5 s)
+아직 달리던 학생 지금 횟수로 기록	Record everyone still running at the current count
+학생이	When a student misses the line for the
+첫 번째	first
+로 신호음 전에 선에 닿지 못하면 한 번 눌러	time, tap once
+두 번째	second
+면 한 번 더 눌러	time, tap again
+— 그때까지 완료한 횟수가 기록돼요. 잘못 눌렀으면 한 번 더 누르면 처음으로 돌아가요.	— the laps completed are recorded. Tapped by mistake? Tap again to reset.
+박자 소리	Cadence
+간격	Interval
+초에 1회	s per beat
+멈추기	Stop
+박자	Beat
+학교에서 쓰는 공식 음원과 같은 간격으로 맞춰 쓰세요. 신호음마다 숫자가 하나씩 올라가요.	Match the interval to your official audio. The count goes up with each beep.
+1단계	Level 1
+CSV를 내려받았어요	CSV downloaded
+내려받기를 취소했어요	Download canceled
+이 화면에서는 내려받을 수 없어요. 표 복사를 써 주세요	Downloads aren't available here. Use Copy table
+표를 복사했어요 · 엑셀에 붙여넣으세요	Table copied · paste into Excel
+새 측정을 시작했어요. 이전 측정은 목록에 남아 있어요	New test started. Earlier tests stay in the list
+5초 뒤 시작해요. 출발선에 서세요!	Starting in 5 seconds. Get on the line!
+명을	students recorded at
+회로 기록했어요	laps
+분:초 형식으로 넣어 주세요 (예: 4:35)	Please use min:sec (e.g. 4:35)
+숫자로 넣어 주세요	Please enter a number
+스포츠 퀴즈	Sports Quiz
+팀 대항 스피드 퀴즈 · 규칙·역사·기술·가치	Team speed quiz · rules · history · skills · values
+진행 방식	Format
+더 바라는 점 (선택) 예) 중학교 1학년 수준, 수비 기술 위주로	Anything else? (optional) e.g. grade 7 level, focus on defense
+한 줄에 한 문제, | 로 나눠 주세요.&#10;문제 | 정답 | 오답1 | 오답2 | 오답3 | 해설(선택)&#10;예) 농구 골대 높이는? | 3.05m | 2.5m | 3.5m | 4m | 바닥에서 림까지 높이예요.	One question per line, separated by |.&#10;Question | Answer | Wrong 1 | Wrong 2 | Wrong 3 | Explanation (optional)&#10;e.g. How high is a basketball hoop? | 3.05 m | 2.5 m | 3.5 m | 4 m | Measured from the floor to the rim.
+준비	Ready
+🔥 2배 문제	🔥 Double points
+문제 기록	Question log
+퀴즈 설정	Quiz settings
+제한 시간	Time limit
+10초	10 s
+15초	15 s
+20초	20 s
+30초	30 s
+60초	60 s
+문제 수	Questions
+스피드 버저	Speed buzzer
+모든 팀 풀기	All teams answer
+빨리 맞히면 보너스(최대 +5)	Speed bonus (up to +5)
+틀리면 −5	−5 for wrong answers
+5번째 문제마다 🔥 2배	🔥 Double every 5th question
+영역	Category
+난이도	Difficulty
+출제 기록 지우기	Clear question history
+새 퀴즈	New quiz
+문제 늘리기	Add questions
+✨ AI로 새 문제 만들기	✨ Make new questions with AI
+골고루	Mixed
+규칙	Rules
+역사	History
+기술	Skills
+건강·체력	Health & fitness
+쉬움	Easy
+보통	Medium
+어려움	Hard
+개수	Count
+AI로 문제 만들기	Generate with AI
+AI가 만든 문제는 틀린 내용이 섞일 수 있어요. 수업에 쓰기 전에 아래 목록에서 한 번 훑어보고, 이상한 문제는 ✕로 지워 주세요.	AI questions can contain mistakes. Skim the list below before class and delete anything odd with ✕.
+✍️ 직접 문제 넣기	✍️ Add your own questions
+문제 추가	Add questions
+내 문제 0개	My questions: 0
+내 문제 복사(백업)	Copy my questions (backup)
+모두 지우기	Delete all
+내 문제는 이 기기의 브라우저에 저장돼요. 다른 기기로 옮길 때는 '복사(백업)'한 글을 그 기기의 직접 문제 넣기 칸에 붙여넣으세요.	Your questions are saved in this device's browser. To move them, paste the 'Copy (backup)' text into the add-questions box on the other device.
+먼저 외친 팀 ·	team that buzzed first ·
+그 팀이 고른 답 ·	their answer ·
+시계 멈춤/계속 ·	pause/resume clock ·
+정답 공개/다음 문제 ·	reveal/next question ·
+빨강팀	Red
+파랑팀	Blue
+노랑팀	Yellow
+초록팀	Green
+보라팀	Purple
+주황팀	Orange
+조건에 맞는 문제가 없어요. 종목·영역·난이도를 더 골라 주세요	No questions match. Select more sports, categories or difficulties
+이 범위의 문제를 모두 한 번씩 냈어요 · 처음부터 다시 섞습니다	Every question in this set has been used · reshuffling from the start
+🔥 2배 문제!	🔥 Double points!
+은(는) 이번 문제 기회를 썼어요	has already had a turn on this question
+모든 팀 풀기에서는 '정답 공개' 뒤에 맞힌 팀을 눌러요	In all-teams mode, tap the correct teams after 'Reveal'
+먼저 답을 외친 팀을 누르세요 (위 팀 칸 또는 숫자 키)	Tap the team that buzzed first (team box above or number key)
+정답! +	Correct! +
+모든 팀이 틀렸어요	Every team got it wrong
+오답	Wrong
+다른 팀에게 기회!	Another team's turn!
+시간 끝!	Time's up!
+스포츠 상식 퀴즈 ·	Sports Quiz ·
+공동 1등	Tied for 1st
+정답	Correct
+진행:	Format:
+초 ·	s ·
+맞힌 팀 없음	No one got it
+정답 +	Correct +
+정답:	Answer:
+기회 끝	Out this round
+답을 고르세요	Choose an answer
+먼저 외치면 누르기	Tap when they buzz
+✓ 정답	✓ Correct
+맞혔으면 누르기	Tap if correct
+⏸ 멈춤	⏸ Paused
+퀴즈 끝	Quiz over
+퀴즈가 끝났어요!	The quiz is over!
+결과는 경기 기록 보관함에 저장됐어요. 같은 팀으로 한 판 더 하려면 아래 버튼을 누르세요.	Results are saved in game records. Press the button below to play again with the same teams.
+팀 대항 스포츠 상식 퀴즈	Team Sports Quiz
+문제가 뜨면 답을 아는 팀이 손을 들거나 외치고, 선생님이	When a question appears, a team that knows raises a hand or shouts, and the teacher taps
+그 팀 칸	that team's box
+을 누른 뒤	and then
+그 팀이 고른 답	the answer they chose
+을 누르면 자동으로 채점돼요. 틀리면 다른 팀에게 기회가 넘어가요.	— it's scored automatically. If wrong, another team gets a turn.
+모든 팀이 화이트보드나 종이에 답을 적어요. 시간이 끝나거나 '정답 공개'를 누르면 답이 나오고,	Every team writes an answer on a whiteboard or paper. When time's up or you tap 'Reveal', the answer shows and you tap
+맞힌 팀 칸	each correct team's box
+을 눌러 점수를 줘요.	to give points.
+한 판 더	Play again
+퀴즈 시작	Start quiz
+문제 ·	questions ·
+초 · 출제 가능	s · available
+문제 (아직 안 낸 문제	questions (not yet used
+AI 문제	AI questions
+내 문제	My questions
+의 답을 누르세요	— tap their answer
+답을 아는 팀은 손을 들어요!	Know it? Raise your hand!
+모든 팀이 답을 적어요 · 시간이 끝나면 정답 공개	Every team writes an answer · revealed when time's up
+맞힌 팀 칸을 누르면 +	Tap correct teams for +
+팀 선택 취소	Cancel team pick
+정답 공개	Reveal answer
+결과 보기	See results
+다음 문제 →	Next question →
+여기서 끝내기	End here
+답	Answer
+퀴즈를 시작하면 문제마다 결과가 여기에 쌓여요.	Start the quiz and results for each question appear here.
+번 팀 이름	team name
+먼저 손든 팀이 답할 기회를 얻어요. 정답 +10점(빠를수록 보너스), 틀리면 그 팀은 이번 문제 기회가 끝나고 다른 팀이 이어서 도전해요.	The first team to raise a hand answers. Correct is +10 (bonus for speed); if wrong, that team is out for this question and another team tries.
+모든 팀이 화이트보드에 답을 적고, 정답 공개 뒤 맞힌 팀마다 +10점. 한 팀도 소외되지 않는 방식이에요.	Every team writes an answer on a whiteboard; after the reveal each correct team gets +10. No team is left out.
+조건에 맞는 문제	matching questions
+개 · 아직 안 낸 문제	· not yet used
+(한 번 낸 문제는 모두 돌 때까지 다시 나오지 않아요)	(questions don't repeat until all have been used)
+문제 지우기	Delete question
+아직 없어요. AI로 만들거나 직접 넣어 보세요.	None yet. Make some with AI or add your own.
+개를 추가했어요	added
+형식이 맞지 않는 줄	lines in the wrong format
+개는 건너뜀	skipped
+추가된 문제가 없어요. '문제 | 정답 | 오답1 | 오답2' 형식인지 확인해 주세요	Nothing added. Check the 'Question | Answer | Wrong 1 | Wrong 2' format
+내 문제가 없어요	You have no questions yet
+개를 복사했어요	copied
+복사가 안 돼서 직접 넣기 칸에 붙여 두었어요	Couldn't copy, so it's pasted in the add-questions box
+내 문제를 모두 지웠어요	All your questions deleted
+AI가	AI is making
+문제를 만들고 있어요… (보통 20초~1분)	questions… (usually 20 s – 1 min)
+새 문제	New questions
+개를 내 문제에 넣었어요. 아래 목록에서 확인해 주세요.	added to My questions. Check them in the list below.
+쓸 수 있는 문제를 받지 못했어요. 한 번 더 눌러 보세요.	No usable questions came back. Try again.
+멈췄어요.	Stopped.
+AI 사용을 허락하지 않아 만들 수 없어요.	AI use wasn't allowed, so nothing was made.
+요청이 많아요. 잠시 뒤에 다시 눌러 주세요.	Too many requests. Try again in a moment.
+문제를 만들지 못했어요. 잠시 뒤 다시 시도해 주세요.	Couldn't make questions. Please try again shortly.
+새 퀴즈 준비 완료	New quiz ready
+모든 문제를 처음부터 다시 낼 수 있어요	All questions can be used again
+문제를 푸는 중에는 바꿀 수 없어요	Can't change this mid-question
+번호·성별·수준으로 공정하게, 때로는 재미있게	Fair by number, gender and skill, and sometimes just for fun
+나누는 기준	Method
+예) 3-7, 12-15 (쉼표로 여러 쌍)	e.g. 3-7, 12-15 (commas for several pairs)
+오늘 함께하는 학생	Students today
+빠진 학생은 눌러서 빼 주세요	Tap absent students to remove them
+모두 출석	All present
+팀 수로	By number of teams
+팀당 인원으로	By team size
+더 보기 · 떨어뜨릴 학생, 연출	More · keep apart, reveal effect
+같은 팀이 되면 안 되는 학생 번호	Student numbers to keep on different teams
+한 명씩 뽑는 연출 (두근두근)	Reveal one at a time (suspense!)
+결과에 수준 보이기	Show levels in results
+같은 방식으로 다시	Again, same method
+이 팀들로 대진표 만들기 →	Make a bracket with these teams →
+최근 편성	Recent teams
+무작위	Random
+번호를 모두 섞어 무작위로 나눠요. 팀 인원은 최대 1명 차이로 맞춰요.	Shuffles all numbers and splits at random. Team sizes differ by at most 1.
+남녀 고르게	Gender-balanced
+남학생과 여학생을 따로 섞은 뒤 팀마다 번갈아 넣어, 모든 팀의 남녀 수가 비슷해져요.	Shuffles boys and girls separately and deals them out in turn, so every team has a similar mix.
+남녀 따로	By gender
+남학생끼리, 여학생끼리 따로 팀을 만들어요. 팀 수는 남녀 인원에 맞춰 나눠요. (예: 4팀 → 남자 2팀, 여자 2팀)	Makes boys' teams and girls' teams separately, split by numbers. (e.g. 4 teams → 2 boys', 2 girls')
+실력 고르게	Skill-balanced
+같은 수준끼리 묶은 뒤 잘하는 학생부터 한 명씩, 그때 실력 합이 가장 낮은 팀에 넣어요. 팀마다 실력 합이 비슷해져요.	Groups by level, then places students from strongest down, each into the team with the lowest total. Team totals end up similar.
+남녀+실력 고르게	Gender + skill balanced
+남녀를 나눠 각각 실력 순으로 한 명씩, 그 성별이 적고 실력 합이 낮은 팀에 넣어요. 성별과 실력을 함께 맞추는 가장 공정한 방식이에요.	Splits by gender, then places each by skill into the team with fewest of that gender and the lowest total. The fairest way to balance both.
+비슷한 실력끼리	Similar skill
+수준이 비슷한 학생끼리 한 팀이 돼요. 수준별 리그나 수준별 연습에 좋아요.	Students of similar level go together. Good for level-based leagues or practice.
+번호 차례로	In number order
+1번부터 차례로 끊어서 나눠요. (예: 1~6번 1팀, 7~12번 2팀)	Splits in order from No. 1. (e.g. 1–6 team 1, 7–12 team 2)
+번호 돌아가며	Count off
+1·2·3·4… 하고 번호를 세듯이 돌아가며 나눠요. (예: 1·5·9번이 1팀)	Counts off 1, 2, 3, 4… (e.g. Nos. 1, 5, 9 on team 1)
+전화번호 끝자리	Last phone digit
+전화번호 끝자리가 비슷한 학생끼리 모여요. 끝자리를 모르는 학생은 무작위로 들어가요.	Groups students with similar last phone digits. Students with no digit are placed at random.
+이름 비슷한 친구끼리	Similar names
+이름(성 빼고)의 첫 자음이 비슷한 학생끼리 모여요. '민준·민서·미나'처럼요.	Groups students whose given names start with similar sounds.
+같은 성씨끼리	Same family name
+같은 성씨끼리 먼저 모이고, 남는 자리는 가까운 성씨끼리 채워요.	Groups by family name first, then fills gaps with similar names.
+명단이 비어 있어요. 위에서 인원을 넣어 주세요.	The roster is empty. Enter the number of students above.
+(남	(M
+팀당 인원	Team size
+팀, 팀당	teams, per team
+⚠ 성별이 비어 있는 학생	⚠ Students with no gender
+명은 무작위로 들어가요.	are placed at random.
+⚠ 수준이 비어 있는 학생	⚠ Students with no level
+명은 보통(3)으로 계산해요.	count as medium (3).
+⚠ 끝자리가 모두 비어 있어요. '명단 고치기'에서 넣거나, 그냥 하면 무작위와 같아요.	⚠ No last digits entered. Add them in 'Edit roster', or this works like random.
+⚠ 이름이 비어 있어요. 명단에 이름을 넣어 주세요.	⚠ No names entered. Add names to the roster.
+남자	Boys
+여자	Girls
+학생이 2명 이상 있어야 해요	Need at least 2 students
+팀이 2개 이상 되도록 숫자를 바꿔 주세요	Change the number so there are at least 2 teams
+떨어뜨릴 학생을 모두 떨어뜨리지 못했어요. 팀 수를 늘리거나 다시 눌러 주세요	Couldn't keep every pair apart. Add teams or try again
+평균 수준	Average level
+다시 보기	Replay
+아직 없어요.	None yet.
+팀 편성	Teams
+명):	):
+편성 결과를 복사했어요	Teams copied

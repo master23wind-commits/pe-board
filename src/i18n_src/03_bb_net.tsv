@@ -1,0 +1,390 @@
+농구 3대3	Basketball 3x3
+FIBA 3x3 · 10분 · 21점 · 12초	FIBA 3x3 · 10 min · 21 pts · 12 s
+팀 이름	Team name
+팀 파울	Team fouls
+타임아웃 사용	Timeout used
+경기 시간	Game time
+공격 제한	Shot clock
+대기 중	Waiting
+시작	Start
+12초 리셋	12 s reset
+공격 −1	Shot −1
+공격 +1	Shot +1
+홍팀 개인 기록	Red player stats
+청팀 개인 기록	Blue player stats
+경기(분)	Game (min)
+공격(초)	Shot clock (s)
+승리 점수	Winning score
+4명 전원 득점 보너스	All-4-score bonus
+시작/정지 ·	start/stop ·
+공격시간 리셋 ·	shot clock reset ·
+되돌리기 · 득점하면 공격시간이 자동으로 리셋됩니다 · 1점 = 아크 안/자유투, 2점 = 아크 밖 · 4명 전원이 득점하면 팀에 보너스(한 경기 1회)	undo · the shot clock resets automatically on a score · 1 pt = inside the arc/free throw, 2 pts = beyond the arc · bonus when all 4 players score (once per game)
+교체 선수	Substitute
+연장전	Overtime
+정지	Stop
+경기 진행 중	Game on
+연장 · 먼저 2점 득점 팀 승리	Overtime · first to score 2 wins
+자유투 2개 + 공격권	2 free throws + possession
+보너스 · 자유투 2개	Bonus · 2 free throws
+보너스까지	to bonus
+전원 득점 보너스 +	All-score bonus +
+전원 득점	All scored
+/4 · 달성 시 +	/4 · bonus +
+개인 기록	Player stats
+등번호	No.
+선수 이름	Player name
+초 리셋	s reset
+2점슛 성공	2-pointer made
+어시스트 득점	Assisted basket
+리바운드 후 득점	Score after rebound
+스틸 성공	Steal
+블록슛	Block
+자유투 성공	Free throw made
+앤드원	And-one
+드라이브인 득점	Drive-in score
+패스 4번 이어서 득점	Score after 4 passes
+수비 3번 연속 막기	3 stops in a row
+연장전 2점 선득점	First 2 in OT
+점 선착 · 즉시 종료	pts reached · game over
+경기 시간 종료	Time's up
+동점! 연장전 · 먼저 2점을 넣는 팀이 승리합니다	Tie! Overtime · first team to score 2 wins
+(연장)	(OT)
+남음	left
+새 경기 준비 완료 (팀·선수 이름 유지)	New game ready (team and player names kept)
+타임아웃 (30초)	Timeout (30 s)
+4명 전원 득점! 보너스 +	All 4 scored! Bonus +
+팀파울	Team fouls
+개 ·	·
+보너스 시작	Bonus starts
+공격 제한 시간 위반 · 경기 시간은 계속 흘러요 (R로 리셋)	Shot clock violation · game clock keeps running (R to reset)
+농구 5대5	Basketball 5v5
+쿼터제 · 24초 · 빙고 16칸 · 빙고 미션	Quarters · 24 s · 16-cell bingo · bingo missions
+경기 방식	Format
+빙고 방식	Bingo type
+5대5 경기	5v5 game
+로테이션 (3~5팀)	Rotation (3–5 teams)
+기본	Standard
+빙고 16칸	16-cell bingo
+빙고 미션	Bingo missions
+팀파울(쿼터)	Team fouls (quarter)
+점수 −1	Score −1
+1쿼터	Q1
+홍팀 명단	Red roster
+청팀 명단	Blue roster
+미션 목록	Mission list
+24초	24 s
+14초	14 s
+다음 쿼터 시작	Start next quarter
+홍팀 빙고	Red bingo
+빙고 칸 섞기	Shuffle bingo
+청팀 빙고	Blue bingo
+득점 기록	Scoring log
+쿼터(분)	Quarter (min)
+쿼터 수	Quarters
+2쿼터(전·후반)	2 (halves)
+4쿼터	4 quarters
+연장(분)	Overtime (min)
+공격 제한(초)	Shot clock (s)
+팀파울 보너스	Team foul bonus
+개부터	from
+빙고 1줄 보너스	Bingo line bonus
+명단은 한 줄에 한 명, 팀당 최대 16명입니다. 처음 들어 있는 이름은 예시예요. 명단 인원이 바뀌거나 미션을 고치면 빙고판이 새로 만들어집니다.	One player per line, up to 16 per team. The names already there are examples. Changing the roster size or missions makes a new bingo board.
+미션 중	Missions with
+3점	3-pt
+이 들어간 칸은 3점슛,	are checked on a 3-pointer,
+자유투	free throw
+가 들어간 칸은 +1 득점 때 자동으로 체크됩니다. 나머지 미션은 칸을 직접 눌러 체크하세요.	on a +1. Tap the other mission cells yourself.
+24초 ·	24 s ·
+14초 ·	14 s ·
+공격시간 리셋	Shot clock reset
+공격 방향 바꾸기	Switch attack direction
+왼쪽 골대	Left basket
+오른쪽 골대	Right basket
++2 성공	+2 made
+계속 공격	keep attacking
++3 성공	+3 made
++1 성공	+1 made
+자유투 등	free throw etc.
+공격 실패	Missed
+수비팀이 공격으로	defense takes over
+순위	Rank
+누적 점수	Total
+공격 성공/시도	Made/attempts
+성공률	%
+최고 연속	Best streak
+수비 성공	Stops
+공격 기록	Attack log
+로테이션 설정	Rotation settings
+팀 수	Teams
+3팀	3 teams
+4팀	4 teams
+5팀	5 teams
+경기 시간(분)	Game time (min)
+공격 시간 초과 시 자동으로 공격 실패	Shot clock expiry counts as a miss
+수비 성공 점수	Points for a stop
+시작 배치: 1번 팀이 공격, 2번 팀이 왼쪽 골대 수비, 3번 팀이 오른쪽 골대 수비, 나머지는 대기입니다.	Start: team 1 attacks, team 2 defends the left basket, team 3 defends the right basket, the rest wait.
+공격 성공 → 공격팀은 반대 골대로 계속 공격, 수비팀은 퇴장, 대기 1순위 팀이 그 골대 수비로 입장.	Score → attackers keep going to the other basket, the defenders leave, and the next waiting team defends that basket.
+공격 실패 → 수비팀이 공격권을 잡고 반대 골대로, 실패한 공격팀은 퇴장, 대기 1순위 팀 입장.	Miss → defenders take the ball to the other basket, the attackers leave, and the next waiting team comes in.
+득점 ·	Score ·
+공격 실패 ·	Missed ·
+3점슛 성공	3-pointer made
+인터셉트	Interception
+팁인 득점	Tip-in
+공격 리바운드	Offensive rebound
+어시스트	Assist
+속공 득점	Fast-break score
+레이업 득점	Layup
+바운드 패스 어시스트	Bounce-pass assist
+박스아웃	Box out
+굿 디펜스	Good defense
+A팀	Team A
+B팀	Team B
+C팀	Team C
+D팀	Team D
+E팀	Team E
+미션	Mission
+전반	1st half
+후반	2nd half
+쿼터	Quarter
+연장	OT
+줄! 보너스 +	line! Bonus +
+파울 5개 · 퇴장	5 fouls · fouled out
+개 · 이제부터 상대 자유투	· opponent shoots free throws from now
+미션 ·	Mission ·
+동점! 연장전을 준비하세요	Tie! Get ready for overtime
+시작 준비	Ready
+최다 득점:	Top scorer:
+점)	pts)
+득점한 선수	Scorers
+줄 +	lines +
+농구 로테이션	Basketball Rotation
+위
+점 · 성공	pts · made
+종료 · 다음 쿼터를 시작하세요	over · start the next quarter
+일반 5대5 경기입니다.	A standard 5v5 game.
+16칸 모두 선수 이름. 득점한 선수 칸이 체크되고, 한 줄 완성마다 +	All 16 cells are player names. A cell is checked when that player scores, +
+점.	pts per line.
+선수 8칸 + 미션 8칸. 득점과 미션 장면으로 칸을 채우고, 한 줄 완성마다 +	8 players + 8 missions. Fill cells by scoring and completing missions, +
+선수 칸은 그 선수가 득점하면 자동 체크됩니다. 미션 칸은 그 장면이 나왔을 때 눌러서 체크하세요. 잘못 누르면 한 번 더 누르면 해제됩니다.	Player cells check automatically when that player scores. Tap mission cells when it happens. Tap again to undo a mistake.
+선수가 득점하면 그 선수 칸이 자동으로 체크됩니다. 같은 이름이 두 칸이면 두 번째 득점 때 두 번째 칸이 체크돼요. 칸을 눌러 직접 체크·해제할 수도 있습니다.	A player's cell checks automatically when they score. If a name is on two cells, the second is checked on their second score. You can also tap cells to check or uncheck them.
+보너스 · 상대 자유투	Bonus · opponent free throws
+빙고 0줄	Bingo 0 lines
+명단	Roster
+명)	)
+퇴장	Out
+파울 (팀파울도 함께)	Fouls (team fouls too)
+점수 정정	Score correction
+아직 기록이 없습니다. 개인 기록의 +1, +2, +3 버튼으로 득점을 입력하세요.	Nothing yet. Use +1, +2, +3 in player stats to add points.
+연속 공격 성공!	scores in a row!
+공격 시간 초과 ·	Shot clock expired ·
+수비 성공! 공격 전환	Stop! Switch to attack
+최고 연속 공격:	Best streak:
+연속)	in a row)
+수비왕:	Top defense:
+로테이션 경기 종료	Rotation game over
+1위	1st
+수비 중	Defending
+수비 준비	Ready to defend
+연속 성공 중	in a row
+대기	Waiting
+다음 입장	Up next
+3팀 경기라 대기 팀 없이 바로 다시 들어갑니다	With 3 teams there's no waiting team, so they go straight back in
+공격 중	Attacking
+점수	Score
+공격 성공	Made
+연속	streak
+공격 시간 초과	Shot clock expired
+아직 기록이 없습니다. 시작을 누르고 공격 결과를 입력하세요.	Nothing yet. Press Start and enter each attack result.
+3~5팀 · 성공하면 계속 공격 · 누적 점수	3–5 teams · score and keep attacking · running total
+기본 경기	Standard game
+빙고 16칸 모드	16-cell bingo mode
+빙고 미션 모드	Bingo mission mode
+빙고판을 새로 섞었습니다	Bingo board reshuffled
+명 · 빙고판을 새로 만들었습니다	· new bingo board made
+미션을 바꿔 빙고판을 새로 만들었습니다	Missions changed, new bingo board made
+팀 로테이션으로 새로 배치했습니다	Set up for a
+새 경기 준비 완료 (팀 이름·명단·미션 유지)	New game ready (teams, rosters and missions kept)
+새 로테이션 경기 준비 완료	New rotation game ready
+공격 제한 시간 위반 · 경기 시간은 계속 흘러요	Shot clock violation · game clock keeps running
+공격 시간 초과 · 경기 시간은 계속 흘러요	Shot clock expired · game clock keeps running
+선수 또는 팀 이름	Player or team name
+서브	Serve
+이긴 게임	Games won
+1게임	Game 1
+서브 바꾸기	Switch serve
+좌우 바꾸기	Switch sides
+랠리 기록	Rally log
+게임 점수	Points per game
+게임 수	Games
+득점 효과	Scoring effects
+왼쪽 득점 ·	left point ·
+오른쪽 득점 ·	right point ·
+서브 바꾸기 ·	switch serve ·
+첫 서브는 경기 시작 전에 '서브 바꾸기'로 정하세요. 게임이 끝나거나 마지막 게임 중간 교대 시점이 되면 화면 좌우도 자동으로 바뀝니다.	Set the first serve with 'Switch serve' before you start. Sides switch on screen automatically after each game and at the change of ends in the final game.
+오더 공개	Reveal lineups
+게임	Game
+선승)	to win)
+득점할 때	On each point show a
+한마디(기술·전술·규칙·역사·문화)	tip (skills · tactics · rules · history · culture)
+복식	Doubles
+랠리 스코어링	Rally scoring
+단식	Singles
+두 팀 모두 비공개 오더를 제출해 주세요	Both teams need to submit their secret lineups
+단체전 오더에서 이번 경기 선수를 정해 주세요	Pick this match's players in the team lineup
+오더를 공개해 주세요	Please reveal the lineup
+에 같은 선수가 두 번 들어갔어요	has the same player twice
+선수가	player appears
+번 나와요	times
+선수 고르기	Pick player
+단체전 종료	Team match over
+비공개	Hidden
+선수 미정	Player TBD
+단체전	Team match
+여러 경기(단식·복식)를 이어서 치러 이긴 경기 수로 승부를 가리는 방식이에요. 팀 명단과 오더(누가 몇 번째 경기에 나갈지)를 정하고, 상대 오더를 모르게 하는 비공개 오더도 쓸 수 있어요.	Play several singles and doubles matches in a row; the team that wins more matches wins. Set team rosters and lineups (who plays which match), and use secret lineups so the other team can't see yours.
+단체전 모드 켜기	Turn on team match
+경기 /	matches /
+진행	played
+새 단체전	New team match
+단체전 끄기	Turn off team match
+경기 수	Matches
+승부	Decided by
+과반을 먼저 이기면 끝	First to a majority
+승)	wins)
+모든 경기 진행	Play all matches
+오더	Lineup
+공개 오더	Open lineup
+비공개 오더	Secret lineup
+공개 시점	Reveal
+두 팀 제출 뒤 한 번에	All at once after both submit
+경기마다 시작 직전에	Before each match
+오더 제출 완료 ✓	Lineup submitted ✓
+오더 아직	No lineup yet
+다시 입력	Re-enter
+오더 입력	Enter lineup
+각 팀 주장이 차례로 '오더 입력'을 눌러 몰래 정해요. 입력하는 동안 상대 팀은 화면을 보지 않게 해 주세요. 두 팀이 모두 제출하면 공개할 수 있어요.	Each captain taps 'Enter lineup' in turn and picks in secret. Make sure the other team isn't looking. You can reveal once both teams submit.
+두 팀이 모두 제출하면 경기마다 시작 직전에 그 경기 대진만 공개돼요.	Once both teams submit, each match's pairing is revealed just before it starts.
+같은 선수가 단식에	If a player appears in singles
+번 이상, 복식에 2번 이상 나오면 경고만 보여 줘요(대회 규정에 맞게 조절하세요). 한 경기가 끝나면 결과 창의 '다음 경기'로 넘어가요.	or more times, or in doubles 2 or more times, you'll just see a warning (adjust to your event's rules). After each match, use 'Next match' in the result window.
+상대 팀은 화면을 보지 마세요. 제출하면 상대에게는 보이지 않아요.	Other team, don't look! Once submitted it stays hidden from them.
+제출	Submit
+오더 공개!	Lineups revealed!
+2번 서버로	to server 2
+사이드 아웃 ·	Side out ·
+코트 교대! 선수들은 자리를 바꾸세요	Change ends! Players switch sides
+매치	Match
+포인트	point
+게임!	Game!
+사이드아웃	Side out
+경기 종료 · 게임	Match over · games
+게임 종료	Game over
+게임 승리	Game won
+다음 경기	Next match
+다음 게임	Next game
+게임 · 코트를 바꾸세요 ·	game · change ends ·
+새 단체전 준비 완료	New team match ready
+오더를 다시 제출하세요	Submit lineups again
+마지막 게임	Final game
+랠리 승리	Rally won
+서브팀 · 득점	Serving team · point
+리시브팀 · 서브권 가져오기	Receiving team · wins serve
+득점 +1	Point +1
+서브 ·	serving ·
+번 서버	server
+서브 순서	Serve order
+듀스	Deuce
+서브 · 듀스에서는 1개씩 번갈아	serving · alternate every point at deuce
+서브 · 2개씩 번갈아 넣기	serving · switch every 2 points
+서비스 코트	Service court
+오른쪽	right
+왼쪽	left
+서브 · 서버 점수가	serving · server's score is
+짝수	even
+홀수	odd
+라	, so
+에서	court
+점수 콜 (서브팀 먼저)	Score call (serving team first)
+(첫 서브는 2번부터)	(first serve starts at server 2)
+서브팀만 득점합니다. 리시브팀이 이기면 서브권이 넘어가요.	Only the serving team scores. If the receiving team wins the rally, the serve changes.
+랠리를 이긴 쪽 득점 버튼을 누르세요.	Tap the point button for whoever wins the rally.
+아직 기록이 없습니다. 랠리를 이긴 쪽의 버튼을 누르면 여기에 쌓입니다.	Nothing yet. Tap the button for whoever wins each rally and it builds up here.
+효과 켜짐	effects on
+단체전 모드 · 아래에서 경기 구성과 오더를 정하세요	Team match mode · set the matches and lineups below
+단체전 모드를 껐어요	Team match mode off
+오더 제출 완료 (비공개)	Lineup submitted (hidden)
+비공개 오더 · 각 팀이 따로 오더를 입력해요	Secret lineups · each team enters its own
+11점 · 2점 차 · 서브 2개씩 교대	11 pts · win by 2 · serve every 2 points
+서브는 2개씩 번갈아 넣고, 10:10 듀스부터는 1개씩 번갈아 넣습니다. 게임마다 첫 서브가 바뀌고, 마지막 게임은 한쪽이 5점에 도달하면 코트를 바꿉니다.	Serve switches every 2 points, and every point from 10–10. The first server alternates each game, and in the final game players change ends when one side reaches 5.
+21점 랠리포인트 · 서비스 코트 표시	21-point rally scoring · service court
+랠리를 이긴 쪽이 점수와 서브를 가져갑니다. 서버 점수가 짝수면 오른쪽, 홀수면 왼쪽 서비스 코트에서 서브합니다. 20:20부터는 2점 차, 29:29면 30점을 먼저 낸 쪽이 이깁니다(21점 기준). 마지막 게임은 11점에서 코트를 바꿉니다.	The rally winner gets the point and the serve. Serve from the right court on an even score, the left on an odd score. From 20–20 win by 2; at 29–29 the first to 30 wins (21-point games). In the final game, change ends at 11.
+11점 · 사이드아웃 스코어링 · 점수 콜	11 pts · side-out scoring · score call
+서브팀만 점수를 얻습니다. 복식은 한 팀에 서버가 2명이라, 1번 서버가 랠리를 지면 2번 서버로, 2번 서버까지 지면 상대 팀으로 서브가 넘어갑니다(사이드 아웃). 경기 첫 서브는 2번 서버부터라 0-0-2로 시작합니다. 점수 콜은 '서브팀 점수 - 리시브팀 점수 - 서버 번호' 순서로 크게 외치세요.	Only the serving team scores. In doubles each team has 2 servers: when server 1 loses a rally, server 2 serves; when server 2 loses, the serve goes to the other team (side out). The first serve of the game starts with server 2, so the score is 0-0-2. Call the score loudly: serving team score – receiving team score – server number.
+9인제·6인제 · 랠리포인트 · 폭탄 랠리 · 빙고 배구	9-a-side · 6-a-side · rally scoring · bomb rally · bingo volleyball
+9인제	9-a-side
+6인제	6-a-side
+세트	Set
+1세트	Set 1
+폭탄 랠리 · 네트를 넘어간 횟수	Bomb rally · times over the net
+이번 득점 가치	This point is worth
+점 · 최장 랠리	pts · longest rally
+네트 넘김 +1	Over the net +1
+랠리 0으로	Reset rally
+6인제 로테이션	6-a-side rotation
+상대에게서 서브권을 가져온 팀은 시계 방향으로 한 칸씩 이동하고, 1번 자리(오른쪽 뒤)에 온 선수가 서브합니다. 점수만 누르면 이동은 자동으로 됩니다.	When a team wins the serve back, it rotates one spot clockwise and the player in position 1 (right back) serves. Just tap the score and rotation happens automatically.
+↻ 한 칸 돌리기	↻ Rotate one
+한 칸 되돌리기	Rotate back
+네트	Net
+자리를 바꾸려면 코트의 선수 두 명을 차례로 누르세요. 교체는 아래 교체 선수를 누른 뒤 코트의 선수를 누르면 됩니다.	To swap spots, tap two players on court. To substitute, tap a sub below and then the player on court.
+득점한 선수 이름을 누르면 팀 점수가 오르고 칸이 체크됩니다.	Tap the scorer's name to add a point and check their cell.
+세트 점수	Set points
+마지막 세트	Final set
+세트 수	Sets
+3세트(2선승)	3 sets (first to 2)
+5세트(3선승)	5 sets (first to 3)
+듀스(2점 차 승리)	Deuce (win by 2)
+세트마다 빙고 새로 시작	New bingo each set
+득점할 때 배구 한마디(기술·전술·규칙·역사·문화)	Show a volleyball tip on each point (skills · tactics · rules · history · culture)
+네트 넘김 ·	Over the net ·
+홍팀 득점 ·	Red point ·
+청팀 득점 ·	Blue point ·
+줄 완성! 보너스 +	line done! Bonus +
+펑!	Boom!
+랠리	Rally
+회로	times
+서브권! 시계 방향으로 한 칸 이동 · 서브:	Serve won! Rotate one clockwise · serving:
+인제	-a-side
+최장 랠리	Longest rally
+득점 횟수	Points scored
+경기 종료 · 세트	Match over · sets
+세트 종료	Set over
+세트 승리	Set won
+다음 세트	Next set
+세트 시작	Set start
+점 마지막 세트	pts final set
+서브 중	Serving
+리시브	Receiving
+지금 서브:	Now serving:
+(1번 자리)	(position 1)
+서브권을 가져오면 한 칸 돌고 다음 서브:	If you win the serve, rotate and next server is:
+인제 · 랠리포인트 ·	-a-side · rally scoring ·
+선승) · 마지막	to win) · final
+6인제 명단은 6~12명입니다. 위에서부터 1번~6번 자리(서브 순서)로 들어가고, 7번째부터는 교체 선수입니다. 처음 들어 있는 이름은 예시예요.	A 6-a-side roster has 6–12 players. The first six fill positions 1–6 (serve order); the 7th onward are subs. The names already there are examples.
+9인제 명단은 9명입니다. 처음 들어 있는 이름은 예시예요. 한 줄에 한 명씩 반 명단을 넣으세요.	A 9-a-side roster has 9 players. The names already there are examples. Enter one student per line.
+상대 실수 등	opponent error etc.
+줄 · +	lines · +
+빙고 0줄 · 1줄마다 +	Bingo 0 lines · per line +
+로테이션, 서브	rotation, serving
+아직 득점이 없습니다. 득점 버튼이나 빙고판의 선수 이름을 누르면 여기에 쌓입니다.	No points yet. Tap a point button or a player's name on the bingo board and it builds up here.
+자리 바꿈	Swapped
+번 ↔	↔
+자리를 바꿨습니다	Positions swapped
+교체	Sub
+나가고	out,
+들어갑니다	in
+번 자리)	position)
+6인제 · 명단 위에서부터 1~6번 자리로 들어갑니다	6-a-side · the top six of the roster take positions 1–6
+9인제 · 명단 9명	9-a-side · 9 players
+한 칸	One spot
+돌림	rotated
+되돌림	rotated back
+1번 자리:	Position 1:
+빙고 칸을 섞었습니다	Bingo cells shuffled

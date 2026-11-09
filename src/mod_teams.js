@@ -187,7 +187,7 @@ function run(){
   if(t<2){K.toast("팀이 2개 이상 되도록 숫자를 바꿔 주세요","bad",1800);return;}
   let teams=make(L,t,S.cfg.m).filter(T=>T.length);
   const sep=separate(teams,S.cfg.m);
-  const names=teams.map((T,i)=>T.tag?T.tag+" "+(teams.filter((x,j)=>j<=i&&x.tag===T.tag).length)+"팀":(i+1)+"팀");
+  const EN=K.LANG==="en",names=teams.map((T,i)=>T.tag?(EN?K.tr(T.tag)+" "+(teams.filter((x,j)=>j<=i&&x.tag===T.tag).length):T.tag+" "+(teams.filter((x,j)=>j<=i&&x.tag===T.tag).length)+"팀"):(EN?"Team "+(i+1):(i+1)+"팀"));
   const res={at:Date.now(),cls:C().name,m:S.cfg.m,teams:teams.map((T,i)=>({name:names[i],st:T.map(s=>({no:s.no,name:s.name,sex:s.sex,lv:s.lv}))}))};
   S.last=res;S.hist.unshift({at:res.at,cls:res.cls,m:res.m,teams:res.teams});S.hist=S.hist.slice(0,8);save();
   if(sep<0)K.toast("떨어뜨릴 학생을 모두 떨어뜨리지 못했어요. 팀 수를 늘리거나 다시 눌러 주세요","bad",2600);

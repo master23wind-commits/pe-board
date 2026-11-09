@@ -1,0 +1,276 @@
+농구	Basketball
+3대3은 FIBA 3x3 규칙, 5대5는 쿼터제와 24초. 3~5팀이 돌아가며 붙는 로테이션 경기도 있어요.	3x3 follows FIBA 3x3 rules; 5v5 uses quarters and a 24-second clock. There's also a rotation game for 3–5 teams taking turns.
+3대3	3x3
+전원 득점 보너스 · 빙고	All-score bonus · Bingo
+5대5	5v5
+빙고 16칸 · 빙고 미션	16-cell bingo · Bingo missions
+로테이션	Rotation
+3~5팀 누적 점수	3–5 teams, running score
+배구	Volleyball
+랠리포인트 · 25점 3세트 · 듀스. 서브권과 세트 기록을 보여줍니다.	Rally scoring · 25 points, best of 3 sets · deuce. Shows serve and set history.
+폭탄 랠리	Bomb Rally
+빙고 배구	Bingo Volleyball
+탁구	Table Tennis
+11점 · 2점 차 · 서브 2개씩 교대, 듀스에서는 1개씩. 누가 서브할 차례인지 자동으로 알려줘요.	11 points · win by 2 · serve switches every 2 points, every point at deuce. Shows whose serve it is automatically.
+서브 순서 자동	Auto serve order
+배드민턴	Badminton
+21점 랠리포인트 · 30점 상한. 서버 점수에 따라 오른쪽·왼쪽 서비스 코트를 표시합니다.	21-point rally scoring · capped at 30. Shows the right or left service court from the server's score.
+서비스 코트 표시	Service court display
+피클볼	Pickleball
+11점 사이드아웃 스코어링 · 복식 1번/2번 서버. '4-2-1' 점수 콜을 크게 띄워요.	11 points, side-out scoring · doubles server 1/2. Shows the '4-2-1' score call in big numbers.
+점수 콜	Score call
+랠리 스코어링 선택	Rally scoring option
+축구	Soccer
+전·후반 경기 시간 · 득점자와 분 기록 · 경고/퇴장 카드 · 동점이면 승부차기.	Two halves · scorers and minutes · yellow/red cards · penalty shootout on a tie.
+득점자 기록	Scorer log
+승부차기	Penalty shootout
+풋살	Futsal
+5대5 · 전·후반 20분(조절 가능). 득점자 기록, 하프마다 팀 반칙 누적(6번째부터 10m 프리킥 알림), 팀당 타임아웃 1번, 승부차기, 빙고 모드.	5v5 · two 20-minute halves (adjustable). Scorer log, accumulated team fouls per half (10 m free kick alert from the 6th), one timeout per team, penalty shootout, bingo mode.
+팀 반칙 누적	Accumulated fouls
+타임아웃	Timeout
+핸드볼	Handball
+7명 · 전·후반(시간 조절). 득점자와 슛 성공률, 7m 던지기, 골키퍼 선방률. 경고→2분 퇴장→실격 단계 징계와 퇴장 선수별 2분 타이머, 타임아웃 규칙, 연장·7m 승부던지기, 빙고 모드.	7 players · two halves (adjustable). Scorers and shooting %, 7 m throws, goalkeeper save %. Progressive punishment (warning → 2-minute suspension → disqualification) with a 2-minute timer per player, timeout rules, extra time and 7 m shootout, bingo mode.
+2분 퇴장 타이머	2-min suspension timer
+7m 던지기	7 m throw
+넷볼	Netball
+7포지션(GS·GA·WA·C·WD·GD·GK) · 4쿼터. 골은 GS·GA만, 센터 패스는 골마다 자동 교대. 슈팅 성공률, 쿼터마다 포지션 돌리기, 빙고 모드.	7 positions (GS·GA·WA·C·WD·GD·GK) · 4 quarters. Only GS and GA score; centre pass alternates after every goal. Shooting %, rotate positions each quarter, bingo mode.
+포지션 지정	Positions
+센터 패스 교대	Centre pass
+슈팅 성공률	Shooting %
+플래그 풋볼	Flag Football
+터치다운 6점 · 추가 득점 1/2점 · 세이프티 2점. 4번의 다운 안에 하프라인을 넘고 다시 4번 안에 터치다운! 다운 표시와 공격권이 자동으로 넘어가요.	Touchdown 6 · extra point 1 or 2 · safety 2. Cross midfield in 4 downs, then score in 4 more! Downs and possession switch automatically.
+다운 표시	Down tracker
+추가 득점	Extra point
+보치아	Boccia
+빨강·파랑 공을 하얀 표적구에 가깝게! 표적구 차례, 다음에 던질 편(표적구에서 먼 편), 남은 공을 알려 주고 엔드별 점수와 승부 엔드까지 처리해요.	Get red and blue balls close to the white jack! Shows who throws the jack, who throws next (the side farther away) and balls left, and handles end scores and tie-break ends.
+다음 투구 안내	Next throw guide
+엔드 점수	End scores
+피구	Dodgeball
+맞은 선수 이름을 눌러 아웃, 다시 눌러 부활. 내야 인원과 라운드 승수를 보여줍니다.	Tap a player's name to mark them out, tap again to bring them back. Shows players in and rounds won.
+아웃·부활	Out · back in
+왕 피구	King Dodgeball
+야구·티볼	Baseball · T-ball
+이닝 점수판(R·H·E)과 볼카운트, 경기장 그림에서 수비 위치를 정하고 공을 처리한 수비수를 눌러 공격·수비 기록을 함께 남겨요.	Inning line score (R·H·E) and ball count. Set fielders on the field diagram and tap the fielder who made the play to log batting and fielding stats together.
+야구·티볼 선택	Baseball or T-ball
+수비 배치	Fielding positions
+타격·수비 기록	Batting & fielding stats
+얼티밋	Ultimate
+15점 · 득점할 때마다 받은 사람과 던져 준 사람(어시스트)을 함께 기록하고, 경기가 끝나면 서로의 스피릿 점수를 매겨요.	15 points · log the catcher and the thrower (assist) for every goal, then rate each other's spirit after the game.
+어시스트 기록	Assist log
+스피릿 점수	Spirit score
+달리기	Running
+스톱워치를 켜 두고 학생이 출발선을 지날 때마다 이름을 누르면 누적 시간이 쌓여요. 거리를 정하면 1km 페이스와 완주 순위를 자동으로 계산합니다.	Start the stopwatch and tap a student's name each time they cross the line to log lap times. Set a distance to get pace per km and finishing order automatically.
+바퀴 기록	Lap times
+페이스 계산	Pace
+12분 달리기	12-minute run
+츄크볼	Tchoukball
+몸싸움과 가로막기가 없는 경기. 득점, 수비 캐치, 상대 반칙 점수를 기록하고 같은 프레임 연속 슛 3회와 피리어드 시간을 관리해요.	A game with no contact and no blocking. Logs points, defensive catches and points from fouls, and tracks the 3-shots-per-frame limit and period time.
+수비 캐치 기록	Defensive catches
+프레임 연속 슛	Frame shot limit
+3피리어드	3 periods
+킨볼	Kin-Ball
+3팀이 동시에 겨룹니다. 옴니킨 콜, 잡았다·놓쳤다 버튼, 반칙 사유별 기록, 9점 최하위 제외와 11점 피리어드 승리를 자동으로 처리해요.	Three teams play at once. Omnikin call, caught/missed buttons, fouls by type, and automatic handling of the 9-point rule and 11-point period wins.
+3팀 동시	3 teams at once
+잡기·반칙 통계	Catch & foul stats
+스포츠 상식 퀴즈	Sports Quiz
+학급을 2~6팀으로 나눠 겨루는 스피드 퀴즈. 위에는 팀 점수판, 아래에는 4지선다 문제가 떠요. 규칙·역사·기술·가치·건강체력	A speed quiz for 2–6 teams. Team scores on top, multiple-choice questions below. Rules · history · skills · values · health & fitness
+문제에 내 문제	questions, plus your own
+와 AI 문제	and AI questions
+를 더할 수 있어요.	can be added.
+팀 대항 스피드	Team speed quiz
+문제	questions
+출제 기록	Question history
+팀 나누기	Team Maker
+번호만 넣어도 바로 나눠요. 무작위 · 남녀 고르게 · 남녀 따로 · 실력 고르게 · 비슷한 실력끼리, 그리고 전화번호 끝자리 · 이름 비슷한 친구끼리 같은 재미있는 방법까지.	Splits teams from just student numbers. Random · gender-balanced · by gender · skill-balanced · similar skill, plus fun ways like last digit of phone number or similar names.
+11가지 방법	11 methods
+결석 빼기	Skip absentees
+떨어뜨릴 짝	Keep apart
+PAPS 측정	PAPS Fitness Test
+왕복오래달리기 신호음을 틀고 끝난 학생 이름만 누르면 횟수가 기록돼요. 9개 종목 기록, BMI 계산, 등급 자동 표시, 엑셀(CSV) 내보내기.	Play the PACER beeps and tap a student's name when they stop to log their laps. 9 test items, BMI, automatic grades, Excel (CSV) export.
+왕복오래달리기 신호음	PACER beeps
+반별 기록	Records by class
+대진표	Brackets
+팀 이름만 넣으면 무작위로 편성해요. 리그전 · 토너먼트 · 패자부활전 · 크로스 토너먼트. 점수를 넣으면 다음 경기와 순위가 자동으로 정해져요.	Enter team names and they're drawn at random. League · knockout · repechage · cross tournament. Enter scores and the next games and standings update automatically.
+4가지 방식	4 formats
+순위 자동	Auto standings
+부전승 처리	Byes handled
+최근	Recent
+수업 작전판	Lesson Planner
+점수판이 경기를 돕는다면, 작전판은 체육 수업 1차시 전체를 설계해요. 웜업·활동·설명·종료 블록에 시간을 정하고, 활동 카드(태성쌤 아이디어 포함	If the scoreboard runs the game, the planner designs the whole PE lesson. Set times for warm-up, activity, talk and wrap-up blocks, pick activity cards (including Mr. Lee's ideas,
+장)를 골라 넣으면 수업 중에 타이머와 함께 진행 방법·교사의 말·변형·안전을 안내해요.	cards), and during class a timer guides you through how to run it, what to say, variations and safety.
+웜업	Warm-up
+활동	Activity
+설명	Talk
+종료	Wrap-up
+● 수업 진행 중 ·	● Lesson in progress ·
+블록 타이머	Block timer
+활동 카드	Activity cards
+장	cards
+레시피	Recipes
+개
+공유 · 지도안	Share · lesson plan
+작은 코트, 큰 팀워크	Small court, big teamwork
+네 명 모두가 주인공이 되는 경기	A game where all four are the stars
+혼자 빛나기보다 함께 빛나자	Shine together, not alone
+패스는 친구에게 건네는 믿음	A pass is trust handed to a friend
+네가 받으면 내가 올린다	You dig it, I'll set it
+공을 떨어뜨리지 않는 마음이 팀을 만든다	Keeping the ball up makes a team
+한 구 한 구에 담는 존중	Respect in every ball
+이겨도 져도 먼저 고개 숙여 인사	Win or lose, bow first
+가볍게 날아도 마음은 진심으로	Light shuttle, full heart
+인사로 시작해 인사로 끝낸다	Start with a greeting, end with a greeting
+점수를 소리 내어 부르는 정직함	Honesty is calling the score out loud
+함께 즐기는 사람이 진짜 승자	The real winners play together
+넘어진 친구에게 먼저 손을	Offer a hand to anyone who falls
+공은 둥글고 우리는 하나	The ball is round and we are one
+피하는 용기, 받아 주는 배려	Courage to dodge, kindness to catch
+외야에서도 끝까지 함께 뛴다	Even outside, we keep playing together
+모두가 손을 얹어야 칠 수 있다	Everyone's hands on the ball before we hit
+함께여야만 가능한 경기	A game you can only play together
+한 명의 안타보다 모두의 연결	Connection over one big hit
+실수한 친구에게 먼저 박수를	Clap first for a friend who makes a mistake
+스피릿 오브 더 게임	Spirit of the Game
+경쟁하되 공정하게	Compete, but fairly
+어제의 나보다 한 바퀴 더	One more lap than yesterday's me
+끝까지 달린 모두가 승자	Everyone who finishes is a winner
+몸싸움 없는 경기, 존중으로 겨룬다	No contact, we compete with respect
+상대를 막지 않고, 함께 빛나게 한다	We don't block, we help each other shine
+작은 공간, 빠른 생각	Small space, quick thinking
+모두가 공격수, 모두가 수비수	Everyone attacks, everyone defends
+몸을 던지는 용기, 손을 내미는 배려	Courage to dive, kindness to lend a hand
+일곱 명이 하나로 뛰는 경기	Seven players moving as one
+내 자리에서 최선을, 우리 함께 골까지	My best in my spot, together to the goal
+패스 하나에 믿음 하나	Every pass is an act of trust
+태클 대신 깃발, 힘 대신 작전	Flags not tackles, plays not power
+한 번의 다운, 모두의 약속	One down, one promise for all
+누구나 함께, 공 하나에 담는 집중	Everyone together, focus in every ball
+힘보다 정확함, 경쟁보다 존중	Precision over power, respect over rivalry
+아는 만큼 보이고, 보이는 만큼 즐긴다	The more you know, the more you see and enjoy
+틀려도 괜찮아, 함께 배우는 시간	It's okay to be wrong, we learn together
+경험이 먼저, 설명은 짧게	Experience first, talk short
+전력을 다해 실수하는 45분	45 minutes of all-out mistakes
+누구와 함께여도 우리는 한 팀	Whoever we're with, we're one team
+새로운 친구와 만나는 시간	Time to meet new teammates
+어제의 나와 겨루는 시간	Time to race yesterday's me
+기록보다 소중한 건 꾸준함	Consistency matters more than records
+이기는 법보다 함께 즐기는 법	Enjoying together over winning
+모든 경기에는 배움이 있다	Every game has a lesson
+문구 바꾸기	Edit motto
+기본 문구로	Default motto
+기본 문구로 돌렸습니다	Motto reset to default
+저장	Save
+문구를 저장했습니다	Motto saved
+점수판을 여는 중 문제가 생겼습니다. 새로고침 후 다시 시도해 주세요	Something went wrong opening the scoreboard. Please refresh and try again
+기록 보관함에 저장했습니다	Saved to game records
+(내 계정)	(my account)
+(이 기기)	(this device)
+지금까지의 기록을 보관함에 저장했습니다. 같은 경기는 다시 저장하면 덮어씁니다	Saved the game so far to records. Saving the same game again overwrites it
+내 계정에 저장	Saved to my account
+다른 기기에서 이 점수판을 열어도 보이고, 다른 사람에게는 보이지 않습니다.	Visible when you open this scoreboard on another device, and not to anyone else.
+이 기기 브라우저에만 저장됩니다. 브라우저 기록을 지우면 사라지니 CSV로 내려받아 두세요.	Saved only in this device's browser. Clearing browser data erases it, so download a CSV.
+모든 종목	All sports
+아직 저장된 경기가 없습니다. 경기가 끝나면 결과가 자동으로 여기에 저장되고, 경기 중에도 위쪽	No saved games yet. Results are saved here automatically when a game ends, and during a game you can use the
+기록 저장	Save record
+버튼으로 지금까지의 기록을 남길 수 있어요.	button at the top to save progress.
+무승부	Draw
+승	wins
+진행 중 저장	Saved in progress
+세부 기록 ·	Details ·
+득점:	Scoring:
+메모 (예: 2학년 3반 리그 1차전)	Note (e.g. Grade 8 Class 3, league game 1)
+메모	Note
+대진표 열기	Open bracket
+삭제	Delete
+메모를 저장했습니다	Note saved
+이 기록에는 다시 열 대진표가 없어요	This record has no bracket to reopen
+기록을 삭제했습니다	Record deleted
+한 번 더 누르면 삭제	Tap again to delete
+날짜	Date
+종목	Sport
+상태	Status
+팀1	Team 1
+점수1	Score 1
+팀2	Team 2
+점수2	Score 2
+승자	Winner
+결과	Result
+세부 기록	Details
+진행 중	In progress
+팀	Team
+선수	Player
+득점	Points
+비고	Notes
+선수별 득점이 기록된 경기가 없습니다	No games with player scoring yet
+내려받을 기록이 없습니다	Nothing to download
+선수별기록_	PlayerStats_
+경기기록_	GameRecords_
+CSV 파일을 저장했습니다	CSV file saved
+이 화면에서는 파일 저장이 안 돼서 표를 복사했습니다. 엑셀이나 한셀에 붙여넣으세요	Files can't be saved on this screen, so the table was copied. Paste it into Excel or Sheets
+이 화면에서는 파일 저장과 복사를 쓸 수 없습니다	Saving and copying aren't available on this screen
+표를 복사했습니다. 엑셀, 한셀, 구글 시트에 붙여넣으세요	Table copied. Paste it into Excel or Google Sheets
+복사할 수 없는 화면입니다. CSV 내려받기를 써 주세요	Copying isn't available here. Please use CSV download
+태성쌤의 체육수업 점수판	PE Class Scoreboard by Mr. Lee
+종목을 고르면 그 종목 점수판이 열립니다	Pick a sport to open its scoreboard
+운영 모드	Control mode
+관람 모드	Viewer mode
+이 화면에서는 전체화면을 쓸 수 없습니다	Fullscreen isn't available on this screen
+아이디어	Idea
+전체 / 종목과 상관없음	General / not sport-specific
+오류	Bug
+예) 피구에서 되돌리기를 누르면 외야 숫자가 안 바뀌어요. (휴대폰 크롬)	e.g. In dodgeball, Undo doesn't update the outfield count. (Chrome on phone)
+예) 배구 빙고에 5x5 판도 있으면 좋겠어요.	e.g. I'd love a 5x5 board for bingo volleyball.
+자유롭게 적어 주세요.	Write anything you like.
+아이폰/아이패드	iPhone/iPad
+안드로이드	Android
+맥	Mac
+윈도우	Windows
+기타	Other
+[태성쌤의 체육수업 점수판 의견]	[PE Class Scoreboard feedback]
+💡 아이디어	💡 Idea
+🐞 오류	🐞 Bug
+💬 기타	💬 Other
+종목:	Sport:
+전체	All
+내용:	Message:
+보낸 사람:	From:
+복사됨	Copied
+내용을 적어 주세요	Please write a message
+메시지를	Message
+복사	copied
+했어요.	.
+자동 복사가 안 됐어요. 아래 글을 길게 눌러 복사해 주세요.	Couldn't copy automatically. Press and hold the text below to copy it.
+인스타그램	Instagram
+DM 창이 열려요. 안 열리면	A DM window opens. If it doesn't, tap
+여기	here
+를 누르거나 인스타그램에서 @	or search Instagram for @
+을 검색해 메시지를 누르세요.	and tap Message.
+ID 복사	Copy ID
+열린 카카오톡 대화방에 들어가세요. 안 열리면	Go to the KakaoTalk chat that opens. If it doesn't, tap
+를 누르세요.	.
+카카오톡에서	In KakaoTalk, use
+친구 추가 → ID로 추가	Add friend → Add by ID
+에	and search for
+를 검색해 추가하세요.	to add.
+대화창에	In the chat,
+붙여넣기	paste
+해서 보내 주세요.	and send.
+메시지를 준비했어요 ·	Message ready ·
+인스타그램 DM	Instagram DM
+카카오톡	KakaoTalk
+에 붙여넣어 보내 주세요	— paste and send
+득점 효과를 켰어요	Scoring effects on
+득점 효과를 껐어요	Scoring effects off
+백업 불러오기	Load backup
+백업 저장	Save backup
+점수판 백업 내용이 아니에요. 파일을 다시 확인해 주세요.	That's not a scoreboard backup. Please check the file.
+에 만든 백업 · 저장 항목	backup · saved items
+개 · 경기 기록	· game records
+체육점수판_백업_	PEScoreboard_backup_
+백업 파일을 저장했어요. 잘 보관해 두세요	Backup file saved. Keep it somewhere safe
+저장을 취소했어요	Save canceled
+백업 내용을 복사했어요	Backup copied
+길게 눌러 전체 선택 후 복사해 주세요	Press and hold to select all, then copy
+이 기기에 저장할 수 없어요	Can't save on this device
+백업을 불러왔어요	Backup loaded
+경기 기록	game records
+개 추가	added

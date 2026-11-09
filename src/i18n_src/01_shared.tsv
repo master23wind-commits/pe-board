@@ -1,0 +1,128 @@
+자유 미션	Free mission
+빙고!	Bingo!
+줄	line(s)
+점	pts
+빙고	Bingo
+빙고 모드	Bingo mode
+판	board
+칸	cells
+선수+미션	Players + missions
+선수만	Players only
+미션만	Missions only
+한 줄 보너스	Bonus per line
+새 판 섞기	Shuffle new board
+켜면 팀마다 빙고판이 생겨요.	Turn it on and each team gets a bingo board.
+선수가 득점하면 그 칸이 채워지고	A player's cell fills when they score,
+미션 칸은 해냈을 때 눌러요. 한 줄마다 보너스!	and tap mission cells when completed. Bonus for every line!
+빙고판을 새로 섞었어요	Bingo board reshuffled
+1반	Class 1
+중1	G7
+반	Class
+번	No.
+학생	Student
+남	M
+여	F
+끝	Last digit
++ 반 추가	+ Add class
+이름	Name
+학년	Grade
+반 지우기	Delete class
+인원	Students
+명
+번호만으로 명단 만들기	Make roster from numbers only
+엑셀에서 붙여넣기	Paste from Excel
+명단 고치기	Edit roster
+한 줄에 한 명 · 번호 이름 성별 수준(1~5) 끝자리 순서로 (빈칸이나 탭으로 구분)&#10;1 김민준 남 4 7&#10;2 이서연 여 3 2&#10;3 박도윤 남&#10;(이름·성별·수준·끝자리는 없어도 돼요)	One student per line · number, name, gender (M/F), level (1–5), last digit (separate with spaces or tabs)&#10;1 Alex M 4 7&#10;2 Mia F 3 2&#10;3 Leo M&#10;(name, gender, level and last digit are optional)
+이 명단으로 바꾸기	Use this roster
+닫기	Close
+성별은 눌러서 남 → 여 → 비움으로 바꿔요. 수준은 1(처음)~5(능숙), 끝자리는 전화번호 마지막 한 자리예요. 수준과 끝자리는 화면에 띄울 때 숨겨져요.	Tap gender to cycle M → F → blank. Level is 1 (beginner) to 5 (skilled); last digit is the last digit of a phone number. Level and last digit are hidden on the projected screen.
++ 한 명 추가	+ Add student
+초4	G4
+초5	G5
+초6	G6
+중2	G8
+중3	G9
+고1	G10
+고2	G11
+고3	G12
+번호	No.
+성별	Gender
+수준	Level
+끝자리	Last digit
+지우기	Delete
+반을 추가했어요. 이름과 인원(또는 명단)을 넣어 주세요	Class added. Enter a name and the number of students (or a roster)
+반이 하나뿐이라 지울 수 없어요	You can't delete the only class
+명 명단 준비 완료 (1~	students ready (1–
+번)	)
+명단을 읽지 못했어요	Couldn't read the roster
+명 명단을 넣었어요	students added
+소리 테스트	Sound test
+한 번 더 누르면 초기화	Tap again to reset
+−1분	−1 min
++1분	+1 min
+−10초	−10 s
++10초	+10 s
+−1초	−1 s
++1초	+1 s
+분	min
+초	s
+시간 맞추기	Set time
+⟲ 시간 리셋	⟲ Reset time
+시간을 처음	Time reset to start
+으로 되돌렸습니다
+시간을	Time set to
+로 맞췄습니다
+하나 빼기	Minus one
+하나 더하기	Plus one
+잘못 누른 기록을 고쳐요	Fix a mistaken entry
+잘못 기록했으면 점선 밑줄 숫자를 눌러 고칠 수 있어요	Made a mistake? Tap any number with a dotted underline to fix it
+기록	Stats
+눌러서 고치기	tap to fix
+골!	Goal!
+정답!	Correct!
+부활!	Back in!
+전술	Tactics
+문화	Culture
+한마디	Quote
+종목 거르기	Filter sports
+의견 종류	Feedback type
+예) ○○중 체육 김선생	e.g. Ms. Kim, PE, ○○ Middle School
+보낼 메시지	Message to send
+← 종목 선택	← Sports
+의견 보내기	Send feedback
+소리 켜기	Sound on
+전체화면	Fullscreen
+오늘은 어떤 종목을 할까요?	What are we playing today?
+종목을 고르면 그 종목의 규칙에 맞춘 점수판이 열립니다. 점수와 명단은 이 기기에 종목별로 저장돼서, 다른 종목을 다녀와도 그대로 남아 있어요.	Pick a sport and a scoreboard built for its rules opens. Scores and rosters are saved on this device for each sport, so they stay put when you switch.
+수업 도구	Class tools
+종목 점수판	Sport scoreboards
+경기 기록 보관함	Game records
+경기별 CSV	CSV by game
+선수별 CSV	CSV by player
+백업	Backup
+명단·수비 위치·설정·진행 중인 경기·경기 기록을 파일 하나로 저장하고, 지워졌을 때 그대로 되살려요. 휴대폰과 노트북 사이에 옮길 때도 써요.	Save rosters, fielding positions, settings, games in progress and records in one file, and restore them if they're erased. Also handy for moving between a phone and a laptop.
+경기 전에 오른쪽 위	Before the game, tap
+를 한 번 눌러 두세요. 관람 모드는 조작 버튼을 숨기고 숫자를 크게 키워 TV나 프로젝터에 띄우기 좋게 바꿉니다.	at the top right once. Viewer mode hides the controls and enlarges the numbers for a TV or projector.
+득점 효과 (종목마다 짧은 애니메이션)	Scoring effects (a short animation for each sport)
+만든 사람 · 체육교사 이태성	Made by PE teacher Taesung Lee
+수업에 자유롭게 쓰세요. 고칠 점과 아이디어는 위	Free to use in your classes. Send fixes and ideas with
+로!	above!
+'백업 저장'으로 받은 파일(.json)을 고르거나, 백업 내용을 아래 칸에 붙여 넣으세요.	Choose the file (.json) from 'Save backup', or paste the backup text below.
+백업 파일	Backup file
+또는 붙여넣기	or paste
+불러오면 이 기기의 명단·수비 위치·설정·진행 중인 경기가 백업 내용으로 바뀌어요. 경기 기록 보관함은 지우지 않고 합칩니다.	Loading replaces this device's rosters, fielding positions, settings and games in progress with the backup. Game records are merged, not erased.
+이 화면에서는 파일로 내려받을 수 없어요. 아래 내용을 복사해 메모장이나 메일에 붙여 두면, 나중에 '백업 불러오기' 칸에 붙여 넣어 되살릴 수 있어요.	Downloads aren't available on this screen. Copy the text below into a note or email, and paste it into 'Load backup' later to restore.
+제작자에게 의견 보내기	Send feedback to the maker
+쓰다가	If you find
+이런 기능이 있으면 좋겠다	"I wish it had this"
+여기가 이상하다	"Something's off here"
+싶은 게 있으면 알려 주세요. 작은 의견도 점수판을 키웁니다.	while using it, let me know. Every small idea makes the scoreboard better.
+💡 이런 기능이 있으면	💡 Feature idea
+🐞 이런 오류가 있어요	🐞 Bug report
+💬 그 밖의 이야기	💬 Something else
+내용	Message
+오류라면 언제, 무엇을 눌렀을 때 생겼는지 적어 주시면 빨리 고칠 수 있어요.	For bugs, tell me when it happened and what you tapped so I can fix it fast.
+보내는 사람	From
+(선택 · 학교나 이름)	(optional · school or name)
+카카오톡으로 보내기	Send via KakaoTalk
+인스타그램 DM으로 보내기	Send via Instagram DM
