@@ -1,7 +1,7 @@
 /* ================= 득점 효과 (종목마다 짧고 가볍게) =================
    K.fx.play(종류, 점수 요소, {from, color, big, text})
    종류: fire(농구) spike(배구) tt(탁구) shuttle(배드민턴) pickle(피클볼) goal(축구·풋살)
-         kin(킨볼) baseball(야구) disc(얼티밋) tchouk(츄크볼) netball(넷볼) football(플래그) handball(핸드볼)
+         kin(킨볼) baseball(야구) disc(얼티밋) tchouk(츄크볼) netball(넷볼) football(플래그) handball(핸드볼) hockey(아이스하키)
          boccia(보치아) run(달리기) quiz(퀴즈) out/revive(피구) */
 K.fx=(()=>{
   const reduce=()=>{try{return matchMedia("(prefers-reduced-motion: reduce)").matches;}catch(e){return false;}};
@@ -109,6 +109,20 @@ K.fx=(()=>{
       run(n,[{transform:T(0,0,.7),opacity:0},{transform:T(0,0,.7),opacity:0,offset:.35},{transform:T(0,0,1.08)+" skewY(-3deg)",opacity:.9,offset:.55},{transform:T(0,0,1),opacity:0}],{duration:900,easing:"ease-out"});
       fly("fx-ball hb",fromEl(o.from)||fromOff(el,-280,-110),el,{bounce:false,arc:20,dur:360,spin:720,s0:1.3,s2:.7,cb:()=>{
         K.tone([160],0,.07,.3,"square");dots(el,o.color,10,70);text(el,o.text||"골!",o.color,true);glow(el,o.color);}});
+    },
+    hockey(el,o){ // 아이스하키: 퍽이 빙판을 미끄러져 그물에 꽂히고 골 램프가 번쩍
+      const c=C(el),sz=Math.max(c.w,c.h)*1.05,y=c.y+c.h*.18;
+      const n=mk("fx-net",c.x,c.y,{width:sz+"px",height:sz*.62+"px",borderColor:"rgba(255,90,90,.85)"});
+      run(n,[{transform:T(0,0,.8),opacity:0},{transform:T(0,0,.8),opacity:0,offset:.3},{transform:T(0,0,1.06)+" skewX(-4deg)",opacity:.9,offset:.5},{transform:T(0,0,1),opacity:0}],{duration:950,easing:"ease-out"});
+      const p=mk("fx-puck",c.x-300,y);
+      const an=p.animate([{transform:T(0,0,1.1,0)},{transform:T(300,0,.85,0)}],{duration:300,easing:"cubic-bezier(.3,.6,.6,1)"});
+      const tr=mk("fx-ice",c.x-300,y,{width:"0px"});
+      run(tr,[{width:"0px",opacity:.9},{width:"280px",opacity:.7,offset:.6},{width:"280px",opacity:0}],{duration:520,easing:"ease-out"});
+      an.onfinish=()=>{p.remove();
+        const l=mk("fx-lamp",c.x,c.top-14);
+        run(l,[{opacity:0},{opacity:1,offset:.1},{opacity:.25,offset:.3},{opacity:1,offset:.5},{opacity:.25,offset:.7},{opacity:1,offset:.85},{opacity:0}],{duration:1100});
+        dots(el,"#bae6fd",12,80);text(el,o.text||"골!",o.color,true);glow(el,o.color);};
+      setTimeout(()=>p.remove(),1500);
     },
     football(el,o){
       fly("fx-football",fromEl(o.from)||fromOff(el,-340,-20),el,{bounce:false,arc:110,dur:720,spin:1080,s2:.8,cb:()=>{

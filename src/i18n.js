@@ -42,7 +42,11 @@ const ord=n=>{n=+n;const s=["th","st","nd","rd"],v=n%100;return n+(s[(v-20)%10]|
 /* 사전보다 먼저 적용할 문장 틀 */
 const PRE_RULES=[
   [/랠리\s*(\d+)회로\s*(\d+)\s*점/g,"rally of $1 → $2 pts"],
-  [/활동 카드\s*(\d+)장/g,"$1 activity cards"],[/레시피\s*(\d+)개/g,"$1 recipes"]
+  [/활동 카드\s*(\d+)장/g,"$1 activity cards"],[/레시피\s*(\d+)개/g,"$1 recipes"],
+  /* 아이스하키 */
+  [/(\d+)피리어드 시작/g,"Start period $1"],[/(\d+)피리어드 종료/g,"End of period $1"],[/(\d+)피리어드 뒤 휴식/g,"Intermission after period $1"],
+  [/(\d+)피리어드 진행 중/g,"Period $1 in progress"],[/(\d+)피리어드/g,"Period $1"],[/스케이터 (\d+)명/g,"Skaters $1"],
+  [/(\d+)번째 슈터/g,(m,n)=>ord(n)+" shooter"],[/(\d+)포인트/g,(m,n)=>n+(n==="1"?" pt":" pts")]
 ];
 const NUM=[
   [/^(\d+)팀$/,"Team $1"],[/^(\d+)조$/,"Group $1"],
