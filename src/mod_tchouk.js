@@ -53,7 +53,7 @@ html:`
         <label>피리어드 시간 <input id="tcMin" type="number" min="1" max="30">분</label>
         <label>목표 점수 <input id="tcTo" type="number" min="0" max="99"> (0 = 시간으로만)</label>
       </div>
-      <div class="cfgrow"><label><input id="tcPick" type="checkbox"> 득점·캐치할 때 선수 이름 고르기</label></div>
+      <div class="cfgrow"><span>선수 이름 고르기:</span><label><input id="tcPickP" type="checkbox"> 득점</label><label><input id="tcPickC" type="checkbox"> 수비 캐치</label><label><input id="tcPickV" type="checkbox"> 3-3-3·공 떨어짐</label></div>
       <div class="names">
         <div><div class="nh"><span id="tnl0">홍팀 명단</span></div><textarea id="tros0" aria-label="홍팀 명단"></textarea></div>
         <div><div class="nh"><span id="tnl1">청팀 명단</span></div><textarea id="tros1" aria-label="청팀 명단"></textarea></div>
@@ -72,13 +72,16 @@ const $=K.$,R=ctx.root,KEY="pe-tchouk",esc=K.esc;
 const TCOL=["var(--red)","var(--blue)"];
 const FAULTS=["프레임 빗나감","D존에 떨어짐","코트 밖에 떨어짐","튕긴 공이 슈터에게 맞음","D존을 밟고 슛","D존에서 수비가 잡음"];
 const z=n=>Array(n).fill(0);
-function mkTeam(name,roster){return{name,roster:roster.slice(0,15),score:0,pts:z(15),cat:z(15),catches:0,fouls:0,vio:0};}
+function mkTeam(name,roster){return{name,roster:roster.slice(0,15),score:0,pts:z(15),cat:z(15),vi:z(15),catches:0,fouls:0,vio:0};}
 function fresh(cfg,keep){
-  cfg=cfg||{per:3,min:10,to:0,pick:true};
+  cfg=cfg||{per:3,min:10,to:0,pickP:true,pickC:true,pickV:false};
   const k=keep||[{name:"홍팀",roster:K.EX10[0]},{name:"청팀",roster:K.EX10[1]}];
   return{cfg,teams:k.map(x=>mkTeam(x.name,x.roster)),period:1,clock:cfg.min*60000,running:false,perEnd:false,over:null,frame:0,fcount:[0,0],start:0,ft:0,hist:[],log:[]};
 }
 let S=K.load(KEY);if(!S||!S.teams)S=fresh();S.running=false;
+// 예전 설정(하나의 체크)을 득점·캐치·반칙 세 가지로 나눔
+if(S.cfg.pickP===undefined){const o=S.cfg.pick!==false;S.cfg.pickP=o;S.cfg.pickC=o;S.cfg.pickV=false;delete S.cfg.pick;}
+S.teams.forEach(T=>{if(!T.vi)T.vi=z(15);});
 let undoStack=[],lastSave=0,pick=null;
 const save=()=>K.save(KEY,S);
 K.fixKit(R,{get:()=>S,snap:()=>snap(),after:()=>{save();draw();}});
@@ -110,6 +113,14 @@ function caught(t,who){
   shotAt();S.start=t;
   S.log.unshift({k:"c",t,who:who>=0?nm(t,who):null,per:S.period});if(S.log.length>120)S.log.pop();
   pick=null;save();draw();K.snd.chime();K.toast(T.name+" 수비 캐치!"+(who>=0?" · "+nm(t,who):""),"",1600);
+}
+function violation(t,who){
+  // 3-3-3·공 떨어짐: 공격권만 넘어가고(점수 없음) 프레임 연속 슛 횟수도 0부터
+  if(S.over)return;snap();
+  const T=S.teams[t];T.vio++;if(who>=0)T.vi[who]++;
+  S.start=1-t;S.fcount=[0,0];
+  S.log.unshift({k:"v",t,who:who>=0?nm(t,who):null,per:S.period});if(S.log.length>120)S.log.pop();
+  pick=null;save();draw();K.snd.stop();K.toast(T.name+" 3-3-3·공 떨어짐"+(who>=0?" · "+nm(t,who):"")+" · "+S.teams[1-t].name+" 공격 · 프레임 횟수 0부터","",2000);
 }
 function fault(t,reason){
   // t = 반칙한 팀, 상대 팀이 1점
@@ -143,14 +154,15 @@ function makeRec(){
   return{id:S.mid,sport:"tchouk",sportName:"츄크볼",at:Date.now(),done:!!S.over,
     teams:T.map(x=>({name:x.name,score:x.score})),winner:S.over?(S.over.w<0?"무승부":T[S.over.w].name):null,
     summary:T[0].score+" : "+T[1].score,details:d,
-    players:T.flatMap(x=>x.roster.map((n,i)=>({team:x.name,name:n,pts:x.pts[i],note:"수비 캐치 "+x.cat[i]})))};
+    players:T.flatMap(x=>x.roster.map((n,i)=>({team:x.name,name:n,pts:x.pts[i],note:"수비 캐치 "+x.cat[i]+(x.vi[i]?" · 3-3-3·공 떨어짐 "+x.vi[i]:"")})))};
 }
 
 function drawPick(){
   const el=$("tpick");
   if(!pick){el.hidden=true;return;}
   el.hidden=false;const T=S.teams[pick.t];el.style.setProperty("--tc",TCOL[pick.t]);
-  el.innerHTML="<div class=\"gph\"><b>"+esc(T.name)+" "+(pick.k==="p"?"득점":"수비 캐치")+"</b> · "+(pick.k==="p"?"슛한 사람":"잡은 사람")+"을 고르세요</div><div class=\"btnrow\">"+T.roster.map((n,i)=>"<button type=\"button\" class=\"gchip\" data-tw=\""+i+"\">"+esc(n)+"</button>").join("")+"<button type=\"button\" class=\"small\" data-tw=\"-1\">이름 없이</button><button type=\"button\" class=\"small\" data-tw=\"x\">취소</button></div>";
+  const PL={p:["득점","슛한 사람"],c:["수비 캐치","잡은 사람"],v:["3-3-3·공 떨어짐","반칙한 사람"]}[pick.k];
+  el.innerHTML="<div class=\"gph\"><b>"+esc(T.name)+" "+PL[0]+"</b> · "+PL[1]+"을 고르세요</div><div class=\"btnrow\">"+T.roster.map((n,i)=>"<button type=\"button\" class=\"gchip\" data-tw=\""+i+"\">"+esc(n)+"</button>").join("")+"<button type=\"button\" class=\"small\" data-tw=\"-1\">이름 없이</button><button type=\"button\" class=\"small\" data-tw=\"x\">취소</button></div>";
 }
 function drawClock(){
   $("tper").textContent=S.cfg.per>1?S.period+"피리어드":"경기";
@@ -167,8 +179,8 @@ function draw(){
     $("tsc"+t).textContent=x.score;$("tca"+t).textContent=x.catches;$("tfo"+t).textContent=x.fouls;$("tvi"+t).textContent=x.vio;
     $("tst"+t).classList.toggle("no",S.start!==t||!!S.over);
     $("trh"+t).textContent=x.name+" 선수";$("tnl"+t).textContent=x.name+" 명단 ("+n+"명)";
-    let h="<div class=\"prow head\"><span>이름 (누르면 득점 +1)</span><span style=\"text-align:center\">득점</span><span style=\"text-align:center\">캐치</span><span class=\"op\"></span></div>";
-    for(let i=0;i<n;i++)h+="<div class=\"prow tq\"><button type=\"button\" class=\"pn tqn\" data-tq=\""+t+":"+i+"\" aria-label=\""+esc(x.roster[i])+" 득점 +1\">"+esc(x.roster[i])+"</button>"+K.fixN(x.pts[i],"teams."+t+".pts."+i+"|teams."+t+".score",x.roster[i]+" · 득점(팀 점수도 함께)")+K.fixN(x.cat[i],"teams."+t+".cat."+i,x.roster[i]+" · 수비 캐치")+"<span class=\"btns op\"><button type=\"button\" class=\"tqp\" data-tq=\""+t+":"+i+"\" aria-label=\""+esc(x.roster[i])+" 득점\">+1</button><button type=\"button\" data-tqc=\""+t+":"+i+"\" aria-label=\""+esc(x.roster[i])+" 수비 캐치\">캐치</button></span></div>";
+    let h="<div class=\"prow tq head\"><span>이름 (누르면 득점 +1)</span><span style=\"text-align:center\">득점</span><span style=\"text-align:center\">캐치</span><span style=\"text-align:center\">반칙</span><span class=\"btns op\" aria-hidden=\"true\" style=\"visibility:hidden\"><button type=\"button\" tabindex=\"-1\">+1</button><button type=\"button\" tabindex=\"-1\">캐치</button></span></div>";
+    for(let i=0;i<n;i++)h+="<div class=\"prow tq\"><button type=\"button\" class=\"pn tqn\" data-tq=\""+t+":"+i+"\" aria-label=\""+esc(x.roster[i])+" 득점 +1\">"+esc(x.roster[i])+"</button>"+K.fixN(x.pts[i],"teams."+t+".pts."+i+"|teams."+t+".score",x.roster[i]+" · 득점(팀 점수도 함께)")+K.fixN(x.cat[i],"teams."+t+".cat."+i,x.roster[i]+" · 수비 캐치")+K.fixN(x.vi[i],"teams."+t+".vi."+i+"|teams."+t+".vio",x.roster[i]+" · 3-3-3·공 떨어짐(팀 숫자도 함께)")+"<span class=\"btns op\"><button type=\"button\" class=\"tqp\" data-tq=\""+t+":"+i+"\" aria-label=\""+esc(x.roster[i])+" 득점\">+1</button><button type=\"button\" data-tqc=\""+t+":"+i+"\" aria-label=\""+esc(x.roster[i])+" 수비 캐치\">캐치</button></span></div>";
     $("tr"+t).innerHTML=h;
     K.setVal("tros"+t,x.roster.join("\n"));
   });
@@ -182,11 +194,11 @@ function draw(){
   $("tlog").innerHTML=S.log.length?S.log.slice(0,14).map(l=>{
     const tn="<b style=\"color:"+TCOL[l.t]+"\">"+esc(T[l.t].name)+"</b>";
     if(l.k==="c")return "<li><span class=\"p\" style=\"--c:"+TCOL[l.t]+"\">캐치</span><span>"+tn+" 수비 캐치"+(l.who?" · "+esc(l.who):"")+" <span class=\"x\">· "+l.per+"P</span></span></li>";
-    if(l.k==="v")return "<li><span class=\"p\" style=\"--c:"+TCOL[l.t]+"\">3-3-3</span><span>"+tn+" 3-3-3·공 떨어짐 · 공격권 넘김 <span class=\"x\">· "+l.per+"P</span></span></li>";
+    if(l.k==="v")return "<li><span class=\"p\" style=\"--c:"+TCOL[l.t]+"\">3-3-3</span><span>"+tn+" 3-3-3·공 떨어짐"+(l.who?" · "+esc(l.who):"")+" · 공격권 넘김 <span class=\"x\">· "+l.per+"P</span></span></li>";
     return "<li><span class=\"p\" style=\"--c:"+TCOL[l.t]+"\">"+l.sc.join(":")+"</span><span>"+tn+" +1"+(l.who?" · "+esc(l.who):"")+(l.how&&l.how!=="shot"&&l.how!=="manual"?" <span class=\"x\">(상대 "+esc(l.how)+")</span>":"")+" <span class=\"x\">· "+l.per+"P</span></span></li>";
   }).join(""):"<li class=\"empty\">아직 기록이 없습니다. 득점, 수비 캐치, 반칙 버튼으로 기록하세요.</li>";
   $("tUndo").disabled=!undoStack.length;
-  $("tcPer").value=String(C.per);K.setVal("tcMin",C.min);K.setVal("tcTo",C.to);$("tcPick").checked=C.pick;
+  $("tcPer").value=String(C.per);K.setVal("tcMin",C.min);K.setVal("tcTo",C.to);$("tcPickP").checked=C.pickP;$("tcPickC").checked=C.pickC;$("tcPickV").checked=C.pickV;
   drawPick();drawClock();BG.draw();
 }
 function start(){if(S.over||S.perEnd||S.clock<=0)return;S.running=true;K.wake(true);drawClock();K.snd.whistle(1);}
@@ -199,12 +211,12 @@ K.bindTime(R,()=>S.clock,(k,v)=>{S.clock=Math.max(0,Math.min(5999000,v));if(S.pe
 K.arm($("tNew"),"새 경기",()=>{BG.reset();S=fresh(S.cfg,S.teams.map(x=>({name:x.name,roster:x.roster})));undoStack=[];pick=null;K.closeModal();save();draw();K.toast("새 경기 준비 완료 (팀 이름·명단 유지)","",1800);});
 R.addEventListener("click",e=>{
   let b;
-  if(b=e.target.closest("[data-tpt]")){const t=+b.dataset.tpt;if(S.over)return;if(S.cfg.pick){pick={k:"p",t};drawPick();$("tpick").scrollIntoView({block:"nearest",behavior:"smooth"});}else point(t,-1,"shot");return;}
-  if(b=e.target.closest("[data-tcatch]")){const t=+b.dataset.tcatch;if(S.over)return;if(S.cfg.pick){pick={k:"c",t};drawPick();$("tpick").scrollIntoView({block:"nearest",behavior:"smooth"});}else caught(t,-1);return;}
-  if(b=e.target.closest("[data-tw]")){const v=b.dataset.tw;if(v==="x"){pick=null;drawPick();return;}const p=pick;if(p.k==="p")point(p.t,+v,"shot");else caught(p.t,+v);return;}
+  if(b=e.target.closest("[data-tpt]")){const t=+b.dataset.tpt;if(S.over)return;if(S.cfg.pickP){pick={k:"p",t};drawPick();$("tpick").scrollIntoView({block:"nearest",behavior:"smooth"});}else point(t,-1,"shot");return;}
+  if(b=e.target.closest("[data-tcatch]")){const t=+b.dataset.tcatch;if(S.over)return;if(S.cfg.pickC){pick={k:"c",t};drawPick();$("tpick").scrollIntoView({block:"nearest",behavior:"smooth"});}else caught(t,-1);return;}
+  if(b=e.target.closest("[data-tw]")){const v=b.dataset.tw;if(v==="x"){pick=null;drawPick();return;}const p=pick;if(!p)return;if(p.k==="p")point(p.t,+v,"shot");else if(p.k==="v")violation(p.t,+v);else caught(p.t,+v);return;}
   if(b=e.target.closest("[data-tq]")){if(R.classList.contains("view")||document.body.classList.contains("view"))return;const[t,i]=b.dataset.tq.split(":").map(Number);if(S.over)return;point(t,i,"shot");return;}
   if(b=e.target.closest("[data-tqc]")){const[t,i]=b.dataset.tqc.split(":").map(Number);if(S.over)return;caught(t,i);return;}
-  if(b=e.target.closest("[data-tvio]")){const t=+b.dataset.tvio;if(S.over)return;snap();S.teams[t].vio++;S.start=1-t;S.fcount=[0,0];/* 브레이크다운: 같은 프레임 연속 슛 횟수도 0부터 */S.log.unshift({k:"v",t,per:S.period});if(S.log.length>120)S.log.pop();save();draw();K.snd.stop();K.toast(S.teams[t].name+" 3-3-3·공 떨어짐 · "+S.teams[1-t].name+" 공격 · 프레임 횟수 0부터","",2000);return;}
+  if(b=e.target.closest("[data-tvio]")){const t=+b.dataset.tvio;if(S.over)return;if(S.cfg.pickV){pick={k:"v",t};drawPick();$("tpick").scrollIntoView({block:"nearest",behavior:"smooth"});}else violation(t,-1);return;}
   if(b=e.target.closest("[data-tminus]")){const t=+b.dataset.tminus;if(S.teams[t].score<=0||S.over)return;snap();S.teams[t].score--;save();draw();return;}
   if(b=e.target.closest("[data-frame]")){S.frame=+b.dataset.frame;save();draw();return;}
   if(b=e.target.closest("[data-tft]")){S.ft=+b.dataset.tft;draw();return;}
@@ -214,7 +226,7 @@ R.addEventListener("input",e=>{const el=e.target;if(el.id==="tname0"||el.id==="t
 R.addEventListener("change",e=>{
   const el=e.target;
   if(el.id==="tros0"||el.id==="tros1"){const t=+el.id.slice(-1),list=K.parseList(el.value,15);if(!list.length){draw();return;}snap();S.teams[t].roster=list;save();draw();return;}
-  if(["tcPer","tcMin","tcTo","tcPick"].includes(el.id)){const C=S.cfg,om=C.min;C.per=+$("tcPer").value||3;C.min=Math.max(1,Math.min(30,+$("tcMin").value||10));C.to=Math.max(0,Math.min(99,+$("tcTo").value||0));C.pick=$("tcPick").checked;
+  if(["tcPer","tcMin","tcTo","tcPickP","tcPickC","tcPickV"].includes(el.id)){const C=S.cfg,om=C.min;C.per=+$("tcPer").value||3;C.min=Math.max(1,Math.min(30,+$("tcMin").value||10));C.to=Math.max(0,Math.min(99,+$("tcTo").value||0));C.pickP=$("tcPickP").checked;C.pickC=$("tcPickC").checked;C.pickV=$("tcPickV").checked;if(pick&&!{p:C.pickP,c:C.pickC,v:C.pickV}[pick.k])pick=null;
     if(!S.running&&om!==C.min&&S.clock===om*60000)S.clock=C.min*60000;save();draw();}
 });
 draw();

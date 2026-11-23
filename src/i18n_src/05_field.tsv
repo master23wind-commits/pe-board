@@ -278,7 +278,6 @@
 피리어드 시간	Period length
 목표 점수	Target score
 (0 = 시간으로만)	(0 = time only)
-득점·캐치할 때 선수 이름 고르기	Pick player names for points and catches
 공격 팀이 프레임에 공을 던져 튕겨 나온 공이 코트 안(D존 밖)에 떨어지면 공격 팀이 1점을 얻습니다. 수비 팀이 땅에 닿기 전에 잡으면 '수비 캐치'로 공격권만 넘어가요.	The attacking team scores 1 when the ball rebounds off the frame and lands in court (outside the D zone). If the defense catches it before it lands, it's a 'defensive catch' and only possession changes.
 슛이 프레임을 빗나가거나, D존 안·코트 밖에 떨어지거나, 튕긴 공이 슈터에게 맞으면 상대 팀이 1점을 얻습니다. 점수가 나면 실점한 팀이 공격을 시작합니다.	If a shot misses the frame, lands in the D zone or out of court, or rebounds onto the shooter, the other team scores 1. After a point, the team that conceded attacks.
 프레임 빗나감	Missed the frame
@@ -358,3 +357,7 @@ D존에서 수비가 잡음	Caught in the D zone
 3-3-3·공 떨어짐 · 공격권 넘김	3-3-3 / dropped ball · possession changes
 3패스·3걸음·3초를 넘기거나 패스 실수로 공이 바닥에 떨어지면 공격권만 넘어갑니다(점수 없음). 이런 반칙은 모두 '3-3-3 · 공 떨어짐' 버튼으로 기록하세요.	Going over 3 passes, 3 steps or 3 seconds, or dropping the ball on a bad pass, only changes possession (no point). Log all of these with the '3-3-3 / dropped ball' button.
 같은 프레임에는 (두 팀 슛을 합쳐) 연속 3번까지만 슛할 수 있고, 4번째는 반대쪽 프레임으로 던져야 합니다. 슛한 프레임을 눌러 두면 수비 캐치로 이어진 슛을 세어 줍니다. 점수가 나거나, 반칙이 나오거나, 공격권이 넘어가는 반칙(3-3-3 · 공 떨어짐)으로 경기가 끊기면 0부터 다시 셉니다.	Only 3 shots in a row (both teams combined) may go to the same frame; the 4th must go to the other frame. Tap the frame shot at to count shots linked by defensive catches. The count resets after a point, a foul, or a possession-change fault (3-3-3 / dropped ball).
+반칙한 사람	Player who fouled
+3-3-3·공 떨어짐(팀 숫자도 함께)	3-3-3 / dropped ball (team count too)
+공격권 넘김	possession changes
+선수 이름 고르기:	Pick player names:
