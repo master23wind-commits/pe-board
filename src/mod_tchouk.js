@@ -6,9 +6,9 @@ html:`
     <input class="tname" id="tname0" aria-label="팀 이름">
     <div class="serve" id="tst0">${K.SERVE_SVG}<span>공격 시작</span></div>
     <div class="score" id="tsc0">0</div>
-    <div class="tmeta"><div class="stat"><b id="tca0">0</b><span>수비 캐치</span></div><div class="stat"><b id="tfo0">0</b><span>반칙 실점</span></div><div class="stat"><b id="tvi0">0</b><span>3-3-3 위반</span></div></div>
+    <div class="tmeta"><div class="stat"><b id="tca0">0</b><span>수비 캐치</span></div><div class="stat"><b id="tfo0">0</b><span>반칙 실점</span></div><div class="stat"><b id="tvi0">0</b><span>3-3-3·공 떨어짐</span></div></div>
     <div class="btnrow op"><button class="pt" type="button" data-tpt="0">득점 +1<small>리바운드가 코트에 떨어짐</small></button></div>
-    <div class="btnrow op"><button class="small" type="button" data-tcatch="0">수비 캐치</button><button class="small" type="button" data-tvio="0">3-3-3 위반</button><button class="small" type="button" data-tminus="0">점수 −1</button></div>
+    <div class="btnrow op"><button class="small" type="button" data-tcatch="0">수비 캐치</button><button class="small" type="button" data-tvio="0">3-3-3 · 공 떨어짐</button><button class="small" type="button" data-tminus="0">점수 −1</button></div>
   </section>
   <section class="center">
     <div class="qtr" id="tper">1피리어드</div>
@@ -32,9 +32,9 @@ html:`
     <input class="tname" id="tname1" aria-label="팀 이름">
     <div class="serve" id="tst1">${K.SERVE_SVG}<span>공격 시작</span></div>
     <div class="score" id="tsc1">0</div>
-    <div class="tmeta"><div class="stat"><b id="tca1">0</b><span>수비 캐치</span></div><div class="stat"><b id="tfo1">0</b><span>반칙 실점</span></div><div class="stat"><b id="tvi1">0</b><span>3-3-3 위반</span></div></div>
+    <div class="tmeta"><div class="stat"><b id="tca1">0</b><span>수비 캐치</span></div><div class="stat"><b id="tfo1">0</b><span>반칙 실점</span></div><div class="stat"><b id="tvi1">0</b><span>3-3-3·공 떨어짐</span></div></div>
     <div class="btnrow op"><button class="pt" type="button" data-tpt="1">득점 +1<small>리바운드가 코트에 떨어짐</small></button></div>
-    <div class="btnrow op"><button class="small" type="button" data-tcatch="1">수비 캐치</button><button class="small" type="button" data-tvio="1">3-3-3 위반</button><button class="small" type="button" data-tminus="1">점수 −1</button></div>
+    <div class="btnrow op"><button class="small" type="button" data-tcatch="1">수비 캐치</button><button class="small" type="button" data-tvio="1">3-3-3 · 공 떨어짐</button><button class="small" type="button" data-tminus="1">점수 −1</button></div>
   </section>
 </div>
 <div class="gpick op" id="tpick" hidden></div>
@@ -60,7 +60,8 @@ html:`
       </div>
       <div class="keys">공격 팀이 프레임에 공을 던져 튕겨 나온 공이 코트 안(D존 밖)에 떨어지면 공격 팀이 1점을 얻습니다. 수비 팀이 땅에 닿기 전에 잡으면 '수비 캐치'로 공격권만 넘어가요.<br>
         슛이 프레임을 빗나가거나, D존 안·코트 밖에 떨어지거나, 튕긴 공이 슈터에게 맞으면 상대 팀이 1점을 얻습니다. 점수가 나면 실점한 팀이 공격을 시작합니다.<br>
-        3패스·3걸음·3초를 넘기면 공격권만 넘어갑니다(점수 없음). 같은 프레임에는 (두 팀 슛을 합쳐) 연속 3번까지만 슛할 수 있고, 4번째는 반대쪽 프레임으로 던져야 합니다. 슛한 프레임을 눌러 두면 수비 캐치로 이어진 슛을 세어 주고, 점수나 반칙이 나오면 0부터 다시 셉니다.<br>
+        3패스·3걸음·3초를 넘기거나 패스 실수로 공이 바닥에 떨어지면 공격권만 넘어갑니다(점수 없음). 이런 반칙은 모두 '3-3-3 · 공 떨어짐' 버튼으로 기록하세요.<br>
+        같은 프레임에는 (두 팀 슛을 합쳐) 연속 3번까지만 슛할 수 있고, 4번째는 반대쪽 프레임으로 던져야 합니다. 슛한 프레임을 눌러 두면 수비 캐치로 이어진 슛을 세어 줍니다. 점수가 나거나, 반칙이 나오거나, 공격권이 넘어가는 반칙(3-3-3 · 공 떨어짐)으로 경기가 끊기면 0부터 다시 셉니다.<br>
         <kbd>Space</kbd> 시계 시작/정지 · <kbd>Z</kbd> 되돌리기</div>
       <div><button class="danger" id="tNew" type="button">새 경기</button></div>
     </div>
@@ -136,7 +137,7 @@ function nextPeriod(){S.period++;S.perEnd=false;S.clock=S.cfg.min*60000;S.fcount
 function makeRec(){
   if(!S.mid)S.mid=K.newId();
   const T=S.teams,d=[];
-  T.forEach(x=>d.push(x.name+" 수비 캐치 "+x.catches+" · 반칙 실점 "+x.fouls+" · 3-3-3 위반 "+x.vio));
+  T.forEach(x=>d.push(x.name+" 수비 캐치 "+x.catches+" · 반칙 실점 "+x.fouls+" · 3-3-3·공 떨어짐 "+x.vio));
   if(BG.summary())d.push(BG.summary());
   S.log.slice().reverse().forEach(l=>{if(l.k==="p")d.push(l.per+"P "+T[l.t].name+" +1 "+(l.who||"")+(l.how&&l.how!=="shot"&&l.how!=="manual"?" (상대 "+l.how+")":"")+" ("+l.sc.join(":")+")");});
   return{id:S.mid,sport:"tchouk",sportName:"츄크볼",at:Date.now(),done:!!S.over,
@@ -181,7 +182,7 @@ function draw(){
   $("tlog").innerHTML=S.log.length?S.log.slice(0,14).map(l=>{
     const tn="<b style=\"color:"+TCOL[l.t]+"\">"+esc(T[l.t].name)+"</b>";
     if(l.k==="c")return "<li><span class=\"p\" style=\"--c:"+TCOL[l.t]+"\">캐치</span><span>"+tn+" 수비 캐치"+(l.who?" · "+esc(l.who):"")+" <span class=\"x\">· "+l.per+"P</span></span></li>";
-    if(l.k==="v")return "<li><span class=\"p\" style=\"--c:"+TCOL[l.t]+"\">3-3-3</span><span>"+tn+" 위반 · 공격권 넘김 <span class=\"x\">· "+l.per+"P</span></span></li>";
+    if(l.k==="v")return "<li><span class=\"p\" style=\"--c:"+TCOL[l.t]+"\">3-3-3</span><span>"+tn+" 3-3-3·공 떨어짐 · 공격권 넘김 <span class=\"x\">· "+l.per+"P</span></span></li>";
     return "<li><span class=\"p\" style=\"--c:"+TCOL[l.t]+"\">"+l.sc.join(":")+"</span><span>"+tn+" +1"+(l.who?" · "+esc(l.who):"")+(l.how&&l.how!=="shot"&&l.how!=="manual"?" <span class=\"x\">(상대 "+esc(l.how)+")</span>":"")+" <span class=\"x\">· "+l.per+"P</span></span></li>";
   }).join(""):"<li class=\"empty\">아직 기록이 없습니다. 득점, 수비 캐치, 반칙 버튼으로 기록하세요.</li>";
   $("tUndo").disabled=!undoStack.length;
@@ -203,7 +204,7 @@ R.addEventListener("click",e=>{
   if(b=e.target.closest("[data-tw]")){const v=b.dataset.tw;if(v==="x"){pick=null;drawPick();return;}const p=pick;if(p.k==="p")point(p.t,+v,"shot");else caught(p.t,+v);return;}
   if(b=e.target.closest("[data-tq]")){if(R.classList.contains("view")||document.body.classList.contains("view"))return;const[t,i]=b.dataset.tq.split(":").map(Number);if(S.over)return;point(t,i,"shot");return;}
   if(b=e.target.closest("[data-tqc]")){const[t,i]=b.dataset.tqc.split(":").map(Number);if(S.over)return;caught(t,i);return;}
-  if(b=e.target.closest("[data-tvio]")){const t=+b.dataset.tvio;if(S.over)return;snap();S.teams[t].vio++;S.start=1-t;S.log.unshift({k:"v",t,per:S.period});save();draw();K.snd.stop();K.toast(S.teams[t].name+" 3-3-3 위반 · "+S.teams[1-t].name+" 공격","",1800);return;}
+  if(b=e.target.closest("[data-tvio]")){const t=+b.dataset.tvio;if(S.over)return;snap();S.teams[t].vio++;S.start=1-t;S.fcount=[0,0];/* 브레이크다운: 같은 프레임 연속 슛 횟수도 0부터 */S.log.unshift({k:"v",t,per:S.period});if(S.log.length>120)S.log.pop();save();draw();K.snd.stop();K.toast(S.teams[t].name+" 3-3-3·공 떨어짐 · "+S.teams[1-t].name+" 공격 · 프레임 횟수 0부터","",2000);return;}
   if(b=e.target.closest("[data-tminus]")){const t=+b.dataset.tminus;if(S.teams[t].score<=0||S.over)return;snap();S.teams[t].score--;save();draw();return;}
   if(b=e.target.closest("[data-frame]")){S.frame=+b.dataset.frame;save();draw();return;}
   if(b=e.target.closest("[data-tft]")){S.ft=+b.dataset.tft;draw();return;}
