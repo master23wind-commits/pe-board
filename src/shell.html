@@ -275,6 +275,15 @@ button.sport:hover{border-color:var(--sc)}
 .rdcfg input{width:5.2em;text-align:center}
 .rwatch{gap:8px}
 .rclockbig{font-size:clamp(4.5rem,13vw,10rem);color:var(--c-rn)}
+.rheats{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:8px}
+.rheats .lbl{font-weight:700;color:var(--muted);margin-right:4px}
+.rheat{display:flex;flex-direction:column;align-items:center;min-width:64px;padding:6px 10px;border:2px solid var(--line);border-radius:12px;background:var(--panel)}
+.rheat span{font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.rheat.on{border-color:var(--c-rn);background:color-mix(in srgb,var(--c-rn) 18%,var(--panel))}
+.rfind{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:10px}
+.rfind input{flex:1 1 170px;min-width:0;font-size:1.05rem;padding:.5em .7em}
+.rfind .hint{flex-basis:100%;font-size:.78rem;color:var(--muted)}
+.view .rfind{display:none}
 .runners{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,150px),1fr));gap:8px}
 .rchip{position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-height:96px;padding:10px 12px 12px;border:2px solid color-mix(in srgb,var(--c-rn) 55%,var(--line));background:var(--panel);border-radius:14px;text-align:left}
 .rchip b{font-size:1.15rem;line-height:1.2;overflow-wrap:anywhere;word-break:keep-all}

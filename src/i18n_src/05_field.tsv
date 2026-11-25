@@ -232,7 +232,6 @@
 같은 학생 다시 누르기 막기	Ignore repeat taps for the same student
 출발을 누르면 스톱워치가 흐릅니다. 학생이 출발선(측정 지점)을 지날 때마다 그 학생 이름을 누르면, 그때까지의 누적 시간이 한 바퀴씩 기록됩니다.	Press Go to start the stopwatch. Each time a student crosses the line, tap their name to log a lap with the total time so far.
 거리 설정을 켜면 한 바퀴 거리로 달린 거리, 1km 페이스, 속도를 자동으로 계산하고, 목표 거리에 도달한 학생은 완주로 표시됩니다.	Turn on distance to calculate distance run, pace per km and speed from the lap length; students who reach the target are marked finished.
-실수로 두 번 누르는 것을 막기 위해 같은 학생은 정한 초 안에 다시 눌러도 기록하지 않아요. 명단은 한 줄에 한 명, 최대 40명입니다. 처음 이름은 예시예요.	To avoid double taps, repeat taps on the same student within the set seconds are ignored. One runner per line, up to 40. The first names are examples.
 출발/정지 ·	go/stop ·
 스톱워치가 멈춰 있어요. 다시 출발을 누르세요	The stopwatch is stopped. Press Go again
 먼저 출발을 누르세요	Press Go first
@@ -361,3 +360,34 @@ D존에서 수비가 잡음	Caught in the D zone
 3-3-3·공 떨어짐(팀 숫자도 함께)	3-3-3 / dropped ball (team count too)
 공격권 넘김	possession changes
 선수 이름 고르기:	Pick player names:
+실수로 두 번 누르는 것을 막기 위해 같은 학생은 정한 초 안에 다시 눌러도 기록하지 않아요. 명단은 한 줄에 한 명, 최대 300명입니다. 처음 이름은 예시예요.	To prevent double taps, the same runner isn't recorded again within the set seconds. One name per line, up to 300. The starting names are examples.
+많은 학생은 조로 나눠 달리세요: 명단에	With many students, run in heats: in the list, a line like
+처럼 #으로 시작하는 줄을 넣으면 그 아래 학생들이 한 조가 됩니다. 조마다 스톱워치가 따로 있고, 순위표는 모든 조를 합쳐 쌓입니다. "10305 홍길동"처럼 번호를 앞에 쓰면 번호로 찾기 쉬워요.	starting with # makes the students below it one heat. Each heat has its own stopwatch, and the ranking adds up all heats. Put a number first (like "10305 Kim") to find runners by number.
+번호나 이름 (예: 10305)	Number or name (e.g. 10305)
+시간 직접 입력 (예: 4:32.5)	Enter time (e.g. 4:32.5)
+시간을 비우면 지금 스톱워치 시간으로 한 바퀴, 시간을 적으면 완주 시간으로 저장 (0 = 지우기)	Leave time empty to log a lap at the stopwatch time; enter a time to save it as the finish time (0 = clear)
+번호나 이름	Number or name
+시간 직접 입력	Enter time
+전체 기록 지우기	Clear all records
+이 조 처음부터	Restart this heat
+스톱워치를 멈춘 뒤 조를 바꾸세요	Stop the stopwatch before changing heats
+이 조 스톱워치로 바꿨어요	switched to this heat's stopwatch
+시간을 직접 입력한 학생이에요	has a manually entered time
+모두 완주했습니다! 스톱워치를 멈췄어요	everyone finished! Stopwatch stopped
+기록만 지우고 처음부터 (다른 조 기록은 그대로)	records cleared, restarting (other heats kept)
+모든 조의 기록을 지웠어요 (명단 유지)	Cleared every heat's records (list kept)
+학생을 찾지 못했어요	not found
+여러 명이에요:	Several matches:
+번호나 이름을 더 적어 주세요	type more of the number or name
+시간은 4:32.5처럼 적어 주세요	Enter time like 4:32.5
+기록을 지웠어요	record cleared
+완주 시간	finish time
+직접 입력	manual
+(직접 입력)	(manual)
+조를 바꾸려면 스톱워치를 먼저 멈추세요	Stop the stopwatch before changing heats
+명단은 최대	The list holds up to
+명까지예요. 뒤쪽 학생은 빠졌어요	names. The extra names were left out
+개 조로 나눴어요	heats
+개 조	heats
+다른 조 학생이에요. 위에서 조를 바꾸세요	in another heat. Switch heats above
+기록하기	Record
