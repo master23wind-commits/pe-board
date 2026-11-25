@@ -15,10 +15,8 @@ FIBA 3x3 · 10분 · 21점 · 12초	FIBA 3x3 · 10 min · 21 pts · 12 s
 경기(분)	Game (min)
 공격(초)	Shot clock (s)
 승리 점수	Winning score
-4명 전원 득점 보너스	All-4-score bonus
 시작/정지 ·	start/stop ·
 공격시간 리셋 ·	shot clock reset ·
-되돌리기 · 득점하면 공격시간이 자동으로 리셋됩니다 · 1점 = 아크 안/자유투, 2점 = 아크 밖 · 4명 전원이 득점하면 팀에 보너스(한 경기 1회)	undo · the shot clock resets automatically on a score · 1 pt = inside the arc/free throw, 2 pts = beyond the arc · bonus when all 4 players score (once per game)
 교체 선수	Substitute
 연장전	Overtime
 정지	Stop
@@ -29,7 +27,7 @@ FIBA 3x3 · 10분 · 21점 · 12초	FIBA 3x3 · 10 min · 21 pts · 12 s
 보너스까지	to bonus
 전원 득점 보너스 +	All-score bonus +
 전원 득점	All scored
-/4 · 달성 시 +	/4 · bonus +
+달성 시 +	bonus +
 개인 기록	Player stats
 등번호	No.
 선수 이름	Player name
@@ -52,7 +50,6 @@ FIBA 3x3 · 10분 · 21점 · 12초	FIBA 3x3 · 10 min · 21 pts · 12 s
 남음	left
 새 경기 준비 완료 (팀·선수 이름 유지)	New game ready (team and player names kept)
 타임아웃 (30초)	Timeout (30 s)
-4명 전원 득점! 보너스 +	All 4 scored! Bonus +
 팀파울	Team fouls
 개 ·	·
 보너스 시작	Bonus starts
@@ -388,3 +385,11 @@ E팀	Team E
 되돌림	rotated back
 1번 자리:	Position 1:
 빙고 칸을 섞었습니다	Bingo cells shuffled
+전원 득점 보너스	All-score bonus
+팀 인원	Team size
+되돌리기 · 득점하면 공격시간이 자동으로 리셋됩니다 · 1점 = 아크 안/자유투, 2점 = 아크 밖 · 팀 선수 전원이 득점하면 팀에 보너스(한 경기 1회) · 팀 인원은 2~12명(정식은 코트 3명 + 교체 1명 = 4명)	undo · the shot clock resets automatically on a score · 1 pt = inside the arc/free throw, 2 pts = beyond the arc · bonus when every player on the team scores (once per game) · team size 2–12 (official: 3 on court + 1 sub = 4)
+명 전원 득점! 보너스 +	scored — all of them! Bonus +
+기록(득점·파울)이 있는 선수는 뺄 수 없어	Players with points or fouls can't be removed —
+명까지만 줄일 수 있어요	is the smallest size allowed
+전원 득점 보너스도	all-score bonus now counts
+명 기준	players

@@ -48,18 +48,21 @@ html:`
       <label>경기(분) <input id="cfgMin" type="number" min="1" max="40"></label>
       <label>공격(초) <input id="cfgShot" type="number" min="5" max="30"></label>
       <label>승리 점수 <input id="cfgWin" type="number" min="5" max="50"></label>
-      <label>4명 전원 득점 보너스 <input id="cfgAll" type="number" min="0" max="10">점</label>
+      <label>팀 인원 <input id="cfgN" type="number" min="2" max="12">명</label>
+      <label>전원 득점 보너스 <input id="cfgAll" type="number" min="0" max="10">점</label>
     </div>
-    <div class="keys"><kbd>Space</kbd> 시작/정지 · <kbd>R</kbd> 공격시간 리셋 · <kbd>Z</kbd> 되돌리기 · 득점하면 공격시간이 자동으로 리셋됩니다 · 1점 = 아크 안/자유투, 2점 = 아크 밖 · 4명 전원이 득점하면 팀에 보너스(한 경기 1회)</div>
+    <div class="keys"><kbd>Space</kbd> 시작/정지 · <kbd>R</kbd> 공격시간 리셋 · <kbd>Z</kbd> 되돌리기 · 득점하면 공격시간이 자동으로 리셋됩니다 · 1점 = 아크 안/자유투, 2점 = 아크 밖 · 팀 선수 전원이 득점하면 팀에 보너스(한 경기 1회) · 팀 인원은 2~12명(정식은 코트 3명 + 교체 1명 = 4명)</div>
     <div><button class="danger" id="newBtn" type="button">새 경기</button></div>
   </div>
 </div>`,
 init(ctx){
 const $=K.$,R=ctx.root,KEY="pe-bb3";
-function mkTeam(name){return{name,to:1,bonus:0,pl:[1,2,3,4].map(n=>({no:String(n),name:n===4?"교체 선수":"선수 "+n,p:0,f:0}))};}
-function fresh(cfg){cfg=cfg||{min:10,shot:12,win:21,all:3};return{cfg,teams:[mkTeam("홍팀"),mkTeam("청팀")],clock:cfg.min*60000,shot:cfg.shot*1000,running:false,ot:null,over:null};}
+const mkPl=(n,tot)=>({no:String(n),name:(tot===4&&n===4)?"교체 선수":"선수 "+n,p:0,f:0});
+function mkTeam(name,tot){tot=tot||4;return{name,to:1,bonus:0,pl:Array.from({length:tot},(_,i)=>mkPl(i+1,tot))};}
+function fresh(cfg){cfg=cfg||{min:10,shot:12,win:21,all:3,n:4};return{cfg,teams:[mkTeam("홍팀",cfg.n),mkTeam("청팀",cfg.n)],clock:cfg.min*60000,shot:cfg.shot*1000,running:false,ot:null,over:null};}
 let S=K.load(KEY);if(!S||!S.teams)S=fresh();
 if(S.cfg.all===undefined)S.cfg.all=3;
+if(!S.cfg.n)S.cfg.n=Math.max(S.teams[0].pl.length,S.teams[1].pl.length);
 S.running=false;
 let hist=[],lastSave=0;
 const save=()=>K.save(KEY,S);
@@ -90,7 +93,7 @@ function drawTeams(){
     else{b.textContent="보너스까지 "+(7-f);b.className="pill";}
     const al=$("all"+t);
     if(T.bonus>0){al.textContent="전원 득점 보너스 +"+T.bonus;al.className="pill ok"+(al.dataset.pop?" pop":"");}
-    else{al.textContent="전원 득점 "+scored(t)+"/4 · 달성 시 +"+S.cfg.all;al.className="pill dash";}
+    else{al.textContent="전원 득점 "+scored(t)+"/"+T.pl.length+" · 달성 시 +"+S.cfg.all;al.className="pill dash";}
     al.hidden=!S.cfg.all&&!T.bonus;
     $("to"+t).innerHTML=T.to>0?"<i></i>":"<i class=\"off\"></i>";
     $("rh"+t).textContent=T.name+" 개인 기록";
@@ -107,14 +110,14 @@ function drawTeams(){
   });
   $("undoBtn").disabled=!hist.length;
 }
-function drawCfg(){K.setVal("cfgMin",S.cfg.min);K.setVal("cfgShot",S.cfg.shot);K.setVal("cfgWin",S.cfg.win);K.setVal("cfgAll",S.cfg.all);$("srBtn").textContent=S.cfg.shot+"초 리셋";}
+function drawCfg(){K.setVal("cfgMin",S.cfg.min);K.setVal("cfgShot",S.cfg.shot);K.setVal("cfgWin",S.cfg.win);K.setVal("cfgAll",S.cfg.all);K.setVal("cfgN",S.cfg.n);$("srBtn").textContent=S.cfg.shot+"초 리셋";}
 function drawAll(){drawTeams();drawClock();drawCfg();BG.draw();}
 const BG=K.bingoKit({el:$("b3Bingo"),key:"bb3",get:()=>S,teams:()=>S.teams.map((T,t)=>({name:T.name,color:t?"var(--blue)":"var(--red)",roster:T.pl.map(p=>p.name)})),
   missions:["2점슛 성공","어시스트 득점","리바운드 후 득점","스틸 성공","블록슛","자유투 성공","앤드원","드라이브인 득점","패스 4번 이어서 득점","수비 3번 연속 막기"],bonusDef:2,hint:"선수가 득점하면 그 칸이 채워지고",
   apply:(t,p)=>{S.teams[t].bg=(S.teams[t].bg||0)+p;},snap:()=>snap(),after:()=>{save();drawAll();checkWin();}});
 
 function snap(){hist.push(JSON.stringify({teams:S.teams,ot:S.ot,over:S.over,shot:S.shot,bingo:S.bingo}));if(hist.length>100)hist.shift();}
-function undo(){if(!hist.length)return;const h=JSON.parse(hist.pop());S.teams=h.teams;S.ot=h.ot;S.over=h.over;S.shot=h.shot;S.bingo=h.bingo;K.closeModal();save();drawAll();K.toast("되돌렸습니다","",1200);}
+function undo(){if(!hist.length)return;const h=JSON.parse(hist.pop());S.teams=h.teams;S.ot=h.ot;S.over=h.over;S.shot=h.shot;S.bingo=h.bingo;S.cfg.n=S.teams[0].pl.length;K.closeModal();save();drawAll();K.toast("되돌렸습니다","",1200);}
 function start(){if(S.over)return;if(!S.ot&&S.clock<=0)return;if(S.shot<=0)S.shot=S.cfg.shot*1000;S.running=true;$("shotbox").classList.remove("viol");K.wake(true);drawClock();}
 function stop(){S.running=false;K.wake(false);save();drawClock();}
 function shotReset(){S.shot=S.cfg.shot*1000;$("shotbox").classList.remove("viol");drawClock();save();}
@@ -179,7 +182,7 @@ R.addEventListener("click",e=>{
       p.p+=+b.dataset.v;S.shot=S.cfg.shot*1000;$("shotbox").classList.remove("viol");BG.hit(t,+b.dataset.i);
       if(S.cfg.all&&!T.bonus&&T.pl.every(x=>x.p>0)){
         T.bonus=S.cfg.all;const al=$("all"+t);al.dataset.pop="1";setTimeout(()=>{delete al.dataset.pop;},1600);
-        K.snd.bonus();K.toast(T.name+" 4명 전원 득점! 보너스 +"+S.cfg.all+"점","bingo",3500);
+        K.snd.bonus();K.toast(T.name+" "+T.pl.length+"명 전원 득점! 보너스 +"+S.cfg.all+"점","bingo",3500);
       }else K.snd.chime();
       K.bump($("score"+t));K.fx.play("fire",$("score"+t),{big:+b.dataset.v>=2,text:"+"+b.dataset.v});
     }else{
@@ -194,11 +197,25 @@ R.addEventListener("input",e=>{
   if(el.dataset.k){S.teams[+el.dataset.t].pl[+el.dataset.i][el.dataset.k]=el.value;save();}
   else if(el.id==="tname0"||el.id==="tname1"){const t=+el.id.slice(-1);S.teams[t].name=el.value;$("rh"+t).textContent=el.value+" 개인 기록";save();}
 });
+/* 팀 인원 바꾸기: 늘리면 뒤에 선수 추가, 줄이면 뒤에서부터 빼되 기록(득점·파울)이 있는 선수는 남김 */
+function setN(v){
+  v=Math.max(2,Math.min(12,Math.round(v)||4));
+  if(v===S.cfg.n&&S.teams.every(T=>T.pl.length===v)){$("cfgN").value=v;return;}
+  const keepMin=Math.max(...S.teams.map(T=>{let k=0;T.pl.forEach((p,i)=>{if(p.p||p.f)k=i+1;});return k;}));
+  if(v<keepMin){K.toast("기록(득점·파울)이 있는 선수는 뺄 수 없어 "+keepMin+"명까지만 줄일 수 있어요","",3000);v=keepMin;}
+  snap();
+  S.teams.forEach(T=>{while(T.pl.length<v)T.pl.push(mkPl(T.pl.length+1,v));if(T.pl.length>v)T.pl.length=v;});
+  S.cfg.n=v;save();drawAll();$("cfgN").value=v;
+  if(S.cfg.all)K.toast("팀 인원 "+v+"명 · 전원 득점 보너스도 "+v+"명 기준","",2000);
+}
+/* 숫자를 치는 동안 잠깐 기다렸다 반영: 바로 득점 버튼을 눌러도 클릭이 빠지지 않게 */
+let nT=0;R.addEventListener("input",e=>{if(e.target.id!=="cfgN")return;clearTimeout(nT);nT=setTimeout(()=>{const v=+e.target.value;if(v>=2&&v<=12)setN(v);},500);});
 R.addEventListener("change",e=>{
+  if(e.target.id==="cfgN"){const v=+e.target.value;clearTimeout(nT);nT=setTimeout(()=>setN(v),300);return;}
   if(!["cfgMin","cfgShot","cfgWin","cfgAll"].includes(e.target.id))return;
   const m=Math.max(1,Math.min(40,+$("cfgMin").value||10)),s=Math.max(5,Math.min(30,+$("cfgShot").value||12)),w=Math.max(5,Math.min(50,+$("cfgWin").value||21)),a=Math.max(0,Math.min(10,+$("cfgAll").value||0));
   const cm=m!==S.cfg.min,cs=s!==S.cfg.shot;
-  S.cfg={min:m,shot:s,win:w,all:a};
+  S.cfg={min:m,shot:s,win:w,all:a,n:S.cfg.n};
   if(!S.running){if(cm)S.clock=m*60000;if(cs)S.shot=s*1000;}
   save();drawAll();
 });

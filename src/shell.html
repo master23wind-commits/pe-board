@@ -157,6 +157,7 @@ button.sport:hover{border-color:var(--sc)}
 .roster h3{margin-bottom:6px}
 .prow{display:grid;grid-template-columns:minmax(0,1fr) 2.6rem 2.6rem auto;gap:8px;align-items:center;padding:5px 0;border-top:1px solid var(--line)}
 .prow.p5{grid-template-columns:3rem minmax(0,1fr) 2.6rem 2.6rem auto}
+@media(max-width:520px){.prow.p5{grid-template-columns:2.6rem minmax(0,1fr) 2.2rem 2.2rem;row-gap:4px}.prow.p5>.btns{grid-column:2/-1}.prow.p5.head>.op{display:none}}
 .prow.head{border-top:0;font-size:.7rem;color:var(--muted);letter-spacing:.06em;padding-top:0}
 .prow .no{font-family:var(--f-num);font-size:1.4rem;text-align:center;width:100%}
 .prow .pn{font-weight:500;overflow-wrap:anywhere;width:100%}
